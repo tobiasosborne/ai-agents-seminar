@@ -345,7 +345,7 @@ def build_section_02():
     draw_code_block(c, [
         'POST /v1/messages',
         '{',
-        '  "model": "claude-sonnet-4-20250514",',
+        '  "model": "claude-sonnet-4-6-20250627",',
         '  "messages": [',
         '    {"role": "user",',
         '     "content": "What is a quark?"}',

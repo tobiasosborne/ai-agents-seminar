@@ -34,7 +34,7 @@ def main():
         messages.append({"role": "user", "content": user_input})
 
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6-20250627",
             max_tokens=512,
             messages=messages,
         )

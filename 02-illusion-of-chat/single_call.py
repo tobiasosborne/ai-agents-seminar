@@ -22,7 +22,7 @@ def main():
     client = anthropic.Anthropic()
 
     request_payload = {
-        "model": "claude-sonnet-4-20250514",
+        "model": "claude-sonnet-4-6-20250627",
         "max_tokens": 256,
         "messages": [
             {"role": "user", "content": "What is a quark?"}
