@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Demonstrate that an LLM is a stateless, nondeterministic function.
 
@@ -20,14 +21,14 @@ def main():
     import anthropic
 
     client = anthropic.Anthropic()
-    prompt = "Explain in one sentence what a quark is."
+    prompt = "Invent a funny name for a hypothetical new subatomic particle and explain what it does in one sentence."
     temperatures = [0.0, 0.3, 0.5, 0.8, 1.0]
 
     print(f"Prompt: {prompt!r}\n")
 
     for temp in temperatures:
         response = client.messages.create(
-            model="claude-sonnet-4-6-20250627",
+            model="claude-sonnet-4-6",
             max_tokens=200,
             temperature=temp,
             messages=[{"role": "user", "content": prompt}],

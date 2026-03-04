@@ -56,13 +56,15 @@ notes/
   Ai seminar notes.m4a        # Voice memo
 ```
 
-### Demo code (unchanged from initial commit)
+### Demo code
 
-- `01-*/demo.py` — Temperature sweep showing nondeterminism
+- `01-*/demo.py` — Temperature sweep showing nondeterminism (fun prompt about fictional particles)
 - `02-*/single_call.py` — Raw API call with JSON payload
 - `02-*/chat_loop.py` — Terminal chat showing history growth
+- `02-*/curl_call.sh` — Standalone cURL demo matching the slide (`KEY` env var required)
 - `03-*/agent.py` — 124-line agent with read/write tools
 - `03-*/tools.py` — Sandboxed file tools
+- `03-*/workspace/data.csv` — Sample data file for agent demo
 
 ### Changes from v1
 
@@ -100,7 +102,8 @@ A comprehensive style guide lives at `~/Projects/presentations/STYLE_GUIDE.md`.
   at column 0 (no leading whitespace)
 - Font loading order in `beamerfontthemeTJO.sty` is critical:
   `luatex85` → `mtpro2[lite]` → `fontspec[no-math]`
-- Font paths in `beamerfontthemeTJO.sty` are absolute to
-  `/home/tobias/`; update if building on a different machine
+- Whitney font path: `/usr/share/fonts/opentype/whitney/` (system install)
+- Iosevka: loaded via fontconfig name lookup (no hardcoded path)
+- All demo scripts use model ID `claude-sonnet-4-6` (no date suffix)
 - Logo paths defined in `preamble.tex` via `\luhlogo` and `\innovailialogo`
 - TikZ decorations library (`decorations.pathreplacing`) loaded for context window brace

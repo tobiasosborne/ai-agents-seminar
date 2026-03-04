@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 A minimal agent loop in ~100 lines.
 
@@ -71,7 +72,7 @@ All file paths are relative to the workspace directory."""
         print(f"  (message history length: {len(messages)})")
 
         response = client.messages.create(
-            model="claude-sonnet-4-6-20250627",
+            model="claude-sonnet-4-6",
             max_tokens=1024,
             system=system_prompt,
             messages=messages,

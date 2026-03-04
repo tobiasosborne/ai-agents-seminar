@@ -370,10 +370,12 @@ f : String -> String
 \begin{frame}[fragile]{The cURL reality}
   \vfill
 \begin{codeblock}
-curl api.anthropic.com/v1/messages \
+curl https://api.anthropic.com/v1/messages \
   -H "x-api-key: $KEY" \
   -H "content-type: application/json" \
-  -d '{"model":"claude-sonnet-4-6-20250627",
+  -H "anthropic-version: 2023-06-01" \
+  -d '{"model":"claude-sonnet-4-6",
+       "max_tokens":256,
        "messages":[{"role":"user",
          "content":"What is a quark?"}]}'
 \end{codeblock}
@@ -386,7 +388,7 @@ curl api.anthropic.com/v1/messages \
 \begin{codeblock}
 POST /v1/messages
 {
-  "model": "claude-sonnet-4-6-20250627",
+  "model": "claude-sonnet-4-6",
   "messages": [
     {"role": "user",
      "content": "What is a quark?"}

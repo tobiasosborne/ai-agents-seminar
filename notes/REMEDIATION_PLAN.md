@@ -120,7 +120,7 @@ Abstract says "raw cURL call to an API" — make this literal:
 curl https://api.anthropic.com/v1/messages \
   -H "x-api-key: $KEY" \
   -H "content-type: application/json" \
-  -d '{"model":"claude-sonnet-4-6-20250627",
+  -d '{"model":"claude-sonnet-4-6",
        "messages":[{"role":"user",
                     "content":"What is a quark?"}]}'
 ```
