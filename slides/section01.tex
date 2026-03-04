@@ -2,27 +2,24 @@
 \input{preamble}
 
 \title{What is an LLM?}
-\subtitle{A reductive account for physicists}
 
 \begin{document}
 
-% --- Slide 1: Title ---
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
+% --- Slide 1: Section divider ---
+\sectiondivider{What is an LLM?}
 
 % --- Slide 2: The observable interface ---
-\begin{frame}[fragile]{The observable interface}
+\begin{frame}[fragile]{From outside, looking in}
   \vfill
   \centering
 \begin{codeblock}
 f : String -> String
 \end{codeblock}
   \vskip1.5em
-  From outside the API boundary, this is the entire observable behaviour.
+  From outside the API boundary, this is the entire observable behaviour
 
   \medskip
-  No hidden state is carried between calls.
+  No hidden state is carried between calls
   \vfill
 \end{frame}
 
@@ -52,7 +49,7 @@ f : String -> String
   \end{tikzpicture}
 
   \vskip1.5em
-  Each evaluation is independent. No memory between calls.
+  Each evaluation is independent --- no memory between calls
   \vfill
 \end{frame}
 
@@ -65,9 +62,9 @@ f : String -> String
     \node[tjo box fill, minimum width=4cm] (input) {\texttt{"What is spin?"}};
 
     % Three outputs
-    \node[tjo box, right=5cm of input, yshift=1.8cm]  (o1) {\texttt{"Spin is..."}};
-    \node[tjo box, right=5cm of input]                 (o2) {\texttt{"Angular..."}};
-    \node[tjo box, right=5cm of input, yshift=-1.8cm] (o3) {\texttt{"In QM..."}};
+    \node[tjo box, right=5cm of input, yshift=1.8cm]  (o1) {\texttt{"Spin is\ldots"}};
+    \node[tjo box, right=5cm of input]                 (o2) {\texttt{"Angular\ldots"}};
+    \node[tjo box, right=5cm of input, yshift=-1.8cm] (o3) {\texttt{"In QM\ldots"}};
 
     % Fan-out arrows
     \draw[tjo arrow] (input.east) -- (o1.west);
@@ -76,12 +73,17 @@ f : String -> String
   \end{tikzpicture}
 
   \vskip1em
-  Same input, different outputs.
-  The model samples from $\Prob(\text{next token} \given \text{context})$.
+  Same input, different outputs ---
+  the model samples from $\Prob(\text{next token} \given \text{context})$
   \vfill
 \end{frame}
 
-% --- Slide 5: Temperature (formula) ---
+% --- Slide 5: Probability distribution (NEW) ---
+\statementslide{An LLM outputs a probability distribution\\[0.5em]
+  over tokens\\[0.8em]
+  Then it samples one}
+
+% --- Slide 6: Temperature (formula) ---
 \begin{frame}{Temperature}
   \vfill
   \[
@@ -90,11 +92,11 @@ f : String -> String
 
   \vskip1.5em
   \centering
-  {\color{tjo@darkteal}\bfseries Direct analogy to the Boltzmann distribution.}
+  {\color{tjo@darkteal}\bfseries Direct analogy to the Boltzmann distribution}
   \vfill
 \end{frame}
 
-% --- Slide 6: Temperature limits ---
+% --- Slide 7: Temperature limits ---
 \begin{frame}{Temperature limits}
   \vfill
   \centering
@@ -109,7 +111,7 @@ f : String -> String
   \vfill
 \end{frame}
 
-% --- Slide 6: Tokens ---
+% --- Slide 8: Tokens ---
 \begin{frame}[fragile]{Tokens}
   \vfill
   Not characters. Not words.
@@ -121,17 +123,22 @@ f : String -> String
 \begin{codeblock}
 'theoretical physics'  ->  ['theor', 'etical', ' physics']
 \end{codeblock}
+
+  \vskip1em
+  {\small\color{tjo@black!60}
+    More precisely: $f : \text{Token}^* \to \text{Token}^*$}
   \vfill
 \end{frame}
 
-% --- Slide 7: Inference ---
-\statementslide{One forward pass through a frozen neural network.\\[0.8em]
-  No learning. No state mutation.}
+% --- Slide 9: Inference ---
+\statementslide{An LLM call =\\[0.5em]
+  one forward pass through a frozen neural network\\[0.8em]
+  No learning --- no state mutation}
 
-% --- Slide 8: Summary ---
-\begin{frame}{Summary}
-  \vfill
+% --- Slide 10: Closing statement (was "Summary") ---
+\begin{frame}[plain,c]
   \centering
+  {\fontsize{20}{28}\selectfont\color{tjo@darkteal}
   An LLM is a stateless, nondeterministic function
 
   \vskip0.8em
@@ -141,8 +148,8 @@ f : String -> String
   that samples from $\Prob(\text{next\_token} \given \text{context})$
 
   \medskip
-  via a single forward pass through a frozen neural network.
-  \vfill
+  via a single forward pass through a frozen neural network
+  }
 \end{frame}
 
 \end{document}

@@ -1,83 +1,103 @@
 \documentclass[aspectratio=169, 14pt]{beamer}
 \input{preamble}
 
-\title{What should we try?}
-\subtitle{Vote.}
+\title{Beyond the loop}
 
 \begin{document}
 
-% --- Slide 1: Title ---
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
+% --- Slide 1: Section divider ---
+\sectiondivider{Beyond the loop}
 
-% --- Slide 2: Option 1 ---
-\begin{frame}{Option 1: \LaTeX{} lint}
+% --- Slide 2: The real workflow ---
+\begin{frame}{The real workflow}
   \vfill
-  Parse a \code{.tex} file.
+  \centering
+  You do not sit and watch the agent type
 
-  \vskip1em
-  Find every undefined \code{\textbackslash ref} and \code{\textbackslash cite}.
+  \vskip1.5em
+  You launch it, walk away, and check the result
 
-  \vskip1em
-  Report what is broken.
-  \vfill
-\end{frame}
-
-% --- Slide 3: Option 2 ---
-\begin{frame}{Option 2: Data to figure}
-  \vfill
-  Read a CSV. Fit a power law.
-
-  \vskip1em
-  Generate a publication-quality plot with error bars.
-
-  \vskip1em
-  Save as PDF.
+  \vskip2em
+  {\color{tjo@darkteal}\bfseries A bash loop is the simplest orchestrator}
   \vfill
 \end{frame}
 
-% --- Slide 4: Option 3 ---
-\begin{frame}{Option 3: DOI to BibTeX}
+% --- Slide 3: Bash polling loop ---
+\begin{frame}[fragile]{Bash polling loop}
   \vfill
-  Given a list of DOIs, fetch metadata.
+\begin{codeblock}
+while true; do
+    claude --prompt "Fix the failing tests" \
+           --output result.json
+    if tests_pass result.json; then
+        break
+    fi
+    sleep 10
+done
+\end{codeblock}
 
   \vskip1em
-  Produce a consistently formatted \code{.bib} file.
+  {\color{tjo@darkteal}\bfseries Infrastructure = a \code{while} loop in bash}
   \vfill
 \end{frame}
 
-% --- Slide 5: Option 4 ---
-\begin{frame}{Option 4: Seminar to calendar}
+% --- Slide 4: Multi-agent orchestration ---
+\begin{frame}{Multi-agent orchestration}
   \vfill
-  Scrape a seminar schedule from a URL.
+  \centering
+  \begin{tikzpicture}[node distance=2cm, every node/.style={align=center}]
+    % Supervisor
+    \node[tjo box, fill=tjo@darkteal, text=white,
+          minimum width=5cm, minimum height=1cm, font=\normalsize]
+      (sup) {\textbf{Supervisor}\\{\small orchestrates the pipeline}};
+
+    % Three agents
+    \node[tjo box fill, below left=1.5cm and 1cm of sup,
+          minimum width=3.5cm, font=\normalsize]
+      (a1) {\textbf{Agent 1}\\{\small writes code}};
+    \node[tjo box fill, below=1.5cm of sup,
+          minimum width=3.5cm, font=\normalsize]
+      (a2) {\textbf{Agent 2}\\{\small reviews code}};
+    \node[tjo box fill, below right=1.5cm and 1cm of sup,
+          minimum width=3.5cm, font=\normalsize]
+      (a3) {\textbf{Agent 3}\\{\small runs tests}};
+
+    % Arrows
+    \draw[tjo arrow] (sup) -- (a1);
+    \draw[tjo arrow] (sup) -- (a2);
+    \draw[tjo arrow] (sup) -- (a3);
+
+    % Feedback
+    \draw[tjo arrow, dashed, color=tjo@cyan] (a1.east) -- (a2.west);
+    \draw[tjo arrow, dashed, color=tjo@cyan] (a2.east) -- (a3.west);
+  \end{tikzpicture}
 
   \vskip1em
-  Produce an \code{.ics} calendar file.
+  One agent writes --- another reviews --- a third tests
   \vfill
 \end{frame}
 
-% --- Slide 6: Option 5 ---
-\begin{frame}{Option 5: Batch rename}
-  \vfill
-  I describe a naming convention in English.
+% --- Slide 5: The natural endpoint ---
+\statementslide{Single function $\to$ agent $\to$ multi-agent\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries The natural endpoint of the stack}}
 
-  \vskip1em
-  The agent renames 200 files to match.
+% --- Slide 6: Be skeptical ---
+\begin{frame}{Be skeptical}
+  \vfill
+  \centering
+  Getting reliable research output requires\\[0.5em]
+  understanding the limitations
+
+  \vskip1.5em
+  Every layer we built today has failure modes
+
+  \vskip1.5em
+  Context rot, hallucination, tool misuse, prompt fragility
+
+  \vskip2em
+  {\color{tjo@darkteal}\bfseries
+    The human in the loop is not optional}
   \vfill
 \end{frame}
-
-% --- Slide 7: Option 6 ---
-\begin{frame}{Option 6: Dimensional analysis}
-  \vfill
-  Read a paper draft.
-
-  \vskip1em
-  Check that every equation is dimensionally consistent.
-  \vfill
-\end{frame}
-
-% --- Slide 8: Vote ---
-\statementslide{{\fontsize{36}{44}\selectfont Raise your hand.}}
 
 \end{document}

@@ -1,8 +1,8 @@
 \documentclass[aspectratio=169, 14pt]{beamer}
 \input{preamble}
 
-\title{AI Coding Agents}
-\subtitle{A reductive account for physicists}
+\title{Large Language Models}
+\subtitle{A Physicist's Perspective}
 
 \begin{document}
 
@@ -14,7 +14,21 @@
 % --- Slide 2: Section divider ---
 \sectiondivider{Why this talk?}
 
-% --- Slide 3: Timeline ---
+% --- Slide 3: GPT-5.2 headline ---
+\begin{frame}[plain]
+  \vfill
+  \centering
+  \includegraphics[width=0.85\textwidth]{assets/gpt52pr.PNG}
+
+  \vskip1em
+  {\small\color{tjo@black!60}%
+    arXiv:2602.12176 \quad---\quad
+    IAS, Harvard, Cambridge, Vanderbilt, OpenAI \quad---\quad
+    February 2026}
+  \vfill
+\end{frame}
+
+% --- Slide 4: Timeline ---
 \begin{frame}{Three moments}
   \vfill
   \centering
@@ -45,62 +59,96 @@
     % Event 3: Models get good
     \node[event, fill=tjo@lightgrey] (good) at (4,0) {%
       {\bfseries\color{tjo@darkteal} Q4 2025}\\[3pt]
-      Models cross\\a threshold
+      Opus 4.5, GPT-5.2\\cross a threshold
     };
-
-    % Dots on timeline
-    \foreach \x in {-4,0,4} {
-      \fill[tjo@cyan] (\x,-0.85) circle (5pt);
-    }
   \end{tikzpicture}
   \vfill
 \end{frame}
 
-% --- Slide 4: Audience poll ---
-\begin{frame}{Quick survey}
+% --- Slide 5: Audience poll ---
+\begin{frame}{Quick survey: experience}
   \vfill
   \centering
   {\fontsize{20}{26}\selectfont
-    Raise your hand if you have\ldots
-
-    \vskip1.5em
     \begin{tabular}{l}
-      \color{tjo@cyan}$\bullet$\quad used ChatGPT or Claude \\[0.8em]
-      \color{tjo@cyan}$\bullet$\quad used it to write code \\[0.8em]
-      \color{tjo@cyan}$\bullet$\quad used Claude Code, Cursor, or Copilot \\[0.8em]
-      \color{tjo@cyan}$\bullet$\quad built something serious with it \\
+      \color{tjo@cyan}$\bullet$\quad used ChatGPT, Claude, or Gemini \\[0.8em]
+      \color{tjo@cyan}$\bullet$\quad used an LLM in your IDE to write code \\[0.8em]
+      \color{tjo@cyan}$\bullet$\quad used a coding agent \\
     \end{tabular}
   }
   \vfill
 \end{frame}
 
-% --- Slide 5: Skeptic ---
-\statementslide{I was a skeptic.}
+% --- Slide 6: Personal confession ---
+\statementslide{If you experimented with chat in Q1 2025,\\[0.5em]
+  you probably dismissed LLMs\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries I did}}
 
-% --- Slide 6: The problem (quote) ---
+% --- Slide 7: Skeptic ---
+\statementslide{I was a skeptic\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries
+    I am still annoyed at the models of Q1 2025}}
+
+% --- Slide 8: The problem (quote) ---
 \statementslide{\textit{``LLMs are \textbf{incredibly capable}}\\[0.5em]
-  \textit{but \textbf{maximally untrustworthy}.''}}
+  \textit{but \textbf{maximally untrustworthy}''}}
 
-% --- Slide 7: The evidence ---
+% --- Slide 9: Elaboration ---
 \begin{frame}{The evidence}
   \vfill
   \centering
-  Seductively correct equations that are nonsense.
+  Seductively correct equations that are nonsense
 
   \vskip1.5em
-  Push back on a valid proof and it finds a ``bug'' that isn't there.
+  Push back on a valid proof and the LLM finds a ``bug'' that isn't there
+
+  \vskip1.5em
+  They lie, cheat, steal, and flatter
 
   \vskip2em
-  {\color{tjo@darkteal}\bfseries I got burnt. Then I got curious.}
+  {\color{tjo@darkteal}\bfseries All terrible qualities for reproducible science}
   \vfill
 \end{frame}
 
-% --- Slide 7: 1000+ hours ---
-\statementslide{1000+ hours of deliberate practice.\\[0.8em]
-  {\fontsize{20}{26}\selectfont\mdseries Nov 2025\,--\,today.}}
+% --- Slide 10: Mental model ---
+\statementslide{A good mental model of an LLM:\\[0.8em]
+  a slightly deranged,\\[0.3em]
+  hypermotivated MSc student}
 
-% --- Slide 9: Project showcase (page 1) ---
-\begin{frame}{What I built}
+% --- Slide 11: The gap ---
+\begin{frame}[plain,c]
+  \centering
+  {\fontsize{22}{30}\selectfont\color{tjo@darkteal}
+    The gap between\\[0.6em]
+    {\bfseries ``I tried ChatGPT and it hallucinated''}\\[0.6em]
+    and\\[0.6em]
+    {\bfseries ``this is a powerful force multiplier''}\\[0.8em]
+  }
+  {\fontsize{20}{26}\selectfont\color{tjo@darkteal}
+    is not closed by better models\\[0.5em]
+    It is closed by \textbf{technique} and \textbf{domain expertise}
+  }
+\end{frame}
+
+% --- Slide 12: Three requirements ---
+\begin{frame}{What it takes}
+  \vfill
+  \centering
+  {\fontsize{20}{28}\selectfont
+    \begin{tabular}{r@{\hspace{0.8em}}l}
+      \color{tjo@darkteal}\bfseries 1 &
+        Deliberate practice --- a different workflow \\[1em]
+      \color{tjo@darkteal}\bfseries 2 &
+        A subscription --- free chat is not enough \\[1em]
+      \color{tjo@darkteal}\bfseries 3 &
+        A coding agent --- Claude Code, Cline, \ldots \\
+    \end{tabular}
+  }
+  \vfill
+\end{frame}
+
+% --- Slide 13: Project showcase ---
+\begin{frame}{With the correct workflow}
   \vfill
   \centering
   \renewcommand{\arraystretch}{1.4}
@@ -123,37 +171,26 @@
       & pipelined CPU on \$10 FPGA \\
   \end{tabular}
   }
+
+  \vskip1.5em
+  {\color{tjo@darkteal}\bfseries
+    All with basic tooling --- no extra subscriptions}
   \vfill
 \end{frame}
 
-% --- Slide 10: Project showcase (page 2) ---
-\begin{frame}{What I built \textit{\normalsize(continued)}}
-  \vfill
-  \centering
-  \renewcommand{\arraystretch}{1.4}
-  {\fontsize{14}{19}\selectfont
-  \begin{tabular}{l@{\hspace{1.2em}}l@{\hspace{1.2em}}l}
-    \textbf{\color{tjo@darkteal}PicoGPT.jl}
-      & Julia
-      & GPT with manual backprop {\color{tjo@cyan}(1 day)} \\
-    \textbf{\color{tjo@darkteal}vectorfeld}
-      & TypeScript + Rust
-      & vector graphics editor {\color{tjo@cyan}(1 day)} \\
-    \textbf{\color{tjo@darkteal}datapipeline}
-      & Python + DuckDB
-      & 3.7M research grants {\color{tjo@cyan}(5 days)} \\
-    \textbf{\color{tjo@darkteal}alethfeld}
-      & Clojure, 134\,\bigstar
-      & adversarial proofs (open source) \\
-  \end{tabular}
-  }
-  \vfill
-\end{frame}
+% --- Slide 14: Formalization ---
+\statementslide{Auto formalization is real\\[0.8em]
+  Writing new science is now possible}
 
-% --- Slide 9: The punchline ---
-\statementslide{All of this was built\\[0.5em] with AI coding agents.}
+% --- Slide 15: Accelerating research ---
+\statementslide{Accelerating research is possible\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries
+    With correct tooling and expert guidance\\[0.3em]
+    The human provides the ground truth}}
 
-% --- Slide 10: Transition ---
-\statementslide{Let me show you the entire trick.}
+% --- Slide 16: Transition ---
+\statementslide{LLMs can be understood\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries
+    Let me rebuild the stack from first principles}}
 
 \end{document}

@@ -20,6 +20,19 @@
     \fi
   \endgroup
   \vfill
+  % --- Logos at bottom of title page ---
+  \ifdefined\luhlogo
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[anchor=south west, inner sep=0pt]
+        at ([xshift=1.2cm, yshift=0.8cm]current page.south west)
+        {\includegraphics[height=0.9cm]{\luhlogo}};
+      \ifdefined\innovailialogo
+        \node[anchor=south east, inner sep=0pt]
+          at ([xshift=-1.2cm, yshift=0.8cm]current page.south east)
+          {\includegraphics[height=0.9cm]{\innovailialogo}};
+      \fi
+    \end{tikzpicture}%
+  \fi
 }
 
 % ---- Section divider ----

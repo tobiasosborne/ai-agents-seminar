@@ -8,7 +8,26 @@
 % --- Slide 1: Section divider ---
 \sectiondivider{From function to agent}
 
-% --- Slide 2: The agent loop (code) ---
+% --- Slide 2: Web vs terminal ---
+\begin{frame}{Two ways in}
+  \vfill
+  \centering
+  \begin{tikzpicture}[node distance=4cm]
+    \node[tjo box fill, minimum width=4.5cm, minimum height=2cm] (web)
+      {\textbf{Web interface}\\[4pt]{\normalsize ChatGPT, Claude.ai}\\[2pt]
+       {\small\color{tjo@black!60} chat UI hides the API}};
+    \node[tjo box fill, minimum width=4.5cm, minimum height=2cm, right=3cm of web] (term)
+      {\textbf{Terminal}\\[4pt]{\normalsize cURL, Python}\\[2pt]
+       {\small\color{tjo@black!60} direct API access}};
+
+    % Arrow
+    \draw[tjo arrow, <->] (web.east) -- (term.west)
+      node[midway, above, font=\normalsize] {same API underneath};
+  \end{tikzpicture}
+  \vfill
+\end{frame}
+
+% --- Slide 3: The agent loop (code) ---
 \begin{frame}[fragile]{The agent loop}
   \vfill
 \begin{codeblock}
@@ -21,11 +40,11 @@ while not done:
 
   \vskip1.5em
   {\color{tjo@darkteal}\bfseries
-    This is the complete architecture of every coding agent.}
+    This is the complete architecture of every coding agent}
   \vfill
 \end{frame}
 
-% --- Slide 3: The agent loop (diagram) ---
+% --- Slide 4: The agent loop (diagram) ---
 \begin{frame}{The agent loop}
   \vfill
   \centering
@@ -54,35 +73,37 @@ while not done:
       node[midway, above, font=\small] {response};
     \draw[tjo arrow] (parse) -- (exec)
       node[midway, right, font=\small] {call};
-    \draw[tjo arrow] (exec.west) -| ([xshift=-1.5cm]llm.south) -- (llm.south)
+
+    % Results arrow: loop back around into LLM
+    \draw[tjo arrow] (exec.south) -- ++(0,-0.6) -| ([xshift=-0.5cm]llm.south)
       node[near start, below, font=\small] {results};
 
     % Feedback to history
     \draw[tjo arrow, dashed, color=tjo@cyan]
-      ([xshift=-2cm]llm.south) |- ([yshift=-0.3cm]sys.west) -- (sys.west)
-      node[near end, above, font=\small, text=tjo@cyan] {append};
+      ([xshift=0.5cm]llm.north) -- ([xshift=0.5cm]sys.south)
+      node[midway, right, font=\small, text=tjo@cyan] {append};
   \end{tikzpicture}
   \vfill
 \end{frame}
 
-% --- Slide 4: Tool definition ---
-\begin{frame}{Tool definition}
+% --- Slide 5: Tools ---
+\begin{frame}{Tools}
   \vfill
   \centering
-  You describe tools in the system prompt.
+  You describe tools in the system prompt
 
   \vskip1.5em
-  The LLM generates structured text requesting a tool call.
+  The LLM generates structured text requesting a tool call
 
   \vskip1.5em
-  Your scaffolding parses and executes it.
+  Your scaffolding parses and executes it
   \vfill
 \end{frame}
 
-% --- Slide 5: The key insight ---
-\statementslide{The LLM never executes anything.}
+% --- Slide 6: The key insight ---
+\statementslide{The LLM never executes anything}
 
-% --- Slide 5: Two tools ---
+% --- Slide 7: Two tools ---
 \begin{frame}[fragile]{Two tools}
   \vfill
   \centering
@@ -92,16 +113,16 @@ write_file(path, content) -> ok
 \end{codeblock}
 
   \vskip1.5em
-  {\color{tjo@darkteal}\bfseries That is enough to do useful work.}
+  {\color{tjo@darkteal}\bfseries That is enough to do useful work}
   \vfill
 \end{frame}
 
-% --- Slide 6: Production equivalence ---
+% --- Slide 8: Production equivalence ---
 \statementslide{Claude Code, Cursor, Copilot:\\[0.8em]
-  the same loop, more tools,\\[0.3em] better prompts.}
+  the same loop, more tools,\\[0.3em] better prompts}
 
-% --- Slide 7: Live demo ---
+% --- Slide 9: Live demo ---
 \statementslide{{\fontsize{36}{44}\selectfont LIVE DEMO}\\[1em]
-  {\fontsize{20}{26}\selectfont\mdseries Watch the agent work.}}
+  {\fontsize{20}{26}\selectfont\mdseries Watch the agent work}}
 
 \end{document}

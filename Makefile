@@ -1,11 +1,11 @@
-# Makefile for UCL AI Agents Seminar slides
+# Makefile for AI Agents Seminar slides
 # Requires: lualatex (LuaHBTeX 1.17+)
 
 LATEX    := lualatex
 LATEXOPT := --interaction=nonstopmode --halt-on-error
 SRCDIR   := slides
 
-SECTIONS := section00 section01 section02 section03 section04
+SECTIONS := section00 section01 section02 section03 section04 section05
 PDFS     := $(SECTIONS:%=$(SRCDIR)/%.pdf)
 
 # Theme files (rebuild if any change)
@@ -18,7 +18,7 @@ DEST_02 := 02-illusion-of-chat/slides.pdf
 DEST_03 := 03-primitive-agent/slides.pdf
 DEST_04 := 04-audience-vote/slides.pdf
 
-.PHONY: all clean dist seminar s00 s01 s02 s03 s04
+.PHONY: all clean dist seminar s00 s01 s02 s03 s04 s05
 
 all: seminar
 
@@ -41,7 +41,7 @@ dist: $(PDFS)
 	@echo "All slides built and distributed."
 
 clean:
-	cd $(SRCDIR) && rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.pdf
+	cd $(SRCDIR) && rm -f *.aux *.log *.nav *.out *.snm *.toc *.vrb *.pdf *.listing
 
 # Build individual sections
 s00: $(SRCDIR)/section00.pdf
@@ -54,3 +54,4 @@ s03: $(SRCDIR)/section03.pdf
 	cp $(SRCDIR)/section03.pdf $(DEST_03)
 s04: $(SRCDIR)/section04.pdf
 	cp $(SRCDIR)/section04.pdf $(DEST_04)
+s05: $(SRCDIR)/section05.pdf

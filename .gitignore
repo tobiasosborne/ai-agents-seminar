@@ -13,7 +13,15 @@ slides/*.toc
 slides/*.vrb
 slides/*.listing
 slides/*.pdf
+!slides/seminar.pdf
 slides/test_fonts.pdf
+
+# Large binary files
+notes/*.m4a
+notes/*:Zone.Identifier
+
+# Redundant archives
+slides/assets/Logo-Paket.zip
 
 # Claude Code
 .claude/

@@ -2,15 +2,14 @@
 
 ## What this is
 
-Materials for a 1-hour seminar: "AI Coding Agents: A
-Reductive Account for Physicists." Demystifies AI coding agents by
-reducing them to composable primitives physicists already have intuition
-for.
+Materials for a 1-hour seminar: "Large Language Models: A Physicist's
+Perspective." Demystifies LLMs and AI coding agents by rebuilding the
+entire stack from first principles for a physics audience.
 
 ## Current state
 
-**Slides are fully rebuilt** with a custom LaTeX Beamer system replacing
-the original reportlab-based `build_slides.py`.
+**Slides are fully rebuilt** from review notes (annotated slides,
+handwritten notes, voice memo) with a custom LaTeX Beamer system.
 
 ### Build system
 
@@ -18,18 +17,18 @@ the original reportlab-based `build_slides.py`.
 - **Theme**: Custom `TJO` Beamer theme (`slides/beamer*TJO.sty`)
 - **Fonts**: Whitney (text), MathTime Pro 2 (math), Iosevka Custom (code)
 - **Colors**: Whitney Teal palette (dk2=#335B74, accent1=#1CADE4)
-- **Build**: `make` at project root; `make s00` through `make s04` for
-  individual sections
+- **Build**: `make` at project root builds `slides/seminar.pdf`
 
-### Sections (5 decks, 45 slides total)
+### Sections (6 sections, 53 slides total)
 
-| File | Slides | Content |
-|------|--------|---------|
-| `section00.tex` | 12 | WHY: timeline, audience poll, personal journey, project showcase (2 pages) |
-| `section01.tex` | 9 | LLM as stateless nondeterministic function, temperature formula + limits |
-| `section02.tex` | 8 | Chat illusion, HTTP reality, no-memory statement, context window |
-| `section03.tex` | 8 | Agent loop, tools, "LLM never executes" statement, live demo |
-| `section04.tex` | 8 | Audience vote on what to build next |
+| Section | Slides | Content |
+|---------|--------|---------|
+| 00: Why this talk? | 16 | GPT-5.2 headline, timeline, survey, personal story, skepticism, evidence, mental model, "the gap", three requirements, projects, formalization, transition |
+| 01: What is an LLM? | 10 | From outside looking in, stateless, nondeterministic, probability distribution, temperature/Boltzmann, limits, tokens, inference, closing statement |
+| 02: The illusion of chat | 10 | Single API call, cURL reality, HTTP reality, how chat works, no memory, context window (bar chart), context rot, system prompt, closing statement |
+| 03: From function to agent | 9 | Two ways in (web vs terminal), agent loop (code + diagram), tools, LLM never executes, two tools, production equivalence, live demo |
+| 04: Beyond the loop | 6 | Real workflow, bash polling loop, multi-agent orchestration diagram, natural endpoint, be skeptical |
+| 05: Live coding | 2 | Section divider + "No promises" |
 
 ### Key files
 
@@ -38,12 +37,23 @@ slides/
   beamerthemeTJO.sty          # Master theme (loads 4 sub-themes)
   beamercolorthemeTJO.sty     # Whitney Teal color palette
   beamerfontthemeTJO.sty      # Whitney + MathTime Pro 2 + Iosevka
-  beamerinnerthemeTJO.sty     # Title page, \sectiondivider, \statementslide, codeblock
+  beamerinnerthemeTJO.sty     # Title page (with logos), section dividers, statement slides, codeblock
   beamerouterthemeTJO.sty     # Frame title + cyan accent line, footline
-  preamble.tex                # Shared packages, TikZ styles, math shortcuts
-  section0[0-4].tex           # Slide content
+  preamble.tex                # Shared packages, TikZ styles, math shortcuts, logo paths
+  seminar.tex                 # Unified deck (all sections)
+  section0[0-5].tex           # Individual section files
+  assets/
+    gpt52pr.PNG               # GPT-5.2 press release screenshot
+    Innovailia_logo_2.png     # InnovAILia logo
+    Logo-Paket/               # LUH logos (RGB, CMYK, S-W, Pantone)
 Makefile                      # Build system
-build_slides.py               # Old reportlab system (kept for reference)
+notes/
+  REMEDIATION_PLAN.md         # Full change plan derived from review
+  REVIEW_SYNTHESIS.md         # Slide-by-slide annotation extraction
+  voice_memo_transcript.txt   # Whisper transcription of voice memo
+  annotatedslides.pdf         # Original annotated slides
+  seminarnotes.pdf            # Handwritten notes
+  Ai seminar notes.m4a        # Voice memo
 ```
 
 ### Demo code (unchanged from initial commit)
@@ -54,41 +64,34 @@ build_slides.py               # Old reportlab system (kept for reference)
 - `03-*/agent.py` — 124-line agent with read/write tools
 - `03-*/tools.py` — Sandboxed file tools
 
+### Changes from v1
+
+Major rework based on review (annotated slides + handwritten notes + voice memo):
+
+- **Title**: "Large Language Models: A Physicist's Perspective" (was "AI Coding Agents: A reductive account")
+- **Logos**: LUH + InnovAILia on title slide
+- **Section 00**: GPT-5.2 headline, personal confession, mental model ("deranged MSc student"), "the gap" thesis (technique > models), three requirements, formalization message. Cut: second project page, boastful punchlines.
+- **Section 01**: New "probability distribution → sample" slide, renamed "From outside, looking in", Token* correction, removed "Summary" heading.
+- **Section 02**: Added cURL slide, redesigned context window as bar chart with underbrace, added context rot slide, added system prompt URL.
+- **Section 03**: Added "Two ways in" (web vs terminal), fixed agent loop diagram arrows, renamed "Tool definition" → "Tools".
+- **Section 04**: Entirely new — bash polling loops, multi-agent orchestration, "be skeptical".
+- **Section 05**: New — freestyle live coding section.
+- **Global**: Removed all trailing punctuation from statement slides.
+
 ### Known issues
 
-All three previously reported clipping issues have been fixed:
-
-1. ~~Section 00, slide 4 (survey)~~: font reduced 22→20pt.
-2. ~~Section 00, slide 8 (projects)~~: split into two slides (5 + 4 rows),
-   font bumped 13→14pt.
-3. ~~Section 03, slide 3 (agent loop diagram)~~: node distance reduced,
-   boxes compacted.
-
-Additionally, dense slides were split per the style guide ("one idea per
-slide, max 3–4 short lines"):
-
-- **Section 00, slide 6** "The problem" → quote statement slide +
-  evidence slide
-- **Section 01, slide 5** "Temperature" → formula slide + limits slide
-- **Section 02, slide 4** "How chat works" → code block + "No memory"
-  statement slide
-- **Section 03, slide 4** "Tool definition" → explanation + "LLM never
-  executes" statement slide
-
-No known issues remain.
+Minor overfull hbox warnings on some code blocks (inherent to verbatim in beamer). No content clipping.
 
 ### Style guide
 
-A comprehensive style guide was extracted from 15+ years of TJO's
-presentations and lives at `~/Projects/presentations/` (private repo
-`tobiasosborne/presentations`). Reference it for any future slide work.
+A comprehensive style guide lives at `~/Projects/presentations/STYLE_GUIDE.md`.
 
 ## What to do next
 
-- Consider adding screenshots/renders from actual projects (Lyr.jl
-  volume renders, vectorfeld UI) to section 00 for visual impact
-- Rehearse with timing — 45 slides for 60 minutes is comfortable
-- The old `build_slides.py` can be removed once the new system is stable
+- Find a humorous image for the "deranged MSc student" mental model slide
+- Rehearse with timing — 53 slides for 60 minutes is comfortable
+- Prepare live demo environment (Claude Code terminal + web interface)
+- The old `build_slides.py` can be removed
 
 ## Technical notes
 
@@ -97,6 +100,7 @@ presentations and lives at `~/Projects/presentations/` (private repo
   at column 0 (no leading whitespace)
 - Font loading order in `beamerfontthemeTJO.sty` is critical:
   `luatex85` → `mtpro2[lite]` → `fontspec[no-math]`
-- mtpro2 `[lite]` is used; `[complete]` may work with all 136 pfb files
 - Font paths in `beamerfontthemeTJO.sty` are absolute to
-  `/home/tobiasosborne/`; update if building on a different machine
+  `/home/tobias/`; update if building on a different machine
+- Logo paths defined in `preamble.tex` via `\luhlogo` and `\innovailialogo`
+- TikZ decorations library (`decorations.pathreplacing`) loaded for context window brace

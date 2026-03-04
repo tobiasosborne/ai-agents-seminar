@@ -1,0 +1,196 @@
+Right, so I'm going to talk through the seminar on AI agents that I'm going to hold on Thursday
+at the UCL physics department. I'm looking at the slides right now. I'm going to get slide number
+one and I'm making annotations and I'm also going to talk through what I think should be added,
+missing blah blah blah blah blah about all of these slides. So I'm going to keep the first
+slide here. I don't like the title AI coding agents. That should be changed. I will later
+indicate what the correct title is. I don't like the reductive part of the character physicist.
+Yeah, I'll just add, I will change the title and indicate what that should be after this note.
+My name is fine there, but we should have the affiliations at least,
+LUH plus the logo plus the innavalia plus the innavalia logo. Okay, why this talk? That's good.
+I'm happy with that. At this moment, I'm going to say something like,
+yeah, in case you've been living under a rock, things happened, pretty dramatic things happened
+in the development of AI tools in 2025. There were two cornerstone moments, keystone, whatever
+the right word might be. One was in quarter, the first quarter of 2025 when cord code was
+released. And the second extremely significant development in 2025 was the release of the
+frontier models like OPUS 4.5 and GPT 5.2. And at this moment, I would probably insert a screen cap,
+a screen capture of a press release by open AI that GPT 5.2 had made some amazing development
+through it. Physics is sort of crap as usual because they've been going through this shit,
+but it should be enough to sort of activate the audience with physicists. And so I'd have that
+headline coming up after the why this talk slide and
+between the three moments slide. So I've got a blank slide that I'm going to write this on.
+So I'm going to say put here the GPT 5.2 physics result press release. That should be enough to
+make theoretical physicists go, uh-huh, and be somewhat existentially concerned. So that slide
+there is the one that's missing and that should be inserted will be just this green cap of that
+press release. I believe it came out a week or two ago. Maybe two weeks ago, I can't remember.
+Now I'm onto the three moments slide. Yeah, so I'd like to highlight in the seminar that there
+were three key moments in the past couple of years where AI tools sort of transitioned from
+from novelty, curiosity through to genuinely useful. So the first one was the was in 2022 with
+the major launch of chat GPT. And then in quarter one called code and in quarter four, the models
+crossing the threshold. I've already spoken about that. When I give the seminar, it'll make sense.
+And on this particular slide, the three moments slide, there are three blue dots that need to
+be eliminated. They don't look correct. Then I'm gonna have the quick survey. I don't like to raise
+your hands. I'll say that aloud. And uh, I'm gonna, I'm gonna say it like,
+yeah, instead of raise your hand if you have, it's like, I would probably just say have, yeah,
+experience maybe. I don't know. Something like the slide should be quick survey experience.
+And, you know, instead of used, just have
+something like
+I want to put cursor and co pilot up one because cloud code is like the most advanced level thing.
+So, you know, there should be three points that I could check in on the audience on, you know, like,
+have you just used a cloud Gemini in chat? Then the second one is, have you used like an IDE plus
+LLM to write code, right? Like curse or copilot. And then the third level, like, I don't expect
+many people will have done this will be like, have you used called code or coding agent?
+And I'm writing this down on the slide. So that quick survey slide comes after the
+three moments slide. And actually, probably after the, yeah, right, after the quick survey slide,
+I would like to start seeing things like the following.
+So after the quick survey slide, I will want to talk a bit about if you experimented with chat in
+quarter one of 2025, then
+you may have dismissed
+LLMs as being useful for anything but a very limited set of use cases.
+And, you know, I did, right? So in quarter one 2025, I experimented with chat. And I found it to be
+maximally unreliable. And I'm still pretty kind of cranky about the models of 2025.
+And I'm going to have a slide, you know, as I was a skeptic, I
+am still annoyed at models of quarter one 2025. And then this the slide after the I was a skeptic
+should be LLMs are incredibly capable, but maximally untrustworthy. There should be something
+like they lie, they cheat, they steal, and they flatter. And, and this is like, you know, all
+terrible for science, you know, for hard reproducible science. And so in quarter one,
+and then I come to the evidence, you know, like seductively correct equations that just nonsense.
+And then when you push back on a valid proof, the chat finds a bug, LLM finds a bug
+that isn't even there, you know, and then I got burnt. And then I got curious, right? So that's
+cool. That's fine. We'll go with that. You know,
+what I want to do is add a slide here. So what I'm going to do is after the evidence slide,
+there's another note slide where I want to say something like, you know,
+it's good to have a mental model
+of LLM and mine is, you know, slightly deranged.
+You know, hyper motivated MSC stream.
+It'll be kind of fun to have a picture here.
+Okay. So after that, we've got this thousands of hours of deliberate practice,
+November to the day. I just don't like that it looks boastful.
+I definitely don't want to give off that sense of humble brag or brag or any kind of, you know,
+it's just like my journey. I found this interesting. If you do,
+you're welcome to join me kind of thing. And then I've got, I'm going to also
+submit some handwritten notes, which correlate with this, you know,
+at this point in the presentation, instead of the thousand of hours of deliberate practice,
+I want to have the 123 slide here where it goes, you know, LLM deliberate practice is required,
+right? I think that's, that's what I'm saying to, you know, LLMs are useful.
+All right. That's what I really want to say. But, you know, one deliberate practice is required.
+Two, you need to pay, right? Just chat is no good. And you need to install
+a coding agent to get the full power, right? Otherwise it's pointless. So yeah,
+I annotated the slide and made those comments and correlated it with the notes that I'm going to
+also supply here. And then what do we need? And instead of, you know, the what I build,
+this is just, you know, this is, this is brag. No, it's not good, right? I don't want to like
+have a list of like, oh, look how cool I am. I don't know what to do with that. Maybe we'll
+just put these slides later. But actually, yeah, we need to have something right at this point.
+Why, why is a physicist listening to this talk? You know,
+I want to say something like, you know, workflow
+with the correct workflow.
+So the correct workflow, you can, you know, amazing things are possible. How about that?
+And the audience is physics. So like, instead of just this random list of projects that I've done,
+which are cool, I'm happy to tell people about, I really should focus on formalization stuff.
+You know, there's this thing that I built this vibe felt this auto formalize a vibe felt.
+I don't want to say we'll look how clever I am. I built this thing, rather, you know,
+auto formalization is real. You know, especially if you are doing theoretical physics that's
+mathematically rigorizable, so to speak. So auto formalization is real. And it's now possible
+to write new science is now possible. So I want to say something like that on these slides,
+and that you could do this with all with basic tooling.
+No extras of subscripts subscriptions, you don't have to pay anyone apart from, you know,
+your subscription to to to Claude or whatever. You don't have to pay anyone else to have the full
+power of of AI. AI tooling and
+you know, sort of, I don't know. So now I'm looking at the slide, all of this was built
+with AI coding agents. So instead of that sort of, you know, like, you know, the era of
+what do we want to say here of automated, you know, instead of eras is like automated,
+you know, research is possible with correct tooling and expert guidance, right? And expert
+guidance. This is the key thing, the expert, I'm going to improve. And I'm going to say the human
+equals ground truth lots, right? Okay, so you know, now this is let me show you the entire
+trick. I don't quite let me show you the entire trick. I don't, I don't, I don't, you know,
+I just don't like that sense. You know, instead of let me show you the entire trick,
+I like this slide. I mean, it should be there. But what should be correct is something more like,
+you know, all of this is masked, all of the power. If you look,
+you know, as a, it's more like, you know, it's all possible. So let's walk back a bit. So I'm
+still looking at the, let me show you the entire trick slide. So this is all possible with basic
+tooling, that is to say formalization and doing auto, you know, automating research and accelerating
+research, right? Accelerating research is all possible is possible. Now I'm looking back at that,
+all of this was built with AI coding agents slide. So all of this is well possible. But first,
+you need to, but your experience, you know, your experience probably has been different.
+Okay, I continue. So I'm looking at the, let me show you the entire trick slide. And I'm wondering
+what I could do to somehow change it because I just don't like that sentence. And what I'm thinking
+is that, is that, you know, let, I don't know how to word this into a nice sentence, but I want to
+say to them, you know, as a scientifically trained audience, you will likely appreciate an explanation
+of how LLMs work. And this will go a long way to explain the strange behaviors. And also, you know,
+I want to take out, I want to make it clear that I hate magic and mystery.
+You know, maybe I don't say that on the slide, but you know, LLMs
+can be understood.
+Ah, what the hell happened to the slide here? LLMs can be understood. That's what I effectively,
+I want to say at this moment. And LLMs can be understood. And that's the purpose of this seminar,
+right? You know, to go from, you know, ground up to, you know, coding agents. So the real purpose
+of the seminar is to actually explain to the physicist audience how LLMs work. And then with
+that knowledge, right, you're all smart enough in this audience, with that knowledge, you'll be able to
+exploit the powers of chat, the coding agents, and understand also why they behave the way they
+behave and how to mitigate that. I guess I want to say that. So what is an LLM? That's all good.
+You know, the observable, you know, so from, I don't like the word observable interface.
+Yeah, instead of the observable interface, I just want to say a large language model, right? We've
+got to have, really need, you know, from the outside, looking in.
+You know, an LLM is a function from string to string, from a string to a string, from the outside,
+the API behavior, this is the entire observable behavior, there's no hidden state carry between
+the calls. They're stateless, which is to say, each evaluation is independent, no memory between
+calls, that's good. They're non deterministic, same input, different outputs, the model samples from
+and here this missing text. And how do they sample? They sample by computing, you know,
+LLM gives a probability distribution. And then, then it samples, right?
+Direct analogy with Boltzmann is good. And then, you know, we could talk about temperature limits. So
+when it, because this is a direct analogy with Boltzmann, we talk about temperatures like how
+random or how random is when exploiting to sample from the probability distribution.
+That an LLM produces. So, you know, there's a kind of missing slide here, right? You know, an LLM
+produces a probability distribution and it samples from it. I'm looking at the temperature slide here.
+That might go in the previous, or there needs to be a slide in between, right?
+Slide in between, I'm running this down. And then, temperature limits, your uniform, that's cool.
+And then, tokens, actually, not strings, not string to string, you know, sort of unpacking things,
+but rather, token, the set of tokens tends to end times, whatever, crossing times.
+So what is a token? Subword chunks from a fixed vocabulary be of 100,000 entries or so.
+That's all cool. And then, yeah, one forward pass through a frozen, you know,
+and what is a LLM equals? One forward pass through a frozen neural network, there's no
+learning, there's no state mutation. And then, the summary, cool, an LLM is a stateless, you know,
+but I can't read a summary, right? We're not summarizing.
+And so now, the illusion of chat is great, love it. A single API calls a client
+with a prompt, which is a string to an API, and the API gives you the completion to a string.
+One string in, one string out, that's the entire interaction.
+So what's missing here is a single API. So there's something missing, right?
+And that is like, you know, an LLM exposed via, or rather, you interact
+with LLM via a single API call. One string in, one string out, that's all good.
+The HTTP reality, I better check this, but it looks good.
+How chat works, turn, user one, that says something, then the string gets completed,
+then you paste it back in, the client resends the entire history every time.
+Yeah, LLM has no memory, the client maintains the illusion. It's great.
+The context window, in here, we really need a picture, right? Context, I need a bar,
+I need a bar chart, right? With an under brace, and, you know, tokens,
+and, you know, context length is so critical at this point, right? We're gonna have an under brace
+there. And when the conversation exceeds the context length, something must be dropped.
+Typical sizes is 8k for the free chat interface, right? 200k for paid
+coding agents, was the paid frontier model.
+And that's why they get amnesia, right? So there needs to be a context rock slide.
+So another slide is required. Context rot, amnesia.
+Slide, that's happened here. And now we come to the system prompt, which is a hidden preamble
+prepended to every call, it shapes behavior, it's just more text, you know, link to the
+anthropic prompt that was leaked, just like a webpage address.
+And then we come to chat as a loop, memories and illusion maintained by the client.
+Beautiful. I don't like full stops. Get rid of those full stops.
+And now from function to agent, the agent loop. So then I'll probably start called code up.
+You know, I'll have code, I guess, in the web interface.
+So we need an extra slide here. You know, web interface as a demonstration.
+Demo is chat. And then I'll have a terminal open as well.
+For the API call.
+And now we come to the agent loop. I'm not done response. This is the complete
+architecture of a coding agent. It's all good. So the agent loop, you know,
+system prompt, pass history goes into the LLM, the LLM responds, pass the tool calls,
+calls, executes tools, gives the results of the LLM. Some of these things are a bit screwed
+up these arrows here. So the arrow coming from the execute tools should come back in
+around and into the LLM box. But that's all good. So what does it mean tools?
+So not definition, but rather just tools. You describe tools and system prompt and
+LLM generates structured text. Here's all these punctuation lines I don't like.
+Scaffolding paths and executes. The LLM never executes anything, right? That's excellent like that.
+Two tools, right? Read file, write file. That's enough to do useful work. Get rid of the full
+stop after use for work. And then chord code, cursor, copods. The same loop. More tools,
+better prompts than full stop. Live demo, watch the agent work. Better work, huh?
+And so now we come to the what should we try?
+Yeah, I don't like that. It's good to go. And then there's all these examples. It's just like
+that couple that couple that crap. Don't want it. I don't want it. I'm going to freestyle that.
+And definitely no raise your hand. I just somehow hate that. Okay, but that's it for the first
+observations and rounds. So we'll stop here.
