@@ -8,8 +8,8 @@ entire stack from first principles for a physics audience.
 
 ## Current state
 
-**Slides are fully rebuilt** from review notes (annotated slides,
-handwritten notes, voice memo) with a custom LaTeX Beamer system.
+**Slides rebuilt twice** — first from v1 review notes, then refined
+from v2 annotations (annotated PDF + two voice memo transcripts).
 
 ### Build system
 
@@ -19,16 +19,16 @@ handwritten notes, voice memo) with a custom LaTeX Beamer system.
 - **Colors**: Whitney Teal palette (dk2=#335B74, accent1=#1CADE4)
 - **Build**: `make` at project root builds `slides/seminar.pdf`
 
-### Sections (6 sections, 53 slides total)
+### Sections (5 sections + freestyle, 54 slides total)
 
 | Section | Slides | Content |
 |---------|--------|---------|
-| 00: Why this talk? | 16 | GPT-5.2 headline, timeline, survey, personal story, skepticism, evidence, mental model, "the gap", three requirements, projects, formalization, transition |
-| 01: What is an LLM? | 10 | From outside looking in, stateless, nondeterministic, probability distribution, temperature/Boltzmann, limits, tokens, inference, closing statement |
+| 00: Why this talk? | 14 | GPT-5.2 headline, timeline, survey, personal confession, skepticism, evidence, mental model ("unhinged MSc student"), the gap, three requirements, formalization, accelerating research, transition |
+| 01: What is an LLM? | 12 | From outside looking in, stateless, nondeterministic, probability distribution, temperature/Boltzmann, limits, tokens, inference, Transformers references, closing statement |
 | 02: The illusion of chat | 10 | Single API call, cURL reality, HTTP reality, how chat works, no memory, context window (bar chart), context rot, system prompt, closing statement |
-| 03: From function to agent | 9 | Two ways in (web vs terminal), agent loop (code + diagram), tools, LLM never executes, two tools, production equivalence, live demo |
-| 04: Beyond the loop | 6 | Real workflow, bash polling loop, multi-agent orchestration diagram, natural endpoint, be skeptical |
-| 05: Live coding | 2 | Section divider + "No promises" |
+| 03: From function to agent | 11 | Two ways in (web vs terminal), coding agents intro, agent loop (code + diagram), tools (+ Thorsten Ball ref), LLM never executes, two tools, production equivalence, live demo |
+| 04: Beyond the loop | 8 | Real workflow, bash polling loop, multi-agent orchestration, natural endpoint, limitations (3 points), automation spectrum (Labour→Cognition) |
+| Freestyle | 1 | "Let's try something / No promises" |
 
 ### Key files
 
@@ -41,19 +41,22 @@ slides/
   beamerouterthemeTJO.sty     # Frame title + cyan accent line, footline
   preamble.tex                # Shared packages, TikZ styles, math shortcuts, logo paths
   seminar.tex                 # Unified deck (all sections)
-  section0[0-5].tex           # Individual section files
   assets/
     gpt52pr.PNG               # GPT-5.2 press release screenshot
     Innovailia_logo_2.png     # InnovAILia logo
     Logo-Paket/               # LUH logos (RGB, CMYK, S-W, Pantone)
 Makefile                      # Build system
 notes/
-  REMEDIATION_PLAN.md         # Full change plan derived from review
-  REVIEW_SYNTHESIS.md         # Slide-by-slide annotation extraction
-  voice_memo_transcript.txt   # Whisper transcription of voice memo
-  annotatedslides.pdf         # Original annotated slides
-  seminarnotes.pdf            # Handwritten notes
-  Ai seminar notes.m4a        # Voice memo
+  old/                        # v1 review materials (archived)
+    REMEDIATION_PLAN.md
+    REVIEW_SYNTHESIS.md
+    voice_memo_transcript.txt
+    annotatedslides.pdf
+    seminarnotes.pdf
+  seminar.pdf                 # Current annotated slides (v2)
+  Seminar v2.m4a              # Voice memo (v2)
+  Seminar_v2_transcript.md    # Whisper transcript (tiny model)
+  Seminar v2 transcripts .txt # Second transcript (alternative ASR)
 ```
 
 ### Demo code
@@ -66,23 +69,35 @@ notes/
 - `03-*/tools.py` — Sandboxed file tools
 - `03-*/workspace/data.csv` — Sample data file for agent demo
 
-### Changes from v1
+### Changes in v2 (from v1)
 
-Major rework based on review (annotated slides + handwritten notes + voice memo):
+Applied from annotated slides PDF + two voice memo transcripts:
 
-- **Title**: "Large Language Models: A Physicist's Perspective" (was "AI Coding Agents: A reductive account")
-- **Logos**: LUH + InnovAILia on title slide
-- **Section 00**: GPT-5.2 headline, personal confession, mental model ("deranged MSc student"), "the gap" thesis (technique > models), three requirements, formalization message. Cut: second project page, boastful punchlines.
-- **Section 01**: New "probability distribution → sample" slide, renamed "From outside, looking in", Token* correction, removed "Summary" heading.
-- **Section 02**: Added cURL slide, redesigned context window as bar chart with underbrace, added context rot slide, added system prompt URL.
-- **Section 03**: Added "Two ways in" (web vs terminal), fixed agent loop diagram arrows, renamed "Tool definition" → "Tools".
-- **Section 04**: Entirely new — bash polling loops, multi-agent orchestration, "be skeptical".
-- **Section 05**: New — freestyle live coding section.
-- **Global**: Removed all trailing punctuation from statement slides.
+- **Survey slide**: Removed "used" prefix, added question marks
+- **Personal confession**: "tried" → "experimented", added "for research", comma → colon
+- **Untrustworthy**: Removed italic and quote marks
+- **Evidence**: Left-aligned bullet text, teal conclusion stays centered
+- **Mental model**: "deranged" → "unhinged", removed trailing comma
+- **Project showcase slide**: Deleted (felt like bragging)
+- **Formalization**: TODO placeholder for auto-formalization screenshot
+- **From outside, looking in**: Removed "From" and "entire", left-aligned text
+- **Probability distribution**: "over tokens" merged into first line, added "one after another"
+- **Two ways in**: Moved "same API underneath" label below arrow to avoid overlap
+- **New "Coding agents" slide**: Intro slide before agent loop ("Empowering LLMs with autonomous tool use")
+- **Tools slide**: Added Thorsten Ball "How to Build an Agent" reference (ampcode.com)
+- **Be skeptical**: Removed title bar, kept 3 content points as plain slide
+- **New "Automation" slide**: Labour→Cognition spectrum (Calculator, CAS, Automated proving, AI tools)
+- **Removed "Live coding" section divider**: Kept "Let's try something" slide
+- **Context rot**: Left-aligned the three body statements
+- **Timeline**: Rebalanced box spacing
+- **Transformers slide**: New references slide (Vaswani, Karpathy, Alammar, PicoGPT.jl)
 
-### Known issues
+### Known issues / TODOs
 
-Minor overfull hbox warnings on some code blocks (inherent to verbatim in beamer). No content clipping.
+- Insert screenshot of auto-formalization project after the formalization slide
+- Add picture of transformer architecture to the Transformers references slide
+- Check Nondeterministic slide for text overflow (P(next token|context) may clip)
+- Minor overfull hbox warnings on some code blocks (inherent to verbatim in beamer)
 
 ### Style guide
 
@@ -90,10 +105,9 @@ A comprehensive style guide lives at `~/Projects/presentations/STYLE_GUIDE.md`.
 
 ## What to do next
 
-- Find a humorous image for the "deranged MSc student" mental model slide
-- Rehearse with timing — 53 slides for 60 minutes is comfortable
+- Provide auto-formalization screenshot and transformer architecture image
+- Rehearse with timing — 54 slides for 60 minutes is comfortable
 - Prepare live demo environment (Claude Code terminal + web interface)
-- The old `build_slides.py` can be removed
 
 ## Technical notes
 

@@ -1,0 +1,263 @@
+Speaker 1  (00:01)
+Okay, now what we're gonna do is talk through the seminar once again. And I will record my Commons, as we go along. And then we need to fix all the problems that arise. 
+
+Speaker 1  (00:19)
+And I'm looking now at the first slide of the presentation. Large language models of physicists perspective. Yep, that looks all good now to the next slide. 
+
+Speaker 1  (00:29)
+Why this talk good and there, we have the screenshot of the OpenAI press release very happy with that. And then we come to the 3 moments here, I have annotated the slide, the 3 boxes aren't really equally spaced. So there's kind of A big depth between November 22 and 2025. 
+
+Speaker 1  (00:51)
+And then 22. A quarter 125 and quarter 425. I realized that chronologically, this should be a big gap. 
+
+Speaker 1  (01:00)
+But it just doesn't look nice. So just balance the spacing between those 2 boxes. And then we come to the quick survey, just get rid of the wood used on every sentence, and I really I've already scrubbed it out with the annotations and put a question mark at the end of those 3, so the 3 points should read bullet point ChatGPT, color or Gemini bullet point LLM, in idea. 
+
+Speaker 1  (01:27)
+To write code and bullet point coding, agent sydne. Okay, now we move on to the next slide. And here it says, if you I don't like how quarter 125 sort of The brakes at a funny point. 
+
+Speaker 1  (01:45)
+Rather, the slide should be. If you tried chat into quarter 125. You probably dismissed llms for research. 
+
+Speaker 1  (01:56)
+I did. Okay. So Instead of the calmer Let's get rid of the commer and put a coal on there. 
+
+Speaker 1  (02:12)
+After 20:25. Let me move to the next slide. I was a skeptic. 
+
+Speaker 1  (02:16)
+I'm still annoyed at the models of the quarter 1 20 0 5. Yeah, that's fine. I think get rid of the quote marks on the slide. 
+
+Speaker 1  (02:22)
+Following that, LLM's an incredibly capable of maximum untrustworthy, and not italic. It's sort of inconsistent with the style of the presentation. Okay, now the evidence for why this deduction? 
+
+Speaker 1  (02:36)
+Why they're maximic trust for this is a phone, but all the texture be allied to the left. They lie sheet steel and flatter allied left. All terrible qualities are reproducible signs that should be in the middle. 
+
+Speaker 1  (02:53)
+So we'll stay center of mind today. Okay, a good mental model. Of the general evidence slightly unhinged, instead of deranged I hope paper moves a little bit at embassy. 
+
+Speaker 1  (03:14)
+Students I'm just there. I'm slightly at edge. Yeah, get rid of the combinator of the, Too much punctuation on the slides. 
+
+Speaker 1  (03:30)
+And now we move on. So the next slide The gap between I tried jgpt and hallucinated, and this is a port power performance. Multiplier is not caused by better models. 
+
+Speaker 1  (03:43)
+It is caused by technique. Or domain expertise. I this is fine. 
+
+Speaker 1  (03:55)
+Yogurt. 5 okay, what it takes to deliver practice a different word. Though a subscription for each other is I'm not going to code immediate good and then we have to slide with the correct word. 
+
+Speaker 1  (04:12)
+Please delete it. It just looks like it's It just looks like a bragging, so it's not good. This is A We're not good at So the slight delete is with the correct workflow by film blah, blah, blah, blah, blah, blah blah. 
+
+Speaker 1  (04:28)
+Okay? But the next slide is fine. Audio formalization is real, writing new sciences and possible. 
+
+Speaker 1  (04:32)
+Now, after this organ, I'll ask you to insert a screenshot of an autopilot formalization project. And then I'll talk about okay then. After that comes, accelerating, research is possible with the correct tooling it guidance. 
+
+Speaker 1  (04:47)
+The human provides the ground truth. Find Ellen can be understood. Of you just rebuild this stuff. 
+
+Speaker 1  (04:56)
+Okay, there we come to waters in LLM, and here we need a new slide. After the world after that, one What is an LLM and then comes this new slide. I'd slide here to point to the tensions or your new paper. 
+
+Speaker 1  (05:09)
+Look, the cup at the what is it as nanog? We should point to the J aliba book page. This slide. 
+
+Speaker 1  (05:23)
+And also to pco, GPT dojl, that's my repo and here I don't know that these should all be relatively small references. At the bottom. And it should be Transformers. 
+
+Speaker 1  (05:51)
+It should be the title of the slide. But then put a picture of transformancy. So the you need on the slider picture of the transformer architecture move. 
+
+Speaker 1  (06:06)
+All the areas that have been going a good we're not going to talk about it, but it should be Okay, after this new transformer slide, we could jump from the outside. Looking in? That's much better now from the outside. 
+
+Speaker 1  (06:20)
+I don't like so from the outside. Look at you and this is fine from outside the API boundary. This is the thesis This is the entire little heavy. 
+
+Speaker 1  (06:32)
+How about a bat? But instead of entirely okay. From outside the API boundary, this is the Observable behavior. 
+
+Speaker 1  (06:51)
+I want this to fit on one line. It's breaking after observable to the Okay. Instead of from, we'll get rid of from at the beginning of the sentence outside the API boundary. 
+
+Speaker 1  (07:03)
+This is the observable behavior. Sure, yeah, that works better. So by deleting 2, as I'm sure you can fit behavior onto the same line and know you didn't stay curvature. 
+
+Speaker 1  (07:13)
+And then align these left. Over the last 2 states, since he said it. Good, okay, next slide is stateless. 
+
+Speaker 1  (07:23)
+Each evaluation is independent. No memory between calls. Don't determineistic what it's been is overflow. 
+
+Speaker 1  (07:33)
+So same input, different outputs the model samples from and here, there's an overflow onto the Of the material that can't see the stuff underneath the model samples from them. And get this pudding into a timo, which I'll do in a second. So I guess you have to Get rid of the plea bar. 
+
+Speaker 1  (08:01)
+And then we've content off a bit to fit. So I'll do the demo now although I'm I'm reading through this, the check that it works. 
+
+Speaker 2  (08:23)
+I'm 
+
+Speaker 1  (08:27)
+It's cool, though, P you pay Y. And then as I'm doing, the dead demo Maximize this window, so the audience can see 
+
+Speaker 1  (08:51)
+I've been worked and then I'll show that you make. It's The window I'm pointing out that we're just changing the temperature. Okay, good. 
+
+Speaker 1  (09:02)
+So the demo worked 
+
+Speaker 1  (09:43)
+Okay, I'm just doing the next slice. Is an element outputs probability distribution? Overtoken said it samples one above which should be like one-off another, right? 
+
+Speaker 1  (09:58)
+So I'll just say we should add a little bit more that one after another. And annotate, tilted item. And I think this overtokens should be part of the one. 
+
+Speaker 1  (10:11)
+A simple sense above it Otherwise, it's good. Okay, temperature, the direct technology to the pulse distribution. Your probability of token is some Boltzmann weight. 
+
+Speaker 1  (10:23)
+And then the temperature limits, or when the temperature goes 0. Ground state and Bosnians. It's a good Now we come to the tokens. 
+
+Speaker 1  (10:40)
+What our tokens and our characters and our words are Subway chunks. And our LLM is really a function from an infinite language of trickets. Chuck, it's cool and now one cool is one forward pasta or frozen or whatever it's no learning in business of state mutation. 
+
+Speaker 1  (11:00)
+And somehow there was a state that's not deterministic function, but samples from probability next to it can give a context of virus. Singapore cross. And now why doesn't the collect that you're having a check with someone? 
+
+Speaker 1  (11:12)
+You can check out here. We got another problem, so you interact with an LLM by a single EPA call. And the box for APIs is, is this Too far left, it's off the hips. 
+
+Speaker 1  (11:26)
+It's not on the slide properly. One string in one string out. Let's say tie in direction. 
+
+Speaker 1  (11:33)
+It's a cold reality. Yep, we'll find It's being reality. I'll chuck work soon. 
+
+Speaker 1  (11:43)
+Checkbooks, like this turn one, use a one. Drop a blood blow. It's all good Ellen has the memory. 
+
+Speaker 1  (11:53)
+The client maintains the illusion. Now we come to the context, we're going to do. It's a little perfect. 
+
+Speaker 1  (12:03)
+But if you like it Context wrote okay to align the 3 QR The first statements to the left I used to say as the cuptakes fills all day. Focused buried well as effective attention to grades. Your car trades instructions and building instructions. 
+
+Speaker 1  (12:23)
+So you do see, that is what this is And that is why chuck interfaces saw your rear nears the second stage centered? The system properly is a hidden preamble, but precedent deterioratical shapes behavior per certain constraints. It is just multiple times Shut is the memory of the illusion of material decline from function to agent. 
+
+Speaker 1  (12:48)
+Okay, so there's 2 ways it right. You can go by the Web interface oil by the terminal. Using direct apa access And this is all great. 
+
+Speaker 1  (12:58)
+But the checks between the 2 boxes, which says same epipa underneath, is We're overlooking the boxes to put Save APO above the errors and underneath Hello, the double arrow so that it doesn't overlap the 2 boxes. Now we come to the agent loop while I'm not done response ldm. It's just a dropless history. 
+
+Speaker 1  (13:30)
+Tool calls results execute 2 calls history. This is the complete architecture of a code engine. So the agent system prop plus history LLM. 
+
+Speaker 1  (13:44)
+It takes its input, gives you an output Then, the agent, which is a client, takes the sports from the hill and then passes out some tool calls. Execute the tool sticks it back into the cortex. Rear mountains, that agent loop. 
+
+Speaker 1  (14:04)
+Okay, what I want to do I think is missing here. It is, there's just 2 ways inside. Okay, we needed a slide. 
+
+Speaker 1  (14:13)
+After this. 
+
+Speaker 1  (14:28)
+We need to slide. Although Cody. Agents. 
+
+Speaker 1  (14:38)
+I don't know you want something that you know. Empowering. Hello, lens. 
+
+Speaker 1  (14:49)
+A little bit of autonomous. 2. Here's so let's We've got this 2 ways inside, right? 
+
+Speaker 1  (14:59)
+This is the 2 ways inside this wave in a face or the terminal. I've already demonstrated the terminal, yeah, but then we need a slide which introduces the whole idea of a coding edge in which is something that employs an LLM with an autonomous tool used just a slide that says that you know, this is other way. So that then the slide after that is the agent loop, and then makes more sense so it doesn't come out of nowhere. 
+
+Speaker 1  (15:23)
+And then what I'm going to do is on the slide which says coating edges eg clawed code. That's the thing we're talking about, really in this This whole story. And then after that comes the agent loop, which is a good Good, you discard the tools and system. 
+
+Speaker 1  (15:48)
+Okay, and then we've got the elevator that executes anything, right? It's the scaffold, it does. But then we're going to talk for you know, it's an incredibly R. 
+
+Speaker 1  (16:02)
+We needed to cite the paper that webpage. We need sort of webpage here. We need to have the emperor's new quote. 
+
+Speaker 1  (16:17)
+No emperor's eyes. Can you close article? It needs to be cited here. 
+
+Speaker 1  (16:30)
+We're with We had the basics of the coding engine. I explained. No, get that professions now. 
+
+Speaker 1  (16:56)
+Toils and balls articles. What we need to get tools and bowls. Article. 
+
+Speaker 1  (17:12)
+The emperor has no clues as the article. Now everyone's doing it now. So Tulsen, bold. 
+
+Speaker 1  (17:28)
+Emperor. Article. 
+
+Speaker 1  (17:47)
+This is super weird, so tolsin ball has an article. How to build a coating engine? And it was, oh, maybe it's just changed the title. 
+
+Speaker 1  (17:56)
+Oh, here we go here. So torsen ball has an article. It's called how to build an agent or the emperor hasn't close the articles at amco.com slot for such notes, how to build an agent that has to be. 
+
+Speaker 1  (18:11)
+On the slide, which says 2 joels. Then, we come to clawed curve course, a Coke quad the same loop, more tools. Better prompts. 
+
+Speaker 1  (18:27)
+Yeah, as we call live democracy. And work. Okay, good beyond the loop, the real workflow. 
+
+Speaker 1  (18:34)
+You do not sit and watch the age in type. You launch it, walk away and check yourself the virtually because this simple orchestrator batch polling loop. Multi aging orchestration is so good. 
+
+Speaker 1  (18:45)
+I like it singular functions, aging multiaging. Okay? And then we have to kind of like the Yeah, let me so let's get rid of the live coating slide. 
+
+Speaker 1  (19:05)
+That's the second to last slide. Whether we come to let's try something good promises. 
+
+Speaker 3  (19:11)
+That's cool. I like that this far. 
+
+Speaker 1  (19:15)
+I want to add a select after the B skeptical. Now in fact, I don't even like the frickin' total B skeptical get rid of B skeptical, get rid of bar. Just leave the 3 points. 
+
+Speaker 1  (19:29)
+That's okay. The center would add a slide. I don't want to add a slide. 
+
+Speaker 1  (19:46)
+It's a simple picture. It's like a timeline. I know it's not a chocolate. 
+
+Speaker 1  (19:52)
+It's a line. And then in the middle, there's sort of like a graze of The degrees are sorry. In the middle of a line And on the left Then, the slightest is called automation. 
+
+Speaker 1  (20:18)
+Then, on the left, we have labor. On the right-wing of cognition. And then on the slide. 
+
+Speaker 1  (20:29)
+We wanted to animate right, you know. So this is right here. So Well, what automates labor is Europe? 
+
+Speaker 1  (20:46)
+Calculator that's a bullet point on this slide. And then computer algebra system. Passwords in the mixed team. 
+
+Speaker 1  (20:56)
+It's an automated team. Automatic labor so the Google itself. It is automating, a lot of labor and a bit of cognition. 
+
+Speaker 1  (21:07)
+And then I want to put a final point with a sort of thing. The AI tools on the right hand side of this kind of grade out zone. And this AI tools is on the side of automotive cognition, and so that's what a slide about that social consequences slide. 
+
+Speaker 3  (21:34)
+And then after that, we've got that get rid of the little Cody go, let's try something new promises. That's good, o'con. 
+
+Speaker 1  (21:42)
+We were stuck in there.

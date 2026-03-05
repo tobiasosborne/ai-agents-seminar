@@ -50,7 +50,7 @@
     % Timeline axis
     \draw[tjo@black!20, line width=2pt] (-5.5,0) -- (5.5,0);
 
-    \node[event, fill=tjo@lightgrey] (gpt) at (-4,0) {%
+    \node[event, fill=tjo@lightgrey] (gpt) at (-4.2,0) {%
       {\bfseries\color{tjo@darkteal} Nov 2022}\\[3pt]
       ChatGPT\\launches
     };
@@ -60,7 +60,7 @@
       Claude Code,\\Cursor, Copilot
     };
 
-    \node[event, fill=tjo@lightgrey] (good) at (4,0) {%
+    \node[event, fill=tjo@lightgrey] (good) at (4.2,0) {%
       {\bfseries\color{tjo@darkteal} Q4 2025}\\[3pt]
       Opus 4.5, GPT-5.2\\cross a threshold
     };
@@ -74,17 +74,17 @@
   \centering
   {\fontsize{20}{26}\selectfont
     \begin{tabular}{l}
-      \color{tjo@cyan}$\bullet$\quad used ChatGPT, Claude, or Gemini \\[0.8em]
-      \color{tjo@cyan}$\bullet$\quad used an LLM in your IDE to write code \\[0.8em]
-      \color{tjo@cyan}$\bullet$\quad used a coding agent \\
+      \color{tjo@cyan}$\bullet$\quad ChatGPT, Claude, or Gemini? \\[0.8em]
+      \color{tjo@cyan}$\bullet$\quad An LLM in your IDE to write code? \\[0.8em]
+      \color{tjo@cyan}$\bullet$\quad Coding agents? \\
     \end{tabular}
   }
   \vfill
 \end{frame}
 
 % --- Personal confession ---
-\statementslide{If you experimented with chat in Q1 2025,\\[0.5em]
-  you probably dismissed LLMs\\[0.8em]
+\statementslide{If you tried chat in Q1 2025:\\[0.5em]
+  you probably dismissed LLMs for research\\[0.8em]
   {\fontsize{20}{26}\selectfont\mdseries I did}}
 
 % --- Skeptic ---
@@ -93,29 +93,31 @@
     I am still annoyed at the models of Q1 2025}}
 
 % --- The problem (quote) ---
-\statementslide{\textit{``LLMs are \textbf{incredibly capable}}\\[0.5em]
-  \textit{but \textbf{maximally untrustworthy}''}}
+\statementslide{LLMs are \textbf{incredibly capable}\\[0.5em]
+  but \textbf{maximally untrustworthy}}
 
 % --- The evidence ---
 \begin{frame}{The evidence}
   \vfill
-  \centering
-  Seductively correct equations that are nonsense
+  \begin{flushleft}
+  \hspace{1.5em}Seductively correct equations that are nonsense
 
   \vskip1.5em
-  Push back on a valid proof and the LLM finds a ``bug'' that isn't there
+  \hspace{1.5em}Push back on a valid proof and the LLM finds a ``bug'' that isn't there
 
   \vskip1.5em
-  They lie, cheat, steal, and flatter
+  \hspace{1.5em}They lie, cheat, steal, and flatter
+  \end{flushleft}
 
   \vskip2em
+  \centering
   {\color{tjo@darkteal}\bfseries All terrible qualities for reproducible science}
   \vfill
 \end{frame}
 
 % --- Mental model ---
 \statementslide{A good mental model of an LLM:\\[0.8em]
-  a slightly deranged,\\[0.3em]
+  a slightly unhinged\\[0.3em]
   hypermotivated MSc student}
 
 % --- The gap ---
@@ -150,40 +152,11 @@
   \vfill
 \end{frame}
 
-% --- Project showcase ---
-\begin{frame}{With the correct workflow}
-  \vfill
-  \centering
-  \renewcommand{\arraystretch}{1.4}
-  {\fontsize{14}{19}\selectfont
-  \begin{tabular}{l@{\hspace{1.2em}}l@{\hspace{1.2em}}l}
-    \textbf{\color{tjo@darkteal}vibefeld}
-      & Go, 112k lines
-      & adversarial proof verification \\
-    \textbf{\color{tjo@darkteal}Lyr.jl}
-      & Julia
-      & volume renderer, GR ray tracing \\
-    \textbf{\color{tjo@darkteal}af-tests}
-      & Lean\,4, 0 sorries
-      & formal proofs in operator algebras \\
-    \textbf{\color{tjo@darkteal}convexfeld}
-      & C, 37k lines
-      & LP solver from scratch \\
-    \textbf{\color{tjo@darkteal}Nano MIPS}
-      & Verilog
-      & pipelined CPU on \$10 FPGA \\
-  \end{tabular}
-  }
-
-  \vskip1.5em
-  {\color{tjo@darkteal}\bfseries
-    All with basic tooling --- no extra subscriptions}
-  \vfill
-\end{frame}
-
 % --- Formalization ---
 \statementslide{Auto formalization is real\\[0.8em]
   Writing new science is now possible}
+
+% TODO: Insert slide here — screenshot of auto formalization project
 
 % --- Accelerating research ---
 \statementslide{Accelerating research is possible\\[0.8em]
@@ -205,15 +178,16 @@
 % --- From outside, looking in ---
 \begin{frame}[fragile]{From outside, looking in}
   \vfill
-  \centering
 \begin{codeblock}
 f : String -> String
 \end{codeblock}
   \vskip1.5em
-  From outside the API boundary, this is the entire observable behaviour
+  \begin{flushleft}
+  \hspace{1.5em}Outside the API boundary, this is the observable behaviour
 
   \medskip
-  No hidden state is carried between calls
+  \hspace{1.5em}No hidden state is carried between calls
+  \end{flushleft}
   \vfill
 \end{frame}
 
@@ -267,9 +241,8 @@ f : String -> String
 \end{frame}
 
 % --- Probability distribution (NEW) ---
-\statementslide{An LLM outputs a probability distribution\\[0.5em]
-  over tokens\\[0.8em]
-  Then it samples one}
+\statementslide{An LLM outputs a probability distribution over tokens\\[0.8em]
+  Then it samples one after another}
 
 % --- Temperature (formula) ---
 \begin{frame}{Temperature}
@@ -322,6 +295,25 @@ f : String -> String
 \statementslide{An LLM call =\\[0.5em]
   one forward pass through a frozen neural network\\[0.8em]
   No learning --- no state mutation}
+
+% --- Transformers / further reading ---
+\begin{frame}{Under the hood: Transformers}
+  \vfill
+  \begin{flushleft}
+  \hspace{1.5em}The neural network inside is a \textbf{Transformer}
+
+  \vskip1.5em
+  \hspace{1.5em}{\small\color{tjo@black!60}
+    \begin{tabular}{@{}l@{\hspace{1em}}l}
+      Vaswani et al. & \textit{Attention Is All You Need} (2017) \\[0.4em]
+      Andrej Karpathy & nanoGPT --- build a GPT from scratch \\[0.4em]
+      Jay Alammar & \textit{The Illustrated Transformer} \\[0.4em]
+      PicoGPT.jl & minimal GPT in Julia (my repo) \\
+    \end{tabular}
+  }
+  \end{flushleft}
+  \vfill
+\end{frame}
 
 % --- Closing statement ---
 \begin{frame}[plain,c]
@@ -448,16 +440,18 @@ Turn 3:  [user_1, asst_1, user_2, asst_2, user_3]
 % --- Context rot ---
 \begin{frame}{Context rot}
   \vfill
-  \centering
-  As the context fills, older information gets buried
+  \begin{flushleft}
+  \hspace{1.5em}As the context fills, older information gets buried
 
   \vskip1.5em
-  The model's effective attention degrades
+  \hspace{1.5em}The model's effective attention degrades
 
   \vskip1.5em
-  Your constraints, instructions, and earlier results silently disappear
+  \hspace{1.5em}Your constraints, instructions, and earlier results silently disappear
+  \end{flushleft}
 
   \vskip2em
+  \centering
   {\color{tjo@darkteal}\bfseries
     This is why chat interfaces silently ruin your results}
   \vfill
@@ -503,11 +497,17 @@ Turn 3:  [user_1, asst_1, user_2, asst_2, user_3]
       {\textbf{Terminal}\\[4pt]{\normalsize cURL, Python}\\[2pt]
        {\small\color{tjo@black!60} direct API access}};
 
-    \draw[tjo arrow, <->] (web.east) -- (term.west)
-      node[midway, above, font=\normalsize] {same API underneath};
+    \draw[tjo arrow, <->] ([yshift=-0.3cm]web.east) -- ([yshift=-0.3cm]term.west)
+      node[midway, below, font=\normalsize] {same API underneath};
   \end{tikzpicture}
   \vfill
 \end{frame}
+
+% --- Coding agents ---
+\statementslide{Coding agents\\[0.8em]
+  {\fontsize{20}{26}\selectfont\mdseries
+    Empowering LLMs with autonomous tool use\\[0.3em]
+    e.g.\ Claude Code, Cursor, Cline}}
 
 % --- The agent loop (code) ---
 \begin{frame}[fragile]{The agent loop}
@@ -574,6 +574,10 @@ while not done:
 
   \vskip1.5em
   Your scaffolding parses and executes it
+
+  \vskip2em
+  {\small\color{tjo@black!60}
+    Thorsten Ball, \textit{How to Build an Agent} --- ampcode.com}
   \vfill
 \end{frame}
 
@@ -677,30 +681,49 @@ done
 \statementslide{Single function $\to$ agent $\to$ multi-agent\\[0.8em]
   {\fontsize{20}{26}\selectfont\mdseries The natural endpoint of the stack}}
 
-% --- Be skeptical ---
-\begin{frame}{Be skeptical}
-  \vfill
+% --- Limitations ---
+\begin{frame}[plain,c]
   \centering
-  Getting reliable research output requires\\[0.5em]
-  understanding the limitations
-
-  \vskip1.5em
+  {\fontsize{20}{28}\selectfont\color{tjo@darkteal}
   Every layer we built today has failure modes
 
   \vskip1.5em
   Context rot, hallucination, tool misuse, prompt fragility
 
-  \vskip2em
-  {\color{tjo@darkteal}\bfseries
-    The human in the loop is not optional}
+  \vskip1.5em
+  The human in the loop is not optional
+  }
+\end{frame}
+
+% --- Automation spectrum ---
+\begin{frame}{Automation}
+  \vfill
+  \centering
+  \begin{tikzpicture}
+    % The spectrum line
+    \draw[tjo@darkteal, line width=2pt] (-5,0) -- (5,0);
+    % Gradient zone in the middle
+    \shade[left color=tjo@lightgrey, right color=tjo@cyan!30]
+      (-0.8,-0.15) rectangle (0.8,0.15);
+    % Labels
+    \node[above, font=\bfseries\large, text=tjo@darkteal] at (-5,0.3) {Labour};
+    \node[above, font=\bfseries\large, text=tjo@darkteal] at (5,0.3) {Cognition};
+    % Points on the spectrum
+    \fill[tjo@darkteal] (-4,0) circle (4pt);
+    \node[below=8pt, font=\normalsize] at (-4,0) {Calculator};
+    \fill[tjo@darkteal] (-1.5,0) circle (4pt);
+    \node[below=8pt, font=\normalsize] at (-1.5,0) {Computer algebra};
+    \fill[tjo@darkteal] (1.5,0) circle (4pt);
+    \node[below=8pt, font=\normalsize] at (1.5,0) {Automated proving};
+    \fill[tjo@cyan] (4,0) circle (4pt);
+    \node[below=8pt, font=\normalsize, text=tjo@darkteal] at (4,0) {\textbf{AI tools}};
+  \end{tikzpicture}
   \vfill
 \end{frame}
 
 % =====================================================================
 % SECTION 5: LIVE CODING
 % =====================================================================
-
-\sectiondivider{Live coding}
 
 \statementslide{{\fontsize{30}{38}\selectfont Let's try something}\\[1em]
   {\fontsize{20}{26}\selectfont\mdseries No promises}}
