@@ -23,5 +23,8 @@ notes/*:Zone.Identifier
 # Redundant archives
 slides/assets/Logo-Paket.zip
 
+# Demo scripts (may contain API keys)
+02-illusion-of-chat/curl_call.sh
+
 # Claude Code
 .claude/
