@@ -48,3 +48,4 @@ feo_venv/
 
 # Local scratch / large recordings
 temp/
+.claude/settings.local.json

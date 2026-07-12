@@ -1,0 +1,30 @@
+\mode<presentation>
+
+% ---- No headline ----
+\setbeamertemplate{headline}{}
+
+% ---- Frame title: left-aligned with thin accent line below ----
+% Title and rule sit within the text margins (no full-bleed needed
+% since frametitle bg is transparent).
+\defbeamertemplate*{frametitle}{TJO}
+{%
+  \nointerlineskip
+  \begin{beamercolorbox}[ht=2.5em, dp=0.8em]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+  \nointerlineskip
+  {\color{tjo@cyan}\rule{\linewidth}{2pt}}%
+  \vskip0.2em
+}
+
+% ---- Footline: empty (no slide numbers per style guide) ----
+\setbeamertemplate{footline}{}
+
+% ---- No navigation symbols ----
+\setbeamertemplate{navigation symbols}{}
+
+% ---- No sidebar ----
+\setbeamertemplate{sidebar left}{}
+\setbeamertemplate{sidebar right}{}
+
+\mode<all>
