@@ -1,0 +1,13 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Notes,id
+claude-fable-5,0.161,2026-06-09,Anthropic,United States of America,,,Fable-5,,recuSPVAbyN1m9xpA
+claude-opus-4-8_unknown,0.0833,2026-05-28,Anthropic,United States of America,,,Opus 4.8,,reca1681E9WeV4Fcd
+claude-opus-4-6_unknown,0.0417,2026-02-05,Anthropic,United States of America,,,claude-opus-4-6 (CoWork),,reciJQ128sKYL8guC
+claude-opus-4-5-20251101_unknown,0.0375,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,claude-opus-4-5-20251101-thinking,,recOr0uhtoQjJ9idw
+gpt-5.2-2025-12-11_medium,0.025019999999999997,2025-12-11,OpenAI,United States of America,,,gpt-5.2-2025-12-11 (medium),,recxOBMXzUoImRHvn
+gpt-5.2-2025-12-11_unknown,0.020800000000000003,2025-12-11,OpenAI,United States of America,,,gpt-5.2-2025-12-11 (default),,rec5arqgc6HV2I2Vm
+claude-sonnet-4-5-20250929_unknown,0.020800000000000003,2025-09-29,Anthropic,United States of America,,,claude-4-5-Sonnet,,recTwto22Sfk92hl2
+gpt-5-2025-08-07_unknown,0.0167,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",gpt-5-2025-08-07,,rec6bwbUoEHIUSUWL
+gemini-3-pro-preview,0.0125,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,gemini-3-pro-preview,,recJGPLMjez47bc8p
+gemini-2.5-pro-preview-06-05,0.0083,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,gemini-2.5-pro-preview-06-05,,rec9Y98phtupm7tbq

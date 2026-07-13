@@ -1,0 +1,20 @@
+Model version,Diamond score,Harness,Reasoning effort,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Aggregation,Source,Notes
+gpt-5.4-mini-2026-03-17_unknown,0.0458,codex,xhigh,2026-03-17,OpenAI,United States of America,,,GPT-5.4-mini,Mean@5,https://cognition.com/blog/frontier-code,
+claude-sonnet-4-6_unknown,0.0351,claude-code,xhigh,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6,Mean@5,https://cognition.com/blog/frontier-code,
+gpt-5.5_unknown,0.0631,codex,medium,2026-04-23,OpenAI,United States of America,,,GPT-5.5,Mean@5,https://cognition.com/blog/frontier-code,
+claude-opus-4-7_unknown,0.0521,claude-code,medium,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7,Mean@5,https://cognition.com/blog/frontier-code,
+claude-opus-4-8_unknown,0.1342,claude-code,xhigh,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8,Mean@5,https://cognition.com/blog/frontier-code,
+gemini-3.1-pro-preview,0.0467,gemini-cli,low,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro,Mean@5,https://cognition.com/blog/frontier-code,
+gemini-3.1-flash-lite,0.006500000000000001,gemini-cli,low,2026-03-03,Google,United States of America,,,Gemini 3.1 Flash Lite,Mean@5,https://cognition.com/blog/frontier-code,
+kimi-k2.5,0.01,mini-swe-agent,none,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,Mean@5,https://cognition.com/blog/frontier-code,
+kimi-k2.6,0.0377,mini-swe-agent,none,2026-04-20,Moonshot,China,,,Kimi K2.6,Mean@5,https://cognition.com/blog/frontier-code,
+MiniMax-M2.5,0.0108,mini-swe-agent,none,2026-02-12,MiniMax,China,,,MiniMax M2.5,Mean@5,https://cognition.com/blog/frontier-code,
+MiniMax-M2.7,0.023800000000000005,mini-swe-agent,none,2026-03-18,MiniMax,China,,,MiniMax M2.7,Mean@5,https://cognition.com/blog/frontier-code,

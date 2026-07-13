@@ -1,0 +1,130 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Shots,Source,Source link,Notes,id
+,0.9618,,,,,,Mutimodal-T-SciQ_Large 🥇,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recLopbrj5TBktvMC
+,0.9488,,,,,,MC-CoT_F-Large 🥈,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recOGCVuZeah5X381
+,0.9439,,,,,,Honeybee (Vicuna-13B) 🥉,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recZR5TdHfWbXwIU9
+,0.9411,,,,,,Enigma-COT_Large,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recnX4OE6ycLUTzeW
+,0.9337,,,,,,MC-CoT_Large,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec6v6LwHJJt6eLil
+,0.9335,,,,,,DPMM-CoT_Large,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recinmVkDPlFOptRb
+,0.9253,,,,,,LLaVA (GPT-4 judge),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recRJHhq4bBccxhcA
+,0.9194,,,,,,CoMD (Vicuna-7B),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec5L3QjKocihpbmV
+,0.9175,,,,,,Mutimodal-T-SciQ_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recg6gUpd9FOOmaHL
+,0.9168,,,,,,Multimodal-CoT_Large,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recbQs5adB0CGRt2K
+,0.9123,,,,,,PILL (LLaMA-7B),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recqkD9cDT4eDb46V
+,0.912,,,,,,LLaVA (ViT-L/16-224),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,reccFtq7H6YfKhQlj
+,0.9097,,,,,,DPMM-CoT_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recv0LDUxWdweDfPf
+,0.9092,,,,,,LLaVA,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recl9Nqm1sqioM4Os
+,0.9083,,,,,,LaVIN-13B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec7ZhGrM0cfAuKy3
+,0.9073,,,,,,MC-CoT_F-Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recauyPQ0CSqJyX8Y
+,0.9064,,,,,,MC-CoT_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recChhNugt6Y2PL2M
+,0.9003,,,,,,LLaMA-SciTune,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recovI1aUX9LeIS3v
+,0.8941,,,,,,LaVIN-7B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recTemmuKYUVH2SCP
+,0.8929,,,,,,Flan-T5-XL (LoRA),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recUyCU3pNgYTNCXG
+,0.8878,,,,,,Chat-UniVi,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recDWs4xXiWFxyA7v
+,0.8734,,,,,,DDCoT (T5),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recBmajDL8mFbh0Jl
+,0.8722,,,,,,LG-VQA (CLIP),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recyM4e94d5nC0zjp
+,0.8654,,,,,,Chameleon (GPT-4),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recrG5DAKJ0yrh1Vq
+,0.8632,,,,,,LG-VQA (BLIP-2),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec5nzXN7HHab8Yhg
+,0.8611,,,,,,LLaMA-SciTune,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recw29lIbum3aYhnS
+,0.8559,,,,,,Enigma-COT_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recNWBcZUPVddtJgI
+,0.8519,,,,,,LLaMA-Adapter,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recndFmBnvWQ496e1
+,0.8491,,,,,,Multimodal-CoT_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recpqiTSrPVksuYtT
+,0.848,,,,,,IMMO SL+RL,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rectmed9q9mkF4zJQ
+,0.8399,,,,,,CoT GPT-4,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec9XZkZQdx2hYTNu
+,0.8338,,,,,,HoT-T5_Large,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recH8OdAVaEj0t628
+,0.8142,,,,,,HoT-T5_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recm7zANvRODJlEMK
+,0.8015,,,,,,DDCoT (ChatGPT),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recrgRfu8nU0ae7Iv
+,0.7993,,,,,,Chameleon (ChatGPT),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recBbLQnbkpFKFwof
+,0.7991,,,,,,CoT GPT-3 + Doc,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rechbkl66cHSi3G5A
+,0.7941,,,,,,UnifiedQA-T-SciQ_Base,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recB36zZ5oHCrh1YZ
+,0.7831,,,,,,CoT ChatGPT,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recuz9H65SL9FtlRa
+,0.7809,,,,,,DDCoT (GPT-3),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recG12fs7sG8h1K8m
+,0.7754,,,,,,LaVIN-13B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec9HmYZ0zCjB9svp
+,0.7517,,,,,,CoT GPT-3 (ALE),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec4cGRTOBmTYjfnT
+,0.7511,,,,,,LaVIN-7B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recJyYaW6IPuernBQ
+,0.7461,,,,,,CoT GPT-3 (AE),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec5b01M85oWpg6W3
+blip2-opt-2.7b,0.7417,2023-02-06,Salesforce Research,United States of America,1.20000000001e+21,https://www.wolframalpha.com/input?i=312+teraFLOPS+*+16+*+200+hours+*+0.33,BLIP-2,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,reckMv8O8r13skE3P
+,0.7411,,,,,,CoT UnifiedQA,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec4VRcGm4zK2v5Dj
+text-davinci-001,0.7404,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 (0-shot),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recL8mZMJvVlv3aVD
+text-davinci-001,0.7397,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 (2-shot),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec6clTwByWcSogei
+,0.7333,,,,,,InstructBLIP,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recWR49ZkYI9byoxt
+,0.7012,,,,,,UnifiedQA,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recf6mG8bQiDmcW4D
+,0.6941,,,,,,ChatGPT,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec697K7JWz7FNWcm
+,0.6877,,,,,,MetaCLIP,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recIUfgLsK37otmEb
+,0.6753,,,,,,OpenCLIP,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recZOnTYR5SKK2ygZ
+,0.6743,,,,,,Flan-T5-XXL,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recaAazpkdFvRdMzC
+,0.6708,,,,,,SAM,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,receYuEjYS6tpQDjq
+,0.646,,,,,,DINOv2,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recBI7fIOITHnB3WS
+,0.6187,,,,,,VisualBERT,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec53ya3IFTPg0eMz
+,0.6142,,,,,,Patch-TRM,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recKSkayv2Fh7QAPP
+,0.6114,,,,,,ViLT,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec5NmvwvmIx8NzJV
+,0.6072,,,,,,DFAF,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recV5wkOXWcZGeOX1
+,0.5996,,,,,,Chat-UniVi,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recvLcqXsTT6WjkAa
+,0.5937,,,,,,BAN,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec9x7DimSNygwLgL
+,0.5902,,,,,,Top-Down,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recqeXl27TK126leH
+,0.587,,,,,,MiniGPT4,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recpfo5ymhK5bO0j6
+Llama-2-13b,0.5578,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA2-13B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec4f1Hv3tHKZwpM3
+,0.5567,,,,,,DDCoT (MiniGPT-4),,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recUdhYeDHAwi3X6c
+,0.55,,,,,,QVix,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recp5X8sOPJosA46a
+,0.5454,,,,,,MCAN,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recrEOVkdcgPOMUFD
+,0.5444,,,,,,LLaMA-Adapter-V2,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recIEQFKjFceIOjNl
+,0.502,,,,,,VLIS,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recJqZTHlc4gW8JPP
+,0.4774,,,,,,LLaVA-13B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rectJWMSHVswFd10a
+,0.47,,,,,,VPGTrans,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recOHgMYoICgxmquf
+,0.4471,,,,,,MiniGPT-4,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recjW6DBpR9R5D5yJ
+LLaMA-13B,0.4333,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA1-13B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,reckv5UwxSlzuqqxU
+Llama-2-7b,0.4308,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA2-7B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recst4vtvBflTNIt5
+,0.411,,,,,,LLaVA-7B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recTn4QaVzh4slrCE
+,0.3927,,,,,,OpenFlamingo,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recGdUJxthS9RJmp0
+,0.3828,,,,,,Lynx,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,rec7yI2ICo58RPYPB
+,0.3793,,,,,,mPLUG-Owl,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recgsYCmwiGedIncx
+,0.3629,,,,,,MultiGPT,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recH0YEkxqbbhujEB
+LLaMA-7B,0.3619,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA1-7B,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recOWTFKlhYYIQazU
+,0.3451,,,,,,Fromage,,ScienceQA leaderboard,https://scienceqa.github.io/leaderboard.html,,recGqSoocZkzpDpzg
+Phi-3.5-vision-instruct,0.913,2024-08-16,,,,,Phi-3.5-Vision 4.2b    ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec0npY7rc711egAe
+MM1-3B-Chat,0.694,2024-03-14,,,,,MM1-3B-Chat 3.6b       ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recFXgM2b1MxXJ0GW
+MM1-7B-Chat,0.726,2024-03-14,,,,,MM1-7B-Chat 7.6b       ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recOtCxq6HmvnIucp
+llava-v1.6-vicuna-7b,0.706,2024-01-31,,,,,LLaVA-1.6 Vicuna-7b    ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recUUhaZd0PNJBznr
+llama3-llava-next-8b,0.737,2024-04-20,,,,,LLaVA-Next Llama3-8b   ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec4WiZfQpgoA4nv2
+Qwen-VL-Chat,0.672,2023-08-20,,,,,Qwen-VL-Chat 9.6b      ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recxtuT8rYMP8wp87
+claude-3-haiku-20240307,0.72,2024-03-07,Anthropic,United States of America,,,Claude 3 haiku         ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,reccDSd3p2ZJ5XIgq
+gemini-1.0-pro-vision,0.797,2024-01-04,Google DeepMind,United States of America,,"To the extent that we believe Gemini 1 Pro was below 1e25 FLOP, Gemini 1 Pro Vision is unlikely to exceed it.",Gemini 1.0 Pro V       ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recSwZQTEaQUGeWS6
+gpt-4o-2024-05-13,0.885,2024-05-13,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4O 2024-05-13      ,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec0F1EWXSFmyhqsG
+falcon-11B-vlm,0.749,2024-05-21,,,,,Falcon2-11B VLM,,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,rec6Px3f23pIK410C
+llava-v1.6-vicuna-7b,0.701,2024-01-31,,,,,LLaVA1.6-Vicuna-7B,,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recLQWTFD7gZEc4Pd
+llava-v1.6-vicuna-13b,0.736,2024-01-31,,,,,LLaVA1.6-Vicuna-13B,,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recMzgZXL1CtfmhvN
+llava-v1.6-mistral-7b,0.728,2024-01-31,,,,,LLaVA1.6-Mistral-7B,,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recHkwW8HkY5EvWuw
+instructblip-vicuna-7b,0.605,2023-05-22,,,,,InstructBLIP-7B (Vicuna),,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recrqpiBC2wq4jXQS
+instructblip-vicuna-13b,0.631,2023-12-25,,,,,InstructBLIP-13B (Vicuna),,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recfjqnJ0LLGYRCzA
+Qwen-VL-Chat,0.682,2023-08-20,,,,,Qwen-VL-Chat,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recvidEkZ2TJ7PLNe
+InternVL-Chat-ViT-6B-Vicuna-7B,0.662,2023-12-25,,,,,InternVL-7B,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recwNwS3zW5ZnI8my
+InternVL-Chat-ViT-6B-Vicuna-13B,0.701,2024-08-16,,,,,InternVL-13B,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recLjjaIU4o6tkfTL
+llava-v1.5-7b,0.668,2023-10-05,,,,,LLaVA-1.5-7B,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,rec0ww4tyLYeEjUZ3
+,0.701,,,,,,LLaVA-NeXT-7B,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,rec7TPNXwoHgJh2mt
+,0.736,,,,,,LLaVA-NeXT-13B,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recwjcp8zqAA4oe7V
+,0.944,,,,,,VisionLLM v2-Chat,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recoLkEWa8RivHrne
+,0.942,,,,,,VisionLLM v2,,VisionLLM v2: An End-to-End Generalist Multimodal Large Language Model for Hundreds of Vision-Language Tasks,https://proceedings.neurips.cc/paper_files/paper/2024/file/81a60d18e010b27b36cd465c6604b915-Paper-Conference.pdf,,recJASlfaEdfdwMre

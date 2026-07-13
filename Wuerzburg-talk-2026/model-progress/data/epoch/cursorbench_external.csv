@@ -1,0 +1,37 @@
+Model version,Score,Reasoning level,Cost per task,Tokens per task,Steps per task,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Rank,Source,Notes
+claude-fable-5_max,0.7290000000000001,Max,18.02,63842,76,2026-06-09,Anthropic,United States of America,,,Fable 5 Max,1,https://cursor.com/cursorbench,
+claude-fable-5_xhigh,0.72,Extra High,13.74,48754,63,2026-06-09,Anthropic,United States of America,,,Fable 5 Extra High,2,https://cursor.com/cursorbench,
+claude-fable-5_high,0.706,High,10.81,37173,54,2026-06-09,Anthropic,United States of America,,,Fable 5 High,3,https://cursor.com/cursorbench,
+claude-opus-4-7_max,0.648,Max,11.02,62989,96,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Max,5,https://cursor.com/cursorbench,
+gpt-5.5_xhigh,0.643,Extra High,4.37,17905,46,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Extra High,6,https://cursor.com/cursorbench,
+claude-opus-4-8_max,0.638,Max,7.59,77370,60,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Max,8,https://cursor.com/cursorbench,
+gpt-5.5_high,0.626,High,3.59,13329,40,2026-04-23,OpenAI,United States of America,,,GPT-5.5 High,10,https://cursor.com/cursorbench,
+claude-opus-4-8_xhigh,0.621,Extra High,6.14,55622,54,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Extra High,11,https://cursor.com/cursorbench,
+claude-opus-4-7_xhigh,0.616,Extra High,7.11,43942,72,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Extra High,12,https://cursor.com/cursorbench,
+claude-opus-4-7_high,0.594,High,5.01,32227,59,2026-04-16,Anthropic,United States of America,,,Opus 4.7 High,13,https://cursor.com/cursorbench,
+gpt-5.5_medium,0.5920000000000001,Medium,2.22,9065,35,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Medium,14,https://cursor.com/cursorbench,
+claude-opus-4-8_high,0.584,High,4.41,36788,45,2026-05-28,Anthropic,United States of America,,,Opus 4.8 High,15,https://cursor.com/cursorbench,
+claude-opus-4-8_medium,0.5660000000000001,Medium,3.83,31684,41,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Medium,16,https://cursor.com/cursorbench,
+glm-5.2_max,0.546,Max,3.11,51312,83,2026-06-16,Z.ai (Zhipu AI),China,,,GLM 5.2 Max,17,https://cursor.com/cursorbench,
+claude-opus-4-8_low,0.543,Low,2.93,22726,36,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Low,18,https://cursor.com/cursorbench,
+claude-opus-4-7_medium,0.527,Medium,2.93,19193,41,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Medium,19,https://cursor.com/cursorbench,
+glm-5.2_high,0.507,High,2.46,30621,76,2026-06-16,Z.ai (Zhipu AI),China,,,GLM 5.2 High,21,https://cursor.com/cursorbench,
+gemini-3.5-flash_unknown,0.498,,1.94,35105,79,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash,22,https://cursor.com/cursorbench,
+claude-sonnet-4-6_max,0.49,Max,3.09,40280,55,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 Max,23,https://cursor.com/cursorbench,
+gpt-5.5_low,0.488,Low,1.19,4923,24,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Low,24,https://cursor.com/cursorbench,
+claude-sonnet-4-6_high,0.488,High,3.06,37352,57,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 High,25,https://cursor.com/cursorbench,
+claude-opus-4-7_low,0.483,Low,1.87,13164,29,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Low,26,https://cursor.com/cursorbench,
+kimi-k2.6,0.47600000000000003,,1.27,24783,56,2026-04-20,Moonshot,China,,,Kimi 2.6,27,https://cursor.com/cursorbench,
+claude-sonnet-4-6_medium,0.46,Medium,2.64,31360,50,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 Medium,28,https://cursor.com/cursorbench,
+kimi-k2.5,0.319,,0.87,9446,30,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi 2.5,30,https://cursor.com/cursorbench,
+claude-sonnet-5_max,0.612,Max,6.87,93485,93,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Max,13,https://cursor.com/cursorbench,
+claude-sonnet-5_xhigh,0.584,Extra High,5.23,58228,86,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Extra High,17,https://cursor.com/cursorbench,
+gpt-5.6-sol_max,0.672,Max,5.69,28320,48,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol Max,3,https://cursor.com/cursorbench,

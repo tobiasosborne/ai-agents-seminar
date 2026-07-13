@@ -1,0 +1,41 @@
+Model version,Scaffold,Score OPT@1,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Score OPT@10,Notes,Source,Source link,OPT@1 (hack-adjusted),OPT@10 (hack-adjusted),Evaluation date,id
+claude-opus-4-7,OpenHands,0.4412,2026-04-16,Anthropic,United States of America,,,,,GSO Leaderboard,,0.4216,,2026-04-27,recB6g5swe17tSdKR
+claude-opus-4-7_high,OpenHands,0.441,2026-04-16,Anthropic,United States of America,,,,,GSO Leaderboard,,0.422,,2026-04-27,reccHX8eA2pr1NUgv
+claude-opus-4-6_high,OpenHands,0.412,2026-02-05,Anthropic,United States of America,,,,,GSO Leaderboard,,0.373,,2026-04-27,recyQlfHiilyasE8b
+gpt-5.5_xhigh,OpenHands,0.402,2026-04-23,OpenAI,United States of America,,,0.402,,GSO Leaderboard,,0.402,0.373,2026-04-27,recbfEoFyIqdyNOkl
+claude-opus-4-6_unknown,OpenHands,0.3333,2026-02-05,Anthropic,United States of America,,,,,GSO Leaderboard,,0.3039,,2026-02-11,recjWm0x4FyWwetTo
+claude-opus-4-6,OpenHands,0.3333,2026-02-05,Anthropic,United States of America,,,,,GSO Leaderboard,,0.3039,,2026-04-27,reco0a5ivM5mr8sai
+gpt-5.4-2026-03-05_xhigh,OpenHands,0.31370000000000003,2026-03-05,OpenAI,United States of America,,,,,https://gso-bench.github.io/index.html,,0.3039,,2026-03-10,reco2vF4MBsh4TlN3
+gpt-5.2-2025-12-11_high,OpenHands,0.274,2025-12-11,OpenAI,United States of America,,,,,GSO Leaderboard,,,,,reco6scbTaMu1KpKP
+claude-opus-4-5-20251101,OpenHands,0.265,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recj4DxItKjOUYsAN
+claude-opus-4-5-20251101_unknown,OpenHands,0.2647,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,,0.245,,2025-11-28,recE6ibGfliJ4tCOo
+gpt-5.4-2026-03-05_high,OpenHands,0.2549,2026-03-05,OpenAI,United States of America,,,,,https://gso-bench.github.io/index.html,,0.2255,,2026-03-10,recPK6PeVNd5aK2bT
+gemini-3.1-pro-preview,OpenHands,0.2255,2026-02-19,Google DeepMind,United States of America,,,,,https://gso-bench.github.io/index.html,,0.2157,,2026-03-09,recxX8wnn05N8Oysr
+gemini-3-pro-preview,OpenHands,0.186,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,reckInnupZ6V8D9li
+claude-sonnet-4-5-20250929_unknown,OpenHands,0.1471,2025-09-29,Anthropic,United States of America,,,,,GSO Leaderboard,,0.1274,,2025-10-10,recHDedYHXs08M0kY
+claude-sonnet-4-5-20250929,OpenHands,0.147,2025-09-29,Anthropic,United States of America,,,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recLNUhUM75fIc6xP
+gpt-5.1-2025-11-13_unknown,OpenHands,0.1373,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,,https://gso-bench.github.io/index.html,,0.1275,,2025-12-18,recgp9r5bBUG2Csxs
+gpt-5.1-2025-11-13_high,OpenHands,0.137,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,,GSO Leaderboard,,,,,recZJBCgxFNxjLDZs
+gemini-3-flash-preview,OpenHands,0.098,2025-12-17,Google DeepMind,United States of America,,,,,GSO Leaderboard,,,,,recjjdkkqSrz8EgCW
+o3-2025-04-16_high,OpenHands,0.088,2025-04-16,OpenAI,United States of America,,,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recyrQ4JUWjfKS1xR
+claude-opus-4-20250514,OpenHands,0.069,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recth4YmbJGhtEeae
+gpt-5-2025-08-07_high,OpenHands,0.069,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recXbtm7TgBsNVAJQ
+claude-opus-4-20250514_unknown,OpenHands,0.06860000000000001,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,,0.049,,2025-08-10,recRyARCVqUatCNzh
+claude-sonnet-4-20250514,OpenHands,0.049,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recCMHpSUHUw7MhjQ
+Kimi-K2-Instruct,OpenHands,0.049,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recslQxYG0KdpDtzW
+Qwen3-Coder-480B-A35B-Instruct,OpenHands,0.049,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,rechj9ltkUUfx20ya
+claude-sonnet-4-20250514_unknown,OpenHands,0.049,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,,0.049,,2025-05-30,recOVY5kUnc4Mh8iX
+claude-3-5-sonnet-20241022,OpenHands,0.046,2024-10-22,Anthropic,United States of America,,,0.157,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recTAzfnTtfeArFqk
+gemini-2.5-pro-preview-06-05,OpenHands,0.0392,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,,0.0,,2025-10-10,recEk77DIVqhyoCQd
+gemini-2.5-pro,OpenHands,0.039,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recSwFDzdt4zosJsD
+claude-3-7-sonnet-20250219,OpenHands,0.038,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recoExXWLABCrn50A
+claude-3-7-sonnet-20250219_unknown,OpenHands,0.038,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,,GSO Leaderboard,,0.038,,2025-05-30,recaKd4PeC7yCrBMH
+o4-mini-2025-04-16_high,OpenHands,0.036,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.127,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recq2Mzz81PDsAp4v
+GLM-4.5-Air,OpenHands,0.0294,2025-07-20,"Z.ai (Zhipu AI),Tsinghua University",China,1.656e+24,6 FLOP / parameter / token * 12 * 10^9 active parameters * 23 * 10^12 tokens = 1.656e+24 FLOP,,,GSO Leaderboard,,0.0098,,2025-08-26,recEcEvRGxBQTGqxO
+o3-mini-2025-01-31_low,OpenHands,0.013000000000000001,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",,,GSO Leaderboard,,0.013000000000000001,,2025-05-30,recPJ2z8G5wYQmWoN
+o3-mini-2025-01-31_high,OpenHands,0.013,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recmNBNhajAOofv1Q
+gpt-4o-2024-11-20,OpenHands,0.0,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,,,GSO Leaderboard,https://gso-bench.github.io/leaderboard.html,,,,recSbAXRQhrp0eicx

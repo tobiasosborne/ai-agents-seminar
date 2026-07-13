@@ -1,0 +1,299 @@
+Model version,Agent,Accuracy mean,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Accuracy SE,Agent Org,Model Org,Run date,Notes,Source,Source Link,Created,Name,id
+claude-opus-4-7_unknown,vix,0.902,2026-04-16,Anthropic,United States of America,,,0.021,vix,Anthropic,2026-05-15,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:47.000Z,Claude Opus 4.7,rec0APrZ85ARyDRIn
+gpt-5.5_unknown,NexAU-AHE,0.8470000000000001,2026-04-23,OpenAI,United States of America,,,0.021,china-qijizhifeng,OpenAI,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:48.000Z,GPT-5.5,recdZ2Aq4dSe9MUj6
+gpt-5.5_unknown,Capy,0.831,2026-04-23,OpenAI,United States of America,,,0.021,Capy,OpenAI,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:48.000Z,GPT-5.5,recGwko1gzRhNX0ub
+gpt-5.5_unknown,Codex,0.8200000000000001,2026-04-23,OpenAI,United States of America,,,0.022000000000000002,OpenAI,OpenAI,2026-04-23,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:38.000Z,GPT-5.5,recJA7K9RNsgzOaAU
+gpt-5.5_unknown,Codex CLI,0.8200000000000001,2026-04-23,OpenAI,United States of America,,,0.022000000000000002,OpenAI,OpenAI,2026-04-23,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-04T14:49:47.000Z,GPT-5.5,recp64pC4XBYynZdL
+gpt-5.4-2026-03-05_unknown,ForgeCode,0.818,2026-03-05,OpenAI,United States of America,,,0.02,ForgeCode,OpenAI,2026-03-12,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:39.000Z,GPT-5.4,rec4q8Z4CrKFnEAuK
+gemini-3.1-pro-preview,TongAgents,0.802,2026-02-19,Google DeepMind,United States of America,,,0.026000000000000002,BIGAI,Google,2026-03-13,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:39.000Z,Gemini 3.1 Pro,recWIDb8VVaXoNXGP
+claude-opus-4-7_unknown,WOZCODE,0.802,2026-04-16,Anthropic,United States of America,,,0.021,WOZCODE,Anthropic,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:48.000Z,Claude Opus 4.7,rec1OgwoZk8uGh0cf
+claude-opus-4-6_unknown,ForgeCode,0.798,2026-02-05,Anthropic,United States of America,,,0.016,ForgeCode,Anthropic,2026-03-12,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:40.000Z,Claude Opus 4.6,reciHkuyWIdoQzFVZ
+gemini-3.1-pro-preview,Forge Code,0.784,2026-02-19,Google DeepMind,United States of America,,,0.018,Forge Code,Google,2026-03-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-03-06T01:48:54.000Z,,recIsprMd6SFvZAf1
+gemini-3.1-pro-preview,ForgeCode,0.784,2026-02-19,Google DeepMind,United States of America,,,0.018000000000000002,ForgeCode,Google,2026-03-02,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:40.000Z,Gemini 3.1 Pro,rec64ox7LJjoKhMmd
+gpt-5.3-codex,SageAgent,0.784,2026-02-05,OpenAI,United States of America,,,0.022000000000000002,OpenSage,OpenAI,2026-03-13,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:40.000Z,GPT-5.3-Codex,recaq5BH3KfrPDhfy
+gpt-5.3-codex,Droid,0.773,2026-02-05,OpenAI,United States of America,,,0.022,Factory,OpenAI,2026-02-24,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-03-06T01:50:07.000Z,,recMJkgMHRSOjLKpR
+claude-opus-4-6_unknown,Meta-Harness,0.7640000000000001,2026-02-05,Anthropic,United States of America,,,0.024,Stanford IRIS,Anthropic,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:49.000Z,Claude Opus 4.6,rec0JCWY63Blk9hvu
+gpt-5.3-codex,CodeBrain-1.5,0.758,2026-02-05,OpenAI,United States of America,,,0.02,Feeling AI,OpenAI,2026-02-10,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:49.000Z,GPT-5.3-Codex,recu2IkOMIWvkSCuc
+gpt-5.3-codex,Codelia,0.757,2026-02-05,OpenAI,United States of America,,,0.022000000000000002,kousw,OpenAI,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:49.000Z,GPT-5.3-Codex,recDp7GQrLzo9PXAN
+claude-opus-4-6_unknown,Capy,0.753,2026-02-05,Anthropic,United States of America,,,0.024,Capy,Anthropic,2026-03-12,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:40.000Z,Claude Opus 4.6,recL5sLwUUzYQRQHC
+gpt-5.3-codex,Simple Codex,0.751,2026-02-05,OpenAI,United States of America,,,0.024,OpenAI,OpenAI,2026-02-06,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-02-06T19:39:45.000Z,,recQGdQu18B2G90mW
+gemini-3.1-pro-preview,Terminus-KIRA,0.748,2026-02-19,Google DeepMind,United States of America,,,0.026000000000000002,KRAFTON AI,Google,2026-02-23,,,,2026-03-06T20:45:21.000Z,Gemini 3.1 Pro,recwQlLxqWmKqLyki
+claude-opus-4-6_unknown,Terminus-KIRA,0.747,2026-02-05,Anthropic,United States of America,,,0.026000000000000002,KRAFTON AI,Anthropic,2026-02-22,,,,2026-03-06T20:45:22.000Z,Claude Opus 4.6,reccEEVJ98pyKkKic
+gpt-5.3-codex,Mux,0.746,2026-02-05,OpenAI,United States of America,,,0.025,Coder,OpenAI,2026-03-06,,,,2026-03-06T20:46:16.000Z,GPT-5.3-Codex,recG4Not08o5icKST
+claude-opus-4-6_unknown,MAYA-V2,0.721,2026-02-05,Anthropic,United States of America,,,0.022000000000000002,ADYA,Anthropic,2026-03-12,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-04T15:52:02.000Z,Claude 4.6 Opus,recbCEp3NVGK1vNTl
+claude-opus-4-6_unknown,TongAgents,0.7190000000000001,2026-02-05,Anthropic,United States of America,,,0.027000000000000003,Bigai,Anthropic,2026-02-22,,,,2026-03-06T20:46:47.000Z,Claude Opus 4.6,recsbGWmj9mRLEypD
+gpt-5.3-codex,spoox-o-m,0.715,2026-02-05,OpenAI,United States of America,,,0.025,TUM,OpenAI,2026-05-15,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:50.000Z,GPT-5.3-Codex,recE1erZH43qiwt01
+gpt-5.3-codex,CodeBrain-1,0.703,2026-02-05,OpenAI,United States of America,,,0.026000000000000002,Feeling AI,OpenAI,2026-02-10,,,,2026-03-06T20:47:34.000Z,GPT-5.3-Codex,reckRlNCDoPJqQ51J
+claude-opus-4-6_unknown,Droid,0.6990000000000001,2026-02-05,Anthropic,United States of America,,,0.025,Factory,Anthropic,2026-02-05,,,,2026-03-06T20:47:35.000Z,Claude Opus 4.6,recm47gxTJYtnhFi9
+claude-opus-4-6,Droid,0.699,2026-02-05,Anthropic,United States of America,,,0.025,Factory,Anthropic,2026-02-05,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-02-06T19:35:49.000Z,,recZd8as5p49jd05r
+gemini-3-pro-preview,Ante,0.6940000000000001,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.021,Antigma Labs,Google,2026-01-06,,,,2026-03-06T20:47:35.000Z,Gemini 3 Pro,recel7iZnjcoDWjFt
+gpt-5.3-codex,IndusAGI Coding Agent,0.691,2026-02-05,OpenAI,United States of America,,,0.023,Varun Israni (SoloVpx),OpenAI,2026-03-18,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:41.000Z,GPT-5.3-Codex,rec0sW71nWWpW9Szk
+claude-opus-4-6_unknown,Crux,0.669,2026-02-05,Anthropic,United States of America,,,,Roam,Anthropic,2026-02-23,,,,2026-03-06T20:47:36.000Z,Claude Opus 4.6,recAnM8GuIbCLfEhc
+claude-opus-4-6_unknown,Mux,0.665,2026-02-05,Anthropic,United States of America,,,0.025,Coder,Anthropic,2026-02-13,,,,2026-03-06T20:47:36.000Z,Claude Opus 4.6,rec3SssCd9VRZn61b
+gpt-5.2-codex,Deep Agents,0.665,2025-12-18,OpenAI,United States of America,,,0.031000000000000003,LangChain,OpenAI,2026-02-12,,,,2026-03-06T20:47:36.000Z,GPT-5.2-Codex,recwxCGE7farYLuja
+gpt-5.5_unknown,clnkr,0.6609999999999999,2026-04-23,OpenAI,United States of America,,,0.025,clnkr,OpenAI,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:50.000Z,GPT-5.5,recmgPXDch3lXoWZy
+gemini-3-pro-preview,SageAgent,0.652,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.021,OpenSage,Google,2026-02-23,,,,2026-03-06T20:47:37.000Z,Gemini 3 Pro,recfAdtO655s2ZUhC
+gpt-5.2-2025-12-11_medium,Droid,0.649,2025-12-11,OpenAI,United States of America,,,0.028,Factory,OpenAI,2025-12-24,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:12:25.000Z,,rechjHEUQLlqCTIXc
+gpt-5.2-2025-12-11_unknown,Droid,0.649,2025-12-11,OpenAI,United States of America,,,0.027999999999999997,Factory,OpenAI,2025-12-24,,,,2026-03-06T20:47:37.000Z,GPT-5.2,recgRH031sZYfPDqe
+gpt-5.3-codex,Terminus 2,0.647,2026-02-05,OpenAI,United States of America,,,0.027000000000000003,Terminal Bench,OpenAI,2026-02-05,,,,2026-03-06T20:47:37.000Z,GPT-5.3-Codex,recAMbJKjZNVkGjpL
+gemini-3-flash-preview,Junie CLI,0.643,2025-12-17,Google DeepMind,United States of America,,,0.028,JetBrains,Google,2025-12-23,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:13:09.000Z,,recUBHBNuIOfkcKRX
+claude-opus-4-5-20251101,Droid,0.631,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.027,Factory,Anthropic,2025-12-11,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-12-15T17:58:37.000Z,,recuiEXbA7NpkFohL
+claude-opus-4-5-20251101_unknown,Droid,0.631,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.027000000000000003,Factory,Anthropic,2025-12-11,,,,2026-03-06T20:47:38.000Z,Claude Opus 4.5,rec6dIIsNVTXVuRDv
+gpt-5.2-2025-12-11_medium,Codex CLI,0.629,2025-12-11,OpenAI,United States of America,,,0.03,OpenAI,OpenAI,2025-12-18,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:14:05.000Z,,recumDtosjSEJ2D3d
+gpt-5.2-2025-12-11_unknown,Codex CLI,0.629,2025-12-11,OpenAI,United States of America,,,0.03,OpenAI,OpenAI,2025-12-18,,,,2026-03-06T20:47:38.000Z,GPT-5.2,recKka6IlJnGPWGok
+claude-opus-4-6_unknown,Terminus 2,0.629,2026-02-05,Anthropic,United States of America,,,0.027000000000000003,Terminal Bench,Anthropic,2026-02-06,,,,2026-03-06T20:47:38.000Z,Claude Opus 4.6,recX6PzRl9e6dU4jS
+gemini-3-pro-preview,CodeBrain-1,0.622,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.026000000000000002,Feeling AI,Google,2026-02-05,,,,2026-03-06T20:47:38.000Z,Gemini 3 Pro,reczLTVTgCc3wuoOJ
+gemini-3-pro-preview,CodeBrain-1.5,0.622,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.026000000000000002,Feeling AI,Google,2026-02-05,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:50.000Z,Gemini 3 Pro,recc4ldyhTauum9Fy
+gemini-3-pro-preview,II-Agent,0.618,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.028,Intelligent Internet,Google,2025-12-23,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:14:47.000Z,,rectX4lsyYs6OmUsy
+gpt-5.1-codex-mini,hookele,0.616,2025-11-12,OpenAI,United States of America,,,0.019,Dmitry Barakhov,OpenAI,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:51.000Z,GPT-5.1-Codex-Mini,recPGQsdEihz8Ckv3
+gemini-3.1-pro-preview,Gemini CLI,0.614,2026-02-19,Google DeepMind,United States of America,,,0.040999999999999995,Google,Google,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:51.000Z,Gemini 3.1 Pro,rechRUph4VPi4BkPa
+,Warp,0.612,,,,,,0.03,Warp,Multiple,2025-12-12,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-12-15T18:01:01.000Z,,recfdpeJOkmpBb3Fx
+gemini-3-pro-preview,Droid,0.611,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.028,Factory,Google,2025-12-24,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:15:23.000Z,,recNP2GjuvuiMcEyv
+gpt-5.2-2025-12-11_unknown,Mux,0.6070000000000001,2025-12-11,OpenAI,United States of America,,,,Coder,OpenAI,2026-01-17,,,,2026-03-06T20:47:39.000Z,GPT-5.2,recpYruU4E3J5eQwz
+gpt-5.1-codex-max,Codex CLI,0.604,2025-11-19,OpenAI,United States of America,,,0.027,OpenAI,OpenAI,2025-11-24,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-12-15T18:02:58.000Z,,recaaVycAGesmFJ32
+claude-opus-4-5-20251101_unknown,Letta Code,0.5910000000000001,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.024,Letta,Anthropic,2025-12-17,,,,2026-03-06T20:47:39.000Z,Claude Opus 4.5,recpSQWuI4flKPHHO
+claude-opus-4-5-20251101_128K,Letta Code,0.591,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.024,Letta,Anthropic,2025-12-17,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-25T18:37:51.000Z,,reciL106EieXnavcX
+claude-opus-4-5-20251101_unknown,Mux,0.584,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,Coder,Anthropic,2026-01-17,,,,2026-03-06T20:47:39.000Z,Claude Opus 4.5,recJewQ720QCUWUI0
+claude-opus-4-6_unknown,Claude Code,0.58,2026-02-05,Anthropic,United States of America,,,0.028999999999999998,Anthropic,Anthropic,2026-02-07,,,,2026-03-06T20:47:40.000Z,Claude Opus 4.6,recsCMkghG4mKBFQJ
+gpt-5.1-codex,Codex CLI,0.578,2025-11-12,OpenAI,United States of America,,,0.029, OpenAI      , OpenAI      ,2025-11-16,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:10:29.000Z,,recninlGInIspn658
+gpt-5.1-codex,Crux,0.578,2025-11-12,OpenAI,United States of America,,,0.028999999999999998,Roam,OpenAI,2025-11-16,,,,2026-03-06T20:47:40.000Z,GPT-5.1-Codex,recMan57K3dKSqHWB
+claude-opus-4-5-20251101_unknown,Terminus 2,0.578,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.025,Terminal Bench,Anthropic,2025-11-22,,,,2026-03-06T20:47:40.000Z,Claude Opus 4.5,recculHGd5t2GvQt9
+grok-4-20,grok-cli,0.573,2026-02-17,xAI,United States of America,,,,Vibe Kit,xAI,2026-04-02,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-04T15:52:02.000Z,Grok 4.20 Reasoning,recauvZ8Z2shdiV8Y
+grok-4-20,Grok CLI,0.573,2026-02-17,xAI,United States of America,,,,Superagent,xAI,2026-04-02,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:51.000Z,Grok 4.20 Reasoning,recWSbNb07JV8aOj5
+gemini-3-pro-preview,Letta Code,0.56,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.03,Letta,Google,2025-12-17,,,,2026-03-06T20:47:41.000Z,Gemini 3 Pro,rec3LvdlngMWgVNX7
+claude-opus-4-5-20251101_unknown,Goose,0.543,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.026000000000000002,Block,Anthropic,2025-12-11,,,,2026-03-06T20:47:41.000Z,Claude Opus 4.5,recpIcBUBke0D7mNd
+gemini-3-pro-preview,Terminus 2,0.542,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.024,Stanford,Google,2025-11-18,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:19:25.000Z,,rec4G1Mf13x9ynwlw
+gpt-5.2-2025-12-11_unknown,Terminus 2,0.54,2025-12-11,OpenAI,United States of America,,,0.028999999999999998,Terminal Bench,OpenAI,2025-12-12,,,,2026-03-06T20:47:41.000Z,GPT-5.2,recu0QWuZH20pvT2b
+gpt-5.1-codex,Letta Code,0.535,2025-11-12,OpenAI,United States of America,,,0.028,Letta,OpenAI,2025-12-17,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:25:23.000Z,,recdETGOmZWS2iKAe
+claude-sonnet-4-6_unknown,Simplai Agent,0.534,2026-02-17,Anthropic,United States of America,,,0.027999999999999997,SimplAI,Anthropic,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:52.000Z,Claude Sonnet 4.6,recDxT0PT7JaamTSf
+claude-sonnet-4-6,Simplai Agent,0.534,2026-02-17,Anthropic,United States of America,,,0.027999999999999997,SimplAI,Anthropic,2026-05-14,,,,2026-06-13T04:30:32.000Z,Claude Sonnet 4.6,recLi0k6lS2WZTy3O
+glm-5,Terminus 2,0.524,2026-02-11,Z.ai (Zhipu AI),China,,,0.026000000000000002,Terminal Bench,Z-AI,2026-02-23,,,,2026-03-06T20:47:41.000Z,GLM 5,recuBaChFTWpnR5jj
+claude-opus-4-5-20251101_unknown,Claude Code,0.521,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.025,Anthropic,Anthropic,2025-12-18,,,,2026-03-06T20:47:42.000Z,Claude Opus 4.5,recub09g3exhXqHL0
+claude-opus-4-5-20251101_unknown,OpenHands,0.519,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.028999999999999998,OpenHands,Anthropic,2026-01-04,,,,2026-03-06T20:47:42.000Z,Claude Opus 4.5,recA5YQhqDEEEZMYJ
+gemini-3-flash-preview,Terminus 2,0.517,2025-12-17,Google DeepMind,United States of America,,,0.031000000000000003,Terminal Bench,Google,2026-01-07,,,,2026-03-06T20:47:42.000Z,Gemini 3 Flash,reclYJoF7jvlAegKw
+claude-opus-4-5-20251101_unknown,OpenCode,0.517,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,Anomaly Innovations,Anthropic,2026-01-12,,,,2026-03-06T20:47:43.000Z,Claude Opus 4.5,rec7Aip1YsA0Xpjtk
+gemini-3-flash-preview, Gemini CLI     ,0.51,2025-12-17,Google DeepMind,United States of America,,,0.03,Google,Google,2025-12-23,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2026-01-06T08:23:54.000Z,,recXnaoWnwYiDCTLY
+gemini-3-flash-preview,Gemini CLI,0.51,2025-12-17,Google DeepMind,United States of America,,,0.03,Google,Google,2025-12-23,,,,2026-03-06T20:47:43.000Z,Gemini 3 Flash,recEx94YIfACLb1n0
+gpt-5-2025-08-07_unknown,Codex CLI,0.49600000000000005,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.028999999999999998,OpenAI,OpenAI,2025-11-04,,,,2026-03-06T20:47:43.000Z,GPT-5,rec9i8Ic0KTT2yBKw
+gpt-5-2025-08-07_medium, Codex CLI      ,0.496,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.029, OpenAI    , OpenAI      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec6jIJxArc92pivy
+gpt-5.1-2025-11-13_unknown,Terminus 2,0.47600000000000003,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.027999999999999997,Terminal Bench,OpenAI,2025-11-16,,,,2026-03-06T20:47:44.000Z,GPT-5.1,recNG2YeioSnRQkBL
+gpt-5.1-2025-11-13_medium,Terminus 2,0.476,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.028,Stanford,OpenAI,2025-11-16,Assuming medium based on GPT-5 being run at medium.,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:10:29.000Z,,rec8JKbUbg1BqQUuc
+gpt-5.1-2025-11-13_medium, Terminus 2     ,0.476,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.028, Stanford  , OpenAI      ,2025-11-16,Assuming medium based on GPT-5 being run at medium.,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recTEUNVY8Ta5gHeC
+claude-sonnet-4-5-20250929_unknown,CAMEL-AI,0.465,2025-09-29,Anthropic,United States of America,,,0.024,CAMEL-AI,Anthropic,2025-12-24,,,,2026-03-06T20:47:44.000Z,Claude Sonnet 4.5,recUr1bsa1LcRX043
+MiniMax-M2.7,IndusAGI Coding Agent,0.451,2026-03-18,MiniMax,China,,,,Varun Israni (SoloVpx),Minimax,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:52.000Z,MiniMax M2.7,recVgdB7STmvB8TFK
+gpt-5-codex, Codex CLI      ,0.443,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.027, OpenAI    , OpenAI      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec1qBXfk7ZcFVViF
+gpt-5-codex,Codex CLI,0.443,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.027000000000000003,OpenAI,OpenAI,2025-11-04,,,,2026-03-06T20:47:44.000Z,GPT-5-Codex,recAFFDfAzTiAM5HO
+gpt-5-2025-08-07_medium, OpenHands      ,0.438,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.03, OpenHands , OpenAI      ,2025-11-02,"Medium thinking used in other GPT-5 evaluations, assuming the same here.",Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recimrZ9t1kWdq9df
+gpt-5-2025-08-07_unknown,OpenHands,0.438,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.03,OpenHands,OpenAI,2025-11-02,,,,2026-03-06T20:47:44.000Z,GPT-5,recJMDLwtXhVgVmhO
+gpt-5-codex, Terminus 2     ,0.434,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.029, Stanford  , OpenAI      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recXSpZpHeeVjiI3u
+gpt-5-codex,Terminus 2,0.434,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.028999999999999998,Terminal Bench,OpenAI,2025-10-31,,,,2026-03-06T20:47:45.000Z,GPT-5-Codex,reciHggGNoFXEb71Z
+kimi-k2.5,Terminus 2,0.43200000000000005,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",0.028999999999999998,Terminal Bench,Kimi,2026-02-04,,,,2026-03-06T20:47:45.000Z,Kimi K2.5,recwAteBLwH7AXt3F
+gpt-5.1-codex-mini,Crux,0.43100000000000005,2025-11-12,OpenAI,United States of America,,,0.03,Roam,OpenAI,2025-11-17,,,,2026-03-06T20:47:45.000Z,GPT-5.1-Codex-Mini,rec9XiiLe8VVBrkm0
+claude-sonnet-4-5-20250929_unknown,Goose,0.43100000000000005,2025-09-29,Anthropic,United States of America,,,0.026000000000000002,Block,Anthropic,2025-12-11,,,,2026-03-06T20:47:46.000Z,Claude Sonnet 4.5,recUDNI3Kg8XVDBC8
+gpt-5.1-codex-mini, Codex CLI      ,0.431,2025-11-12,OpenAI,United States of America,,,0.03, OpenAI    , OpenAI      ,2025-11-17,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recJBKBBdOIEodbRT
+MiniMax-M2.7,Harness Agent,0.429,2026-03-18,MiniMax,China,,,0.028999999999999998,lazyFrogLOL,MiniMax,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:52.000Z,MiniMax M2.7 Highspeed,recP18tiQzw7yeuDF
+claude-sonnet-4-5-20250929, Terminus 2     ,0.428,2025-09-29,Anthropic,United States of America,,,0.028, Stanford  , Anthropic   ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recZH7p8iYiyYB0Ch
+claude-sonnet-4-5-20250929_unknown,Terminus 2,0.428,2025-09-29,Anthropic,United States of America,,,0.027999999999999997,Terminal Bench,Anthropic,2025-10-31,,,,2026-03-06T20:47:46.000Z,Claude Sonnet 4.5,recKeFvLcPnLgoUmH
+claude-sonnet-4-5-20250929_unknown,MAYA,0.42700000000000005,2025-09-29,Anthropic,United States of America,,,,ADYA,Anthropic,2026-01-04,,,,2026-03-06T20:47:46.000Z,Claude 4.5 Sonnet,recdkO8Qjk07Jy6x3
+MiniMax-M2.5,cchuter,0.42700000000000005,2026-02-12,MiniMax,China,,,0.027999999999999997,teamblobfish.com,minimax,2026-03-30,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:41.000Z,minimax-m2.5,recVaqQHEH5MbcNtU
+claude-sonnet-4-5-20250929_unknown,MAYA-V2,0.42700000000000005,2025-09-29,Anthropic,United States of America,,,,ADYA,Anthropic,2026-01-04,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-04-23T21:29:42.000Z,Claude 4.5 Sonnet,rece9vUo1ww7GL6EO
+claude-sonnet-4-5-20250929_unknown,OpenHands,0.42600000000000005,2025-09-29,Anthropic,United States of America,,,0.027999999999999997,OpenHands,Anthropic,2025-11-02,,,,2026-03-06T20:47:46.000Z,Claude Sonnet 4.5,recJeZzLs4VeGn2nV
+claude-sonnet-4-5-20250929, OpenHands      ,0.426,2025-09-29,Anthropic,United States of America,,,0.028, OpenHands , Anthropic   ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,reclDcpO9SUv4Tpau
+claude-sonnet-4-5-20250929, Mini-SWE-Agent ,0.425,2025-09-29,Anthropic,United States of America,,,0.028, Princeton , Anthropic   ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recfCRv3Mp3k41IHO
+claude-sonnet-4-5-20250929_unknown,Mini-SWE-Agent,0.425,2025-09-29,Anthropic,United States of America,,,0.027999999999999997,Princeton,Anthropic,2025-11-03,,,,2026-03-06T20:47:47.000Z,Claude Sonnet 4.5,recmWHKFsA4OK8Ti1
+MiniMax-M2.5,Terminus 2,0.42200000000000004,2026-02-12,MiniMax,China,,,0.026000000000000002,Terminal Bench,Minimax,2026-02-23,,,,2026-03-06T20:47:47.000Z,Minimax m2.5,rec2efDw2CQRGldo9
+gpt-5-codex, Mini-SWE-Agent ,0.413,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.028, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec9sfNDeDk0cbJQL
+gpt-5-codex,Mini-SWE-Agent,0.413,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",0.027999999999999997,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:47:47.000Z,GPT-5-Codex,recRmzMIVDOO2eEBY
+claude-sonnet-4-5-20250929, Claude Code    ,0.401,2025-09-29,Anthropic,United States of America,,,0.029, Anthropic , Anthropic   ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recDripAbQH8CuooL
+claude-sonnet-4-5-20250929_unknown,Claude Code,0.401,2025-09-29,Anthropic,United States of America,,,0.028999999999999998,Anthropic,Anthropic,2025-11-04,,,,2026-03-06T20:47:48.000Z,Claude Sonnet 4.5,recBr0bdFWEQJlw24
+deepseek/deepseek-v3.2,Terminus 2,0.396,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",0.027999999999999997,Terminal Bench,DeepSeek,2026-02-10,,,,2026-03-06T20:47:48.000Z,DeepSeek-V3.2,recxR7bQuL8biEr1p
+claude-opus-4-1-20250805, Terminus 2     ,0.38,2025-08-05,Anthropic,United States of America,,,0.026, Stanford  , Anthropic   ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recZqrNbY83D2rMna
+claude-opus-4-1-20250805_unknown,Terminus 2,0.38,2025-08-05,Anthropic,United States of America,,,0.026000000000000002,Terminal Bench,Anthropic,2025-10-31,,,,2026-03-06T20:47:48.000Z,Claude Opus 4.1,receznXnwcy2WCuyz
+gpt-5.1-codex, Terminus 2     ,0.369,2025-11-12,OpenAI,United States of America,,,0.032, Stanford  , OpenAI      ,2025-11-17,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec65Jj1nz0W6LZFC
+claude-opus-4-1-20250805, OpenHands      ,0.369,2025-08-05,Anthropic,United States of America,,,0.027, OpenHands , Anthropic   ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recO3hSKFRHSXO0v0
+claude-opus-4-1-20250805_unknown,OpenHands,0.369,2025-08-05,Anthropic,United States of America,,,0.027000000000000003,OpenHands,Anthropic,2025-11-02,,,,2026-03-06T20:47:49.000Z,Claude Opus 4.1,rechRJ6Uae8I0mHXa
+gpt-5.1-codex,Terminus 2,0.369,2025-11-12,OpenAI,United States of America,,,0.032,Terminal Bench,OpenAI,2025-11-17,,,,2026-03-06T20:47:49.000Z,GPT-5.1-Codex,reclqVW78N7ZdBWbk
+MiniMax-M2.1,Crux,0.36600000000000005,2025-12-23,MiniMax,China,,,0.028999999999999998,Roam,MiniMax,2025-12-22,,,,2026-03-06T20:47:49.000Z,MiniMax M2.1,recoAqoyZqRsoB6Kc
+kimi-k2-thinking,Terminus 2,0.35700000000000004,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",0.027999999999999997,Terminal Bench,Moonshot AI,2025-11-11,,,,2026-03-06T20:47:50.000Z,Kimi K2 Thinking,recM5WAExwpby8B8E
+kimi-k2-thinking, Terminus 2     ,0.357,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",0.028, Stanford  , Moonshot AI ,2025-11-11,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec2gS7bw3o4JruIn
+claude-haiku-4-5-20251001_unknown,Goose,0.355,2025-10-15,Anthropic,United States of America,,,0.028999999999999998,Block,Anthropic,2025-12-11,,,,2026-03-06T20:47:50.000Z,Claude Haiku 4.5,recYFtwkZx7UpcnlV
+gpt-5-2025-08-07_unknown,Terminus 2,0.35200000000000004,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.031000000000000003,Terminal Bench,OpenAI,2025-10-31,,,,2026-03-06T20:47:50.000Z,GPT-5,rec1Juuim3oNht6yT
+gpt-5-2025-08-07_medium, Terminus 2     ,0.352,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.031, Stanford  , OpenAI      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recbqMxsZI87hk2Zv
+claude-opus-4-1-20250805_unknown,Mini-SWE-Agent,0.35100000000000003,2025-08-05,Anthropic,United States of America,,,0.025,Princeton,Anthropic,2025-11-03,,,,2026-03-06T20:47:51.000Z,Claude Opus 4.1,recCL4Qu6Dd73ew1S
+claude-opus-4-1-20250805, Mini-SWE-Agent ,0.351,2025-08-05,Anthropic,United States of America,,,0.025, Princeton , Anthropic   ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec1kbUd5yf48B3vK
+claude-opus-4-1-20250805, Claude Code    ,0.348,2025-08-05,Anthropic,United States of America,,,0.029, Anthropic , Anthropic   ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recIh4lviUhDM9aux
+claude-opus-4-1-20250805_unknown,Claude Code,0.348,2025-08-05,Anthropic,United States of America,,,0.028999999999999998,Anthropic,Anthropic,2025-11-04,,,,2026-03-06T20:47:51.000Z,Claude Opus 4.1,recNswzdzYnWC135z
+gpt-5-mini-2025-08-07_unknown,spoox-m,0.348,2025-08-07,OpenAI,United States of America,,,0.027000000000000003,TUM,OpenAI,2025-12-24,,,,2026-03-06T20:50:49.000Z,GPT-5-Mini,rec3mqkLQJWWwGiiW
+gpt-5-mini-2025-08-07_unknown,spoox-o-m,0.348,2025-08-07,OpenAI,United States of America,,,0.027000000000000003,TUM,OpenAI,2025-12-24,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:53.000Z,GPT-5-Mini,recM8hndoEYq6Jlbf
+gpt-5-2025-08-07_medium, Mini-SWE-Agent ,0.339,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.029, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recN22yvosEoDYoao
+gpt-5-2025-08-07_unknown,Mini-SWE-Agent,0.33899999999999997,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.028999999999999998,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:47:52.000Z,GPT-5,recGz2hxdobFUq7NN
+glm-4.7,Terminus 2,0.334,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",0.027999999999999997,Terminal Bench,Z-AI,2026-01-28,,,,2026-03-06T20:47:52.000Z,GLM 4.7,rec1VQj4GryD6eaGI
+glm-4.7,Crux,0.33299999999999996,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",0.025,Roam,Z-AI,2026-02-08,,,,2026-03-06T20:47:52.000Z,GLM 4.7,recG5DDGxMEXJrTWs
+gemini-2.5-pro, Terminus 2     ,0.326,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.03, Stanford  , Google      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rect0YAzqrcZe6qxi
+gemini-2.5-pro,Terminus 2,0.326,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.03,Terminal Bench,Google,2025-10-31,,,,2026-03-06T20:47:52.000Z,Gemini 2.5 Pro,recy9TahZMrNgdLAU
+gpt-5-mini-2025-08-07_medium, Codex CLI      ,0.319,2025-08-07,OpenAI,United States of America,,,0.03, OpenAI    , OpenAI      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recNTuh2AD5nZEqvj
+gpt-5-mini-2025-08-07_unknown,Codex CLI,0.319,2025-08-07,OpenAI,United States of America,,,0.03,OpenAI,OpenAI,2025-11-04,,,,2026-03-06T20:50:49.000Z,GPT-5-Mini,recTuTGBX7vknCWdE
+, Terminus 2     ,0.3,,,,,,0.027, Stanford  , MiniMax     ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recbhNOUse5RLyy5B
+MiniMax-M2,Terminus 2,0.3,2025-10-27,MiniMax,China,,,0.027000000000000003,Terminal Bench,MiniMax,2025-11-01,,,,2026-03-06T20:47:53.000Z,MiniMax M2,recjRYjr04mfk7kN1
+claude-haiku-4-5-20251001, Mini-SWE-Agent ,0.298,2025-10-15,Anthropic,United States of America,,,0.025, Princeton , Anthropic   ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recjYJxgaZXKRW8nE
+claude-haiku-4-5-20251001_unknown,Mini-SWE-Agent,0.298,2025-10-15,Anthropic,United States of America,,,0.025,Princeton,Anthropic,2025-11-03,,,,2026-03-06T20:47:53.000Z,Claude Haiku 4.5,rec7okc2EI7syaupc
+gpt-5-mini-2025-08-07_medium, OpenHands      ,0.292,2025-08-07,OpenAI,United States of America,,,0.028, OpenHands , OpenAI      ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recqpHHQIxrdzWQ2e
+MiniMax-M2.1,Terminus 2,0.292,2025-12-23,MiniMax,China,,,0.028999999999999998,Terminal Bench,MiniMax,2025-12-23,,,,2026-03-06T20:47:53.000Z,MiniMax M2.1,rec4F7W15iJy3hjQh
+gpt-5-mini-2025-08-07_unknown,OpenHands,0.292,2025-08-07,OpenAI,United States of America,,,0.027999999999999997,OpenHands,OpenAI,2025-11-02,,,,2026-03-06T20:50:50.000Z,GPT-5-Mini,recZeMXA8WRW0RPTl
+claude-haiku-4-5-20251001_unknown,Terminus 2,0.28300000000000003,2025-10-15,Anthropic,United States of America,,,0.028999999999999998,Terminal Bench,Anthropic,2025-10-31,,,,2026-03-06T20:47:54.000Z,Claude Haiku 4.5,recTafF90BHib6N1S
+claude-haiku-4-5-20251001, Terminus 2     ,0.283,2025-10-15,Anthropic,United States of America,,,0.029, Stanford  , Anthropic   ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recBFoPPbvHLqQkIF
+Kimi-K2-Instruct, Terminus 2     ,0.278,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.025, Stanford  , Moonshot AI ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recxOKDiLuVBjbuwV
+Kimi-K2-Instruct,Terminus 2,0.278,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.025,Terminal Bench,Moonshot AI,2025-11-01,,,,2026-03-06T20:47:54.000Z,Kimi K2 Instruct,recE77NwwL0EUyZ8C
+claude-haiku-4-5-20251001, Claude Code    ,0.275,2025-10-15,Anthropic,United States of America,,,0.028, Anthropic , Anthropic   ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,reca6RNNkwrVNSBgQ
+claude-haiku-4-5-20251001_unknown,Claude Code,0.275,2025-10-15,Anthropic,United States of America,,,0.027999999999999997,Anthropic,Anthropic,2025-11-04,,,,2026-03-06T20:47:54.000Z,Claude Haiku 4.5,recPD1bwT2Dp0439M
+grok-4-0709, OpenHands      ,0.272,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.031, OpenHands , xAI         ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recSY6n1UG1WaG3BJ
+grok-4-0709,OpenHands,0.272,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.031000000000000003,OpenHands,xAI,2025-11-02,,,,2026-03-06T20:47:55.000Z,Grok 4,recItJ3vEdOIZoUy3
+Qwen3-Coder-480B-A35B-Instruct,Dakou Agent,0.272,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.026000000000000002,iflow,Alibaba,2025-12-28,,,,2026-03-06T20:47:55.000Z,Qwen 3 Coder 480B,recOAMwEh5spGhfvw
+Kimi-K2-Instruct, OpenHands      ,0.267,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.027, OpenHands , Moonshot AI ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recZ35cLEBZqtObMV
+Kimi-K2-Instruct,OpenHands,0.267,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.027000000000000003,OpenHands,Moonshot AI,2025-11-02,,,,2026-03-06T20:47:56.000Z,Kimi K2 Instruct,recrMHVuQYDBd8BrS
+gemini-2.5-pro, Mini-SWE-Agent ,0.261,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.025, Princeton , Google      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,reczBJ8FZoe7Ihdp1
+gemini-2.5-pro,Mini-SWE-Agent,0.261,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.025,Princeton,Google,2025-11-03,,,,2026-03-06T20:47:56.000Z,Gemini 2.5 Pro,recCkXuWxF2axfuj5
+grok-code-fast-1, Mini-SWE-Agent ,0.258,2025-08-28,,,,,0.026, Princeton , xAI         ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recJFHV7PmdXOIqt5
+grok-code-fast-1,Mini-SWE-Agent,0.258,2025-08-28,,,,,0.026000000000000002,Princeton,xAI,2025-11-03,,,,2026-03-06T20:47:56.000Z,Grok Code Fast 1,recNNY0F5gd3Q1Agm
+grok-4-0709, Mini-SWE-Agent ,0.254,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.029, Princeton , xAI         ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec2SbVuabwABv4Ag
+Qwen3-Coder-480B-A35B-Instruct, OpenHands      ,0.254,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.026, OpenHands , Alibaba     ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec6ayRIToMb9XXDx
+grok-4-0709,Mini-SWE-Agent,0.254,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.028999999999999998,Princeton,xAI,2025-11-03,,,,2026-03-06T20:47:56.000Z,Grok 4,recBtnN0lWlUnjstK
+Qwen3-Coder-480B-A35B-Instruct,OpenHands,0.254,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.026000000000000002,OpenHands,Alibaba,2025-11-02,,,,2026-03-06T20:47:57.000Z,Qwen 3 Coder 480B,recGuRUrIjf13P4BW
+qwen3.6-35b-a3b,little-coder,0.24600000000000002,2026-04-14,Alibaba,China,,,0.032,Itay Inbar,Qwen,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:53.000Z,Qwen3.6-35B-A3B,recl1nPnCE0RX3UaB
+glm-4.6, Terminus 2     ,0.245,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,6 FLOP/parameter/token * 32000000000 active parameters [very likely assumption - everything else is reported to be same as at GLM 4.5] * 23000000000000 tokens = 4.42e24 FLOP,0.024, Stanford  , Z.ai        ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recHvj6HO3PYp6H5Z
+glm-4.6,Terminus 2,0.245,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,6 FLOP/parameter/token * 32000000000 active parameters [very likely assumption - everything else is reported to be same as at GLM 4.5] * 23000000000000 tokens = 4.42e24 FLOP,0.024,Terminal Bench,Z.ai,2025-11-01,,,,2026-03-06T20:47:57.000Z,GLM 4.6,rec4pCN6lbxLbFW1G
+gpt-5-mini-2025-08-07_medium, Terminus 2     ,0.24,2025-08-07,OpenAI,United States of America,,,0.025, Stanford  , OpenAI      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recmHdcWhKi0CzznQ
+gpt-5-mini-2025-08-07_unknown,Terminus 2,0.24,2025-08-07,OpenAI,United States of America,,,0.025,Terminal Bench,OpenAI,2025-10-31,,,,2026-03-06T20:50:50.000Z,GPT-5-Mini,rec1GeHQE2AB6dCLS
+Qwen3-Coder-480B-A35B-Instruct, Terminus 2     ,0.239,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.028, Stanford  , Alibaba     ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recjc6bHW1H4vwXQE
+Qwen3-Coder-480B-A35B-Instruct,Terminus 2,0.239,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.027999999999999997,Terminal Bench,Alibaba,2025-11-01,,,,2026-03-06T20:47:57.000Z,Qwen 3 Coder 480B,recjHgjD6DEjBnG1l
+grok-4-0709, Terminus 2     ,0.231,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.029, Stanford  , xAI         ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec8wkritwB2vOG3E
+grok-4-0709,Terminus 2,0.231,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.028999999999999998,Terminal Bench,xAI,2025-10-31,,,,2026-03-06T20:47:58.000Z,Grok 4,recEfZ44svjk4Sx9h
+gpt-5-mini-2025-08-07_medium, Mini-SWE-Agent ,0.222,2025-08-07,OpenAI,United States of America,,,0.026, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recnD7LCzSjD2bMOB
+gpt-5-mini-2025-08-07_unknown,Mini-SWE-Agent,0.222,2025-08-07,OpenAI,United States of America,,,0.026000000000000002,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:50:50.000Z,GPT-5-Mini,rec27cVB8sQ24sFVx
+gpt-5-nano-2025-08-07_unknown,spoox-o-m,0.218,2025-08-07,OpenAI,United States of America,,,0.027999999999999997,TUM,OpenAI,2026-05-15,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-05-28T16:41:53.000Z,GPT-5-Nano,recrRurMbK55MKkEl
+gemini-2.5-pro, Gemini CLI     ,0.196,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.029, Google    , Google      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec263O7vZj3zvozA
+gemini-2.5-pro,Gemini CLI,0.196,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.028999999999999998,Google,Google,2025-11-04,,,,2026-03-06T20:47:58.000Z,Gemini 2.5 Pro,recWtJcU6RNCsTkXu
+gpt-oss-120b, Terminus 2     ,0.187,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.027, Stanford  , OpenAI      ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recQOII1RUaWlRx1a
+gpt-oss-120b_unknown,Terminus 2,0.187,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.027000000000000003,Terminal Bench,OpenAI,2025-11-01,,,,2026-03-06T20:47:58.000Z,GPT-OSS-120B,recfG0w8YzGI925GU
+gemini-2.5-flash-preview-09-2025, Mini-SWE-Agent ,0.171,2025-09-25,Google DeepMind,United States of America,,,0.025, Princeton , Google      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec5CS4eSqb3DAWFd
+gemini-2.5-flash,Mini-SWE-Agent,0.171,2025-06-17,Google DeepMind,United States of America,,,0.025,Princeton,Google,2025-11-03,,,,2026-03-06T20:47:58.000Z,Gemini 2.5 Flash,rec0Cj5jRitxcYSEk
+gemini-2.5-flash-preview-09-2025, Terminus 2     ,0.169,2025-09-25,Google DeepMind,United States of America,,,0.024, Stanford  , Google      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recPFqIRxpwoxFWNM
+gemini-2.5-flash,Terminus 2,0.16899999999999998,2025-06-17,Google DeepMind,United States of America,,,0.024,Terminal Bench,Google,2025-10-31,,,,2026-03-06T20:47:59.000Z,Gemini 2.5 Flash,recDRkAqIJ73QPIlZ
+gemini-2.5-pro, OpenHands      ,0.164,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.028, OpenHands , Google      ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recHlyAnoUE2kdSdW
+gemini-2.5-flash-preview-09-2025, OpenHands      ,0.164,2025-09-25,Google DeepMind,United States of America,,,0.024, OpenHands , Google      ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recqa4Q4kJzmyqp3p
+gemini-2.5-pro,OpenHands,0.16399999999999998,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.027999999999999997,OpenHands,Google,2025-11-02,,,,2026-03-06T20:47:59.000Z,Gemini 2.5 Pro,recObzKzzxSqsVaZU
+gemini-2.5-flash,OpenHands,0.16399999999999998,2025-06-17,Google DeepMind,United States of America,,,0.024,OpenHands,Google,2025-11-02,,,,2026-03-06T20:47:59.000Z,Gemini 2.5 Flash,recU2DOtVn4N0Dais
+gemini-2.5-flash-preview-09-2025, Gemini CLI     ,0.154,2025-09-25,Google DeepMind,United States of America,,,0.023, Google    , Google      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recr9kiUX6cDggDYx
+gemini-2.5-flash,Gemini CLI,0.154,2025-06-17,Google DeepMind,United States of America,,,0.023,Google,Google,2025-11-04,,,,2026-03-06T20:48:00.000Z,Gemini 2.5 Flash,reco0rRGUbz2Jmh98
+grok-code-fast-1, Terminus 2     ,0.142,2025-08-28,,,,,0.025, Stanford  , xAI         ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rech8rVcJ0mZR84p6
+gpt-oss-120b, Mini-SWE-Agent ,0.142,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.023, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,reczhxfX0o9hQLBlA
+gpt-oss-120b_unknown,Mini-SWE-Agent,0.142,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.023,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:48:00.000Z,GPT-OSS-120B,rec7kV7Cz3bwsrDiB
+grok-code-fast-1,Terminus 2,0.142,2025-08-28,,,,,0.025,Terminal Bench,xAI,2025-10-31,,,,2026-03-06T20:48:00.000Z,Grok Code Fast 1,recBxL7VWpbeKKA30
+claude-haiku-4-5-20251001, OpenHands      ,0.139,2025-10-15,Anthropic,United States of America,,,0.027, OpenHands , Anthropic   ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec2PAXFlaUXgbf7W
+claude-haiku-4-5-20251001_unknown,OpenHands,0.139,2025-10-15,Anthropic,United States of America,,,0.027000000000000003,OpenHands,Anthropic,2025-11-02,,,,2026-03-06T20:48:00.000Z,Claude Haiku 4.5,recjGQE5ZmhLlLmjS
+gpt-5-nano-2025-08-07_medium, Codex CLI      ,0.115,2025-08-07,OpenAI,United States of America,,,0.023, OpenAI    , OpenAI      ,2025-11-04,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recPmu1Q5fQdfQ0Qg
+gpt-5-nano-2025-08-07_unknown,Codex CLI,0.115,2025-08-07,OpenAI,United States of America,,,0.023,OpenAI,OpenAI,2025-11-04,,,,2026-03-06T20:48:01.000Z,GPT-5-Nano,rec1pKVvhlreqGD54
+gpt-5-nano-2025-08-07_medium, OpenHands      ,0.099,2025-08-07,OpenAI,United States of America,,,0.021, OpenHands , OpenAI      ,2025-11-02,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,reckUrafyTwxe61sP
+gpt-5-nano-2025-08-07_unknown,OpenHands,0.099,2025-08-07,OpenAI,United States of America,,,0.021,OpenHands,OpenAI,2025-11-02,,,,2026-03-06T20:48:01.000Z,GPT-5-Nano,recSn7LNDEYNombkC
+qwen3.5-9B,little-coder,0.092,2026-02-24,Alibaba,China,,,0.024,Itay Inbar,Qwen,2026-05-14,,https://www.tbench.ai/leaderboard/terminal-bench/2.0,,2026-06-22T17:02:04.000Z,Qwen3.5-9B,recn5iAj0XJsNdjeG
+gpt-5-nano-2025-08-07_medium, Terminus 2     ,0.079,2025-08-07,OpenAI,United States of America,,,0.019, Stanford  , OpenAI      ,2025-10-31,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec1PtzzU1cAULZYv
+gpt-5-nano-2025-08-07_unknown,Terminus 2,0.079,2025-08-07,OpenAI,United States of America,,,0.019,Terminal Bench,OpenAI,2025-10-31,,,,2026-03-06T20:48:01.000Z,GPT-5-Nano,recmaThICuBZ4f3Um
+gpt-5-nano-2025-08-07_medium, Mini-SWE-Agent ,0.07,2025-08-07,OpenAI,United States of America,,,0.019, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,rec9SLPT2R9rByofO
+gpt-5-nano-2025-08-07_unknown,Mini-SWE-Agent,0.07,2025-08-07,OpenAI,United States of America,,,0.019,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:48:01.000Z,GPT-5-Nano,recuhoyHUTRuz9tSy
+gpt-oss-20b, Mini-SWE-Agent ,0.034,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.014, Princeton , OpenAI      ,2025-11-03,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recXJetcV0C5gLRl3
+gpt-oss-20b_unknown,Mini-SWE-Agent,0.034,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.013999999999999999,Princeton,OpenAI,2025-11-03,,,,2026-03-06T20:48:02.000Z,GPT-OSS-20B,recpGfJBPRXbdXmbV
+gpt-oss-20b_unknown,Terminus 2,0.031000000000000003,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.015,Terminal Bench,OpenAI,2025-11-01,,,,2026-03-06T20:48:02.000Z,GPT-OSS-20B,recOw2KPlGf4Z8s97
+gpt-oss-20b, Terminus 2     ,0.031,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.015, Stanford  , OpenAI      ,2025-11-01,,Terminal-Bench v2 Leaderboard,https://www.tbench.ai/leaderboard/terminal-bench/2.0,2025-11-18T19:32:42.000Z,,recaaiHI5eYtINDFb

@@ -460,7 +460,7 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
 <section class="slide statement" id="s-resource">
   <div class="stack">
     <div class="big" style="font-size:5.4cqh;">A new kind of resource:<br>general-purpose intelligence,<br>bought by the token</div>
-    <div class="attr" style="margin-top:2cqh;">(somewhat)</div>
+    <div class="attr" style="margin-top:2cqh;">(kind of)</div>
   </div>
 </section>
 
@@ -640,16 +640,16 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
   <div class="frametitle">Closing the loop<span class="rule"></span></div>
   <div class="body">
     <div class="cols" style="align-items:center;">
-      <div class="tbox" style="text-align:center;"><div class="h">Chat</div><p>open loop</p><p class="bad">errors compound</p></div>
+      <div class="tbox" style="text-align:center;"><div class="h">Chat</div><p>closed loop, through <em>you</em></p><p class="bad">you cut, paste, re-prompt</p></div>
       <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto;">
-        <div class="tiny muted">tool results feed back</div>
+        <div class="tiny muted">same loop, no human relay</div>
         <div class="flowarrow">&rarr;</div>
       </div>
-      <div class="tbox fill" style="text-align:center;"><div class="h">Agent</div><p>closed loop</p><p class="good">errors correct</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">Agent</div><p>closed loop, through tools</p><p class="good">results feed back automatically</p></div>
     </div>
     <div class="stack" style="margin-top:3.4cqh;">
-      <p>A failing test, a stack trace, a wrong number: each becomes the next correction.</p>
-      <p class="teal b" style="text-align:center;font-size:3.4cqh;">Feedback stabilises an otherwise unstable system</p>
+      <p>Chat is a feedback loop too &mdash; you are the wire. A failing test, a stack trace, a wrong number: each flows straight back into the context.</p>
+      <p class="teal b" style="text-align:center;font-size:3.4cqh;">The agent closes the same loop faster, with no human cutting and pasting</p>
     </div>
   </div>
 </section>
@@ -690,22 +690,6 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
   </div>
 </section>
 
-<!-- 29. Adversarial verification =========================== -->
-<section class="slide" id="s-adversarial">
-  <div class="frametitle">Adversarial verification<span class="rule"></span></div>
-  <div class="body center">
-    <div class="cols" style="width:100%;align-items:center;">
-      <div class="tbox fill" style="text-align:center;"><div class="h">Prover</div><p>constructs</p></div>
-      <div class="flowarrow">&rarr;</div>
-      <div class="tbox fill" style="text-align:center;"><div class="h">Verifier</div><p>attacks</p></div>
-      <div class="flowarrow">&rarr;</div>
-      <div class="tbox teal" style="text-align:center;"><div class="h">Formaliser</div><p>Lean proof</p></div>
-    </div>
-    <p class="teal b" style="text-align:center;font-size:3.4cqh;margin-top:4cqh;">Natural language is an inadequate verification mechanism</p>
-    <p class="small muted" style="text-align:center;">Formal proof = a compiler for mathematics</p>
-  </div>
-</section>
-
 <!-- 30. DIVIDER: live demo ================================= -->
 <section class="slide divider" id="s-div5">
   <div><div class="kicker">Part Five</div><h2>Live demo</h2></div>
@@ -717,7 +701,6 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
   <div class="stack">
     <div class="big" style="font-size:8cqh;">Let's try something</div>
     <div class="sub">(no promises)</div>
-    <div class="attr" style="margin-top:2cqh;">The prompt is pre-written; paste it into Claude Code.</div>
   </div>
 </section>
 
@@ -751,6 +734,20 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
     <span class="synthcap" style="display:inline;">Epoch AI Benchmarking Hub, CC-BY, snapshot 2026-07-12</span></div>
 </section>
 
+<!-- 38. Renaissance expert ============================== -->
+<section class="slide" id="s-renaissance">
+  <div class="frametitle">The renaissance expert<span class="rule"></span></div>
+  <div class="body center">
+    <div class="cols" style="width:100%;align-items:center;">
+      <div class="tbox"><div class="h">Old cost structure</div><p>Years of apprenticeship</p><p>Deep, slow immersion</p><p>One domain per career</p></div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto;">
+        <div class="tiny muted">agentic AI</div><div class="flowarrow">&rarr;</div></div>
+      <div class="tbox fill"><div class="h">New cost structure</div><p>Hours to operational competence</p><p>Implementation is nearly free</p><p>Portfolio across domains</p></div>
+    </div>
+    <p class="teal b" style="text-align:center;font-size:3.2cqh;margin-top:3.4cqh;">When execution is commoditized, the bottleneck shifts to problem formulation</p>
+  </div>
+</section>
+
 <!-- 36. DIVIDER: harder problem ========================== -->
 <section class="slide divider" id="s-div7">
   <div><div class="kicker">Part Seven</div><h2>The harder problem</h2></div>
@@ -771,17 +768,49 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
   </div>
 </section>
 
-<!-- 38. Renaissance expert ============================== -->
-<section class="slide" id="s-renaissance">
-  <div class="frametitle">The renaissance expert<span class="rule"></span></div>
+<!-- 29. Adversarial verification =========================== -->
+<section class="slide" id="s-adversarial">
+  <div class="frametitle">Adversarial verification<span class="rule"></span></div>
   <div class="body center">
     <div class="cols" style="width:100%;align-items:center;">
-      <div class="tbox"><div class="h">Old cost structure</div><p>Years of apprenticeship</p><p>Deep, slow immersion</p><p>One domain per career</p></div>
-      <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto;">
-        <div class="tiny muted">agentic AI</div><div class="flowarrow">&rarr;</div></div>
-      <div class="tbox fill"><div class="h">New cost structure</div><p>Hours to operational competence</p><p>Implementation is nearly free</p><p>Portfolio across domains</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">Prover</div><p>constructs</p></div>
+      <div class="flowarrow">&rarr;</div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">Verifier</div><p>attacks</p></div>
+      <div class="flowarrow">&rarr;</div>
+      <div class="tbox teal" style="text-align:center;"><div class="h">Formaliser</div><p>Lean proof</p></div>
     </div>
-    <p class="teal b" style="text-align:center;font-size:3.2cqh;margin-top:3.4cqh;">When execution is commoditized, the bottleneck shifts to problem formulation</p>
+    <p class="teal b" style="text-align:center;font-size:3.4cqh;margin-top:4cqh;">Natural language is an inadequate verification mechanism</p>
+    <p class="small muted" style="text-align:center;">Formal proof = a compiler for mathematics</p>
+  </div>
+</section>
+
+<!-- Vibefeld 1: molecular pedantry -->
+<section class="slide" id="s-vibefeld">
+  <div class="frametitle">Vibefeld: molecular pedantry<span class="rule"></span></div>
+  <div class="body center">
+    <div class="cols" style="width:100%;align-items:center;">
+      <div class="tbox" style="text-align:center;"><div class="h">Claim 1</div><p>the theorem</p></div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto;">
+        <div class="tiny muted">decompose</div><div class="flowarrow">&rarr;</div></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">1.1, 1.2, 1.1.1, &hellip;</div><p>atomic steps</p></div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto;">
+        <div class="tiny muted">challenge</div><div class="flowarrow">&rarr;</div></div>
+      <div class="tbox teal" style="text-align:center;"><div class="h">Validated</div><p>survived attack</p></div>
+    </div>
+    <p style="margin-top:3cqh;">A natural-language proof, decomposed into a ledger of tiny numbered claims; each must survive adversarial challenge <em>on its own</em>.</p>
+    <p class="teal b" style="text-align:center;font-size:3.4cqh;">A hallucinated proof has nowhere to hide</p>
+    <p class="small muted" style="text-align:center;">github.com/tobiasosborne/vibefeld</p>
+  </div>
+</section>
+
+<!-- Vibefeld 2: how trust accumulates -->
+<section class="slide" id="s-vibefeld2">
+  <div class="frametitle">Vibefeld: how trust accumulates<span class="rule"></span></div>
+  <div class="body stack">
+    <p><span class="b">Provers propose</span>, <span class="b">verifiers attack</span>: a claim is accepted only when every challenge is resolved.</p>
+    <p>Every proposal, challenge, and resolution lands in an append-only ledger: a full audit trail.</p>
+    <p>Assumptions stay visible: an <em>admitted</em> claim taints everything that depends on it.</p>
+    <p class="teal b" style="text-align:center;font-size:3.4cqh;margin-top:2cqh;">Provers convince. Verifiers attack. Truth emerges.</p>
   </div>
 </section>
 
@@ -864,6 +893,61 @@ input[type=range]{width:100%;height:2.6cqh;accent-color:var(--cyan);cursor:point
       <div class="tbox fill" style="text-align:center;"><div class="h">Pi via OpenRouter</div><p>open-weight option</p><p class="tiny muted">no vendor lock-in</p></div>
     </div>
     <p class="teal b" style="text-align:center;font-size:4cqh;margin-top:4cqh;">Bring a real research problem, not a toy</p>
+  </div>
+</section>
+
+<!-- ============ BACKUP: the economics objection ============ -->
+<!-- Source: ~/Projects/llm-economics/REPORT.md (July 2026) -->
+
+<!-- B0. Backup divider -->
+<section class="slide divider" id="s-bdiv">
+  <div><div class="kicker">Additional slides</div><h2>But don't they lose money?</h2></div>
+  <div class="num">B</div>
+</section>
+
+<!-- B1. Triangulating cost -->
+<section class="slide" id="s-becon-cost">
+  <div class="frametitle">Triangulating the true cost of inference<span class="rule"></span></div>
+  <div class="body">
+    <p class="small" style="margin-bottom:2.6cqh;">Many independent, differently-biased estimators, combined in log-space:
+      <span class="muted">energy physics (lower bound) &middot; GPU rental + throughput &middot; open-weight market prices (upper bound) &middot; DeepSeek's production disclosure &middot; first-principles models (Epoch&nbsp;AI) &middot; leaked P&amp;Ls</span></p>
+    <div class="cols g3 build" data-step="1" style="width:100%;">
+      <div class="tbox fill" style="text-align:center;"><div class="h">$0.35 / M</div><p>DeepSeek-V3 class<br>37B active, MLA</p><p class="tiny muted">68% CI $0.27&ndash;0.46</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">$2.1 / M</div><p>frontier workhorse<br>GPT-5 / Sonnet class</p><p class="tiny muted">68% CI $1.2&ndash;3.7</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">$8.5 / M</div><p>frontier flagship<br>Opus class</p><p class="tiny muted">68% CI $3.5&ndash;21</p></div>
+    </div>
+    <p class="teal b build" data-step="2" style="text-align:center;font-size:3.4cqh;margin-top:3.6cqh;">A typical chat query costs the provider ~0.1 cents</p>
+    <p class="small muted build" data-step="2" style="text-align:center;">folklore is off ~10x on energy (0.3&thinsp;Wh measured vs. the &ldquo;3&thinsp;Wh&rdquo; meme), ~100x on cost</p>
+  </div>
+</section>
+
+<!-- B2. Margins -->
+<section class="slide" id="s-becon-margin">
+  <div class="frametitle">Prices vs. costs: the margins are real<span class="rule"></span></div>
+  <div class="body">
+    <div class="cols g3" style="width:100%;">
+      <div class="tbox fill" style="text-align:center;"><div class="h">86%</div><p>Claude Sonnet class<br>$15 / M output</p><p class="tiny muted">[57&ndash;95%], P(&gt;0) &gt; 99.9%</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">79%</div><p>GPT-5 class<br>$10 / M output</p><p class="tiny muted">[35&ndash;93%], P(&gt;0) = 99.7%</p></div>
+      <div class="tbox fill" style="text-align:center;"><div class="h">84%</div><p>DeepSeek R1, $2.19 / M<br>self-disclosed</p><p class="tiny muted">&ldquo;545% cost-profit ratio&rdquo;</p></div>
+    </div>
+    <div class="stack build" data-step="1" style="margin-top:3.4cqh;">
+      <p class="small"><span class="teal b">Leaked P&amp;Ls agree:</span> <span class="muted">Anthropic gross margin &minus;94% (2024) &rarr; mid-60s% (Q1 2026), first operating profit Q2 2026; OpenAI 28% &rarr; 43% while free users consume ~half the inference bill</span></p>
+    </div>
+    <p class="teal b build" data-step="2" style="text-align:center;font-size:3cqh;margin-top:3cqh;">&ldquo;We're profitable on inference.&rdquo; &mdash; Altman, Aug 2025 &nbsp;&nbsp; &ldquo;&gt;50%&rdquo; &mdash; Amodei, Feb 2026</p>
+  </div>
+</section>
+
+<!-- B3. The honest fine print -->
+<section class="slide" id="s-becon-caveats">
+  <div class="frametitle">The honest fine print<span class="rule"></span></div>
+  <div class="body stack">
+    <p class="build" data-step="1"><span class="teal b">Subscriptions:</span> the median $20 subscriber costs <em>cents</em> per month; &lt;5% hit rate caps<br>
+      <span class="small muted">$100&ndash;200 power tiers are bimodal (Altman, Jan 2025: Pro lost money) &mdash; rate limits cap the tail</span></p>
+    <p class="build" data-step="2"><span class="teal b">What survives on the skeptic side:</span><br>
+      <span class="small muted">long-context cost floors &middot; reasoning models burn 10&ndash;50x tokens per query &middot; GPU rents <em>rose</em> in 2026</span></p>
+    <p class="build" data-step="3"><span class="teal b">The losses are real, but discretionary:</span><br>
+      <span class="small muted">OpenAI 2025 operating loss ~$21B = R&amp;D $19B + training ~$8B, on <em>positive</em> serving margins</span></p>
+    <p class="teal b build" data-step="4" style="text-align:center;font-size:3.2cqh;margin-top:1.5cqh;">Not failing to make money &mdash; choosing to reinvest more than they earn</p>
   </div>
 </section>
 
@@ -1117,18 +1201,22 @@ document.getElementById('stage').addEventListener('click', e => {
     <defs>
       <marker id="ah" markerWidth="9" markerHeight="9" refX="6.5" refY="3.2"
         orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#335B74"/></marker>
+      <marker id="ahc" markerWidth="9" markerHeight="9" refX="6.5" refY="3.2"
+        orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#1CADE4"/></marker>
     </defs>
-    <!-- edges (rounded loop path the pulse rides) -->
-    <path id="loopPath" fill="none" stroke="#c9d3d8" stroke-width="2"
-      d="M110,66 L110,150 L110,150 L200,205 L290,150 L290,235 L200,290 L110,205 Z" opacity="0"/>
-    <!-- explicit arrows -->
-    <line x1="110" y1="66" x2="110" y2="150" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
-    <line x1="150" y1="188" x2="250" y2="188" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
-    <line x1="290" y1="216" x2="290" y2="236" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
-    <path d="M250,268 Q160,300 118,214" fill="none" stroke="#335B74" stroke-width="2.4"
+
+    <!-- Sys -> LLM (down, offset left) -->
+    <line x1="95" y1="70" x2="95" y2="146" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
+    <!-- LLM -> Parse (response) -->
+    <line x1="167" y1="172" x2="229" y2="172" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
+    <!-- Parse -> Exec (call) -->
+    <line x1="295" y1="194" x2="295" y2="230" stroke="#335B74" stroke-width="2.4" marker-end="url(#ah)"/>
+    <!-- Exec -> LLM (results, curved return) -->
+    <path d="M233,262 Q140,302 106,198" fill="none" stroke="#335B74" stroke-width="2.4"
       marker-end="url(#ah)"/>
-    <path d="M130,60 Q210,30 285,150" fill="none" stroke="#1CADE4" stroke-width="2"
-      stroke-dasharray="5 5" marker-end="url(#ah)" opacity="0"/>
+    <!-- LLM -> Sys (append, dashed cyan, offset right) -->
+    <line x1="125" y1="150" x2="125" y2="72" stroke="#1CADE4" stroke-width="2"
+      stroke-dasharray="5 5" marker-end="url(#ahc)"/>
 
     <!-- nodes -->
     <g id="nSys"><rect x="30" y="34" width="160" height="34" rx="8" fill="#335B74"/>
@@ -1141,13 +1229,15 @@ document.getElementById('stage').addEventListener('click', e => {
     <g id="nExec"><rect x="235" y="236" width="120" height="40" rx="8" fill="#fff" stroke="#335B74" stroke-width="1.6"/>
       <text x="295" y="260" fill="#335B74" font-size="13" text-anchor="middle" font-family="system-ui">Execute tools</text></g>
 
-    <text x="200" y="182" fill="#5b6b74" font-size="11" text-anchor="middle" font-family="system-ui">response</text>
-    <text x="305" y="228" fill="#5b6b74" font-size="11" text-anchor="middle" font-family="system-ui">call</text>
-    <text x="150" y="256" fill="#5b6b74" font-size="11" text-anchor="middle" font-family="system-ui">results</text>
+    <!-- edge labels -->
+    <text x="198" y="163" fill="#5b6b74" font-size="11" text-anchor="middle" font-family="system-ui">response</text>
+    <text x="313" y="215" fill="#5b6b74" font-size="11" text-anchor="start" font-family="system-ui">call</text>
+    <text x="148" y="284" fill="#5b6b74" font-size="11" text-anchor="middle" font-family="system-ui">results</text>
+    <text x="133" y="112" fill="#1CADE4" font-size="11" text-anchor="start" font-family="system-ui">append</text>
 
     <circle id="pulse" r="7" fill="#1CADE4">
-      <animateMotion dur="4s" repeatCount="indefinite" rotate="0"
-        path="M110,68 L110,150 L200,188 L290,150 L290,236 L200,270 L110,192 Z"/>
+      <animateMotion dur="5s" repeatCount="indefinite" rotate="0"
+        path="M95,70 L95,148 L110,172 L229,172 L295,172 L295,232 Q140,302 110,196 L125,148 L125,70"/>
     </circle>
   </svg>`;
   document.getElementById('agentDiag').innerHTML = svg;

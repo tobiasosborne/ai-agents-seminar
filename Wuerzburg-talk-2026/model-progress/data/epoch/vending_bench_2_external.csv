@@ -1,0 +1,70 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,id
+gpt-5.5_unknown,10626.963333333335,2026-04-23,OpenAI,United States of America,,,GPT-5.5,recg2odq5qkknQWX6
+glm-5.2_unknown,8313.778333333335,2026-06-16,Z.ai (Zhipu AI),China,,,GLM-5.2,recFnUWa6JKxlpxJK
+kimi-k2.6,6204.570000000001,2026-04-20,Moonshot,China,,,Kimi K2.6,recHNRpMfTLV74TOv
+gpt-5.3-codex,5940.124000000002,2026-02-05,OpenAI,United States of America,,,GPT-5.3-Codex,recEwBQDbfSWm1MVs
+claude-opus-4-7_unknown,5826.738333333332,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7,rec63xBZ1e3RaKLVW
+claude-opus-4-8_unknown,5787.428,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 - High,recCnok9JvFk9Yosw
+claude-fable-5_high,5680.258,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 - High,recpV3xliDr5Mm3RV
+claude-sonnet-4-6_unknown,5638.93,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6,rec1wYB2vM7FcJJFR
+glm-5.1,5634.406,2026-04-07,Z.ai (Zhipu AI),China,,,GLM-5.1,reccQA2Me2YFH2uoo
+gemini-3.5-flash_unknown,5396.418333333334,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash,rec5vYUb0zF2R4mUz
+qwen3.6-plus,5114.872000000001,2026-03-31,Alibaba,China,,,Qwen 3.6 Plus,recPQSBvNZDIIMmiC
+kimi-k2.7-code,5082.936,2026-06-12,Moonshot,China,,,Kimi K2.7 Code,rec3kjMcwIY0FFwTU
+claude-fable-5_max,4966.639999999998,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 - Max,recueSmV7urc8MR6w
+grok-4-20,4662.846666666667,2026-02-17,xAI,United States of America,,,Grok 4.20,recoe0ewL0dGWOxew
+claude-fable-5,4529.944000000001,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 - None,recDIKtviJ5CZFZss
+glm-5,4432.122000000001,2026-02-11,Z.ai (Zhipu AI),China,,,GLM-5,recN461q2BojFEYnc
+qwen3.6-max-preview,4254.1866666666665,2026-04-20,Alibaba,China,,,Qwen 3.6 Max,recbsgfANkzVvQKHR
+claude-opus-4-6_unknown,4053.335000000002,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6,recQ2Z14OWWnwOYgc
+gemini-3.1-pro-preview-customtools,3774.254,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro Custom Tools,recqpFFE7xXXe4Fs4
+gemini-3-flash-preview,3436.086000000003,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash,recmbjpHUnRtEAE3N
+deepseek-v4-pro_unknown,3284.519999999999,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,Deepseek V4 Pro,recDV2KJb9lEWnMRy
+claude-opus-4-8_max,2992.344,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 - Max,recfkcn8Cobr5tTyM
+glm-4.7,2376.816,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",GLM-4.7,recI3WrdCbyuxFzet
+MiniMax-M3,2157.7716666666665,2026-06-01,MiniMax,China,,,MiniMax-M3,recLnH79xdVpRgeFP
+gpt-5.4-2026-03-05_unknown,2157.719999999999,2026-03-05,OpenAI,United States of America,,,GPT-5.4,recJ1F0E7NEV8ifLR
+claude-sonnet-4-5-20250929_unknown,2125.1074999999973,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5,rechxcfDDQebfQxJh
+claude-haiku-4-5-20251001_unknown,1700.512,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5,recJMmB8L2R2uCKOe
+gemini-3-pro-preview,1235.1600000000005,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro,reck4G5LvBjIvc9sI
+kimi-k2.5,1198.4579999999999,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,recgtFidMQMV7uDk8
+claude-opus-4-5-20251101_unknown,1040.2833333333322,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5,recxXzuUEqT3XSx5J
+DeepSeek-V3.2-Exp_unknown,1034.0040000000001,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek-V3.2,recPR6i6sW30btXAG
+gemini-3.1-pro-preview,911.2139999999997,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro,rechXSwF5OJwdRGSH
+gemini-2.5-pro,772.5449999999981,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro,reckWpebEbdZnRciG
+grok-4-1-fast-reasoning,723.106,2025-11-19,xAI,United States of America,,,Grok 4.1 Fast,rec2lIHWKPMPdPuC8
+gpt-5.2-2025-12-11_unknown,618.8966666666676,2025-12-11,OpenAI,United States of America,,,GPT-5.2,recmFLuBVs82r3Qti
+gpt-5.1-2025-11-13_unknown,477.0925000000003,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT-5.1,recagoHf0txa1WAaK
+qwen3.5-flash,462.68500000000023,2026-02-25,Alibaba,China,,,Qwen 3.5 35B A3B,recS5F2c6cB3C72Fg
+gemini-2.5-flash,280.75200000000007,2025-06-17,Google DeepMind,United States of America,,,Gemini 2.5 Flash,recDbBoGij5RJMMUs
+qwen3.5-27B,201.97599999999994,2026-02-24,Alibaba,China,,,Qwen 3.5 27B,recGMz3TCXWvSvJQ3
+MiniMax-M2,160.5959999999999,2025-10-27,MiniMax,China,,,MiniMax-M2,recpPBFKwqSc8Pg0L
+qwen3-max-2025-09-23,71.56500000000018,2025-09-24,Alibaba,China,1.512e+25,"6ND with:
+36T tokens is taken from the qwen3 technical report
+70B active params is based on it having >1T params, and the architectures of Qwen3-235B-A22B and Qwen3-Coder-480B-A35B",Qwen3 Max,reccxfT5gQPzlmTgk
+grok-4-3,35.26166666666665,2026-04-17,xAI,United States of America,,,Grok 4.3,recWYJGQWpejO0gZW
+qwen3.5-plus,0.5440000000000417,2026-02-16,Alibaba,China,,,Qwen 3.5 Plus,recqI1CnWzPdpjA0C
+Qwen3-235B-A22B-Thinking-2507,-11.340000000000078,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,Qwen3 235B A22B Thinking,recnw8f4F4o6CYFuK
+gpt-oss-120b,-21.532000000000053,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",GPT-OSS-120b,recnj9dBUFHBxMRTC
+MiniMax-M2.5,-23.15999999999999,2026-02-12,MiniMax,China,,,MiniMax-M2.5,recRGKGULrMrYYJr0
+gpt-5-mini-2025-08-07_unknown,-31.18399999999995,2025-08-07,OpenAI,United States of America,,,GPT-5 mini,recrSY56pcQ9ZdRxY

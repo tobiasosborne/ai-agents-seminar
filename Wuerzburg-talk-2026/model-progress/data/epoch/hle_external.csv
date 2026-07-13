@@ -1,0 +1,88 @@
+Model version,Accuracy,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Accuracy Standard Error,Calibration Error,Notes,id
+gemini-3.1-pro-preview,0.4644,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro Preview (thinking high),0.0196,51,,recuBCQLkHd2mOtrr
+gpt-5.4-pro-2026-03-05_unknown,0.4432,2026-03-05,OpenAI,United States of America,,,GPT-5.4 Pro,0.0195,38,,recreMdBwgtJ8NoJL
+muse-spark,0.4056,2026-04-08,Meta AI,United States of America,,,Muse Spark,0.0192,50,,recvslFSn9YBYB4kI
+gemini-3-pro-preview,0.37520000000000003,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,gemini-3-pro-preview,0.019,57,,recXvAi7z6kYifmzb
+gpt-5.4-2026-03-05_xhigh,0.3624,2026-03-05,OpenAI,United States of America,,,gpt-5.4-2026-03-05 (xhigh thinking),0.0188,42,,reczymcIUNR10O9vo
+claude-opus-4-7_unknown,0.362,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7,0.0188,47,,recVgBx1IpXMKMIDN
+claude-opus-4-6_max,0.3444,2026-02-05,Anthropic,United States of America,,,claude-opus-4-6-thinking-max,0.018600000000000002,46,,recRaT3ySEJuEiBMU
+gpt-5-pro-2025-10-06_unknown,0.3164,2025-10-07,OpenAI,United States of America,,,gpt-5-pro-2025-10-06,0.0182,49,,recsQ0oM0i71F5lGd
+gpt-5.2-2025-12-11_unknown,0.278,2025-12-11,OpenAI,United States of America,,,gpt-5.2-2025-12-11,0.0176,45,,recQxZu8DefCNl6dq
+gpt-5-2025-08-07_high,0.2532,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",gpt-5-2025-08-07,0.017,50,,recWhEbJqDmLaXyxu
+gpt-5-2025-08-07_unknown,0.2532,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",gpt-5-2025-08-07,0.017,50,,rec0Au5y8wm5UM7QY
+claude-opus-4-5-20251101_unknown,0.252,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,claude-opus-4-5-20251101-thinking,0.017,55,,recfMdmXCFFRUCxHi
+kimi-k2.5,0.24370000000000003,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",kimi-k2.5,0.0181,67,,recj1DEYXMJzvbCpt
+gpt-5.1-2025-11-13_unknown,0.2368,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",gpt-5.1-thinking,0.0167,55,,recZGWz9x8AupIcR3
+gemini-2.5-pro-preview-06-05,0.2164,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,gemini-2.5-pro-preview-06-05,0.0161,72,,recuifDMJFbDLs8xq
+o3-2025-04-16_high,0.20320000000000002,2025-04-16,OpenAI,United States of America,,,o3 (high) (April 2025),0.0158,34,,recAokfZ8Ah2IzhPy
+gpt-5-mini-2025-08-07_unknown,0.19440000000000002,2025-08-07,OpenAI,United States of America,,,gpt-5-mini-2025-08-07,0.015500000000000002,65,,reczvkyjanol6Vn9f
+o3-2025-04-16_medium,0.192,2025-04-16,OpenAI,United States of America,,,o3 (medium) (April 2025),0.0154,39,,recGb81W0KGwOPFN2
+claude-opus-4-6,0.19,2026-02-05,Anthropic,United States of America,,,claude-opus-4-6 (Non-Thinking),0.0154,44,,recYxQkYiHyzMnn5w
+gemini-2.5-pro-exp-03-25,0.1816,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro Experimental (March 2025),0.0151,71,,recwvcOM1X2e9xinL
+o4-mini-2025-04-16_high,0.1808,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (high) (April 2025),0.0151,57,,recGUVrntyz0xRSWS
+gemini-2.5-pro-preview-05-06,0.17800000000000002,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro Preview (May 06 2025),0.015,70,,recqPy0eZ1dSztvhv
+o4-mini-2025-04-16_medium,0.1428,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (medium) (April 2025),0.013700000000000002,59,,rec9Y7oPa9KGyhXSZ
+claude-opus-4-5-20251101_unknown,0.1416,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,claude-opus-4-5-20251101,0.013700000000000002,56,,recxYcr9VmKPUVR3Z
+claude-sonnet-4-5-20250929_unknown,0.13720000000000002,2025-09-29,Anthropic,United States of America,,,claude-sonnet-4-5-20250929-thinking,0.013500000000000002,65,,receLskUASD1G2QuH
+gemini-2.5-flash-preview-04-17,0.1208,2025-04-17,Google DeepMind,United States of America,,,Gemini 2.5 Flash (April 2025),0.0128,80,,recLRKaQqj6097BJl
+claude-opus-4-1-20250805_unknown,0.1152,2025-08-05,Anthropic,United States of America,,,claude-opus-4-1-20250805-thinking,0.0125,71,,recjZHPwO8vEk0XnB
+gemini-2.5-flash-preview-05-20,0.10960000000000002,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash Preview (May 2025),0.0122,82,,recncpy8WpYML12AD
+claude-opus-4-20250514_unknown,0.1072,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4 (Thinking),0.0121,73,,recDGGt1nZaGx87Ql
+gemini-3.1-flash-lite,0.0864,2026-03-03,Google,United States of America,,,gemini-3.1-flash-lite-preview,0.011000000000000001,83,,recsvNt37Kyyg9qCI
+glm-4.5,0.08320000000000001,2025-08-03,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,glm-4p5,0.0108,79,,recLxM4WtI97UUniT
+GLM-4.5-Air,0.0812,2025-07-20,"Z.ai (Zhipu AI),Tsinghua University",China,1.656e+24,6 FLOP / parameter / token * 12 * 10^9 active parameters * 23 * 10^12 tokens = 1.656e+24 FLOP,glm-4p5-air,0.010700000000000001,77,,recqBBEb2sQdj6vn5
+o1-pro-2025-03-19,0.0812,2025-03-19,OpenAI,United States of America,,,o1 Pro,0.010700000000000001,82,,recxgQqtw3fmiFs3B
+claude-3-7-sonnet-20250219_unknown,0.0804,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 Sonnet (Thinking),0.010700000000000001,80,,recSaAOoaHzSl2qT2
+o1-2024-12-17_unknown,0.0796,2024-12-17,OpenAI,United States of America,,,o1 (December 2024),0.0106,83,,recg1cdjMzYHVdlNz
+claude-opus-4-1-20250805_unknown,0.0792,2025-08-05,Anthropic,United States of America,,,claude-opus-4-1-20250805,0.0106,70,,recNm82odoKRxfsNj
+claude-sonnet-4-20250514_unknown,0.0776,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4 (Thinking),0.0105,75,,recBG4cqUawtpE2Av
+claude-sonnet-4-5-20250929_unknown,0.0752,2025-09-29,Anthropic,United States of America,,,claude-sonnet-4-5-20250929,0.0103,70,,recs2YfzlLXFgzEAG
+gpt-5.1-2025-11-13_none,0.068,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",gpt-5.1-instant,0.0099,69,,recyAOwkCQoXPsGUC
+claude-opus-4-20250514_unknown,0.0668,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4,0.0098,74,,rec7DOdaKkCsIp2zt
+gemini-2.0-flash-thinking-exp-01-21,0.06559999999999999,2025-01-21,"Google DeepMind,Google",United States of America,,,Gemini 2.0 Flash Thinking (January 2025),0.0097,82,,recpj5kBIlMjPoiDi
+Llama-4-Maverick-17B-128E-Instruct,0.056799999999999996,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",Llama 4 Maverick,0.0091,83,,recS0T6kjQeFZjFzH
+claude-sonnet-4-20250514_unknown,0.0552,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4,0.009000000000000001,76,,recDcYVlY8ya80Qq0
+gpt-4.5-preview-2025-02-27,0.054400000000000004,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",GPT 4.5 Preview,0.0089,85,,recH4gsEnQtsYl58v
+gpt-4.1-2025-04-14,0.054000000000000006,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,GPT-4.1,0.0089,89,,recXkRBDMBFxIp3rr
+gemini-1.5-pro-002,0.046,2024-09-24,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini-1.5-Pro-002,0.008199999999999999,88,,recgO7p5JHoSiiFv3
+mistral-medium-2505,0.0452,2025-05-07,Mistral AI,France,,"Benchmarks match with models like GPT-4o, Mistral's previous largest runs were ~1e25 FLOP scale, so plausibly they might have trained Medium with this much compute.",Mistral Medium 3,0.008100000000000001,77,,rec84Eh6Y4FPpn9zg
+amazon.nova-pro-v1:0,0.044000000000000004,2024-12-03,Amazon,United States of America,6.000010000000001e+24,"""probably just below 1e25 stemming from the Llama 70B serving speed.  If Llama 70B is trained proportionally to 405B, then it's at ~ 6.6e24. Nova Pro is served at 100tk/s, while Llama 70B is served at 70tk/s on average, and 100tk/s by together.ai at FP8. So Nova Pro would be >1e25 if they roughly 2x the amount of training compared to Llama 70B which [seems unlikely]""",Nova Pro,0.008,80,,recPzTH64KyHad3Mb
+claude-3-5-sonnet-20241022,0.0408,2024-10-22,Anthropic,United States of America,,,Claude 3.5 Sonnet (October 2024),0.0078000000000000005,84,,recRcZwfwiWXVED57
+amazon.nova-lite-v1:0,0.0364,2024-12-03,Amazon,United States of America,,,Nova Lite,0.0073,82,,recujVA9XFIMx29bE
+gpt-4o-2024-11-20,0.027200000000000002,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o (November 2024),0.0064,89,,recIkpfM7qdP40Q5g

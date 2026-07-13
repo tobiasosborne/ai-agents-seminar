@@ -1,0 +1,80 @@
+Model version,Pass@1 score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Pass@1 Standard Error,Mean score,Mean Standard Error,Notes,id
+gemini-3.5-flash_unknown,0.49600000000000005,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash,3.9,0.6609999999999999,3.3,,rec6b7ovWfYJZ6HRN
+gemini-3.5-flash_high,0.49600000000000005,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash (High),3.9,0.6609999999999999,3.3,,recplDsVCVj3slu4q
+claude-fable-5,0.45,2026-06-09,Anthropic,United States of America,,,Fable 5,4.1,0.609,3.6,,reckaD0wz9XOvArFA
+claude-opus-4-8_max,0.425,2026-05-28,Anthropic,United States of America,,,Opus 4.8 (Max),4.0,0.594,3.5,,reckFRpJRQsQ8Z4Sm
+gpt-5.5_xhigh,0.384,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (xHigh),3.9,0.539,3.6,,recCSkQ98mcAPU3I0
+gpt-5.4-2026-03-05_xhigh,0.359,2026-03-05,OpenAI,United States of America,,,GPT 5.4 (xHigh),3.8,0.525,3.4,,recX3NOyGyXzL4reA
+glm-5.2_unknown,0.35600000000000004,2026-06-16,Z.ai (Zhipu AI),China,,,GLM-5.2 (Thinking),,,,,recvAMFmiTTh0Hpvh
+gpt-5.2-2025-12-11_xhigh,0.34299999999999997,2025-12-11,OpenAI,United States of America,,,GPT 5.2 (xHigh),3.8,0.48200000000000004,3.5,,recfQMDiYNKOHlzqx
+claude-opus-4-7_max,0.339,2026-04-16,Anthropic,United States of America,,,Opus 4.7 (Max),3.8,0.506,3.5,,recDYoVbtdEHFX5Vv
+gemini-3.1-pro-preview,0.335,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro (High),3.6,0.48100000000000004,3.4,,recPuGr6uc4AJrsxK
+claude-opus-4-6_max,0.317,2026-02-05,Anthropic,United States of America,,,Opus 4.6 (Max),3.6,0.47700000000000004,3.4,,recfKa2RdTGFZh3gQ
+gpt-5.3-codex_high,0.317,2026-02-05,OpenAI,United States of America,,,GPT 5.3 Codex (High),3.6,0.467,3.3,,recyZF0bntJN4r8Pz
+claude-opus-4-6_unknown,0.298,2026-02-05,Anthropic,United States of America,,,Opus 4.6 (High),3.6,0.456,3.4,,reczzlxSFDj7WbeiO
+gpt-5.2-codex,0.276,2025-12-18,OpenAI,United States of America,,,GPT 5.2 Codex (High),3.4,0.42200000000000004,3.2,,recys54tnzVV3SWvV
+gpt-5.4-mini-2026-03-17_xhigh,0.24600000000000002,2026-03-17,OpenAI,United States of America,,,GPT 5.4 mini (xHigh),3.2,0.375,3.1,,rec2l0zXIdTukIsjQ
+gemini-3-flash-preview,0.24,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash (High),3.3,0.395,3.3,,recm4xY3Z3BuyxTKq
+claude-sonnet-4-6_high,0.237,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 (High),3.1,0.40700000000000003,3.1,,recNKXGqIBBG6Q12j
+gpt-5.2-2025-12-11_high,0.23,2025-12-11,OpenAI,United States of America,,,GPT 5.2 (High),3.2,0.387,3.2,,recAL5nCEH9yUL728
+gpt-5.1-codex,0.20600000000000002,2025-11-12,OpenAI,United States of America,,,GPT 5.1 Codex (High),2.9,0.34700000000000003,2.9,,recDtzBAvnEbRM6Lc
+gpt-5-codex,0.2,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",GPT 5 Codex (High),2.8,0.34700000000000003,2.9,,rec1ytSdNuGzKEceQ
+kimi-k2.6,0.189,2026-04-20,Moonshot,China,,,Kimi K2.6 (Thinking),,,,,recDAnoouTFubIrrV
+claude-opus-4-5-20251101_unknown,0.184,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Opus 4.5 (High),2.9,0.348,3.1,,recghz1mr5QIDlVvX
+gemini-3-pro-preview,0.184,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro (High),2.7,0.341,3.0,,recWy1mzX1UtkCR5s
+gpt-5-2025-08-07_high,0.18300000000000002,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT 5 (High),2.9,0.329,3.0,,recTfSZ5gwkQQ3soJ
+gpt-5.1-2025-11-13_high,0.17500000000000002,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT 5.1 (High),2.6,0.315,2.8,,recsiiGLTu3PKNT57
+o3-2025-04-16_high,0.172,2025-04-16,OpenAI,United States of America,,,o3 (High),2.6,0.314,2.8,,rec44qxfK9sqj5LbJ
+glm-5,0.172,2026-02-11,Z.ai (Zhipu AI),China,,,GLM 5 (Thinking),2.7,0.308,2.8,,recCS3U5jJGEF2N4n
+gpt-5.4-nano-2026-03-17_xhigh,0.16899999999999998,2026-03-17,OpenAI,United States of America,,,GPT 5.4 nano (xHigh),2.6,0.255,2.6,,recIBcQ1oM35TQ4Uz
+grok-4-0709,0.152,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",Grok 4,2.4,0.303,2.7,,recKa0QQjZ3G7vwkK
+kimi-k2.5,0.14400000000000002,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,2.25,0.292,2.5,,recEuYKvLHzEDYB2D
+qwen3.5-plus,0.136,2026-02-16,Alibaba,China,,,Qwen 3.5 (Thinking),2.5,0.277,2.8,,rectCLqv50cUtZW7X
+gemini-3.1-flash-lite,0.128,2026-03-03,Google,United States of America,,,Gemini 3.1 Flash Lite (High),2.1,0.24600000000000002,2.4,,recrSOpPqKrErFukP
+grok-4-1-fast-reasoning,0.128,2025-11-19,xAI,United States of America,,,Grok 4.1 (Fast),2.3,0.24800000000000003,2.6,,recZ7qSZWuuLwa5GT
+nemotron-3-ultra,0.115,2026-06-04,NVIDIA,United States of America,6.6e+24,"55 billion active parameters, ~20T tokens",Nemotron 3 Ultra (Thinking),,,,,recKEdwGu1GQjIHp4
+claude-sonnet-4-20250514_unknown,0.09300000000000001,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Sonnet 4,1.8,0.23,2.3,,recl5fQDtMf1gUOog
+claude-sonnet-4-20250514,0.09300000000000001,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Sonnet 4,1.8,0.23,2.3,,recwC8rTvFoN0LeWA
+claude-haiku-4-5-20251001_unknown,0.08900000000000001,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (High),1.9,0.214,2.3,,recGg6JXzypgF9OF4
+claude-haiku-4-5-20251001_32K,0.08900000000000001,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (High),1.9,0.214,2.3,,rec1OvFdZ6rgjYB0k
+deepseek/deepseek-v3.2,0.07,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek v3.2,1.6,0.188,2.1,,rec9yo7oGudMpYhHS
+gemini-2.5-pro,0.066,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (On),1.5,0.17,1.9,,recYfRy4dBYvHNBmz
+MiniMax-M2.5,0.062000000000000006,2026-02-12,MiniMax,China,,,Minimax-2.5,1.6,0.18600000000000003,2.2,,recEoumSxiNO90BSm
+gpt-oss-120b_high,0.047,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",GPT OSS 120B (High),1.4,0.145,2.0,,recM9gTp4zCIJpy4l
+kimi-k2-thinking,0.04,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",Kimi K2 Thinking,1.1,0.115,1.6,,recHWUeUbVmdsl8SM
+zai-org/glm-4.7,0.031000000000000003,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",GLM 4.7,0.9,0.084,1.3,,rec74o8M2XFZTEWfL
+glm-4.6,0.03,2025-09-30,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,6 FLOP/parameter/token * 32000000000 active parameters [very likely assumption - everything else is reported to be same as at GLM 4.5] * 23000000000000 tokens = 4.42e24 FLOP,GLM 4.6,1.1,0.111,1.7,,rec9KDOl2Xxuvh0nW
+grok-3,0.021,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",Grok 3,0.8,0.073,1.4,,recX4RIUhJOZVExv1
+gemini-2.5-flash,0.018000000000000002,2025-06-17,Google DeepMind,United States of America,,,Gemini 2.5 Flash (On),0.6,0.064,1.1,,recHX5BTnN0mCFmRG
+o1-2024-12-17_high,0.011000000000000001,2024-12-17,OpenAI,United States of America,,,o1 (High),0.7,0.055,1.2,,recShvtcJbIXTfDCo
+gpt-4o-2024-11-20,0.011000000000000001,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT 4o,0.7,0.054000000000000006,1.1,,recydtjNCJyVm2BlI

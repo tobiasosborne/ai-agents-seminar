@@ -1,0 +1,19 @@
+Model version,Win Rate (%),Win + tie rate (%),Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,id
+gpt-5.2-2025-12-11_none,0.49700000000000005,0.7085859999999999,2025-12-11,OpenAI,United States of America,,,GPT-5.2,rechPytR66Sfja2jE
+claude-opus-4-5-20251101,0.455,0.5959599999999999,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5,recnf779wFJBtP8ZX
+claude-opus-4-1-20250805,0.436,0.47576,2025-08-05,Anthropic,United States of America,,,Claude Opus 4.1,rechImbYYM7BaW9f2
+claude-sonnet-4-5-20250929,0.425,0.502525,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5,recgGv7NYJkLHPSjn
+gemini-3-pro-preview,0.40299999999999997,0.535354,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro,recpJDfwotqNLiCaw
+gpt-5-2025-08-07_medium,0.348,0.37996,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5,recA9mPzDrm2XCNZc
+o3-2025-04-16_medium,0.308,0.34057000000000004,2025-04-16,OpenAI,United States of America,,,o3,rec92NYmhzWbgq0aG
+o4-mini-2025-04-16_high,0.253,0.27834,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini high,recN2m297LeySJIAW
+gemini-2.5-pro,0.233,0.254545,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro,recL5axz7UL23Yt69
+grok-4-0709_high,0.21100000000000002,0.242929,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",Grok 4,reccXcktDNtWmiFOI
+gpt-4o-2024-11-20,0.099,0.12349,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o,recHDSF8S2VhrANTu

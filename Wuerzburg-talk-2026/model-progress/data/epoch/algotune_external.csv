@@ -1,0 +1,25 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Notes,id
+gpt-5.2-2025-12-11_medium,2.05,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (high),,recmOTqcaDOeGrw0X
+gemini-3.1-pro-preview,2.02,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro Preview (high),,recAScSfvSJwGYgPe
+gpt-5.4-2026-03-05_high,1.85,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (high),,recJlBSVOYqi6zcbx
+gemini-3-pro-preview,1.83,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro Preview (high),,rec9Ywmj1VE3j4ICv
+claude-opus-4-5-20251101_unknown,1.77,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5 (high),,rec9M5y5wsXfBJbRe
+o4-mini-2025-04-16_high,1.72,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (high),,recShU7tWqeNxYW6v
+DeepSeek-R1,1.7,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",DeepSeek R1 (high),,recZ2SREKLJZZNFXX
+gpt-5-2025-08-07_high,1.67,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (high),,recrVKyfGfV9ZzFp3
+glm-4.5_thinking,1.52,2025-08-05,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,GLM-4.5 (high),,recJ2Ik2vP4dZOVnP
+claude-sonnet-4-5-20250929_unknown,1.52,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5 (high),,recjoFts6Mliie0dX
+gemini-2.5-pro,1.51,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (high),,recSo4CBg6ggAqzOZ
+claude-opus-4-6_high,1.47,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6 (high),,recnaW71BcUPjCQyi
+Qwen3-Coder-480B-A35B-Instruct,1.44,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,Qwen3 Coder (high),,recjIn0fy7wmd3eDJ
+openai/gpt-oss-120b_high,1.41,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",gpt-oss-120b (high),,recm2TzBFSajymm65
+gpt-5-mini-2025-08-07_high,1.38,2025-08-07,OpenAI,United States of America,,,GPT-5 Mini (high),,recBWU1GTOFUQ2rwv
+claude-opus-4-1-20250805_unknown,1.34,2025-08-05,Anthropic,United States of America,,,Claude Opus 4.1 (high),,recDC5tvNBdXf2D8H
+claude-opus-4-20250514_unknown,1.33,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4 (high),,recBBUj2dIBUqY2tR
+gpt-5-pro-2025-10-06_medium,1.31,2025-10-07,OpenAI,United States of America,,,GPT-5 Pro (medium),,recISd3dRCHYjetpt

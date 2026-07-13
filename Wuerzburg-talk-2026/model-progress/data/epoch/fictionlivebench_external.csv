@@ -1,0 +1,148 @@
+Model version,120k token score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,0 token score,400 token score,1k token score,2k token score,4k token score,8k token score,16k token score,32k token score,60k token score,192k token score,Source,Source link,Notes,id
+,0.75,,,,,,1.0,0.972,0.861,0.75,0.75,0.611,0.639,0.556,0.583,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,"Model is gemini-2.5-flash-preview, currently pending confirmation of thinking token length",recwM02cB91DVEHpf
+chutes/DeepSeek-R1-0528,,2025-05-28,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
+https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
+""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
+
+6 FLOP/token/param * 14.8T tokens * 37B active params = 3.29e24 FLOP (pretraining)
+1.2e23 FLOP (post-training)
+6.1e23 FLOP (fine-tuning)
+
+Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",1.0,0.917,0.833,0.829,0.889,0.861,0.75,0.694,0.583,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recHdjikTGmlIcWPN
+chutes/GLM-4.5-FP8,,2025-07-27,,,,,1.0,0.972,0.861,0.75,0.833,0.639,0.583,0.667,0.472,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,receWFeazHvEkvyiq
+chutes/gpt-oss-120b,,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",1.0,0.694,0.583,0.528,0.472,0.278,0.361,0.333,0.333,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recNIK4LItxDoB2cp
+chutes/gpt-oss-120b_high,,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",1.0,0.75,0.611,0.556,0.472,0.444,0.444,0.389,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recTgsRtybeRBo0bS
+chutes/Llama-4-Maverick-17B-128E-Instruct,0.364,2025-04-06,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",1.0,0.56,0.5,0.52,0.48,0.48,0.462,0.44,0.32,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recewrJmZKExZcwdW
+chutes/Qwen3-8B,,2025-04-28,Alibaba,China,1.7712e+24,6 FLOP / parameter / token * 36 * 10^12 tokens * 8.2  * 10^9 parameters = 1.7712e+24 FLOP,1.0,0.774,0.633,0.667,0.742,0.613,0.621,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recdF42z48NmHTket
+chutes/Qwen3-235B-A22B,,2025-04-28,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,1.0,0.9,0.893,0.8,0.69,0.667,0.677,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recoIIiesuWNL0YuA
+chutes/Qwen3-235B-A22B-Thinking-2507,0.688,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,1.0,1.0,0.917,0.861,0.917,0.972,0.75,0.806,0.778,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGAZIAhonPCxfl4
+chutes/QwQ-32B,,2025-03-05,Alibaba,China,3.51e+24,"Assuming the same dataset size as for Qwen2.5 training (18T tokens):
+
+6ND = 6 * 32500000000 parameters * 18 * 10^12 tokens =  3.51 × 10^24
+
+'Speculative' confidence",1.0,0.917,0.944,0.889,0.944,0.861,0.833,0.806,0.611,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recYPJYWmiHBvukeZ
+claude-3-7-sonnet-20250219,0.344,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,1.0,0.778,0.806,0.722,0.611,0.528,0.5,0.528,0.444,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGGYBroJyICDKfr
+claude-3-7-sonnet-20250219_8K,0.531,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,1.0,1.0,1.0,0.972,0.917,0.972,0.833,0.75,0.694,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recicBevhaGuqHc8k
+claude-opus-4-20250514,0.375,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,0.778,0.778,0.667,0.667,0.667,0.611,0.639,0.556,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recplw5R3L8qJpXOV
+claude-sonnet-4-20250514,0.364,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,0.778,0.625,0.667,0.556,0.556,0.469,0.444,0.375,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recypVCUSuzvpsExW
+deepinfra/Qwen3-Next-80B-A3B-Instruct,0.625,2025-09-11,,,,,1.0,0.75,0.722,0.639,0.611,0.583,0.556,0.528,0.556,0.469,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recNjAnkVZJOFT6ey
+DeepSeek-R1,0.333,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",1.0,0.822,0.806,0.767,0.778,0.833,0.694,0.639,0.667,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recsl5Wju2ogMhZCb
+DeepSeek-V3.2-Exp_high,,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",1.0,1.0,0.972,0.972,0.917,0.944,0.833,0.833,0.714,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recaaXL7PKXVfWwMb
+gemini-2.0-flash-001,0.625,2025-02-05,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",1.0,0.639,0.583,0.556,0.472,0.5,0.611,0.5,0.472,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGOLP9NP6FCnY23
+gemini-2.0-flash-thinking-exp-01-21,0.375,2025-01-21,"Google DeepMind,Google",United States of America,,,1.0,0.833,0.667,0.75,0.778,0.528,0.528,0.361,0.361,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming later of two gemini-2.0-flash-thinking-exp versions,recoYeNjjrrMQeCov
+gemini-2.5-flash-lite-preview-06-17-thinking,0.219,2025-06-17,Google DeepMind,United States of America,,,1.0,0.667,0.528,0.528,0.556,0.472,0.472,0.444,0.278,0.375,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming default thinking token budget,rec715RUAXp9NTaq5
+gemini-2.5-flash-preview-05-20,0.688,2025-05-20,Google DeepMind,United States of America,,,1.0,0.972,0.944,0.75,0.917,0.722,0.778,0.556,0.694,0.656,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recRrMD11LH6hyqH3
+gemini-2.5-pro-exp-03-25,0.906,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,1.0,1.0,1.0,0.972,0.917,0.667,0.861,0.833,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recAZiG0Os3UJJLZP
+gemini-2.5-pro-preview-05-06,0.719,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,0.972,0.861,0.833,0.75,0.694,0.667,0.722,0.611,0.722,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec8fA2rBmp1u5Oyc
+gemini-2.5-pro-preview-06-05,0.875,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,1.0,1.0,0.972,0.944,0.806,0.917,0.917,0.833,0.906,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec6WM2ba5tKuRU73
+gpt-4.1-2025-04-14,0.625,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.0,0.917,0.75,0.694,0.639,0.556,0.639,0.583,0.528,0.563,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recsSWb66UgmmizaT
+gpt-4.5-preview-2025-02-27,0.639,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",1.0,0.944,0.833,0.833,0.833,0.722,0.639,0.639,0.667,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recxY9ZAuaCjDhXWj
+gpt-5-2025-08-07_medium,0.969,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",1.0,0.972,0.944,0.972,0.972,1.0,0.972,0.972,1.0,0.875,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec5ebPSkPFSMrFog
+gpt-5-mini-2025-08-07_medium,0.625,2025-08-07,OpenAI,United States of America,,,1.0,0.972,0.889,0.806,0.778,0.667,0.694,0.639,0.611,0.594,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recD4lezAe4h8rXLG
+grok-4-0709,0.969,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",1.0,0.972,1.0,0.889,0.944,1.0,0.944,0.917,0.972,0.844,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,rec1710QvfYzhnUy3
+grok-4-fast,0.75,2025-09-19,xAI,United States of America,,,1.0,1.0,0.944,1.0,0.972,0.944,0.944,0.917,0.806,0.781,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recSUyk1OUgBytYVw
+kimi-k2.5,0.781,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",1.0,1.0,1.0,1.0,0.944,0.889,0.861,0.889,0.889,0.875,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,High reasoning,recEJI420l5GzobVI
+o1-2024-12-17_medium,0.531,2024-12-17,OpenAI,United States of America,,,1.0,0.972,1.0,0.944,0.944,0.861,0.833,0.833,0.722,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGwARcoUTbSBMel
+o3-2025-04-16_medium,1.0,2025-04-16,OpenAI,United States of America,,,1.0,1.0,1.0,1.0,1.0,1.0,0.889,1.0,0.833,0.581,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming medium reasoning effort,rectq32FQAnUPr23W
+o3-mini-2025-01-31_medium,0.438,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",1.0,0.639,0.583,0.472,0.472,0.5,0.5,0.556,0.444,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recz82I1vqPvL5SHN
+o3-pro-2025-06-10_medium,0.889,2025-06-10,OpenAI,United States of America,,,1.0,1.0,1.0,1.0,1.0,1.0,0.972,1.0,0.944,0.656,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming medium reasoning effort,recuo6HwZhOIVNK58
+o4-mini-2025-04-16_medium,0.625,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",1.0,1.0,1.0,1.0,0.778,0.667,0.778,0.556,0.667,0.438,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming medium reasoning effort,recLBEgSpvxFhqIG7
+chatgpt-4o-01-29-2025,0.656,2025-01-29,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.875,0.833,0.667,0.639,0.639,0.667,0.667,0.639,0.556,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recbbzkiiGYbSKc0i
+chutes/DeepSeek-V3-0324,,2025-03-24,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",0.875,0.611,0.694,0.528,0.528,0.528,0.5,0.556,0.556,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recriNL78l2EzcIFq
+chutes/Gemma-3-27b-It,,2025-03-11,Google DeepMind,United States of America,2.268e+24,6ND =  6 * 27B parameters * 14T training tokens = 2.268 × 10^24 FLOP,0.875,0.444,0.5,0.417,0.333,0.389,0.333,0.25,0.306,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recb1Jpc7rg69RJ8J
+DeepSeek-V3.1,0.531,2025-08-21,DeepSeek,China,3.594058e+24,"This was based on V3 which was trained on 14.8T tokens for a total of 14.8T + 840B = 15.64T pretraining tokens. Adding the FLOPs from continued pretraining onto our estimate for V3, which is 3.4e24 FLOPs, we get 3.4e24 + 1.9e23 = 3.59e24",0.875,0.667,0.639,0.5,0.611,0.556,0.528,0.05,0.5,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recUqjDWvUSuFpARK
+fireworks/Kimi-K2-Instruct-0905,0.406,2025-09-05,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.875,0.75,0.722,0.722,0.667,0.583,0.667,0.639,0.556,0.5,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recgQKMiUkKGr536O
+gemini-2.0-pro-exp-02-05,0.375,2025-02-05,Google DeepMind,United States of America,,Flagship model from a leading developer in early 2025; very likely it used >1e25 FLOP.,0.875,0.917,0.806,0.722,0.611,0.528,0.417,0.472,0.417,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,The 'free' indication doesn't change the model version here because Google is the only provider,reciNLWokJjiot8GQ
+gemini-2.5-pro-preview-03-25,0.719,2025-03-31,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.875,0.917,0.833,0.75,0.722,0.806,0.667,0.5,0.583,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recH0VvFyZFwdVAJM
+grok-3-mini-beta_medium,0.656,2025-04-09,xAI,United States of America,,,0.875,0.778,0.778,0.806,0.778,0.722,0.667,0.75,0.722,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming medium reasoning effort,recCtye3NGebPCPb7
+Kimi-K2-Instruct,,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.875,0.75,0.694,0.667,0.583,0.556,0.611,0.5,0.444,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recBCtmBAYR5YJZuO
+MiniMax-M1-80k,0.594,2025-06-13,MiniMax,China,4.3240062e+24,1.9828799999999997e+24 FLOP [base model compute] + 2.3411262e+24 FLOP [see finetune compute notes] = 4.3240062e+24 FLOP,0.875,0.861,0.944,0.917,0.889,0.694,0.694,0.722,0.583,0.719,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,Assuming 80k version,recNoCb58YZgN4Vbk
+nvidia-nemotron-nano-9b-v2,,2025-08-18,,,,,0.875,0.583,0.556,0.389,0.389,0.167,0.25,0.194,0.222,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recBiPtqRIw3wQvol
+parasail-qwen3-235b-a22b-instruct-2507,0.444,2025-09-01,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.875,0.6,0.438,0.471,0.529,0.5,0.529,0.529,0.5,0.286,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recshhfvwBqzpWiyF
+chutes/Qwen3-30B-A3B,,2025-04-28,Alibaba,China,6.48e+23,6 FLOP / parameter / token * 3*10^9 active parameters * 36000000000000 tokens = 6.48e+23 FLOP,0.857,0.581,0.548,0.515,0.533,0.5,0.406,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,reclcaumUGJPX5AjA
+chutes/Qwen3-14B,,2025-04-28,Alibaba,China,3.1968e+24,6 FLOP / parameter / token * 36 * 10^12 tokens * 14.8  * 10^9 parameters = 3.1968e+24 FLOP,0.833,0.645,0.618,0.594,0.647,0.516,0.625,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recJLgaaiGTrWKirU
+chutes/Qwen3-32B,,2025-04-28,Alibaba,China,7.0848e+24,6 FLOP / parameter / token * 36 * 10^12 tokens * 32.8  * 10^9 parameters = 7.0848e+24 FLOP,0.8,0.909,0.938,0.767,0.867,0.8,0.742,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,receipowVANYg7YFs
+chutes/Qwen3-Next-80B-A3B-Instruct,0.469,2025-09-11,,,,,0.75,0.528,0.5,0.5,0.389,0.472,0.417,0.417,0.389,0.313,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recOQ8BmlPxZq94pr
+gpt-4.1-mini-2025-04-14,0.469,2025-04-14,OpenAI,United States of America,,,0.75,0.667,0.556,0.417,0.444,0.417,0.444,0.389,0.389,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recTq2bSBrRw3Y4IQ
+gpt-5-nano-2025-08-07_medium,0.219,2025-08-07,OpenAI,United States of America,,,0.75,0.583,0.639,0.5,0.5,0.528,0.444,0.472,0.361,0.344,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recDspmMIr9SGBdu2
+grok-3-beta,0.583,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",0.75,0.722,0.639,0.556,0.556,0.528,0.583,0.556,0.639,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recAQD3j7HwNBWHJc
+Llama-3.3-70B-Instruct,,2024-12-06,Meta AI,United States of America,6.8649768e+24,"6ND = 6 FLOP / parameter / token * 70*10^9 parameters * 15*10^12 tokens = 6.3e+24 FLOP
+
+7000000 GPU-hours * 3600 sec / hour * 989500000000000 FLOP / second * 0.3 [assumed utilization]= 7.48062e+24 FLOP
+
+sqrt(7.48062e+24*6.3e+24) = 6.8649768e+24",0.75,0.667,0.694,0.556,0.417,0.361,0.333,0.333,0.333,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recPyEYytP25K8KFp
+qwen-max-2025-01-25,,2025-01-25,Alibaba,China,,,0.75,0.694,0.694,0.639,0.722,0.639,0.667,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recDlmkp8cUZjWD1i
+qwen3-max-2025-09-23,,2025-09-24,Alibaba,China,1.512e+25,"6ND with:
+36T tokens is taken from the qwen3 technical report
+70B active params is based on it having >1T params, and the architectures of Qwen3-235B-A22B and Qwen3-Coder-480B-A35B",0.75,0.694,0.694,0.639,0.722,0.639,0.667,,,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recu0hDchjpppvDHX
+chutes/Llama-4-Scout-17B-16E Instruct,0.273,2025-04-06,Meta AI,United States of America,4.08e+24,"40T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md  
+
+Estimating training compute from parameters and tokens:
+6 FLOP per token per parameter * 17B active parameters * 40T tokens = 4.08e24 FLOP
+(Implying mean throughput was 227 TFLOPS/GPU, or 11.5% MFU in FP8)
+
+
+The model card also states that Llama 4 Scout used 5.0M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 5 million hours = 7.02e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Scout than for Behemoth.)",0.625,0.52,0.5,0.36,0.32,0.4,0.36,0.16,0.24,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recP9MDNJ4QeSksRm
+gemini-2.5-flash-preview-04-17,0.531,2025-04-17,Google DeepMind,United States of America,,,0.625,0.639,0.694,0.611,0.472,0.444,0.472,0.444,0.583,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recq3pfN7UN5ydgLW
+gpt-4.1-nano-2025-04-14,0.188,2025-04-14,OpenAI,United States of America,,,0.625,0.5,0.417,0.361,0.333,0.389,0.25,0.333,0.361,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,recGABpbpnWCKfE8t
+DeepSeek-V3.2-Exp,,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",0.5,0.528,0.528,0.528,0.5,0.528,0.528,0.5,0.472,,Fiction.live leaderboard,https://fiction.live/stories/Fiction-liveBench-Mar-14-2025/oQdzQvKHw8JyXbN87/home,,receUfV4BD8haUXI5

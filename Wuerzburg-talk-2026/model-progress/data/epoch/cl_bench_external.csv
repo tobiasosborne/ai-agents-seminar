@@ -1,0 +1,47 @@
+Model version,Overall,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Overall std dev,Domain knowledge reasoning score,Domain knowledge reasoning std dev,Rule system application score,Rule system application std dev,Procedural task execution score,Procedural task execution std dev,Empirical discovery & simulation score,Empirical discovery & simulation std dev,id
+gpt-5.4-2026-03-05_xhigh,0.279,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (xhigh),0.0,0.28800000000000003,0.0,0.267,0.0,0.30100000000000005,0.0,0.228,0.0,recF5Go9AZ5xlvAkF
+gpt-5.1-2025-11-13_high,0.237,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT 5.1 (High),0.005,0.253,0.013000000000000001,0.237,0.013000000000000001,0.23800000000000002,0.013999999999999999,0.18100000000000002,0.031000000000000003,recECMAlNLLCncgpy
+grok-4-20,0.222,2026-02-17,xAI,United States of America,,,Grok 4.20 (reasoning),0.0,0.239,0.0,0.227,0.0,0.23399999999999999,0.0,0.12300000000000001,0.0,recGOUZrtjVucfr50
+gpt-5.1-2025-11-13_unknown,0.211,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT 5.1,0.002,0.22399999999999998,0.006999999999999999,0.21,0.006999999999999999,0.228,0.013000000000000001,0.136,0.01,recM0YyEtnfawuPRG
+claude-opus-4-5-20251101_unknown,0.211,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5 Thinking,0.013999999999999999,0.237,0.012,0.19,0.015,0.226,0.015,0.151,0.023,recoZ0jztT3GiULHi
+gemini-3.1-pro-preview,0.20800000000000002,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro (high),0.0,0.21100000000000002,0.0,0.20199999999999999,0.0,0.23800000000000002,0.0,0.145,0.0,reckpokJDAOxCx2S3
+claude-opus-4-6_unknown,0.207,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6,0.0,0.204,0.0,0.214,0.0,0.244,0.0,0.109,0.0,reckTL3wR1Z9aGDlt
+qwen3.6-plus,0.203,2026-03-31,Alibaba,China,,,Qwen 3.6 Plus,0.0,0.222,0.0,0.196,0.0,0.21300000000000002,0.0,0.135,0.0,recURyoAkx1koU7Mk
+qwen3.5-plus,0.198,2026-02-16,Alibaba,China,,,Qwen 3.5 Plus (thinking),0.0,0.22,0.0,0.189,0.0,0.19,0.0,0.167,0.0,rect5z4YBbZG9s8cs
+kimi-k2.5,0.193,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,0.0,0.20800000000000002,0.0,0.179,0.0,0.195,0.0,0.18100000000000002,0.0,recWjy9h3wfHdIktv
+glm-5,0.187,2026-02-11,Z.ai (Zhipu AI),China,,,GLM 5.0,0.0,0.20800000000000002,0.0,0.16399999999999998,0.0,0.21600000000000003,0.0,0.115,0.0,recRqKIsEVV6JXeQp
+gpt-5.2-2025-12-11_unknown,0.182,2025-12-11,OpenAI,United States of America,,,GPT 5.2,0.005,0.195,0.015,0.18,0.019,0.19100000000000003,0.011000000000000001,0.121,0.015,recey2jawoJyDioup
+gpt-5.2-2025-12-11_high,0.181,2025-12-11,OpenAI,United States of America,,,GPT 5.2 (High),0.008,0.18600000000000003,0.009000000000000001,0.172,0.013000000000000001,0.214,0.011000000000000001,0.11699999999999999,0.018000000000000002,recLTWNGyZ0seKudZ
+o3-2025-04-16_high,0.17800000000000002,2025-04-16,OpenAI,United States of America,,,o3 (High),0.002,0.18,0.013999999999999999,0.17600000000000002,0.011000000000000001,0.195,0.004,0.13699999999999998,0.008,reccVub2zmLp7euhf
+moonshotai/Kimi-K2-Thinking,0.176,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",Kimi K2 Thinking,0.006,0.187,0.006,0.17,0.015,0.188,0.006999999999999999,0.126,0.04,recTf4BEBqZlUcV8G
+zai-org/glm-4.7,0.159,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",GLM 4.7,0.0,0.179,0.0,0.16899999999999998,0.0,0.14400000000000002,0.0,0.098,0.0,reczKXbGAHjIRQ6cI
+gemini-3-pro-preview,0.158,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro (High),0.003,0.155,0.011000000000000001,0.177,0.017,0.16399999999999998,0.016,0.10099999999999999,0.031000000000000003,recWhJzlCOU367ohN
+mimo-v2-pro,0.157,,Xiaomi Corp,China,,,MiMo V2 Pro,0.0,0.177,0.0,0.14,0.0,0.17600000000000002,0.0,0.09300000000000001,0.0,recxv85zQUCC6fGH8
+qwen3-max-2025-09-23,0.145,2025-09-24,Alibaba,China,1.512e+25,"6ND with:
+36T tokens is taken from the qwen3 technical report
+70B active params is based on it having >1T params, and the architectures of Qwen3-235B-A22B and Qwen3-Coder-480B-A35B",Qwen 3 Max,0.006,0.146,0.01,0.161,0.006,0.149,0.016,0.08900000000000001,0.015,recAjmVPbaPboFz0Y
+DeepSeek-V3.2-Exp_thinking,0.132,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek V3.2 Thinking,0.004,0.136,0.006,0.138,0.006,0.142,0.001,0.08,0.015,recFRchEtTpijiHzY
+deepseek/deepseek-v3.2,0.12400000000000001,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek V3.2,0.005,0.12300000000000001,0.008,0.134,0.01,0.135,0.004,0.07,0.005,reciJ4L8W7oaNa5rF
+kimi-k2-thinking,0.119,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",Kimi K2,0.005,0.12300000000000001,0.011000000000000001,0.127,0.005,0.132,0.011000000000000001,0.057,0.008,recqE13ghQXf6Zvmm
+MiniMax-M2.5,0.114,2026-02-12,MiniMax,China,,,MiniMax M2.5,0.0,0.122,0.0,0.106,0.0,0.13699999999999998,0.0,0.051,0.0,recDfs2bwO8BnfpYc

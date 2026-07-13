@@ -1,0 +1,119 @@
+Model version,Score,Provider,AA model slug,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Source,Notes
+claude-fable-5_max,0.601851851851852,Anthropic,claude-fable-5,2026-06-09,Anthropic,United States of America,,,"Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback)",https://artificialanalysis.ai/evaluations/scicode,
+gemini-3.1-pro-preview,0.58912037037037,Google,gemini-3-1-pro-preview,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro Preview,https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.4-2026-03-05_xhigh,0.565972222222222,OpenAI,gpt-5-4,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_xhigh,0.561342592592593,OpenAI,gpt-5-5,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_high,0.559027777777778,OpenAI,gpt-5-5-high,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (high),https://artificialanalysis.ai/evaluations/scicode,
+claude-opus-4-7_max,0.545138888888889,Anthropic,claude-opus-4-7,2026-04-16,Anthropic,United States of America,,,"Claude Opus 4.7 (Adaptive Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_medium,0.534722222222222,OpenAI,gpt-5-5-medium,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (medium),https://artificialanalysis.ai/evaluations/scicode,
+claude-opus-4-8_max,0.534722222222222,Anthropic,claude-opus-4-8,2026-05-28,Anthropic,United States of America,,,"Claude Opus 4.8 (Adaptive Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+kimi-k2.6,0.534722222222222,Kimi,kimi-k2-6,2026-04-20,Moonshot,China,,,Kimi K2.6,https://artificialanalysis.ai/evaluations/scicode,
+gemini-3.5-flash_high,0.53125,Google,gemini-3-5-flash,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_low,0.516203703703704,OpenAI,gpt-5-5-low,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (low),https://artificialanalysis.ai/evaluations/scicode,
+muse-spark,0.515046296296296,Meta,muse-spark,2026-04-08,Meta AI,United States of America,,,Muse Spark,https://artificialanalysis.ai/evaluations/scicode,
+glm-5.2_max,0.50462962962963,Z AI,glm-5-2,2026-06-16,Z.ai (Zhipu AI),China,,,GLM-5.2 (max),https://artificialanalysis.ai/evaluations/scicode,
+mimo-v2.5-pro,0.502314814814815,Xiaomi,mimo-v2-5-pro,,Xiaomi Corp,China,6.804e+24,6 FLOPS/token/active parameter * 27e12 tokens * 42e9 active parameters = 6.804E24 FLOP,MiMo-V2.5-Pro,https://artificialanalysis.ai/evaluations/scicode,
+deepseek-v4-pro_max,0.5,DeepSeek,deepseek-v4-pro,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,"DeepSeek V4 Pro (Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.4-mini-2026-03-17_xhigh,0.49884259259259306,OpenAI,gpt-5-4-mini,2026-03-17,OpenAI,United States of America,,,GPT-5.4 mini (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+qwen3.7-max,0.488425925925926,Alibaba,qwen3-7-max,2026-05-19,Alibaba,China,,,Qwen3.7 Max,https://artificialanalysis.ai/evaluations/scicode,
+kimi-k2.7-code,0.474537037037037,Kimi,kimi-k2-7-code,2026-06-12,Moonshot,China,,,Kimi K2.7 Code,https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_none,0.47337962962963,OpenAI,gpt-5-5-non-reasoning,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (Non-reasoning),https://artificialanalysis.ai/evaluations/scicode,
+grok-4.3_high,0.47337962962963,xAI,grok-4-3,2026-04-17,xAI,United States of America,,,Grok 4.3 (high),https://artificialanalysis.ai/evaluations/scicode,
+MiniMax-M2.7,0.469907407407407,MiniMax,minimax-m2-7,2026-03-18,MiniMax,China,,,MiniMax-M2.7,https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.4-nano-2026-03-17_xhigh,0.46875,OpenAI,gpt-5-4-nano,2026-03-17,OpenAI,United States of America,,,GPT-5.4 nano (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+claude-sonnet-4-6_max,0.467592592592593,Anthropic,claude-sonnet-4-6-adaptive,2026-02-17,Anthropic,United States of America,,,"Claude Sonnet 4.6 (Adaptive Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+MiniMax-M3,0.45370370370370405,MiniMax,minimax-m3,2026-06-01,MiniMax,China,,,MiniMax-M3,https://artificialanalysis.ai/evaluations/scicode,
+deepseek-v4-flash_max,0.44907407407407407,DeepSeek,deepseek-v4-flash,2026-04-24,DeepSeek,China,2.496e+24,6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training,"DeepSeek V4 Flash (Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+glm-5.1,0.4375,Z AI,glm-5-1,2026-04-07,Z.ai (Zhipu AI),China,,,GLM-5.1 (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+gemma-4-31b-it,0.434027777777778,Google,gemma-4-31b,2026-04-02,Google DeepMind,United States of America,,,Gemma 4 31B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+claude-haiku-4-5-20251001_unknown,0.43287037037037,Anthropic,claude-4-5-haiku-reasoning,2025-10-15,Anthropic,United States of America,,,Claude 4.5 Haiku (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+gemini-3.1-flash-lite,0.418981481481481,Google,gemini-3-1-flash-lite-preview,2026-03-03,Google,United States of America,,,Gemini 3.1 Flash-Lite,https://artificialanalysis.ai/evaluations/scicode,
+qwen3.6-plus,0.407407407407407,Alibaba,qwen3-6-plus,2026-03-31,Alibaba,China,,,Qwen3.6 Plus,https://artificialanalysis.ai/evaluations/scicode,
+gemma-4-26b-a4b,0.4004629629629631,Google,gemma-4-26b-a4b,2026-04-02,Google DeepMind,United States of America,,,Gemma 4 26B A4B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+nemotron-3-ultra,0.399305555555556,NVIDIA,nvidia-nemotron-3-ultra-550b-a55b,2026-06-04,NVIDIA,United States of America,6.6e+24,"55 billion active parameters, ~20T tokens",Nemotron 3 Ultra 550B A55B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+openai/gpt-oss-120b_high,0.388888888888889,OpenAI,gpt-oss-120b,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",gpt-oss-120b (high),https://artificialanalysis.ai/evaluations/scicode,
+qwen3.6-35b-a3b,0.357638888888889,Alibaba,qwen3-6-35b-a3b,2026-04-14,Alibaba,China,,,Qwen3.6 35B A3B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+gpt-oss-20b_high,0.34375,OpenAI,gpt-oss-20b,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",gpt-oss-20B (high),https://artificialanalysis.ai/evaluations/scicode,
+Llama-4-Maverick-17B-128E-Instruct,0.331018518518519,Meta,llama-4-maverick,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",Llama 4 Maverick,https://artificialanalysis.ai/evaluations/scicode,
+Llama-4-Scout-17B-16E-Instruct,0.170138888888889,Meta,llama-4-scout,2025-04-05,Meta AI,United States of America,4.08e+24,"40T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md  
+
+Estimating training compute from parameters and tokens:
+6 FLOP per token per parameter * 17B active parameters * 40T tokens = 4.08e24 FLOP
+(Implying mean throughput was 227 TFLOPS/GPU, or 11.5% MFU in FP8)
+
+
+The model card also states that Llama 4 Scout used 5.0M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 5 million hours = 7.02e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Scout than for Behemoth.)",Llama 4 Scout,https://artificialanalysis.ai/evaluations/scicode,
+claude-sonnet-5_max,0.53587962962963,Anthropic,claude-sonnet-5,2026-06-30,Anthropic,United States of America,,,"Claude Sonnet 5 (Adaptive Reasoning, Max Effort)",https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.5_none,0.486111111111111,OpenAI,gpt-5-5-instant-06-26,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Instant (June 2026),https://artificialanalysis.ai/evaluations/scicode,
+gemini-2.5-pro,0.428240740740741,Google,gemini-2-5-pro,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro,https://artificialanalysis.ai/evaluations/scicode,
+gpt-4.1-mini-2025-04-14,0.403935185185185,OpenAI,gpt-4-1-mini,2025-04-14,OpenAI,United States of America,,,GPT-4.1 mini,https://artificialanalysis.ai/evaluations/scicode,
+claude-sonnet-4-20250514_unknown,0.4004629629629631,Anthropic,claude-4-sonnet-thinking,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude 4 Sonnet (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+DeepSeek-V3-0324,0.357638888888889,DeepSeek,deepseek-v3-0324,2025-03-24,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",DeepSeek V3 0324,https://artificialanalysis.ai/evaluations/scicode,
+DeepSeek-R1,0.35714285714285704,DeepSeek,deepseek-r1-0120,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",DeepSeek R1 (Jan '25),https://artificialanalysis.ai/evaluations/scicode,
+Qwen3-32B,0.354166666666667,Alibaba,qwen3-32b-instruct-reasoning,2025-04-29,Alibaba,China,7.0848e+24,6 FLOP / parameter / token * 36 * 10^12 tokens * 32.8  * 10^9 parameters = 7.0848e+24 FLOP,Qwen3 32B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+qwen3.5-9B,0.275462962962963,Alibaba,qwen3-5-9b,2026-02-24,Alibaba,China,,,Qwen3.5 9B (Reasoning),https://artificialanalysis.ai/evaluations/scicode,
+claude-3-5-haiku-20241022,0.274305555555556,Anthropic,claude-3-5-haiku,2024-10-22,Anthropic,United States of America,,,Claude 3.5 Haiku,https://artificialanalysis.ai/evaluations/scicode,
+mimo-v2-flash,0.259259259259259,Xiaomi,mimo-v2-flash,,Xiaomi Corp,China,2.43e+24,6 * 15e9 active parameters * 27e12 tokens = 2.43e+24,MiMo-V2-Flash (Non-reasoning),https://artificialanalysis.ai/evaluations/scicode,
+gpt-4.1-nano-2025-04-14,0.259259259259259,OpenAI,gpt-4-1-nano,2025-04-14,OpenAI,United States of America,,,GPT-4.1 nano,https://artificialanalysis.ai/evaluations/scicode,
+gemma-3-27b-it,0.211805555555556,Google,gemma-3-27b,2025-03-12,Google DeepMind,United States of America,2.268e+24,6ND =  6 * 27B parameters * 14T training tokens = 2.268 × 10^24 FLOP,Gemma 3 27B Instruct,https://artificialanalysis.ai/evaluations/scicode,
+Llama-3.1-8B-Instruct,0.131944444444444,Meta,llama-3-1-instruct-8b,2024-07-23,Meta AI,United States of America,1.224e+24,"Huggingface page says 3.1-8B used 1.46M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 8B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 8B = 7.2e23 FLOPs
+
+Hardware:
+1.46M * 9.9e14 * 3600 * 0.4 = 2.08e24 FLOPs
+
+Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
+
+Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",Llama 3.1 Instruct 8B,https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.1-2025-11-13_unknown,0.43287037037037,OpenAI,gpt-5-1,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT-5.1 (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-sol_high,0.569444444444444,OpenAI,gpt-5-6-sol-high,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-sol_medium,0.564814814814815,OpenAI,gpt-5-6-sol-medium,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (medium),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-sol_max,0.561342592592593,OpenAI,gpt-5-6-sol,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (max),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-sol_xhigh,0.560185185185185,OpenAI,gpt-5-6-sol-xhigh,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-sol_low,0.554398148148148,OpenAI,gpt-5-6-sol-low,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (low),https://artificialanalysis.ai/evaluations/scicode,
+grok-4.5_high,0.540509259259259,SpaceXAI,grok-4-5,2026-07-08,xAI,United States of America,,,Grok 4.5 (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-terra_max,0.539351851851852,OpenAI,gpt-5-6-terra,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (max),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-luna_max,0.525462962962963,OpenAI,gpt-5-6-luna,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (max),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-terra_xhigh,0.516203703703704,OpenAI,gpt-5-6-terra-xhigh,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-luna_high,0.506944444444444,OpenAI,gpt-5-6-luna-high,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-terra_high,0.501157407407407,OpenAI,gpt-5-6-terra-high,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-luna_xhigh,0.5,OpenAI,gpt-5-6-luna-xhigh,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (xhigh),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-terra_medium,0.496527777777778,OpenAI,gpt-5-6-terra-medium,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (medium),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-terra_low,0.491898148148148,OpenAI,gpt-5-6-terra-low,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (low),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-luna_medium,0.45833333333333304,OpenAI,gpt-5-6-luna-medium,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (medium),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5.6-luna_low,0.456018518518519,OpenAI,gpt-5-6-luna-low,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (low),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5-2025-08-07_unknown,0.429398148148148,OpenAI,gpt-5,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (high),https://artificialanalysis.ai/evaluations/scicode,
+gpt-5-mini-2025-08-07_unknown,0.392361111111111,OpenAI,gpt-5-mini,2025-08-07,OpenAI,United States of America,,,GPT-5 mini (high),https://artificialanalysis.ai/evaluations/scicode,

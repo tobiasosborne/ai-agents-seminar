@@ -1,0 +1,62 @@
+Model version,Average score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Agent,Notes,Source,Source link,id
+claude-opus-4-6_high,0.5531381702863989,2026-02-05,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,reccVU3SIqoNBQoc4
+,0.5513,,,,,,,Xiaoyi DeepResearch,,,rec0g4rXGRzom1r7o
+xiaoyi-deepresearch,0.5513,2026-03-06,,,,,,,,,recC7C6Y3TjNshbkx
+gpt-5-2025-08-07_unknown,0.5513,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,,,recjWm15GdMAR6MXl
+claude-sonnet-4-6_high,0.5486826034317638,2026-02-17,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,rec8802UWGtedVgJY
+gpt-5.5_high,0.5400960770059647,2026-04-23,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recheEJW36S0Dmd4M
+claude-opus-4-6_medium,0.5324070106776454,2026-02-05,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recV41P9TO0UOXBrz
+claude-sonnet-4-5-20250929_2K,0.526,2025-09-29,Anthropic,United States of America,,,,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recWmaxS0ycQLxFMa
+gpt-5-2025-08-07_low,0.51,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recIbyRHhHFxDYfXq
+claude-opus-4-8_high,0.5023412240360061,2026-05-28,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recH15wI9KuYl4sCc
+gemini-2.5-pro,0.49710000000000004,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,recSXmXie8j65Q251
+claude-opus-4-1-20250805,0.497,2025-08-05,Anthropic,United States of America,,,,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recAiUkL2JKnr7mnB
+gpt-5-2025-08-07_minimal,0.497,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recHggeQMAdJvIEz9
+gpt-5.5_medium,0.4955079229440321,2026-04-23,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,rec6hR81BMyiPDlmS
+gpt-5-2025-08-07_medium,0.495,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recsWpC0ObN7DsE4t
+claude-opus-4-8_low,0.49267627823423205,2026-05-28,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recuiSzLJrl2Y4Id1
+claude-opus-4-20250514_2K,0.49,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,2048 thinking token budget,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recR3uOS0BLHqkwxL
+gpt-5.5_low,0.4872669226885893,2026-04-23,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,reccXAd2b5mJk5VO0
+gpt-5-2025-08-07_high,0.486,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recQCpfcr9yYqfBqe
+grok-4-0709,0.479,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",True,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recAThc100QSltAYp
+claude-sonnet-4-20250514_2K,0.478,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,2048 thinking token budget,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,reciPR9ZrmNzGMR41
+claude-opus-4-8_medium,0.47428855644291135,2026-05-28,Anthropic,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recHfprP05gmb8wdt
+o3-2025-04-16_medium,0.466,2025-04-16,OpenAI,United States of America,,,,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recZOsBdFIcclcWLC
+claude-3-7-sonnet-20250219_2K,0.436,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,2048 thinking token budget,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,rec7sfVScDTbadXOF
+gemini-2.5-pro-preview-06-05,0.428,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,recXizbzd3b0y22vq
+gpt-5.1-2025-11-13_low,0.42790202224157375,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,,https://drb.futuresearch.ai/#drb,,recvo8p3ckrliO2hR
+gpt-5.2-2025-12-11_low,0.4111991557763133,2025-12-11,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recfoBxQ21KfVCtxp
+sonar-pro,0.3776,2025-01-21,Perplexity,United States of America,,,,,,,recf0sAiSwO61A9LK
+sonar,0.3775,,,,,,,,,,recloADjstkLIwDeY
+claude-3-7-sonnet-20250219,0.3663,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,,,,recTZngWrqQBIPEMK
+gemini-3.1-flash-lite,0.3639498038812288,2026-03-03,Google,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recOzFMcdH2YxAhUF
+gpt-5.4-mini-2026-03-17_low,0.3626446724539791,2026-03-17,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recFSLojghJGcBU6X
+DeepSeek-R1-0528,0.351,2025-05-28,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
+https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
+""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
+
+6 FLOP/token/param * 14.8T tokens * 37B active params = 3.29e24 FLOP (pretraining)
+1.2e23 FLOP (post-training)
+6.1e23 FLOP (fine-tuning)
+
+Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",,,DeepResearchBench Leaderboard,https://drb.futuresearch.ai,rec8Lh9Jnh2v0o4mA
+gpt-5.4-2026-03-05_low,0.35088809484533334,2026-03-05,OpenAI,United States of America,,,,,https://drb.futuresearch.ai/#drb,,recJ7rkEreGH8afLs
+gemini-2.5-pro-preview-05-06,0.319,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,recjOvJL1taUO5D32
+gpt-4.1-2025-04-14,0.29309999999999997,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,recY3SZERTx5liaqZ
+gemini-2.5-flash-preview-04-17,0.2919,2025-04-17,Google DeepMind,United States of America,,,,,,,recLZ8gxNoIQtOk8y

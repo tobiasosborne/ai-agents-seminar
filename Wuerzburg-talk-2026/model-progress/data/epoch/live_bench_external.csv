@@ -1,0 +1,111 @@
+Model version,Global average,Release date,Organization,Country,Training compute (FLOP),Training compute notes,UUID,Reasoning average,Coding average,Mathematics average,Data analysis average,Language average,IF Average,LiveBench Version,Source,Source link,Notes,id
+gemini-2.5-pro-exp-03-25,82.35,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,recdqASZ0IuC0YxYB,89.75,85.87,90.2,79.89,67.82,80.59,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.5-pro-exp-03-25
+claude-3-7-sonnet-20250219,76.1,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,rectCQvqMspIuMUQL,87.83,74.54,79.0,74.05,59.93,81.25,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,Assumed baseline 3.7 Sonnet,claude-3-7-sonnet-thinking
+o3-mini-2025-01-31_high,75.88,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recMpw98si8R0RbEZ,89.58,82.74,77.29,70.64,50.68,84.36,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,o3-mini-2025-01-31-high
+o1-2024-12-17_high,75.67,2024-12-17,OpenAI,United States of America,,,rec9whDdTVTSY7LHB,91.58,69.69,80.32,65.47,65.39,81.55,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,o1-2024-12-17-high
+QwQ-32B,71.96,2025-03-05,Alibaba,China,3.51e+24,"Assuming the same dataset size as for Qwen2.5 training (18T tokens):
+
+6ND = 6 * 32500000000 parameters * 18 * 10^12 tokens =  3.51 × 10^24
+
+'Speculative' confidence",recExmZmqW7YXYwL6,83.5,72.23,77.82,65.03,51.35,81.83,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwq-32b
+DeepSeek-R1,71.57,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",recmEkG6ZjErNSgmY,83.17,66.74,80.71,69.78,48.53,80.51,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,deepseek-r1
+o3-mini-2025-01-31_medium,70.01,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recBLQVNF1SQxcRs5,86.33,65.38,72.37,66.56,46.26,83.16,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,o3-mini-2025-01-31-medium
+gpt-4.5-preview-2025-02-27,68.95,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",rech09NDATGEoh1cL,71.08,75.18,69.33,64.33,61.45,72.33,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gpt-4.5-preview
+gemini-2.0-flash-thinking-exp-01-21,66.92,2025-01-21,"Google DeepMind,Google",United States of America,,,recEi3b1zYk3uBZrB,78.17,53.49,75.85,69.37,42.18,82.47,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-flash-thinking-exp-01-21
+DeepSeek-V3-0324,66.86,2025-03-24,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",recBZZKQIAKSN6I99,65.83,70.9,73.52,60.37,49.07,81.47,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,deepseek-v3-0324
+claude-3-7-sonnet-20250219,65.56,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,recxcw5ioUB6pfIkO,66.0,67.49,63.26,63.37,56.76,76.49,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,claude-3-7-sonnet
+gemini-2.0-pro-exp-02-05,65.13,2025-02-05,Google DeepMind,United States of America,,Flagship model from a leading developer in early 2025; very likely it used >1e25 FLOP.,recp77zArkmrVtAc9,60.08,63.49,70.97,68.02,44.85,83.38,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-pro-exp-02-05
+,64.75,,,,,,recNjdrXdHmTxVD7z,64.92,64.97,59.52,70.47,56.66,71.92,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,chatgpt-4o-latest-2025-03-27
+gemini-exp-1206,64.09,2024-12-06,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",reciNW7NGONZYYyqW,57.0,63.41,72.36,63.16,51.29,77.34,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-exp-1206
+o3-mini-2025-01-31_low,62.45,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recvvWdzo501b64uE,69.83,61.46,63.06,62.04,38.25,80.06,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,o3-mini-2025-01-31-low
+qwen2.5-max,62.29,2025-01-28,Alibaba,China,,,recasitWHE7H7Vs03,51.42,64.41,58.35,67.93,56.28,75.35,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwen2.5-max
+gemini-2.0-flash-001,61.47,2025-02-05,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",recmd7WAYx5WKcXJc,55.25,53.92,65.62,67.55,40.69,85.79,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-flash
+DeepSeek-V3,60.45,2024-12-26,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",recV3yTfoMkHtmVjz,56.75,61.77,60.54,60.94,47.48,75.25,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,deepseek-v3
+,60.27,,,,,,recLdd5guVctKb9yL,52.92,60.13,55.44,59.83,69.05,64.24,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,perplexity-sonar-pro
+gemini-2.0-flash-exp,59.26,2024-12-11,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",recj7fNK0MEVgyLKi,59.08,54.36,60.39,61.67,38.22,81.86,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-flash-exp
+claude-3-5-sonnet-20241022,59.03,2024-10-22,Anthropic,United States of America,,,recRpRTARUlOkqHGx,56.67,67.13,52.28,55.03,53.76,69.3,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,claude-3-5-sonnet-20241022
+,57.79,,,,,,rec0Z9z8LcBKQlfYW,57.92,60.56,48.02,66.0,49.14,65.07,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,chatgpt-4o-latest-2025-01-29
+o1-mini-2024-09-12_medium,57.76,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recNY7q0j0gMiXfAZ,72.33,48.05,61.99,57.92,40.89,65.4,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,Assuming medium thinking effort for o1-mini,o1-mini-2024-09-12
+,56.02,,,,,,rec2JcLl70YMWagnc,52.17,47.19,48.77,63.72,44.39,79.88,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,step-2-16k-202411
+gpt-4o-2024-08-06,55.33,2024-08-06,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,rec0Y0yQZvFys9Gzn,53.92,51.44,49.54,60.91,47.59,68.58,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gpt-4o-2024-08-06
+DeepSeek-R1-Distill-Llama-70B,54.5,2025-01-20,DeepSeek,China,,"base model compute: 6.8649768e+24 FLOP
+fine tune compute: 2.016e+22 FLOP",recXwTy2wvo9S2Fqj,67.58,51.62,58.11,55.93,23.81,69.94,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,deepseek-r1-distill-llama-70b
+grok-2-1212,54.3,2024-12-12,xAI,United States of America,2.96e+25,Estimate based on xAI statements comparing Grok-2 compute to GPT-4 and Grok-3. Full estimate here: https://docs.google.com/document/d/1C_dABuZrAqYE_ui4_GZ4bRLtq3TBjIGoBSktaPElhEU/edit?usp=sharing,recdh08mYNm0XRtEJ,54.83,46.44,54.88,54.45,45.58,69.63,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,grok-2-1212
+gemini-2.0-flash-lite,54.29,2025-02-05,Google DeepMind,United States of America,,,recDz4iZRf1kdhaNL,44.92,47.08,58.09,65.45,33.6,76.63,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-flash-lite
+gemini-2.0-flash-lite-preview-02-05,53.24,2025-02-05,Google DeepMind,United States of America,,,reck2GYwVi1tNKEh8,50.08,43.8,55.54,57.47,34.28,78.28,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemini-2.0-flash-lite-preview-02-05
+Dracarys2-72B-Instruct,52.64,2024-09-30,,,,,recpa1uv0evEUsc5G,47.38,58.92,54.66,55.51,34.12,65.22,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,dracarys2-72b-instruct
+,52.36,,,,,,recdw8UQdbTITlYTI,53.25,42.65,41.07,55.85,45.46,75.9,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,meta-llama-3.1-405b-instruct-turbo
+gpt-4o-2024-11-20,52.19,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,recLfr29GlO8OsfBK,55.75,46.08,42.87,56.15,47.37,64.94,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gpt-4o-2024-11-20
+learnlm-1.5-pro-experimental,52.19,,,,,,recYqCfDddNkq3hsh,43.42,46.87,57.75,54.97,41.98,68.16,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,learnlm-1.5-pro-experimental
+,51.44,,,,,,recdAEf0WvrZgf7V8,45.42,57.64,54.29,51.91,34.99,64.39,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwen2.5-72b-instruct-turbo
+Llama-3.3-70B-Instruct,50.16,2024-12-06,Meta AI,United States of America,6.8649768e+24,"6ND = 6 FLOP / parameter / token * 70*10^9 parameters * 15*10^12 tokens = 6.3e+24 FLOP
+
+7000000 GPU-hours * 3600 sec / hour * 989500000000000 FLOP / second * 0.3 [assumed utilization]= 7.48062e+24 FLOP
+
+sqrt(7.48062e+24*6.3e+24) = 6.8649768e+24",recqRhjWWfSXwVHbY,50.75,36.59,42.24,49.49,39.2,82.67,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,llama-3.3-70b-instruct-turbo
+gemma-3-27b-it,49.99,2025-03-12,Google DeepMind,United States of America,2.268e+24,6ND =  6 * 27B parameters * 14T training tokens = 2.268 × 10^24 FLOP,recOyXHP5UWsgi4xw,43.75,39.87,55.39,51.45,34.59,74.9,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemma-3-27b-it
+,49.18,,,,,,recIYtAnRrJZ0fcOh,37.0,45.15,45.84,54.27,43.16,69.62,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,grok-beta
+claude-3-opus-20240229,49.16,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,recllZLsRVWcJ9ofq,40.58,38.59,43.62,57.89,50.39,63.89,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,claude-3-opus-20240229
+mistral-large-2411,48.43,2024-11-18,Mistral AI,France,2.13e+25,"Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",recrBUHMIocn0t6te,43.5,47.08,42.55,50.15,39.39,67.93,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,mistral-large-2411
+sonar,46.88,,,,,,receeu3ATJSDcWmNq,46.25,35.15,41.63,37.91,44.12,76.23,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,perplexity-sonar
+Qwen2.5-Coder-32B-Instruct,46.23,2024-11-21,Alibaba,China,1.0725e+24,"Assuming 1 epoch
+
+6ND = 6*32.5 parameters *10^9*5.5*10^12 tokens = 1.0725e+24",rectqXyfxH36FCQY4,42.08,56.85,46.61,49.87,23.25,58.69,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwen2.5-coder-32b-instruct
+Dracarys2-Llama-3.1-70B-Instruct,46.21,2024-08-14,,,,,recWbqOzlGUfw7sF1,44.67,36.31,40.3,53.98,38.78,63.24,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,dracarys2-llama-3.1-70b-instruct
+DeepSeek-R1-Distill-Qwen-32B,45.55,2025-01-20,DeepSeek,China,,"Qwen2.5-32B: 3.51e+24 FLOP
+Fine-tune compute: 9.22e21 FLOP",recZ8TejiwJDLWp3q,52.25,33.67,59.44,45.41,26.82,55.71,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,deepseek-r1-distill-qwen-32b
+,44.89,,,,,,recC8umrbBi4o42pU,43.0,33.49,34.72,53.75,35.42,68.98,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,meta-llama-3.1-70b-instruct-turbo
+mistral-small-2503,43.96,2025-03-17,Mistral AI,France,,At least 1.152e+24 FLOP (base model Mistral Small 3 training compute),rec0FIz9Y1qik1sUX,44.75,36.23,39.43,50.54,29.14,63.66,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,mistral-small-2503
+amazon.nova-pro-v1:0,43.53,2024-12-03,Amazon,United States of America,6.000010000000001e+24,"""probably just below 1e25 stemming from the Llama 70B serving speed.  If Llama 70B is trained proportionally to 405B, then it's at ~ 6.6e24. Nova Pro is served at 100tk/s, while Llama 70B is served at 70tk/s on average, and 100tk/s by together.ai at FP8. So Nova Pro would be >1e25 if they roughly 2x the amount of training compared to Llama 70B which [seems unlikely]""",rec4RGhHd7yYOk34I,32.58,38.15,38.04,48.31,36.96,67.13,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,amazon.nova-pro-v1:0
+claude-3-5-haiku-20241022,43.45,2024-10-22,Anthropic,United States of America,,,recH42lHxclBsUK9V,28.08,51.36,35.54,48.45,35.37,61.88,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,claude-3-5-haiku-20241022
+mistral-small-2501,42.55,2025-01-25,Mistral AI,France,1.152e+24,6ND = 6*8T tokens * 24B parameters = 1.152e+24 FLOP,recJ7dBfKG4QF07YO,36.42,35.31,39.89,53.69,30.46,59.54,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,mistral-small-2501
+phi-4,41.61,2024-12-12,Microsoft Research,United States of America,9.3202015e+23,"6ND = 6* 14*10^9 parameters * 10*10^12 tokens = 8.4e+23 FLOP
+
+989500000000000 FLOP / sec [assumed bf16 precision] * 1920 GPUs * 504 hours * 3600 sec / hour * 0.3 [assumed utilization] = 1.0341209e+24 FLOP
+
+geometric mean
+sqrt(8.4e+23 * 1.0341209e+24) = 9.3202015e+23",rec5pXgbGvb9GwNik,47.83,30.67,41.98,45.17,25.61,58.38,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,phi-4
+gpt-4o-mini-2024-07-18,41.26,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",recSSkx4zKe9R7Ky2,32.75,43.15,36.31,49.96,28.61,56.8,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gpt-4o-mini-2024-07-18
+QwQ-32B-Preview,40.25,2024-11-28,Alibaba,China,3.51e+24,"Assuming the same dataset size as for Qwen2.5 training (18T tokens):
+
+6ND = 6 * 32500000000 parameters * 18 * 10^12 tokens =  3.51 × 10^24
+
+'Speculative' confidence",recQqsRBrZo7cX7lk,57.71,37.2,58.26,31.62,21.09,35.59,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwq-32b-preview
+gemma-2-27b-it,38.18,2024-06-24,Google DeepMind,United States of America,2.106e+24,"""For the 27B model, we train on an 8x24x32 configuration of
+TPUv5p, totaling 6144 chips""
+
+trained on 13T tokens
+
+6ND = 6*27000000000*13000000000000=2.106e+24",rec65t7mJTi9ef4zU,28.08,35.95,26.46,47.87,32.62,58.1,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemma-2-27b-it
+amazon.nova-lite-v1:0,36.35,2024-12-03,Amazon,United States of America,,,recZ9vtVonvV3qGLO,36.67,27.46,36.7,37.23,25.93,54.13,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,amazon.nova-lite-v1:0
+,34.9,,,,,,recJgbOmrotKr2ZE5,28.42,38.37,39.51,35.22,15.8,52.11,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,qwen2.5-7b-instruct-turbo
+c4ai-command-r-plus-08-2024,31.76,2024-08-30,"Cohere,Cohere for AI",Canada,,,recp6SMmvnWO1UAo7,24.75,19.14,21.27,38.06,29.73,57.61,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,command-r-plus-08-2024
+amazon.nova-micro-v1:0,29.59,2024-12-03,Amazon,United States of America,,,recYbm1OGUQKd0CUI,25.08,20.18,34.49,33.95,15.78,48.04,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,amazon.nova-micro-v1:0
+gemma-2-9b-it,28.66,2024-06-24,Google DeepMind,United States of America,4.32e+23,"""For the 9B model, we train on an 8x16x32 configuration of TPUv4, totaling 4096 chips""
+
+6ND = 6 FLOP / token / parameter * 9000000000 parameters * 8000000000000 tokens = 4.32e+23 FLOP",recRKqBdPRE2hP9Jy,15.17,22.46,19.8,36.39,25.53,52.62,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,gemma-2-9b-it
+c4ai-command-r-08-2024,27.48,2024-08-30,,,,,recnV7aAlTJP1GSI5,21.92,17.9,19.39,33.34,16.72,55.62,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,command-r-08-2024
+,25.97,,,,,,rec8CAWgNFAMvfMht,13.33,18.74,18.31,32.82,17.71,54.9,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,meta-llama-3.1-8b-instruct-turbo
+Phi-3-small-8k-instruct,24.03,2024-04-23,Microsoft,United States of America,2.1312e+23,6ND = 6 FLOP / parameter / token * 7.4B parameters * 4.8T tokens = 2.1312e+23 FLOP,rec2x8JSO9CA4xkBy,15.92,20.26,17.58,30.29,12.94,47.2,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,phi-3-small-8k-instruct
+Phi-3-mini-4k-instruct,22.36,2024-04-23,Microsoft,United States of America,7.524e+22,"counting operations: 6×3.3×10^12 tokens ×3.8×10^9 parameters ≈7.524×10^22 FLOPS
+hardware estimate: 7 days ×24 hours / day×3600 sec / hour *989,000,000,000,000 FLOP/s*512 GPUs*0.3 [assumed utilization]=9.187540992×10^22",recyNgAVuOsvYtdKw,20.5,15.04,15.72,34.69,9.15,39.08,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,phi-3-mini-128k-instruct
+OLMo-2-1124-13B-Instruct,22.12,2024-12-31,"Allen Institute for AI,University of Washington,New York University (NYU)",United States of America,4.6e+23,"4.6*10^23 FLOPs (Table 6 - developers calculated using 6ND formula)
+",rec27C9qpmHPs1Lwq,16.33,10.41,13.64,20.6,11.16,60.56,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,olmo-2-1124-13b-instruct
+Phi-3-mini-4k-instruct,22.08,2024-04-23,Microsoft,United States of America,7.524e+22,"counting operations: 6×3.3×10^12 tokens ×3.8×10^9 parameters ≈7.524×10^22 FLOPS
+hardware estimate: 7 days ×24 hours / day×3600 sec / hour *989,000,000,000,000 FLOP/s*512 GPUs*0.3 [assumed utilization]=9.187540992×10^22",recuSbAo75IkmGM80,26.83,15.54,14.96,30.21,8.56,36.36,LiveBench-2024-11-25,LiveBench Leaderboard,https://livebench.ai/#/,,phi-3-mini-4k-instruct
+gpt-5.1-2025-11-13_high,78.79,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",reccitYZXEdy5f7ZU,95.75,72.49,94.46,72.07,80.15,93.28,,LiveBench Leaderboard,https://livebench.ai/#/,,gpt-5.1_high

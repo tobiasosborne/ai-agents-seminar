@@ -1,0 +1,58 @@
+Model version,Correct,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Notes,Source,Source link,id
+gemini-3-pro-preview,0.91,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,,VPCT leaderboard,https://cbrower.dev/vpct,recG05ZRFsIS6Np5A
+gpt-5.2-2025-12-11_xhigh,0.84,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec44ii4M100mBK2S
+gemini-3-flash-preview,0.726,2025-12-17,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recvXJM6wzywb9IOE
+gpt-5.2-2025-12-11_high,0.67,2025-12-11,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,reckX2AKbtEWNzbZK
+gpt-5-2025-08-07_high,0.66,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recr3Z2yR195jbjtt
+gpt-5-2025-08-07_medium,0.632,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",,VPCT leaderboard,https://cbrower.dev/vpct,recsN4vpvg4hEFivY
+gpt-5.1-2025-11-13_high,0.587,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,VPCT leaderboard,https://cbrower.dev/vpct,recozf8fQmQQsCQnw
+o4-mini-2025-04-16_medium,0.575,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",Assuming medium reasoning effort,VPCT leaderboard,https://cbrower.dev/vpct,recMIWcdIKL4MZxYy
+gpt-5.1-2025-11-13_medium,0.533,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",,VPCT leaderboard,https://cbrower.dev/vpct,reczaxzhyt2q07c7C
+o3-2025-04-16_medium,0.52,2025-04-16,OpenAI,United States of America,,,Assuming medium reasoning effort,VPCT leaderboard,https://cbrower.dev/vpct,recFneRecBUyPfN2q
+gemini-2.5-pro-preview-03-25,0.48,2025-03-31,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recbwV5ELYHiGvFL7
+gemini-2.5-pro-preview-06-05,0.464,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,rec52Pw8uNshiCO40
+gemini-2.5-flash-preview-09-2025,0.462,2025-09-25,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recUuPqxD6I72fBY3
+gpt-4.5-preview-2025-02-27,0.45,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",,VPCT leaderboard,https://cbrower.dev/vpct,recmQTMUVSEqkDA69
+gemini-robotics-er-1.5-preview,0.408,2025-09-26,,,,,,VPCT leaderboard,https://cbrower.dev/vpct,recjtzyakPMsEmkjI
+gemini-2.5-pro-preview-05-06,0.405,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recJ6k9ReFhyFGQtA
+gpt-5-mini-2025-08-07_medium,0.402,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec6APYO4FYKyHDtb
+gpt-4o-2024-11-20,0.4,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,,VPCT leaderboard,https://cbrower.dev/vpct,recM0nqnoo0kn90F5
+claude-opus-4-5-20251101_32K,0.4,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Hasn't been added to leaderboard, but twitter thread confirms it.",Tweet from VPCT creator,https://x.com/ChaseBrowe32432/status/1993038782975951149,recx5AzuT2zNCCxlX
+claude-sonnet-4-5-20250929_32K,0.398,2025-09-29,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recrRiFpB4Yu07ICW
+claude-3-7-sonnet-20250219,0.39,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recM5woYQkKuJ3OW3
+gpt-5-mini-2025-08-07_high,0.39,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recV0qj04cOD1aAYJ
+gemini-2.5-flash-preview-04-17,0.38,2025-04-17,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recDPItICe3yrLPoM
+claude-opus-4-20250514_16K,0.38,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recR0EgymqTMRoVGM
+claude-sonnet-4-5-20250929,0.38,2025-09-29,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recCCodoLB4uRw9uE
+gpt-5-nano-2025-08-07_high,0.372,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec4oPG9VFZ9Hj1Nu
+o1-2024-12-17_medium,0.37,2024-12-17,OpenAI,United States of America,,,Assuming medium reasoning effort for o1,VPCT leaderboard,https://cbrower.dev/vpct,recKCsz6Np1hFa9Io
+gpt-5-nano-2025-08-07_medium,0.354,2025-08-07,OpenAI,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,rec1Ak2IO7DaZW9Sm
+claude-3-7-sonnet-20250219_64K,0.35,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,VPCT leaderboard,https://cbrower.dev/vpct,recoN8YNFbyWyRXtj
+claude-opus-4-1-20250805,0.35,2025-08-05,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recW1ZN2O62BUbQkk
+gpt-4o-mini-2024-07-18,0.34,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",,VPCT leaderboard,https://cbrower.dev/vpct,rec9Z8ze3bQlJ2HJ8
+claude-sonnet-4-20250514_32K,0.34,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recw9Cr5pR8QbSQVR
+claude-3-5-sonnet-20241022,0.33,2024-10-22,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recLSdu00YI6KGPj1
+claude-opus-4-20250514,0.33,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recJ544ON0UcQQyf3
+claude-opus-4-1-20250805_16K,0.33,2025-08-05,Anthropic,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recK5mNmRO2BPjc77
+claude-3-5-sonnet-20240620,0.33,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",,VPCT leaderboard,https://cbrower.dev/vpct,recYLAYmihUQYov44
+claude-sonnet-4-20250514,0.3,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,VPCT leaderboard,https://cbrower.dev/vpct,recGWkeppRnxmGMKI
+gemini-2.5-flash-lite-preview-09-2025,0.3,2025-09-25,Google DeepMind,United States of America,,,,VPCT leaderboard,https://cbrower.dev/vpct,recOdPVRW9wrLgR8D

@@ -1,0 +1,111 @@
+Model version,Mean score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,ID,Notes,Source,Source link
+o3-2025-04-16_medium,8.39,2025-04-16,OpenAI,United States of America,,,recaq2pSAD6GGfn5w,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+qwen3-235b-a22b,8.3,2025-04-29,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,recSkbMHfjidM77vp,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+DeepSeek-R1,8.3,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",reccBYfi4bRrue4HQ,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gpt-4o-2024-11-20,8.18,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,recoz4ungN3PTpQl9,"Assuming latest version of gpt-4o as of March 2025, which was released in November 2024. ",lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+claude-3-7-sonnet-20250219_16K,8.11,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,recsJfvmkvg5HQXtd,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+QwQ-32B (16K thinking),8.07,2025-03-05,Alibaba,China,3.51e+24,"Assuming the same dataset size as for Qwen2.5 training (18T tokens):
+
+6ND = 6 * 32500000000 parameters * 18 * 10^12 tokens =  3.51 × 10^24
+
+'Speculative' confidence",reciVOxUS1MVywwy0,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemini-2.5-pro-exp-03-25,8.05,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,rectFWVD6OaR7zTAc,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+claude-3-5-sonnet-20241022,8.03,2024-10-22,Anthropic,United States of America,,,recP7L8TeBmoCAl0r,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemma-3-27b-it,7.99,2025-03-12,Google DeepMind,United States of America,2.268e+24,6ND =  6 * 27B parameters * 14T training tokens = 2.268 × 10^24 FLOP,recJHtOReC3qBWu5u,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+claude-3-7-sonnet-20250219,7.94,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,reci1bJfZoH6BKt6v,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+DeepSeek-V3-0324,7.7,2025-03-24,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",recqkT3tIKjY1r3fM,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemini-2.5-flash-preview-04-17 (24K thinking),7.65,2025-04-17,Google DeepMind,United States of America,,,rec8l7OvydxWXqfLG,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+grok-3-beta,7.64,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",rec2jPjbcJQabiidK,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gpt-4.5-preview-2025-02-27,7.56,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",rec1SxklVeGLx1G1l,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+Qwen3-30B-A3B,7.53,2025-04-29,Alibaba,China,6.48e+23,6 FLOP / parameter / token * 3*10^9 active parameters * 36000000000000 tokens = 6.48e+23 FLOP,recJzfhOd5CQMu9pU,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o4-mini-2025-04-16_medium,7.5,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recl393uYsVbqAdgp,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemini-2.0-flash-thinking-exp-01-21,7.38,2025-01-21,"Google DeepMind,Google",United States of America,,,rec7Ad0FQVVUZGJ0o,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+claude-3-5-haiku-20241022,7.35,2024-10-22,Anthropic,United States of America,,,recfHZVxMFIfkbYxf,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+grok-3-mini-beta_low,7.35,2025-04-09,xAI,United States of America,,,recS4R7WEzc0s9V7x,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+qwen2.5-max,7.29,2025-01-28,Alibaba,China,,,reckFMjYS4y6kWND5,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemini-2.0-flash-exp,7.15,2024-12-11,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",recSGTGdSd09Lb6L8,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o1-2024-12-17_medium,7.02,2024-12-17,OpenAI,United States of America,,,recjgF4RoMK0VJ55k,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+mistral-large-2407,6.9,2024-07-24,Mistral AI,France,2.13e+25,"Details are sparse, but we can hazard a guess based on evidence about the training cluster they may have used, the scale up in compute they likely would have used relative to Mistral Large 1, and from the model's MMLU score. Extended reasoning given here: https://docs.google.com/document/d/1I2ZWBLFMpRZYcdMMUfKAGZFJrOJpduNDS9ZeVFIHnd8/edit?usp=sharing",recTwh7ZHo9GJj9wP,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gpt-4o-mini-2024-07-18,6.72,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",rec59iWuwAkDxmebi,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o1-mini-2024-09-12_medium,6.49,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recq4LxA84BKzH3t1,Assuming medium reasoning effort.,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+grok-2-1212,6.36,2024-12-12,xAI,United States of America,2.96e+25,Estimate based on xAI statements comparing Grok-2 compute to GPT-4 and Grok-3. Full estimate here: https://docs.google.com/document/d/1C_dABuZrAqYE_ui4_GZ4bRLtq3TBjIGoBSktaPElhEU/edit?usp=sharing,recxwnBs6mL87lq8r,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+phi-4,6.26,2024-12-12,Microsoft Research,United States of America,9.3202015e+23,"6ND = 6* 14*10^9 parameters * 10*10^12 tokens = 8.4e+23 FLOP
+
+989500000000000 FLOP / sec [assumed bf16 precision] * 1920 GPUs * 504 hours * 3600 sec / hour * 0.3 [assumed utilization] = 1.0341209e+24 FLOP
+
+geometric mean
+sqrt(8.4e+23 * 1.0341209e+24) = 9.3202015e+23",rect9gbTk2DzJqvos,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+Llama-4-Maverick-17B-128E-Instruct,6.2,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",recNUH31w7Wo1y6BP,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o3-mini-2025-01-31_high,6.17,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recfjLnZ7q8ZmOFwC,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o3-mini-2025-01-31_medium,6.15,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",recF0Rko4uHeKxc4o,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+amazon.nova-pro-v1:0,6.05,2024-12-03,Amazon,United States of America,6.000010000000001e+24,"""probably just below 1e25 stemming from the Llama 70B serving speed.  If Llama 70B is trained proportionally to 405B, then it's at ~ 6.6e24. Nova Pro is served at 100tk/s, while Llama 70B is served at 70tk/s on average, and 100tk/s by together.ai at FP8. So Nova Pro would be >1e25 if they roughly 2x the amount of training compared to Llama 70B which [seems unlikely]""",recJLuoiCnHOIXETL,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gpt-5-2025-08-07_medium,8.723,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",rec0Z6mn8DykfmhUG,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+moonshotai/kimi-k2-0905,8.729,2025-09-05,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,recGPmtzBtdNSHZ1x,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+qwen3-max-2025-09-23,8.711,2025-09-24,Alibaba,China,1.512e+25,"6ND with:
+36T tokens is taken from the qwen3 technical report
+70B active params is based on it having >1T params, and the architectures of Qwen3-235B-A22B and Qwen3-Coder-480B-A35B",recYPhzB6GKyfcmh2,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+Kimi-K2-Instruct,8.693,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,recQirtQcqpnqnCmD,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+o3-pro-2025-06-10_medium,8.628,2025-06-10,OpenAI,United States of America,,,recziSpfFbKGOTfrx,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gemini-2.5-pro,8.602,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,rec0ovyX32clmB0YQ,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+claude-opus-4-1-20250805,8.538,2025-08-05,Anthropic,United States of America,,,recQGrrVSyU7LJV8J,No thinking,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+DeepSeek-V3.1_thinking,8.517,2025-08-21,DeepSeek,China,3.594058e+24,"This was based on V3 which was trained on 14.8T tokens for a total of 14.8T + 840B = 15.64T pretraining tokens. Adding the FLOPs from continued pretraining onto our estimate for V3, which is 3.4e24 FLOPs, we get 3.4e24 + 1.9e23 = 3.59e24",recXUvne0qnnHCAxs,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+DeepSeek-V3.1,8.507,2025-08-21,DeepSeek,China,3.594058e+24,"This was based on V3 which was trained on 14.8T tokens for a total of 14.8T + 840B = 15.64T pretraining tokens. Adding the FLOPs from continued pretraining onto our estimate for V3, which is 3.4e24 FLOPs, we get 3.4e24 + 1.9e23 = 3.59e24",rectiWJo2OyeDNWWx,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+Qwen3-235B-A22B-Thinking-2507,8.495,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,recgbicrWUHFgEXUN,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+grok-4-fast,8.114,2025-09-19,xAI,United States of America,,,recRylKVxPMaH3b2W,Reasoning version,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+grok-4-0709,8.068,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",recHsXHgOLusv4OM7,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+glm-4.5,7.803,2025-08-03,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,recndMUeg8j7ax2mP,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+gpt-oss-120b,7.726,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",rechu7octUa0VXvGm,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing
+Llama-4-Maverick-17B-128E-Instruct,6.37,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",rec0zEPq8jBjjZMck,,lechmazur/writing Github repository,https://github.com/lechmazur/Writing

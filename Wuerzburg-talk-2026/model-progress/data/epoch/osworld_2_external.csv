@@ -1,0 +1,10 @@
+Model version,Binary accuracy,Partial score,Reasoning,Tool setting,Step budget,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Model family,Estimated cost (USD),Source,Notes
+claude-opus-4-8_max,0.20600000000000002,0.5479999999999999,max,batched tool,500,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (max),Claude,,https://osworld-v2.xlang.ai/,
+claude-opus-4-8_max,0.1852,0.4933,max,standard,500,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (max),Claude,,https://osworld-v2.xlang.ai/,
+claude-opus-4-7_max,0.182,0.4891,max,batched tool,500,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (max),Claude,,https://osworld-v2.xlang.ai/,
+claude-opus-4-7_max,0.139,0.49100000000000005,max,standard,500,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (max),Claude,3870.0,https://osworld-v2.xlang.ai/,
+claude-sonnet-4-6_medium,0.09300000000000001,0.33899999999999997,medium,standard,500,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6 (medium),Claude,1550.0,https://osworld-v2.xlang.ai/,
+claude-sonnet-4-6_max,0.083,0.41500000000000004,max,standard,500,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6 (max),Claude,2410.0,https://osworld-v2.xlang.ai/,
+gpt-5.5_xhigh,0.13,0.495,xhigh,batch tool,500,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (xhigh),GPT,2750.0,https://osworld-v2.xlang.ai/,
+MiniMax-M3,0.046,0.223,enabled,standard,500,2026-06-01,MiniMax,China,,,MiniMax M3 (enabled),MiniMax,258.78,https://osworld-v2.xlang.ai/,
+kimi-k2.6,0.046,0.22100000000000003,enabled,standard,500,2026-04-20,Moonshot,China,,,Kimi 2.6 (enabled),Kimi,708.0,https://osworld-v2.xlang.ai/,

@@ -1,0 +1,13 @@
+Model version,GDP.pdf score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Provider,Last updated,Source,Source link,Notes,id
+claude-fable-5_unknown,0.3,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 / Mythos 5,Anthropic,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,rec7bg6dxysw8NR5Q
+gpt-5.5_xhigh,0.25,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (xHigh reasoning),OpenAI,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recTQqSxqF0lILDYj
+claude-opus-4-8_max,0.23,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (Adaptive Max),Anthropic,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recRnDhgeDepMekVw
+claude-opus-4-7_max,0.21,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (Adaptive Max),Anthropic,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recpPhcZvnB3KuwPz
+gemini-3.1-pro-preview,0.17,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 (Pro),Google,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recVfCuiq4mi3E3ME
+gemini-3.5-flash_unknown,0.14,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash,Google,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recYTXDosKPzreEXS
+kimi-k2.6,0.12,2026-04-20,Moonshot,China,,,Kimi K2.6,Kimi,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recFT788w1BzHc72m
+gemini-3-flash-preview,0.1,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash,Google,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,rec82iUSNxO9xcFP6
+grok-4-3,0.08,2026-04-17,xAI,United States of America,,,Grok 4.3 (High),Grok,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recGGgc1Xoii0Henf
+,0.02,,,,,,Mistral Large 3,Mistral,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,recsH8Yr7mn4iPK4S
+,0.02,,,,,,Nova 2 (Pro),Amazon,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,reccoI7Aon3IRZ2nM
+,0.02,,,,,,NVIDIA Nemotron 3 Nano Omni,NVIDIA,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,recykw9dYl9uNnHhr

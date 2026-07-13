@@ -1,0 +1,79 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,R1,R2,R3,Shots,Source,Source link,Notes,id
+,,,,,,,BERT,,,,,Adversarial NLI: A New Benchmark for Natural Language Understanding,https://arxiv.org/pdf/1910.14599,,recYPBajeLA2L6QSD
+,,,,,,,XLNET,,,,,Adversarial NLI: A New Benchmark for Natural Language Understanding,https://arxiv.org/pdf/1910.14599,,rec6jWkJHX8L9A2cQ
+,,,,,,,RoBERTa,,,,,Adversarial NLI: A New Benchmark for Natural Language Understanding,https://arxiv.org/pdf/1910.14599,,recmjkdd2BuXQMcbQ
+Phi-3-mini-4k-instruct,0.528,2024-04-23,Microsoft,United States of America,7.524e+22,"counting operations: 6×3.3×10^12 tokens ×3.8×10^9 parameters ≈7.524×10^22 FLOPS
+hardware estimate: 7 days ×24 hours / day×3600 sec / hour *989,000,000,000,000 FLOP/s*512 GPUs*0.3 [assumed utilization]=9.187540992×10^22",Phi-3-mini 3.8b        ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recRK7mjPoMNvdB2G
+Phi-3-small-8k-instruct,0.581,2024-04-23,Microsoft,United States of America,2.1312e+23,6ND = 6 FLOP / parameter / token * 7.4B parameters * 4.8T tokens = 2.1312e+23 FLOP,Phi-3-small 7b         ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,reczstKSIPrFDyOvb
+Phi-3-medium-128k-instruct,0.558,2024-04-23,Microsoft,United States of America,4.032e+23,counting operations: 6×4.8×10^12 tokens × 14×10^9 parameters ≈ 4.032×10^23 FLOPS,Phi-3-medium 14b       ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recIkuaIsFXEwVyqh
+phi-2,0.425,2023-12-12,Microsoft,United States of America,2.27e+22,"2.7B params, trained on 1.4T tokens
+
+2.7 billion * 1.4 trillion * 6 = 2.27e22
+
+96*14 A100-days
+
+14 * 96 * 312 trillion * 24 * 3600 * 0.3 = 1.09e22",Phi-2 2.7b             ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec56Oyo244VigZmC
+Mistral-7B-v0.1,0.471,2023-09-27,Mistral AI,France,,,Mistral 7b             ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recs6xkdcp6JUtf0U
+gemma-7b,0.487,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7b               ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recSFslZ5tfOvhcrj
+Meta-Llama-3-8B-Instruct,0.573,2024-04-18,Meta AI,United States of America,7.2e+23,"Counting operations
+15000000000000 tokens*8000000000.00 parameters*6 FLOP / token / parameter = 7.2×10^23 FLOP
+
+GPU calculation
+400 TFLOPS per GPU * 1.3M GPU hours * 3600s=1.872×10^24 
+(it is not confident that 400 TFLOPs applies to the Llama 3-8B training run)",Llama-3-In 8b          ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec5SHmv8BEboIgY3
+Mixtral-8x7B-v0.1,0.552,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
+
+6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7b           ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recsPgQH1jqzEBUh0
+gpt-3.5-turbo-1106,0.581,2023-11-06,OpenAI,United States of America,,,GPT-3.5 version 1106   ,,,,,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recW7PD5XPKpKzmqK
+text-davinci-001,0.354,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,0,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,rectdKW9XkJ6YqRKY
+Megatron-Turing NLG 530B,0.366,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+
+source: https://lair.lighton.ai/akronomicon/
+9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
+
+6ND estimate: 6 * 530B * 270B = 8.586000e+23",MT-NLG (ours) ,,,,0,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,rec9Vgr0GSmgaNqkJ
+text-davinci-001,0.339,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,1,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,recahBXKhmGNiqjFA
+Megatron-Turing NLG 530B,0.397,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+
+source: https://lair.lighton.ai/akronomicon/
+9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
+
+6ND estimate: 6 * 530B * 270B = 8.586000e+23",MT-NLG (ours) ,,,,1,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,recE03KGHKt3Ofp2d
+text-davinci-001,0.34,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3         ,,,,few,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,rec3lMHRJFfrxLZFJ
+Megatron-Turing NLG 530B,0.396,2022-01-28,"Microsoft,NVIDIA",United States of America,8.586e+23,"https://www.lesswrong.com/posts/bGuMrzhJdENCo8BxX/nvidia-and-microsoft-releases-530b-parameter-transformer?commentId=HSJSNspKp94tFcSCx
+
+source: https://lair.lighton.ai/akronomicon/
+9938 PF-days * 3600 * 24 * 10^15  = 8.586432e+23
+
+6ND estimate: 6 * 530B * 270B = 8.586000e+23",MT-NLG (ours) ,,,,few,"Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model",https://arxiv.org/pdf/2201.11990,,recRjUuV6OUDJjxbD
+,0.873,,,,,,UNICORN,,,,,UNICORN on RAINBOW: A Universal Commonsense Reasoning Model on a New Multitask Benchmark,https://ojs.aaai.org/index.php/AAAI/article/view/17590,,rec1lytSYqTdvBGqD

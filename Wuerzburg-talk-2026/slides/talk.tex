@@ -221,7 +221,7 @@
     bought by the token}
 
   \vskip1.2em
-  {\fontsize{18}{24}\selectfont\color{tjo@black!55}(somewhat)}
+  {\fontsize{18}{24}\selectfont\color{tjo@black!55}(kind of)}
 \end{frame}
 
 % --- From outside, looking in (GC deck) ---
@@ -497,36 +497,34 @@ while not done:
   {\fontsize{20}{26}\selectfont\mdseries
     It generates text; your scaffolding acts on it}}
 
-% --- Feedback stabilises: closing the loop (NEW) ---
+% --- Feedback: closing the loop faster (REWORKED) ---
 \begin{frame}{Closing the loop}
   \vfill
   \centering
   \begin{tikzpicture}[every node/.style={align=center}]
-    % Open loop
-    \node[tjo box, minimum width=3.6cm, minimum height=1.4cm, font=\small] (chat)
-      at (-4,0) {\textbf{Chat}\\[3pt]{\small open loop}\\[2pt]
-        {\color{red!70!black}errors compound}};
-    % Closed loop
-    \node[tjo box fill, minimum width=3.6cm, minimum height=1.4cm, font=\small] (agent)
-      at (4,0) {\textbf{Agent}\\[3pt]{\small closed loop}\\[2pt]
-        {\color{tjo@darkteal}errors correct}};
+    \node[tjo box, minimum width=4.4cm, minimum height=1.5cm, font=\small] (chat)
+      at (-4,0) {\textbf{Chat}\\[3pt]{\small closed loop, through \emph{you}}\\[2pt]
+        {\color{red!70!black}you cut, paste, re-prompt}};
+    \node[tjo box fill, minimum width=4.4cm, minimum height=1.5cm, font=\small] (agent)
+      at (4,0) {\textbf{Agent}\\[3pt]{\small closed loop, through tools}\\[2pt]
+        {\color{tjo@darkteal}results feed back automatically}};
 
     \draw[tjo arrow, line width=2pt] (chat.east) -- (agent.west)
-      node[midway, above=8pt, font=\footnotesize, text=tjo@black!60] {tool results feed back};
+      node[midway, above=8pt, font=\footnotesize, text=tjo@black!60] {same loop, no human relay};
   \end{tikzpicture}
 
   \vskip1.2em
   \begin{flushleft}
-  \hspace{1.5em}A tool result flows straight back into the context
+  \hspace{1.5em}Chat is a feedback loop too --- you are the wire
 
   \vskip0.6em
-  \hspace{1.5em}A failing test, a stack trace, a wrong number: each becomes the next correction
+  \hspace{1.5em}A failing test, a stack trace, a wrong number: each flows straight back into the context
   \end{flushleft}
 
   \vskip1em
   \centering
   {\color{tjo@darkteal}\bfseries
-    Feedback stabilises an otherwise unstable system}
+    The agent closes the same loop faster, with no human cutting and pasting}
   \vfill
 \end{frame}
 
@@ -597,34 +595,6 @@ while not done:
   \vfill
 \end{frame}
 
-% --- Adversarial verification (GC deck) ---
-\begin{frame}{Adversarial verification}
-  \vfill
-  \centering
-  \begin{tikzpicture}[node distance=2cm, every node/.style={align=center}]
-    \node[tjo box fill, minimum width=3cm] (prover) {%
-      \textbf{Prover}\\{\small constructs}};
-    \node[tjo box fill, right=2cm of prover, minimum width=3cm] (verifier) {%
-      \textbf{Verifier}\\{\small attacks}};
-    \node[tjo box, fill=tjo@darkteal, text=white,
-          right=2cm of verifier, minimum width=3cm] (formal) {%
-      \textbf{Formaliser}\\{\small Lean proof}};
-
-    \draw[tjo arrow] (prover) -- (verifier);
-    \draw[tjo arrow] (verifier) -- (formal);
-    \draw[tjo arrow, dashed, color=tjo@cyan, bend right=30]
-      (verifier.north) to node[above, font=\small, text=tjo@cyan] {reject} (prover.north);
-  \end{tikzpicture}
-
-  \vskip1.5em
-  {\color{tjo@darkteal}\bfseries
-    Natural language is an inadequate verification mechanism}
-
-  \vskip0.5em
-  {\small\color{tjo@black!60} Formal proof = compiler for mathematics}
-  \vfill
-\end{frame}
-
 % =====================================================================
 % PART 5: LIVE DEMO
 % =====================================================================
@@ -638,10 +608,6 @@ while not done:
 
   \vskip0.8em
   {\fontsize{20}{26}\selectfont\color{tjo@darkteal} (no promises)}
-
-  \vskip1.6em
-  {\fontsize{16}{22}\selectfont\color{tjo@black!60}
-    The prompt is pre-written; paste it into Claude Code}
 \end{frame}
 
 % =====================================================================
@@ -689,6 +655,36 @@ while not done:
   {\small\color{tjo@black!55} Epoch AI Benchmarking Hub, CC-BY, snapshot 2026-07-12}
 \end{frame}
 
+% --- The renaissance expert (GC deck, working-tree version) ---
+\begin{frame}{The renaissance expert}
+  \vfill
+  \centering
+  \begin{tikzpicture}[every node/.style={align=center}]
+    \node[tjo box, minimum width=4cm, minimum height=2cm, font=\small] (old) at (-4,0) {%
+      {\bfseries\normalsize\color{tjo@darkteal} Old cost structure}\\[4pt]
+      Years of apprenticeship\\[2pt]
+      Deep, slow immersion\\[2pt]
+      One domain per career
+    };
+
+    \node[tjo box fill, minimum width=4cm, minimum height=2cm, font=\small] (new) at (4,0) {%
+      {\bfseries\normalsize\color{tjo@darkteal} New cost structure}\\[4pt]
+      Hours to operational competence\\[2pt]
+      Implementation $\approx$ free\\[2pt]
+      Portfolio across domains
+    };
+
+    \draw[tjo arrow, line width=2pt]
+      (old.east) -- (new.west)
+      node[midway, above=10pt, font=\footnotesize, text=tjo@black!60] {agentic AI};
+  \end{tikzpicture}
+
+  \vskip1em
+  {\normalsize\color{tjo@darkteal}\bfseries
+    When execution is commoditized, the bottleneck shifts to problem formulation}
+  \vfill
+\end{frame}
+
 % =====================================================================
 % PART 7: THE HARDER PROBLEM
 % =====================================================================
@@ -725,33 +721,84 @@ while not done:
   \vfill
 \end{frame}
 
-% --- The renaissance expert (GC deck, working-tree version) ---
-\begin{frame}{The renaissance expert}
+% --- Adversarial verification (GC deck) ---
+\begin{frame}{Adversarial verification}
+  \vfill
+  \centering
+  \begin{tikzpicture}[node distance=2cm, every node/.style={align=center}]
+    \node[tjo box fill, minimum width=3cm] (prover) {%
+      \textbf{Prover}\\{\small constructs}};
+    \node[tjo box fill, right=2cm of prover, minimum width=3cm] (verifier) {%
+      \textbf{Verifier}\\{\small attacks}};
+    \node[tjo box, fill=tjo@darkteal, text=white,
+          right=2cm of verifier, minimum width=3cm] (formal) {%
+      \textbf{Formaliser}\\{\small Lean proof}};
+
+    \draw[tjo arrow] (prover) -- (verifier);
+    \draw[tjo arrow] (verifier) -- (formal);
+    \draw[tjo arrow, dashed, color=tjo@cyan, bend right=30]
+      (verifier.north) to node[above, font=\small, text=tjo@cyan] {reject} (prover.north);
+  \end{tikzpicture}
+
+  \vskip1.5em
+  {\color{tjo@darkteal}\bfseries
+    Natural language is an inadequate verification mechanism}
+
+  \vskip0.5em
+  {\small\color{tjo@black!60} Formal proof = compiler for mathematics}
+  \vfill
+\end{frame}
+
+% --- Vibefeld 1: molecular pedantry (NEW) ---
+\begin{frame}{Vibefeld: molecular pedantry}
   \vfill
   \centering
   \begin{tikzpicture}[every node/.style={align=center}]
-    \node[tjo box, minimum width=4cm, minimum height=2cm, font=\small] (old) at (-4,0) {%
-      {\bfseries\normalsize\color{tjo@darkteal} Old cost structure}\\[4pt]
-      Years of apprenticeship\\[2pt]
-      Deep, slow immersion\\[2pt]
-      One domain per career
-    };
-
-    \node[tjo box fill, minimum width=4cm, minimum height=2cm, font=\small] (new) at (4,0) {%
-      {\bfseries\normalsize\color{tjo@darkteal} New cost structure}\\[4pt]
-      Hours to operational competence\\[2pt]
-      Implementation $\approx$ free\\[2pt]
-      Portfolio across domains
-    };
-
-    \draw[tjo arrow, line width=2pt]
-      (old.east) -- (new.west)
-      node[midway, above=10pt, font=\footnotesize, text=tjo@black!60] {agentic AI};
+    \node[tjo box, minimum width=3.4cm, minimum height=1.5cm, font=\small] (claim)
+      at (-4.6,0) {\textbf{Claim 1}\\{\small the theorem}};
+    \node[tjo box fill, minimum width=3.4cm, minimum height=1.5cm, font=\small] (steps)
+      at (0,0) {\textbf{1.1, 1.2, 1.1.1, \ldots}\\{\small atomic steps}};
+    \node[tjo box, fill=tjo@darkteal, text=white, minimum width=3.4cm, minimum height=1.5cm, font=\small] (val)
+      at (4.6,0) {\textbf{Validated}\\{\small survived attack}};
+    \draw[tjo arrow] (claim) -- (steps)
+      node[midway, above=6pt, font=\footnotesize, text=tjo@black!60] {decompose};
+    \draw[tjo arrow] (steps) -- (val)
+      node[midway, above=6pt, font=\footnotesize, text=tjo@black!60] {challenge};
   \end{tikzpicture}
 
   \vskip1em
-  {\normalsize\color{tjo@darkteal}\bfseries
-    When execution is commoditized, the bottleneck shifts to problem formulation}
+  \begin{flushleft}
+  \hspace{1.5em}A natural-language proof, decomposed into a ledger of tiny numbered claims
+
+  \vskip0.6em
+  \hspace{1.5em}Each claim must survive adversarial challenge \emph{on its own}
+  \end{flushleft}
+
+  \vskip0.8em
+  \centering
+  {\color{tjo@darkteal}\bfseries A hallucinated proof has nowhere to hide}
+
+  \vskip0.4em
+  {\small\color{tjo@black!55} github.com/tobiasosborne/vibefeld}
+  \vfill
+\end{frame}
+
+% --- Vibefeld 2: how trust accumulates (NEW) ---
+\begin{frame}{Vibefeld: how trust accumulates}
+  \vfill
+  \begin{flushleft}
+  \hspace{1.5em}\textbf{Provers propose}, \textbf{verifiers attack}: a claim is accepted only when every challenge is resolved
+
+  \vskip0.8em
+  \hspace{1.5em}Every proposal, challenge, and resolution lands in an append-only ledger: a full audit trail
+
+  \vskip0.8em
+  \hspace{1.5em}Assumptions stay visible: an \emph{admitted} claim taints everything that depends on it
+  \end{flushleft}
+
+  \vskip1em
+  \centering
+  {\color{tjo@darkteal}\bfseries Provers convince. Verifiers attack. Truth emerges.}
   \vfill
 \end{frame}
 
@@ -871,5 +918,86 @@ while not done:
     Bring a real research problem, not a toy}
   \vfill
 \end{frame}
+
+% =====================================================================
+% BACKUP: the economics objection ("nobody makes money on LLMs")
+% Source: ~/Projects/llm-economics/REPORT.md (deep-research synthesis,
+% July 2026; 122 sources, 24 claims adversarially verified)
+% =====================================================================
+\appendix
+
+\sectiondivider{Additional slides: but don't they lose money?}
+
+% --- Backup 1: triangulating inference cost ---
+\begin{frame}{Triangulating the true cost of inference}
+  \vfill
+  \centering
+  {\footnotesize\color{tjo@black!70} independent estimators, combined in log-space:\; energy physics (lower bound) $\cdot$ GPU rental\\[2pt]
+   $\cdot$ market prices (upper bound) $\cdot$ DeepSeek's disclosure $\cdot$ Epoch AI models $\cdot$ leaked P\&Ls}
+
+  \vskip0.8em
+  {\footnotesize
+  \begin{tabular}{@{}lcc@{}}
+    \toprule
+    Model class & Cost per M output tokens & 68\% interval \\
+    \midrule
+    DeepSeek-V3 class (37B active, MLA) & \$0.35 & \$0.27--0.46 \\
+    Frontier workhorse (GPT-5 / Sonnet class) & \$2.1 & \$1.2--3.7 \\
+    Frontier flagship (Opus class) & \$8.5 & \$3.5--21 \\
+    \bottomrule
+  \end{tabular}}
+
+  \vskip0.8em
+  {\small\color{tjo@darkteal}\bfseries A typical chat query costs the provider $\sim$0.1 cents}
+
+  \vskip2pt
+  {\footnotesize\color{tjo@black!55} folklore: off $\sim$10x on energy (0.3\,Wh vs.\ ``3\,Wh''), $\sim$100x on cost}
+  \vfill
+\end{frame}
+
+% --- Backup 2: margins ---
+\begin{frame}{Prices vs.\ costs: the margins are real}
+  \vfill
+  \centering
+  {\footnotesize
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    API product & Output price & Gross margin & $\Prob(>0)$ \\
+    \midrule
+    Claude Sonnet class & \$15\,/\,M & 86\% \; [57--95\%] & $>$99.9\% \\
+    GPT-5 class & \$10\,/\,M & 79\% \; [35--93\%] & 99.7\% \\
+    DeepSeek R1 (self-disclosed ``545\%'') & \$2.19\,/\,M & 84\% \; [73--90\%] & $\sim$100\% \\
+    \bottomrule
+  \end{tabular}}
+
+  \vskip1.2em
+  {\footnotesize\color{tjo@black!70} leaked P\&Ls agree:\; Anthropic $-94\%$ (2024) $\to$ mid-60s\% (Q1 2026), first profit Q2 2026;\\[2pt]
+   OpenAI 28\% $\to$ 43\% while free users consume $\sim$half the inference bill}
+
+  \vskip1.2em
+  {\small\color{tjo@darkteal}\bfseries ``We're profitable on inference.'' --- Altman \qquad ``$>$50\%'' --- Amodei}
+  \vfill
+\end{frame}
+
+% --- Backup 3: the honest fine print ---
+\begin{frame}{The honest fine print}
+  \vfill
+  \centering
+  {\small\color{tjo@darkteal}\bfseries Subscriptions}\\[2pt]
+  {\footnotesize median \$20 subscriber costs \emph{cents}/month; power tiers bimodal --- rate limits cap the tail}
+
+  \vskip0.6em
+  {\small\color{tjo@darkteal}\bfseries What survives on the skeptic side}\\[2pt]
+  {\footnotesize long-context cost floors $\cdot$ reasoning models burn 10--50x tokens/query $\cdot$ GPU rents \emph{rose} in 2026}
+
+  \vskip0.6em
+  {\small\color{tjo@darkteal}\bfseries The losses are real, but discretionary}\\[2pt]
+  {\footnotesize OpenAI 2025 op.\ loss $\sim$\$21B $=$ R\&D \$19B $+$ training $\sim$\$8B, on \emph{positive} serving margins}
+
+  \vskip0.7em
+  {\small\color{tjo@darkteal}\bfseries Not failing to make money --- choosing to reinvest more than they earn}
+  \vfill
+\end{frame}
+
 
 \end{document}

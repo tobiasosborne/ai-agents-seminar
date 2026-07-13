@@ -1,0 +1,67 @@
+Model version,Overall (no subtitles),Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Overall (with subtitles),Short videos (no subtitles),Short videos (with subtitles),Medium videos (no subtitles),Medium videos (with subtitles),Long videos (no subtitles),Long videos (with subtitles),Frames,Notes,Source,Source link,id
+video-SALMONN-2plus,0.797,2025-06-18,ByteDance,China,,,video-SALMONN 2+,0.816,0.85,0.8540000000000001,0.8170000000000001,0.8300000000000001,0.723,0.7640000000000001,106.0,,Video-MME Leaderboard,,recMr6dqjQaA5cSL1
+gemini-1.5-pro-001-feb24,0.75,2024-02-15,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro,0.813,0.817,0.845,0.743,0.81,0.674,0.774,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec5BPMcD8LfZ4vl5
+gemini-1.5-pro-001,0.75,2024-05-14,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro,0.813,0.8170000000000001,0.845,0.743,0.81,0.674,0.774,10.51,,https://video-mme.github.io/home_page.html#leaderboard,,reck8Bdyl7VsIEVIf
+Qwen2.5-VL-72B-Instruct,0.735,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",AdaReTaKe,0.796,0.806,0.828,0.749,0.797,0.65,0.764,1024.0,This result is for the Qwen2.5-VL-72B-Instruct model augmented by the AdaReTaKe system.,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recyqau4pcAgM8IdV
+InternVL2_5-78B,0.721,2024-12-06,"Shanghai AI Lab,SenseTime,Tsinghua University,Nanjing University,Fudan University,Chinese University of Hong Kong (CUHK),Shanghai Jiao Tong University","Hong Kong,China",,,InternVL2.5,0.74,0.828,0.832,0.709,0.741,0.626,0.648,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recttiVwZcyyA09a1
+gpt-4o-2024-11-20,0.7190000000000001,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o,0.772,0.8,0.828,0.703,0.766,0.653,0.721,3842.0,,Video-MME Leaderboard,,recOD4UAd0CyEyws2
+gpt-4o-2024-08-06,0.719,2024-08-06,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o,0.772,0.8,0.828,0.703,0.766,0.653,0.721,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,reciIWRDoigviHQq5
+Qwen2-VL-72B-Instruct,0.712,2024-08-29,,,,,Qwen2-VL,0.778,0.801,0.822,0.713,0.768,0.622,0.743,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recNTV6TuKBZxUPMJ
+LLaVA-Video-72B-Qwen2,0.706,2024-09-02,,,,,LLaVA-Video,0.769,0.814,0.828,0.689,0.756,0.615,0.725,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec33J119RJErottD
+LinVT,0.703,2024-12-06,,,,,LinVT,0.717,0.79,0.801,0.716,0.687,0.632,0.633,120.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recN2BfY04EUYvH4S
+gemini-1.5-flash-001,0.703,2024-05-23,Google DeepMind,United States of America,,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",Gemini 1.5 Flash,0.75,0.788,0.798,0.688,0.747,0.611,0.688,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,receUlT4WLLzwVco3
+Aria,0.676,2024-09-30,,,,,Aria,0.721,0.769,0.783,0.67,0.717,0.588,0.663,256.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec2drA44hjKaGmOS
+ViLAMP-llava-qwen,0.675,2025-05-01,,,,,ViLAMP,0.735,0.789,0.812,0.658,0.712,0.578,0.681,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recLjfSysntta3ETO
+Oryx-1.5-32B,0.673,2024-10-22,,,,,Oryx-1.5,0.749,0.773,0.806,0.653,0.743,0.593,0.699,128.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recTT20ObJAdT0UBT
+LLaVA-OneVision 72B,0.663,2024-08-06,,,,,LLaVA-OneVision,0.696,0.767,0.793,0.622,0.669,0.6,0.624,32.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recuqUAsbZZ7qK9OD
+VideoLLAMA3-7B,0.662,2024-01-22,,,,,VideoLLaMA 3,0.703,0.801,0.802,0.637,0.696,0.549,0.61,180.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recp8umU5rkUZgRrN
+LLaVA-Video-7B-Qwen2,0.659,2024-09-02,,,,,QuoTA,0.7,0.771,0.79,0.649,0.68,0.557,0.629,64.0,This result is for the LLaVA-Video-7B model augmented by the QuoTA pipeline.,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recqH96EsjBT6A8oI
+LLaVA-Video-7B-Qwen2-TPO,0.656,2025-01-19,,,,,TPO,0.715,0.768,0.787,0.646,0.694,0.554,0.664,96.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recvTrkDVgOaC2rW0
+VideoChat-Flash-Qwen2-7B_res448,0.653,2025-01-11,,,,,VideoChat-Flash,0.697,0.78,0.766,0.678,0.638,0.556,0.633,512.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec1d4OPDkM5E2gva
+gpt-4o-mini-2024-07-18,0.648,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",GPT-4o mini,0.689,0.725,0.749,0.631,0.683,0.586,0.634,250.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recXpV4vq3BApmF47
+ByteVideoLLM-14B,0.646,2024-10-13,,,,,ByteVideoLLM,0.688,0.744,0.771,0.629,0.691,0.564,0.602,100.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recMPYOeXatYatbmF
+NVILA-8B,0.642,2024-12-10,"NVIDIA,Massachusetts Institute of Technology (MIT),University of California (UC) Berkeley,University of California San Diego,University of Washington,Tsinghua University","United States of America,China",2.2794518e+21,"""We train all models using 128 NVIDIA H100 GPUs with a global batch size of 2048 across all stages.""
+
+from Figure 1
+NVILA 8B takes 4.5x times less gpu hours than LLAVA OneVision which is reported to take 400 GPU days (""For example, training a state-of-the-art 7B VLM [5] can take up to 400 GPU days"")
+
+400/4.5 ~ 89 GPU days ~ 2133 GPU hours
+
+989500000000000 FLOP / sec / GPU * 2133 GPU*hours * 3600 sec / hour * 0.3 [assumed utilization] = 2.2794518e+21 FLOP
+
+Confidence: Likely (precision is FP8 not FP16 and utilization could be different from 0.3)",NVILA,0.7,0.757,0.776,0.622,0.69,0.548,0.633,1024.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recvDeYZzDKLYzJYX
+LiveCC-7B-Instruct,0.641,2024-04-12,,,,,LiveCC,0.703,0.748,0.766,0.639,0.703,0.537,0.641,,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recnjdgH8IWzUvB9e
+Qwen2-VL-7B-Instruct,0.639,2024-08-29,,,,,ReTaKe,0.689,0.728,0.743,0.629,0.693,0.56,0.629,1024.0,This result is for the qwen2_vl_instruct augmented with the ReTaKe method.,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recWRrzvp9jl8TpKx
+MiniCPM-o-2_6,0.639,2025-01-12,,,,,MiniCPM-o 2.6,0.679,0.754,0.783,0.639,0.691,0.522,0.563,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recxfLZgXLg3UfPxr
+VideoLLAMA2-7B,0.624,2024-06-12,,,,,VideoLLaMA 2,0.647,0.698,0.72,0.599,0.63,0.576,0.59,32.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,reco3UQ0Kh0ZHWbUs
+InternVL2-40B,0.612,2024-07-08,Shanghai AI Lab,China,,,InternVL2,0.624,0.72,0.728,0.591,0.613,0.526,0.53,16.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recXqZ2P5EMCNApk5
+MiniCPM-V-2_6,0.609,2024-08-03,,,,,MiniCPM-V 2.6,0.637,0.713,0.735,0.594,0.611,0.518,0.563,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recEF1QQG9rG72v8p
+claude-3-5-sonnet-20240620,0.6,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",Claude 3.5 Sonnet,0.629,0.71,0.735,0.574,0.601,0.512,0.547,20.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recjfbtBgqksInEwl
+claude-3-5-sonnet-20241022,0.6,2024-10-22,Anthropic,United States of America,,,Claude 3.5 Sonnet,0.629,0.71,0.735,0.574,0.601,0.512,0.547,20.0,,Video-MME Leaderboard,,recgtjJXzBCTKdKog
+gpt-4-1106-vision-preview,0.599,2023-11-06,OpenAI,United States of America,,,GPT-4VOpenAI,0.633,0.705,0.732,0.558,0.597,0.535,0.569,10.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec0rSn6Z7fJHJWM6
+mPLUG-Owl3-7B-241101,0.593,2024-11-26,,,,,mPLUG-Owl3,0.681,0.7,0.728,0.577,0.669,0.501,0.645,128.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recLqfawDPsiPdaVY
+TimeMarker,0.573,2024-11-27,,,,,TimeMarker,0.628,0.71,0.758,0.544,0.607,0.464,0.519,128.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recd1Q3oRJQEjjQds
+VITA-1.5,0.561,2024-12-20,,,,,VITA 1.5,0.587,0.67,0.699,0.542,0.557,0.471,0.504,16.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recLvOBE3RjvQPOLA
+kangaroo,0.56,2024-11-13,,,,,Kangaroo,0.576,0.661,0.68,0.553,0.554,0.466,0.493,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recoBNEr7nHVeo2XN
+VITA,0.558,2024-08-12,,,,,VITA,0.592,0.659,0.704,0.529,0.562,0.486,0.509,32.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recMBoQfiQKjSw8Ha
+Video-XL-7B,0.555,2024-10-17,,,,,Video-XL,0.61,0.64,0.674,0.532,0.607,0.492,0.549,128.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,reczNMfNWxBOyIgHe
+Video-CCAM-7B-v1.2,0.532,2024-09-29,,,,,Video-CCAM,0.574,0.622,0.66,0.506,0.563,0.467,0.499,96.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recAiAIsYwfNhL0uc
+long-llava-qwen2-7b,0.529,2024-08-30,,,,,Long-LLaVA,0.571,0.619,0.662,0.514,0.547,0.454,0.503,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec8UNeR00oNQulzZ
+LongVA-7B,0.526,2024-06-13,,,,,LongVA,0.543,0.611,0.616,0.504,0.536,0.462,0.476,128.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recXnvdHbEEIlEstD
+Qwen-VL-Max,0.513,2024-01-18,,,,,Qwen-VL-Max,0.512,0.558,0.576,0.492,0.489,0.489,0.47,4.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recick6WPjNRBf1pn
+InternVL-Chat-V1-5,0.507,2024-04-18,,,,,InternVL-Chat-V1.5,0.524,0.602,0.617,0.464,0.491,0.456,0.466,10.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recZYnngnbStc73AO
+SliME-Llama3-8B,0.453,2024-06-02,,,,,SliME,0.472,0.533,0.554,0.427,0.444,0.398,0.417,8.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recWVEWgg3xqBoD9K
+Chat-Uni-Vi-7B-v1.5 + 100k SG-WV,0.432,2024-06-20,,,,,ShareGeminiXMU,0.479,0.491,0.528,0.413,0.473,0.391,0.434,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,rec1HuNrKMcoSfrAv
+Qwen-VL-Chat,0.411,2023-08-20,,,,,Qwen-VL-Chat,0.419,0.469,0.473,0.387,0.404,0.378,0.379,4.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recVxdjuUpSEf1kyV
+Chat-UniVi-7B-v1.5 ,0.406,2024-04-23,,,,,Chat-UniVi-v1.5,0.459,0.457,0.512,0.403,0.446,0.358,0.418,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,reculoAu9RneDOhhM
+sharegpt4video-8b,0.399,2024-05-27,,,,,ShareGPT4Video,0.436,0.483,0.536,0.363,0.393,0.35,0.379,16.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recXDO9BjzFQSKlr7
+Video-LLaVA-7B,0.399,2023-11-17,,,,,Video-LLaVA,0.416,0.453,0.461,0.38,0.407,0.362,0.381,8.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recmRFidEf4Es3i1U
+video_chat2_mistral,0.395,2023-11-29,,,,,VideoChat2-Mistral,0.438,0.483,0.528,0.37,0.394,0.332,0.392,16.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recACe67sCHSfYlk1
+ST-LLM,0.379,2024-03-28,,,,,ST-LLM,0.423,0.457,0.484,0.368,0.414,0.313,0.369,64.0,,Video-MME Leaderboard,https://video-mme.github.io/home_page.html#leaderboard,recXDGFkKjvk7Ky7X

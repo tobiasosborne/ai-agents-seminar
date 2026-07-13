@@ -1,0 +1,99 @@
+Model version,Average progress,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Average Standard error,BabyAI progress,BabyAI Standard error,Crafter progress,Crafter Standard error,TextWorld progress,TextWorld Standard error,BabaIsAI progress,BabaIsAI Standard error,MiniHack progress,MiniHack Standard error,NetHack progress,NetHack Standard error,Date added,Trajectories,Source,Source link,Notes,id
+gemini-3-pro-preview,0.581,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.021,0.96,0.028,0.573,0.044,0.602,0.075,0.883,0.029,0.4,0.077,0.068,,2026-02-03,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,recu64HG3CcO8EhbZ
+gemini-3.1-pro-preview,0.57,2026-02-19,Google DeepMind,United States of America,,,0.02,0.98,0.02,0.55,0.064,0.757,0.064,0.833,0.034,0.275,0.071,0.026,,2026-02-25,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,recagT5kg4LOzfJRU
+gemini-3.1-pro-preview,0.569,2026-02-19,Google DeepMind,United States of America,,,0.02,1.0,0.0,0.468,0.042,0.665,0.075,0.9,0.027,0.35,0.075,0.03,,2026-02-21,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,recrPB4QFDwqkL1vd
+gemini-3-flash-preview,0.481,2025-12-17,Google DeepMind,United States of America,,,0.024,0.86,0.049,0.45,0.063,0.502,0.081,0.733,0.04,0.3,0.072,0.04,0.008,2026-02-13,,Balrog Leaderboard,https://balrogai.com/,,recoMyTSHduCvqkGN
+grok-4-0709,0.436,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.022,0.76,0.06,0.573,0.039,0.629,0.079,0.458,0.045,0.175,0.06,0.018,0.008,2024-07-23,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250713_naive_grok-4,Balrog Leaderboard,https://balrogai.com/,,recj1cynwUw30DZ24
+claude-opus-4-5-20251101,0.435,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.023,0.8,0.057,0.495,0.031,0.514,0.084,0.508,0.046,0.275,0.071,0.02,,2026-02-24,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,rechOsDF5zTo7ToVP
+claude-opus-4-5-20251101_unknown,0.435,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.023,0.8,0.057,0.495,0.031000000000000003,0.514,0.084,0.508,0.046,0.275,0.071,0.02,0.005,2026-02-24,,https://balrogai.com/,https://balrogai.com/,,recu7vRmCRnKAPbOn
+gemini-2.5-pro-exp-03-25,0.433,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.023,0.8,0.057,0.55,0.06,0.492,0.082,0.567,0.045,0.175,0.06,0.017,0.002,2025-04-25,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250425_naive_Gemini-2.5-Pro-Exp-03-25,Balrog Leaderboard,https://balrogai.com/,,recSOJ5L6wiyC21mt
+claude-opus-4-5-20251101_64K,0.43,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.023,0.72,0.063,0.486,0.032,0.59,0.08,0.458,0.045,0.3,0.072,0.024,,2026-02-24,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,recHOhXq4T9nx6ffH
+DeepSeek-R1,0.349,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",0.021,0.74,0.062,0.364,0.038,0.218,0.061,0.508,0.046,0.25,0.068,0.014,0.005,2025-04-10,,Balrog Leaderboard,https://balrogai.com/,,recHSLh1tcRzi8OcW
+gemini-2.5-flash,0.335,2025-06-17,Google DeepMind,United States of America,,,0.022,0.68,0.066,0.4,0.048,0.296,0.072,0.5,0.046,0.125,0.052,0.008,0.004,2025-07-22,,Balrog Leaderboard,https://balrogai.com/,,recUkPodDLc0rmUT6
+gpt-5-2025-08-07_minimal,0.328,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.022,0.8,0.057,0.391,0.041,0.306,0.07,0.258,0.04,0.2,0.073,0.013,0.005,2025-08-19,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250808_naive_gpt-5-minimal,Balrog Leaderboard,https://balrogai.com/,,recWQdFmqwZIHfPD9
+claude-3-5-sonnet-20241022,0.326,2024-10-22,Anthropic,United States of America,,,0.019,0.68,0.066,0.327,0.032,0.421,0.054,0.375,0.044,0.15,0.056,0.006,0.005,2024-11-11,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241103_Claude-3.5-Sonnet,Balrog Leaderboard,https://balrogai.com/,,recLWfLdjfhmgI3Ap
+gpt-4o-2024-05-13,0.323,2024-05-13,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.015,0.776,0.037,0.331,0.023,0.393,0.052,0.337,0.033,0.1,0.047,0.004,0.004,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recGsilOFpcHF89qF
+claude-haiku-4-5-20251001,0.312,2025-10-15,Anthropic,United States of America,,,0.021,0.66,0.067,0.241,0.032,0.49,0.076,0.333,0.043,0.15,0.056,0.0,,2026-02-24,,Balrog Leaderboard,https://balrogai.com/,https://balrogai.com/,recOx8y3hn2Y1Jbml
+claude-haiku-4-5-20251001_1K,0.312,2025-10-15,Anthropic,United States of America,,,0.021,0.66,0.067,0.24100000000000002,0.032,0.49,0.076,0.33299999999999996,0.043,0.15,0.055999999999999994,0.0,0.0,2026-02-24,,https://balrogai.com/,https://balrogai.com/,,recFZEHGMrDgjjNjD
+grok-3-beta,0.295,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",0.022,0.62,0.069,0.25,0.0413,0.325,0.069,0.333,0.043,0.225,0.066,0.016,0.004,2025-04-25,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250425_naive_grok-3,Balrog Leaderboard,https://balrogai.com/,,recOo6W8q0IzNh3Fz
+reka-flash-3,0.292,2025-03-10,Reka AI,United States of America,,,0.018,0.76,0.06,0.336,0.035,0.116,0.046,0.433,0.045,0.1,0.047,0.006,0.003,2025-03-13,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250313_robust_cot_Reka-Flash-3,Balrog Leaderboard,https://balrogai.com/,,recNhhny2hCRlcZ6O
+Llama-3.1-70B-Instruct,0.279,2024-07-23,Meta AI,United States of America,7.929e+24,"Huggingface page says 3.1-70B used 7.0M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 70B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 70B = 6.3e24 FLOPs
+
+Hardware:
+7M * 9.9e14 * 3600 * 0.4 = 9.98e24 FLOPs
+
+Geometric mean: sqrt(6.3e24 * 9.98e24) = 7.929e24
+
+Note that Llama 3-70B also said it used 15T tokens, but only 6.4M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.
+
+Training compute upper bound: 7M H100-hours * 989 TFLOPS * 50% utilization = 1.25e25 FLOP",0.014,0.732,0.04,0.312,0.027,0.15,0.046,0.4,0.034,0.075,0.042,0.003,0.003,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recteB2cIvITYSNNg
+Llama-3.2-90B-Vision-Instruct,0.273,2024-09-24,Meta AI,United States of America,,,0.014,0.72,0.064,0.317,0.014,0.112,0.03,0.439,0.035,0.05,0.034,0.0,0.0,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recHmm4u7kk4i2kTV
+Llama-3.3-70B-Instruct,0.23,2024-12-06,Meta AI,United States of America,6.8649768e+24,"6ND = 6 FLOP / parameter / token * 70*10^9 parameters * 15*10^12 tokens = 6.3e+24 FLOP
+
+7000000 GPU-hours * 3600 sec / hour * 989500000000000 FLOP / second * 0.3 [assumed utilization]= 7.48062e+24 FLOP
+
+sqrt(7.48062e+24*6.3e+24) = 6.8649768e+24",0.017,0.66,0.067,0.286,0.041,0.09,0.029,0.292,0.041,0.05,0.034,0.004,0.003,2024-12-09,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241209_naive_Llama-3.3-70B-Instruct,Balrog Leaderboard,https://balrogai.com/,,recY4fmN8bgBjHj5R
+gemini-1.5-pro-002,0.21,2024-09-24,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.012,0.584,0.044,0.302,0.029,0.0,0.0,0.32,0.033,0.05,0.035,0.004,0.004,2024-12-09,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recWRZ7DAviIRftFN
+DeepSeek-R1-Distill-Qwen-32B,0.195,2025-01-20,DeepSeek,China,,"Qwen2.5-32B: 3.51e+24 FLOP
+Fine-tune compute: 9.22e21 FLOP",0.016,0.48,0.071,0.15,0.021,0.106,0.037,0.4,0.045,0.025,0.025,0.007,0.004,2025-01-26,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250126_robust_cot_deepseek_R1_distill_qwen32B,Balrog Leaderboard,https://balrogai.com/,,recEyZ7hXqvBVFI5X
+claude-3-5-haiku-20241022,0.193,2024-10-22,Anthropic,United States of America,,,0.018,0.52,0.071,0.264,0.028,0.18,0.058,0.083,0.025,0.1,0.047,0.012,0.004,2024-12-11,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241209_naive-claude-3-5-haiku,Balrog Leaderboard,https://balrogai.com/,,recCcD32JXmEOmxbh
+Mistral-Nemo-Instruct-2407,0.176,2024-07-18,Mistral AI,France,,,0.015,0.5,0.071,0.277,0.027,0.045,0.013,0.208,0.037,0.025,0.025,0.003,0.003,2024-12-09,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241209_naive-mistral-nemo-instruct,Balrog Leaderboard,https://balrogai.com/,,rec49SaiDl0h4hTar
+gpt-4o-mini-2024-07-18,0.174,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",0.014,0.504,0.045,0.159,0.02,0.122,0.035,0.156,0.025,0.1,0.047,0.0,0.0,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",reccmCPuiookWJZbw
+Llama-3.2-11B-Vision-Instruct,0.168,2024-09-24,Meta AI,United States of America,5.79e+23,"Tensor type is BF16 (https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct).
+
+“Training utilized a cumulative of 2.02M GPU hours of computation on H100-80GB (TDP of 700W) type hardware, per the table below. Training time is the total GPU time required for training each model and power consumption is the peak power capacity per GPU device used, adjusted for power usage efficiency… Training time: Stage 1 pretraining: 147K H100 hours Stage 2 annealing: 98K H100 hours SFT: 896 H100 hours RLHF: 224 H100 hours.” (https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md#hardware-and-software).
+
+The Nvidia H100 80GB is the H100 SXM. BFLOAT16 Tensor Core peak FLOPS with sparsity is 1,979 teraFLOPS (https://resources.nvidia.com/en-us-tensor-core/nvidia-tensor-core-gpu-datasheet?ncid=no-ncid).
+
+Assuming 33% utilization rate,
+Training compute
+~= 0.33 * ( 147000 + 98000 + 896 + 224 ) hours * 3600 s / hour * 1979e12 FLOPS / GPU
+~= 5.79e23 FLOPS",0.015,0.5,0.071,0.262,0.033,0.067,0.022,0.156,0.025,0.025,0.025,0.0,0.0,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recPgyvQTfFeS5y6w
+qwen2.5-72b-instruct,0.162,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",0.016,0.34,0.067,0.273,0.036,0.112,0.038,0.193,0.036,0.05,0.034,0.003,0.003,2024-11-25,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recpSxQQcNcrGbyaf
+Llama-3.1-8B-Instruct,0.151,2024-07-23,Meta AI,United States of America,1.224e+24,"Huggingface page says 3.1-8B used 1.46M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 8B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 8B = 7.2e23 FLOPs
+
+Hardware:
+1.46M * 9.9e14 * 3600 * 0.4 = 2.08e24 FLOPs
+
+Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
+
+Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",0.016,0.36,0.068,0.255,0.032,0.061,0.024,0.183,0.035,0.05,0.034,0.0,0.0,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recnsJM2l3foJ2IOJ
+gemini-1.5-flash-002,0.146,2024-09-24,Google DeepMind,United States of America,,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",0.014,0.5,0.071,0.2,0.007,0.0,0.0,0.128,0.023,0.05,0.035,0.0,0.0,2024-11-11,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recQrinDnBT5cObDo
+Qwen2-VL-72B-Instruct,0.128,2024-08-29,,,,,0.016,0.24,0.06,0.227,0.027,0.165,0.054,0.108,0.028,0.025,0.025,0.0,0.0,2024-11-25,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recArad880ZgrbLfj
+phi-4,0.116,2024-12-12,Microsoft Research,United States of America,9.3202015e+23,"6ND = 6* 14*10^9 parameters * 10*10^12 tokens = 8.4e+23 FLOP
+
+989500000000000 FLOP / sec [assumed bf16 precision] * 1920 GPUs * 504 hours * 3600 sec / hour * 0.3 [assumed utilization] = 1.0341209e+24 FLOP
+
+geometric mean
+sqrt(8.4e+23 * 1.0341209e+24) = 9.3202015e+23",0.014,0.32,0.066,0.136,0.027,0.025,0.009,0.167,0.034,0.05,0.034,0.0,0.0,2025-01-13,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20250113_robust_naive_microsoft_phi-4,Balrog Leaderboard,https://balrogai.com/,,recsjSXTW4U8imj8U
+Llama-3.2-3B-Instruct,0.101,2024-09-24,Meta AI,United States of America,1.7334e+23,"6ND = 6*3210000000.00*9000000000000 = 1.7334e+23
+
+460000 hours * 3600 s * 133800000000000 FLOPS/s* 0.3 = 6.647184e+22",0.013,0.2,0.057,0.173,0.028,0.035,0.011,0.175,0.035,0.025,0.025,0.0,0.0,2024-11-11,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241030_naive-Llama-3.2-3B-Instruct,Balrog Leaderboard,https://balrogai.com/,,recwneInyMuZawoFC
+qwen2.5-7b-instruct,0.078,2025-02-26,Alibaba,China,8.2188e+23,"Training dataset size was 18 trillion
+
+6ND = 6 * 7.61 billion parameters * 18 trillion tokens = 8.2188e+23",0.011,0.14,0.049,0.164,0.03,0.039,0.01,0.125,0.03,0.0,0.0,0.003,0.003,2024-11-25,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241115_naive-Qwen2.5-7B-it,Balrog Leaderboard,https://balrogai.com/,,recEMm4aiOXvIdY1V
+Llama-3.2-1B-Instruct,0.066,2024-09-24,Meta AI,United States of America,6.642e+22,"6ND = 6*1230000000.00*9000000000000 = 6.642e+22
+
+370000 hours * 3600 s * 133800000000000 FLOPS/s* 0.3 = 5.346648e+22",0.01,0.08,0.038,0.127,0.019,0.033,0.009,0.108,0.028,0.05,0.034,0.0,0.0,2024-11-11,https://github.com/balrog-ai/experiments/tree/main/submissions/LLM/20241030_naive-Llama-3.2-1B-Instruct,Balrog Leaderboard,https://balrogai.com/,,recX2FEa3w9GQpsGc
+Qwen2-VL-7B-Instruct,0.037,2024-08-29,,,,,0.008,0.04,0.028,0.064,0.017,0.016,0.006,0.076,0.024,0.025,0.025,0.0,0.0,2024-11-25,,Balrog Leaderboard,https://balrogai.com/,"No trajectory available as of March 31, 2025. ",recBFyLHvaPPkNhv7

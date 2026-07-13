@@ -1,0 +1,268 @@
+Model version,Accuracy,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Cost per run,Median code length (lines),Notes,Source,Source link,Accuracy SE,id
+gpt-5.6-sol_high,0.8876000000000001,2026-07-09,OpenAI,United States of America,,,1.25479875,567.0,,https://htihle.github.io/weirdml.html,,3.23705550671775e-05,recDXSQrmsktQrxr3
+claude-fable-5_high,0.8785,2026-06-09,Anthropic,United States of America,,,3.1068966666666666,156.0,,WeirdML Leaderboard,,8.026931867056432e-05,recm1YL5ROE3e3a8v
+gpt-5.5_xhigh,0.8491,2026-04-23,OpenAI,United States of America,,,2.568345317647059,517.0,,https://htihle.github.io/weirdml.html,,0.0001091535447188698,recNJLmrITg65HnLP
+gpt-5.5_high,0.8390000000000001,2026-04-23,OpenAI,United States of America,,,2.221576529411765,474.0,,https://htihle.github.io/weirdml.html,,0.00010857064112429189,rece9m5QDHJk0kphX
+claude-opus-4-8_xhigh,0.8289,2026-05-28,Anthropic,United States of America,,,2.3498122772277226,129.0,,https://htihle.github.io/weirdml.html,,9.958824837467327e-05,recIQsIEKMmBYxvWF
+gpt-5.3-codex,0.793,2026-02-05,OpenAI,United States of America,,,2.35,558.0,,WeirdML Leaderboard,,,recQoGmOgTINEyg46
+gpt-5.3-codex_xhigh,0.793,2026-02-05,OpenAI,United States of America,,,2.353800286764706,558.0,,WeirdML Leaderboard,,0.00016396022084974617,recSL5zN2vlWKsInd
+claude-opus-4-6_high,0.7795000000000001,2026-02-05,Anthropic,United States of America,,,5.779370588235294,169.0,,https://htihle.github.io/weirdml.html,,0.00023465628049314672,recAZOaIZoeMECTb2
+claude-opus-4-6_unknown,0.779,2026-02-05,Anthropic,United States of America,,,5.78,169.0,Adaptive thinking,WeirdML Leaderboard,,,recSlHl7gDvgN7Iv6
+gpt-5.4-2026-03-05_xhigh,0.777,2026-03-05,OpenAI,United States of America,,,5.7199,968.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recxpHhBx0NDfrFVq
+claude-opus-4-7,0.7640000000000001,2026-04-16,Anthropic,United States of America,,,0.6895180000000002,158.0,,https://htihle.github.io/weirdml.html,,0.00017246892139005817,recuoBayQAlGA5M8a
+claude-opus-4-7_unknown,0.764,2026-04-16,Anthropic,United States of America,,,0.6895,158.0,,WeirdML Leaderboard,,,recIyMQSWffJ5JAmX
+claude-opus-4-7_high,0.764,2026-04-16,Anthropic,United States of America,,,1.82,147.0,,WeirdML Leaderboard,,,recIku5vHDX9VoDi9
+claude-opus-4-8_medium,0.7604000000000001,2026-05-28,Anthropic,United States of America,,,0.8472938235294117,103.0,,https://htihle.github.io/weirdml.html,,0.0001646215855604908,reciU71sdJ0Xc773s
+claude-opus-4-7_max,0.7545000000000001,2026-04-16,Anthropic,United States of America,,,7.952621764705882,174.0,,https://htihle.github.io/weirdml.html,,0.0002512541407541041,recExT6mKHp0IGQ4Q
+gpt-5.2-2025-12-11_xhigh,0.722,2025-12-11,OpenAI,United States of America,,,2.05,394.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recBg3iB5UB07x2hT
+gemini-3.1-pro-preview,0.721,2026-02-19,Google DeepMind,United States of America,,,1.36,394.0,,WeirdML Leaderboard,,,recGmSE5Oa6sPNY3I
+claude-opus-4-8_none,0.7045,2026-05-28,Anthropic,United States of America,,,0.4752000990099009,102.0,,https://htihle.github.io/weirdml.html,,0.00013620999100200573,rectzf70zaXWJLj63
+glm-5.2_max,0.7012,2026-06-16,Z.ai (Zhipu AI),China,,,0.5072874972,200.0,,https://htihle.github.io/weirdml.html,,0.00016924669523230864,recSQFD35vSn14YQh
+gemini-3-pro-preview,0.6993,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.5257711077,230.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recMwExVNzQFOuRPy
+claude-sonnet-5_high,0.6878000000000001,2026-06-30,Anthropic,United States of America,,,0.895463294117647,233.0,,https://htihle.github.io/weirdml.html,,0.00017696329549524788,recwWCD4jlF5lW7rt
+glm-5.2_high,0.6731,2026-06-16,Z.ai (Zhipu AI),China,,,0.28333104480874316,178.0,,https://htihle.github.io/weirdml.html,,0.00014915387714757675,reccjeovOo5ppZ5Fh
+gpt-5.5_none,0.6715000000000001,2026-04-23,OpenAI,United States of America,,,0.5389514705882353,202.0,,https://htihle.github.io/weirdml.html,,0.00017253756008593507,recB9k0CpkaxiR6xD
+claude-sonnet-4-6_medium,0.6607,2026-02-17,Anthropic,United States of America,,,2.8593499285714286,178.0,,WeirdML Leaderboard,,0.0002980618554382716,recKgAUWa5eUZxXQM
+claude-opus-4-6,0.659,2026-02-05,Anthropic,United States of America,,,0.736,245.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recffS4JAWtKqn3Ku
+claude-opus-4-5-20251101_16K,0.637,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.738,173.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reci9ur1kRcoJsSdF
+gpt-5.2-2025-12-11_medium,0.634,2025-12-11,OpenAI,United States of America,,,0.416,290.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recpsACaI9bWFMg53
+gemini-3.5-flash_high,0.6264000000000001,2026-05-19,Google,United States of America,,,0.7560409661764705,285.5,,https://htihle.github.io/weirdml.html,,0.00024091415851094065,recrIPcpOeEj60VKj
+gemini-3-flash-preview,0.616,2025-12-17,Google DeepMind,United States of America,,,0.222,149.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recORWiDWDuE6ne5i
+gpt-5.1-2025-11-13_high,0.6077,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.6913346832,311.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reci36t9Q8We2ARmf
+gpt-5-2025-08-07_high,0.607,2025-08-07,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.5931804044,328.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec4qZr44BtF62vqq
+gpt-5-pro-2025-10-06_high,0.6039,2025-10-07,OpenAI,United States of America,,,7.647644118,369.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recX2OmQjv53BIY3l
+gpt-5.4-mini-2026-03-17_high,0.603,2026-03-17,OpenAI,United States of America,,,1.2910174676470587,503.0,,https://htihle.github.io/weirdml.html,,0.0001686737161666318,recX7Ablwb2UkN5s3
+o3-pro-2025-06-10_high,0.5821,2025-06-10,OpenAI,United States of America,,,2.540382703,148.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recrKJicVBBBp5oLq
+gpt-5.4-2026-03-05_none,0.5744,2026-03-05,OpenAI,United States of America,,,0.26790913235294117,292.0,,WeirdML Leaderboard,,0.0001493713713906097,reczzKMLHOv2ZMWkk
+gpt-5.4-pro-2026-03-05_none,0.5744,2026-03-05,OpenAI,United States of America,,,0.26790913235294117,292.0,,https://htihle.github.io/weirdml.html,,0.0001493713713906097,recShobEBXmUWOQsU
+glm-5.1,0.5710000000000001,2026-04-07,Z.ai (Zhipu AI),China,,,0.3175119256097561,178.0,,https://htihle.github.io/weirdml.html,,0.0001756716185413227,rec5NQhvAEkM6TdnT
+kimi-k2.6,0.5586,2026-04-20,Moonshot,China,,,0.35035446042016805,205.0,,https://htihle.github.io/weirdml.html,,0.00016578737450769108,recn6OmUksaPCOjI9
+gpt-5-codex,0.5453,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",1.095613721,377.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recn9o1kxCulEzqBH
+gpt-5-codex_high,0.5453,2025-09-15,OpenAI,United States of America,,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint.",1.0956137205882353,377.0,,WeirdML Leaderboard,,0.0001337443874877935,rechNhHxFdftISgRr
+kimi-k2.7-code,0.5412,2026-06-12,Moonshot,China,,,0.23163436923809524,230.0,,https://htihle.github.io/weirdml.html,,0.00016836483062585453,recmdjDJrTcPOyMUD
+gemini-2.5-pro_16K,0.5403,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.4096601321,199.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recHsTdNwgdKqNyYc
+gpt-5-mini-2025-08-07_high,0.5267,2025-08-07,OpenAI,United States of America,,,0.1097665112,296.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recSCZGZmZVpfZcHB
+o4-mini-2025-04-16_high,0.5256,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.1956851,122.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recGzRI7z9Ript5yD
+o3-2025-04-16_high,0.5242,2025-04-16,OpenAI,United States of America,,,0.2260669032,134.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recSHUB127PDQxkfv
+grok-4-20,0.5226,2026-02-17,xAI,United States of America,,,0.1262829254901961,117.0,,https://htihle.github.io/weirdml.html,,0.00010422137973438821,recVUJyYaIs5yx2NE
+gemma-4-31b-it,0.5226,2026-04-02,Google DeepMind,United States of America,,,0.013264671000000004,126.0,,https://htihle.github.io/weirdml.html,,0.00010633985942245199,recp4KhtVysoQijD0
+gemini-3.1-flash-lite,0.5219,2026-03-03,Google,United States of America,,,0.0664239769607843,107.0,,WeirdML Leaderboard,,0.00015603967429857592,rec6ZiITCMpWQVmg1
+grok-4-3,0.4989,2026-04-17,xAI,United States of America,,,0.09031993548387096,141.0,,https://htihle.github.io/weirdml.html,,0.0001461008341580845,recWMMOgio9JyMvaZ
+gpt-5.2-2025-12-11_none,0.49600000000000005,2025-12-11,OpenAI,United States of America,,,0.21462569999999997,230.0,,WeirdML Leaderboard,,0.00014542225995169673,rec2TRMqFG2udu8Rz
+gpt-5.2-2025-12-11_low,0.496,2025-12-11,OpenAI,United States of America,,,0.215,230.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reclZgTEmoOmWH7fs
+gpt-5.4-nano-2026-03-17_high,0.49229999999999996,2026-03-17,OpenAI,United States of America,,,0.047747187745098035,279.0,,https://htihle.github.io/weirdml.html,,0.0001592769681566432,rectXu0v9GEDSKcu7
+deepseek-v4-pro_max,0.489,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,0.34030045166666667,272.0,,https://htihle.github.io/weirdml.html,,0.00017538854527333745,recfRm5fINdrqgGIA
+gpt-oss-120b_high,0.4817,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.033483015,255.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recWRKD0ymts02CqB
+openai/gpt-oss-120b_high,0.4817,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.03348301499999999,255.0,,WeirdML Leaderboard,,0.00017207317818265387,recbVp3QhWPOFJDDS
+glm-5,0.4817,2026-02-11,Z.ai (Zhipu AI),China,,,0.07874515247524752,161.0,,WeirdML Leaderboard,,0.0001654346503350198,receopdhR3orpxf0k
+claude-sonnet-4-5-20250929_16K,0.4771,2025-09-29,Anthropic,United States of America,,,0.3343779684,173.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recnLgZJKzq0pWJ9p
+o1-preview-2024-09-12,0.4756,2024-09-12,OpenAI,United States of America,,,1.848759706,133.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recJyT9ShE1YMRU74
+DeepSeek-V3.2-Speciale,0.4673,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",0.0352105525490196,225.0,,WeirdML Leaderboard,,0.00016725773307150208,rec61Nw717glfIbZL
+claude-sonnet-4-5-20250929,0.467,2025-09-29,Anthropic,United States of America,,,0.2796832979,194.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recWzey65DpSgKtm8
+deepseek-v4-pro_high,0.46530000000000005,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,0.12994430126582276,191.0,,https://htihle.github.io/weirdml.html,,0.00010879277129526622,recQgbRlFbpfdoonZ
+claude-sonnet-4-20250514_16K,0.4611,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.3359858864,198.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recuIpEzqzmBXSuu5
+grok-4-0709,0.4573,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",0.4517731019,137.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recGNHgU4woBudrxm
+deepseek-v4-flash_max,0.45630000000000004,2026-04-24,DeepSeek,China,2.496e+24,6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training,0.014616010092615771,204.0,,https://htihle.github.io/weirdml.html,,5.552935999080915e-05,recgsOG5WTI3HAflE
+kimi-k2.5,0.456,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",0.0526,166.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recrvTpYhCK0tATZT
+claude-haiku-4-5-20251001,0.454,2025-10-15,Anthropic,United States of America,,,0.08938744,174.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recbC3Pk2XJrtS6jq
+claude-haiku-4-5-20251001_16K,0.441,2025-10-15,Anthropic,United States of America,,,0.1227856078,162.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recde5VLEdMBKj0Gz
+claude-sonnet-4-20250514,0.4388,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.3080565,218.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recKsN4DgMnrJJqHR
+o1-2024-12-17_high,0.4382,2024-12-17,OpenAI,United States of America,,,1.585624412,153.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reczHopD946ynh9x0
+deepseek-v4-flash_high,0.4376,2026-04-24,DeepSeek,China,2.496e+24,6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training,0.007279538164705883,170.0,,https://htihle.github.io/weirdml.html,,9.118142469320882e-05,recKxCdGxVPD9xKOh
+o3-mini-2025-01-31_high,0.437,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.1744674606,158.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recb7bIHY4oRuegzM
+nemotron-3-ultra,0.43450000000000005,2026-06-04,NVIDIA,United States of America,6.6e+24,"55 billion active parameters, ~20T tokens",0.0772020119760479,232.0,,https://htihle.github.io/weirdml.html,,8.448567640489385e-05,recgNfeirwt2to5GK
+claude-opus-4-20250514_16K,0.434,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,1.716081176,232.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recQV87PGo9MozwhO
+mercury-2,0.43200000000000005,,Inception Labs,United States of America,,,0.02977649828431373,201.0,,https://htihle.github.io/weirdml.html,,0.00012700550676006744,recLpCV9prcxoluoO
+grok-4-fast,0.4286,2025-09-19,xAI,United States of America,,,0.01272623039,147.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recgozq9bI4nBC6MI
+kimi-k2-thinking,0.4279,2025-11-06,Moonshot,China,4.2e+24,"Assuming the additional post-training contributed between 1% and 100% of Kimi K2's training compute (which we confidently estimate at 2.976e+24), we get a range of 3.0e24 to 6.0e24, and a geometric mean of 4.2e24.",0.08093773511,195.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recgbBevs5M9TnP36
+claude-opus-4-1-20250805_16K,0.4276,2025-08-05,Anthropic,United States of America,,,1.735427647,241.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reckSuCYFJ6a1ksrw
+grok-3-mini_high,0.4258,2025-06-24,xAI,United States of America,,,0.01739341941,130.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recGEblb3SNnepRe1
+grok-3-mini-beta_high,0.4258,2025-04-09,xAI,United States of America,,,0.01739341941176471,130.0,,WeirdML Leaderboard,,0.0001421263532118665,recc4ZZmpYmjwzUju
+gemini-2.5-flash-preview-09-2025_16k,0.4191,2025-09-25,Google DeepMind,United States of America,,,0.07324502983,206.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recSenSiVOzoyrhM7
+gpt-oss-120b_medium,0.4188,2025-08-05,OpenAI,United States of America,4.94e+24,"""The training run for gpt-oss-120b required 2.1 million H100-hours to complete""
+(2.1e6 hours)*(1,979 H100 FLOP/s)*(30% utilization)*(60*60) = 4.49e24
+They also do post training similar to o3, which we assume adds at least 10% as much compute, so we multiply this estimate by 1.1 to get 4.94e24
+
+",0.01148501118,196.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recwbp07k8ku0pbh5
+DeepSeek-R1-0528,0.4163,2025-05-28,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
+https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
+""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
+
+6 FLOP/token/param * 14.8T tokens * 37B active params = 3.29e24 FLOP (pretraining)
+1.2e23 FLOP (post-training)
+6.1e23 FLOP (fine-tuning)
+
+Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",0.07106829941,174.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recLmo6NcvCM4Ye7a
+Qwen3-Coder-480B-A35B-Instruct,0.4117,2025-07-31,Alibaba,China,1.575e+24,6 FLOP / parameter / token * 35 * 10^9 active parameters * 7.5 * 10^12 tokens = 1.575e+24 FLOP`,0.07259235294,174.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recA6D3LkM2OuG2TH
+Qwen3-235B-A22B-Thinking-2507,0.4104,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.01989473141,127.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec1XWGoYSV4OlC8J
+gemini-2.5-flash-preview-04-17 (16K thinking),0.40950000000000003,2025-04-17,Google DeepMind,United States of America,,,0.10585353676470587,184.0,,WeirdML Leaderboard,,0.0001555094264147071,recgBmYMNvK9ubOYp
+gemini-2.5-flash-preview-05-20_16K,0.4095,2025-05-20,Google DeepMind,United States of America,,,0.1058535368,184.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reci9lthvBxTe1qFc
+gpt-oss-20b_high,0.4093,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.0108003425,166.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rectdVmbAMbhHQ5K3
+glm-4.5_thinking,0.4058,2025-08-05,"Z.ai (Zhipu AI),Tsinghua University",China,4.42e+24,(6 FLOP/token/parameter) * (23T tokens) * (32B active parameters) = 4.42e24 FLOP,0.0734800906,245.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec7uPDokMq3CWQDy
+claude-3-5-sonnet-20241022,0.3997,2024-10-22,Anthropic,United States of America,,,0.2483238,168.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec8W7RlpDQoWgvzo
+gpt-5-chat,0.3977,,OpenAI,United States of America,6.6e+25,"Likely around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.07855618382,115.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec1QFsYDTNUf8UB0
+qwen3.5-27B,0.39530000000000004,2026-02-24,Alibaba,China,,,0.040395000000000014,171.0,,https://htihle.github.io/weirdml.html,,0.00018188559541985888,recwg0Ywd7OOXMftD
+DeepSeek-V3.2-Exp_thinking,0.3948,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",0.01772299089,219.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recTOeDgbKEbXih3E
+gpt-4.5-preview-2025-02-27,0.3937,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",1.575002206,91.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recwqjqGOkm0f51Io
+Kimi-K2-Instruct,0.3936,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.03429974068,186.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recOD22bjdiSPqTnP
+kimi-k2-0711-preview,0.3936,2025-07-12,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.03429974068181818,186.0,,WeirdML Leaderboard,,0.00012841657406203382,rec2wisOkQlcRMXxP
+gpt-4.1-2025-04-14,0.3904,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.09702961905,138.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reculBSjwckG4bYHD
+Qwen3-235B-A22B-Instruct-2507,0.387,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.01340708465,144.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recJkoZfVe1YtOBro
+qwen/qwen3-235b-a22b-thinking-2507,0.387,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.013407084653465346,144.0,,WeirdML Leaderboard,,9.57710919039418e-05,recnlRdiKD49ooOXW
+DeepSeek-V3.1_thinking,0.3836,2025-08-21,DeepSeek,China,3.594058e+24,"This was based on V3 which was trained on 14.8T tokens for a total of 14.8T + 840B = 15.64T pretraining tokens. Adding the FLOPs from continued pretraining onto our estimate for V3, which is 3.4e24 FLOPs, we get 3.4e24 + 1.9e23 = 3.59e24",0.0311958092,143.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recpYiDZJiwfMbLKa
+gpt-5-nano-2025-08-07_high,0.3806,2025-08-07,OpenAI,United States of America,,,0.02622032353,191.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recYTpsoV61tqQPyp
+gpt-5.4-nano-2026-03-17_none,0.3796,2026-03-17,OpenAI,United States of America,,,0.019951820588235296,226.0,,https://htihle.github.io/weirdml.html,,0.00011700544258476443,recCmJV0yAWMo0juE
+gpt-5.4-mini-2026-03-17_none,0.379,2026-03-17,OpenAI,United States of America,,,0.07285873235294117,231.0,,https://htihle.github.io/weirdml.html,,9.932670299645241e-05,rec32pxBQyrHurEJr
+gpt-4.1-mini-2025-04-14,0.3761,2025-04-14,OpenAI,United States of America,,,0.01660665882,143.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recl9hxiaWkqe40FN
+DeepSeek-V3.1,0.375,2025-08-21,DeepSeek,China,3.594058e+24,"This was based on V3 which was trained on 14.8T tokens for a total of 14.8T + 840B = 15.64T pretraining tokens. Adding the FLOPs from continued pretraining onto our estimate for V3, which is 3.4e24 FLOPs, we get 3.4e24 + 1.9e23 = 3.59e24",0.01973082471,196.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recSE9wLRGC5yRt2x
+Qwen3-235B-A22B-Thinking-2507,0.3728,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.02087528789,133.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recQxexQ8ZXyXQfY3
+Qwen3-235B-A22B,0.3728,2025-04-29,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,0.020875287894736843,133.0,,WeirdML Leaderboard,,9.299174150022437e-05,recWOQqT8ls0zAHYo
+grok-3,0.3724,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",0.2477246441,123.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec1A4AJeDxbjisAk
+MiniMax-M2.7,0.36950000000000005,2026-03-18,MiniMax,China,,,0.03490697524752475,218.0,,https://htihle.github.io/weirdml.html,,0.00014318297014256491,recr7AW8WaCqW0Akc
+gpt-oss-20b_medium,0.3683,2025-08-05,OpenAI,United States of America,5.49e+23,"""The training run for gpt-oss-120b required 2.1
+million H100-hours to complete, with gpt-oss-20b needing almost 10x fewer""
+assuming ""almost 10x fewer"" means ~9x fewer: 4.94e24/9 = 5.49e23",0.003806215294,155.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recfATNb3nYbAeRBC
+Kimi-K2-Instruct-0905,0.3668,2025-09-05,Moonshot,China,2.976e+24,6 FLOP / parameter / token * 32 * 10^9 activated parameters * 15.5 * 10^12 tokens = 2.976e+24 FLOP,0.04181978351,211.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec5rZXinvvAnv0LQ
+DeepSeek-R1,0.3649,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",0.07850552,121.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recWpIUcWCiiJjsuv
+o1-mini-2024-09-12_medium,0.3632,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.1112749524,156.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec9nHByk40IO0MOR
+DeepSeek-V3-0324,0.3608,2025-03-24,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",0.01390399906,144.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recRV03WT6QZrAKTk
+gemini-2.5-flash-lite-preview-06-17_16K,0.3522,2025-06-17,Google DeepMind,United States of America,,,0.03025316353,291.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recCOfjHgyxAboN8H
+gemini-2.5-flash-lite-preview-06-17-thinking,0.3522,2025-06-17,Google DeepMind,United States of America,,,0.030253163529411764,291.0,,WeirdML Leaderboard,,0.00018253871445538628,rectFGVtIctxXIHpZ
+gemma-4-26b-a4b,0.3517,2026-04-02,Google DeepMind,United States of America,,,0.020793745,146.0,,https://htihle.github.io/weirdml.html,,0.00010492592726399106,recBIBEDeXoCbo1WJ
+grok-code-fast-1,0.3506,2025-08-28,,,,,0.02349182145,120.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recNqAyRo9Bchbr4t
+qwen3.6-35b-a3b,0.34490000000000004,2026-04-14,Alibaba,China,,,0.05961612000000001,147.0,,https://htihle.github.io/weirdml.html,,0.00014262488975378608,rec8PK1T6HNd0I4pj
+qwen3-coder-next,0.344,2026-02-02,,,,,0.032830421568627456,201.0,,WeirdML Leaderboard,,0.00015170115908041672,recSrZj9sCvfB6GAm
+mistral-medium-2508,0.3313,2025-08-12,,,,,0.04017983059,178.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recaGKXTNqQWwgcGX
+claude-3-5-sonnet-20240620,0.3097,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",0.2456011059,135.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recZ2Fnhy1oCABquH
+claude-3-5-haiku-20241022,0.3073,2024-10-22,Anthropic,United States of America,,,0.05748017882,139.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reccOpUe11CUnfz3D
+Qwen3-30B-A3B,0.2975,2025-04-29,Alibaba,China,6.48e+23,6 FLOP / parameter / token * 3*10^9 active parameters * 36000000000000 tokens = 6.48e+23 FLOP,0.008148141553,103.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,reccesPAGx7VM9isY
+gpt-5-nano-2025-08-07_low,0.2589,2025-08-07,OpenAI,United States of America,,,0.004474679117647059,144.0,,https://htihle.github.io/weirdml.html,,8.60594758851737e-05,recrxrcJRqQrfigzs
+gemini-2.0-flash-001,0.2577,2025-02-05,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",0.006734424118,117.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recnyEQFFHcxoiWZd
+gpt-4o-2024-11-20,0.2512,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.08355605882,108.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recH4eRsQ6SLuBw9B
+gemini-1.5-flash-002,0.2487,2024-09-24,Google DeepMind,United States of America,,"""Gemini 1.5 Flash is a dense Transformer based model that is online distilled [...] from Gemini 1.5 Pro.""",0.002784210882,70.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recOirGXtvoehxH10
+Llama-4-Maverick-17B-128E-Instruct,0.2447,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",0.006132220588,90.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recjgmcFQfC0Kfg2a
+claude-3-opus-20240229,0.2318,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.8497747059,92.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recWD9aNKNFHjknWF
+grok-2-1212,0.2224,2024-12-12,xAI,United States of America,2.96e+25,Estimate based on xAI statements comparing Grok-2 compute to GPT-4 and Grok-3. Full estimate here: https://docs.google.com/document/d/1C_dABuZrAqYE_ui4_GZ4bRLtq3TBjIGoBSktaPElhEU/edit?usp=sharing,0.1141265412,113.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recDbZKRnS6z5OZTF
+gemini-1.5-pro-002,0.222,2024-09-24,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.05045860294,80.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recppqHhl200vYPWu
+Llama-3.1-405B-Instruct,0.2138,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",0.02029766588,93.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recnDucX915Gq1w1w
+gpt-4.1-nano-2025-04-14,0.1898,2025-04-14,OpenAI,United States of America,,,0.002581717476,88.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recUJYFZqBsEuykUe
+gpt-4-turbo-2024-04-09,0.1801,2024-04-09,OpenAI,United States of America,,Training compute estimated to be 2.2e25 FLOP using benchmark imputation. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.3210278313,75.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recteY2LQE2gKMz1y
+qwen2.5-72b-instruct,0.1597,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",0.011327742138364781,101.0,,WeirdML Leaderboard,,8.44050021308925e-05,recX1yJGXQJH8sZXs
+Llama-3.3-70B-Instruct,0.1444,2024-12-06,Meta AI,United States of America,6.8649768e+24,"6ND = 6 FLOP / parameter / token * 70*10^9 parameters * 15*10^12 tokens = 6.3e+24 FLOP
+
+7000000 GPU-hours * 3600 sec / hour * 989500000000000 FLOP / second * 0.3 [assumed utilization]= 7.48062e+24 FLOP
+
+sqrt(7.48062e+24*6.3e+24) = 6.8649768e+24",0.001469489388,102.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rec47nnjaiMGa2Hvi
+,0.1299,,,,,,0.001467614706,170.0,Combo of deepseek-r1-0528 and qwen3-8b; model version not noted for that reason.,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recbUeKqIhCxmfiab
+gpt-4-0613,0.1244,2023-06-13,OpenAI,United States of America,2.1e+25,"90% CI: 8.2E+24 to 4.4E+25
+
+NOTE: this is a rough estimate based on public information, much less information than most other systems in the database.
+
+Calculation and confidence intervals here: https://colab.research.google.com/drive/1O99z9b1I5O66bT78r9ScslE_nOj5irN9?usp=sharing",0.6379120588,65.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recUY5OtXWCsKXibx
+gpt-4o-mini-2024-07-18,0.1176,2024-07-18,OpenAI,United States of America,,"Training compute estimated to be 7.36001e+24 from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+
+90% CI [3.23e+24, 2.05e+25]",0.0052607625,85.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recUUJ0BGuNnLDeXK
+qwen2-72b-instruct,0.113,2024-06-07,Alibaba,China,3.02e+24,"72 billion params, 7 trillion tokens
+
+6 * 72 billion * 7 trillion ~= 3.02e24",0.010191000000000006,86.0,,https://htihle.github.io/weirdml.html,,0.0001139030639865106,recwNn5qNiY4HZMn3
+claude-3-sonnet-20240229,0.1016,2024-02-29,Anthropic,United States of America,,,0.1782906071,90.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recr58UTdDueiBsM9
+claude-3-haiku-20240307,0.0984,2024-03-07,Anthropic,United States of America,,,0.01407510882,88.5,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recgnkWUBffrHJLJ3
+Llama-3.1-70B-Instruct,0.0897,2024-07-23,Meta AI,United States of America,7.929e+24,"Huggingface page says 3.1-70B used 7.0M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 70B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 70B = 6.3e24 FLOPs
+
+Hardware:
+7M * 9.9e14 * 3600 * 0.4 = 9.98e24 FLOPs
+
+Geometric mean: sqrt(6.3e24 * 9.98e24) = 7.929e24
+
+Note that Llama 3-70B also said it used 15T tokens, but only 6.4M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.
+
+Training compute upper bound: 7M H100-hours * 989 TFLOPS * 50% utilization = 1.25e25 FLOP",0.003222669882,86.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recFJHpXHYhXFptDA
+claude-2.1,0.0706,2023-11-21,Anthropic,United States of America,,,0.1724719012,37.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recMLC0xkEkCfcRb8
+gpt-3.5-turbo-0125,0.0348,2024-01-25,OpenAI,United States of America,,,0.04237081395,83.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recZRRnQERBJbnqYb
+Mixtral-8x22B-Instruct-v0.1,0.0317,2024-04-17,Mistral AI,France,2.34e+24,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
+
+6 FLOP / token / parameter * 39 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 2.34e+24 FLOP",0.03903073333,84.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,recZSSo7RkyUGkJFX
+Llama-3.1-8B-Instruct,0.0173,2024-07-23,Meta AI,United States of America,1.224e+24,"Huggingface page says 3.1-8B used 1.46M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 8B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 8B = 7.2e23 FLOPs
+
+Hardware:
+1.46M * 9.9e14 * 3600 * 0.4 = 2.08e24 FLOPs
+
+Geometric mean: sqrt(7.2e23 * 2.08e24) = 1.224e24
+
+Note that Llama 3-8B also said it used 15T tokens, but only 1.3M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.",0.0004103955294,78.0,,WeirdML Leaderboard,https://htihle.github.io/weirdml.html,,rech2mtGGqFrKRxQO

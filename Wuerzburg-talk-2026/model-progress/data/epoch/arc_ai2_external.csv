@@ -1,0 +1,473 @@
+Model version,Challenge score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Easy score,Shots,Source,Source link,Notes,id
+Yi-6B,0.503,2023-11-02,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi 6b,,25-shot,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,,recBDxFxuSKRTNMCm
+Yi-9B,0.556,2024-03-01,,,,,Yi 9b,,25-shot,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,,recqf9Jh0xFM1IXnC
+PaLM 540B,0.601,2022-04-04,Google Research,United States of America,2.5272e+24,"See Table 20.
+
+6144 TPUv4 for 1200 hours + 3072 TPUv4 for 336 hours.
+Equivalent to 6144 TPUv4 for 1368 hours.
+
+46.2% model FLOPs utilization
+
+""The 540B-parameter PaLM model sustained a remarkable 57.8% of the peak hardware floating point performance over 50 days while training on TPU v4 supercomputers."" https://cloud.google.com/blog/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains",PaLM,,2-shot,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recbeIMXP2c5ukqiJ
+PaLM 2-S,0.596,2023-05-17,,,,,PaLM 2-S,,2-shot,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recekhdpsUQa4s2Hm
+PaLM 2-M,0.649,2023-05-17,,,,,PaLM 2-M,,2-shot,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recuxZiJTrnM847mA
+PaLM 2-L,0.692,2023-05-17,,,,,PaLM 2-L,,2-shot,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recWEx4BOQTar2SBJ
+falcon-180B,0.678,2023-09-06,Technology Innovation Institute,United Arab Emirates,3.76e+24,"43,500 petaflop-days per Table 1 of the paper
+
+43500 * 1e15 * 24 * 3600 = 3.76e24
+
+
+C = 6ND = 6 FLOP/token/parameter * 3.5 trillion tokens * 180 billion parameters = 3.78*10^24 FLOP",Falcon 180B,,2-shot,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recyedY0eMSNaxyzQ
+text-davinci-001,0.514,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3,0.688,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recon4Hh3kTsbzIUH
+PaLM 540B,0.53,2022-04-04,Google Research,United States of America,2.5272e+24,"See Table 20.
+
+6144 TPUv4 for 1200 hours + 3072 TPUv4 for 336 hours.
+Equivalent to 6144 TPUv4 for 1368 hours.
+
+46.2% model FLOPs utilization
+
+""The 540B-parameter PaLM model sustained a remarkable 57.8% of the peak hardware floating point performance over 50 days while training on TPU v4 supercomputers."" https://cloud.google.com/blog/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains",PaLM,0.766,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recPA0ga3kjdYrNvX
+Llama-2-7b,0.459,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA-2 7B,0.752,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recMgIDIjScfAKlAK
+Llama-2-13b,0.494,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA-2 13B,0.773,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,reccokU2BaZ83v8sC
+Llama-2-34b,0.545,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA-2 34B,0.794,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recCQAtSkG6833htq
+Llama-2-70b-hf ,0.574,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA-2 70B,0.802,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recWxdEsOORwjod7s
+falcon-7b,0.445,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,0.736,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recTQceLSvuKmSReV
+falcon-40b,0.567,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,0.812,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,recTUiYeh3GLxrG9E
+falcon-180B,0.637,2023-09-06,Technology Innovation Institute,United Arab Emirates,3.76e+24,"43,500 petaflop-days per Table 1 of the paper
+
+43500 * 1e15 * 24 * 3600 = 3.76e24
+
+
+C = 6ND = 6 FLOP/token/parameter * 3.5 trillion tokens * 180 billion parameters = 3.78*10^24 FLOP",Falcon 180B,0.847,,The Falcon Series of Open Language Models,http://arxiv.org/abs/2311.16867,,rec7VFstStJ24o6LM
+mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recpTlvsgRj6K0TU9
+falcon-7b,0.424,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recx3YFpGEIXLrY5E
+chatglm2-6b,0.61,2023-06-24,,,,,ChatGLM2 6B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recXAARbHOX9VJjNY
+internlm-7b,0.695,2023-07-05,,,,,InternLM 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,rec1k3Qvpm4E2qFw2
+internlm-20b,0.817,2023-09-18,,,,,InternLM 20B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recAO3NVZ8A3ac9a3
+Baichuan-2-7B-Base,0.325,2023-09-20,Baichuan,China,1.092e+23,"7b * 2.6t * 6 = 1.092e23
+Also mentions 1,024 NVIDIA A800 GPUs at 180 TFLOPS per GPU",Baichuan2 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,rec9IABwNbrfCP4NR
+Baichuan-2-13B-Base,0.38,2023-09-06,Baichuan,China,2.03e+23,"They describe the dataset as having 2.6T tokens, but the checkpoint graph makes it clear that's also the number of tokens the model was trained on.
+
+13b * 2.6t * 6 = 2.03e23",Baichuan2 13B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recpRCQEqtiQDGRiB
+LLaMA-7B,0.476,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recNvbTr84ONFah46
+LLaMA-13B,0.527,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recOtuOh1YwJucfwl
+LLaMA-33B,0.675,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recoTYayUgTAlaU57
+LLaMA-65B,0.695,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,reclOJSyiTKHZfjyb
+Llama-2-7b,0.459,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLAMA 2 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recuJuGMJDq55ts5K
+Llama-2-13b,0.603,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLAMA 2 13B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recF3fmFjfDHG8vQC
+Llama-2-70b-hf ,0.783,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recsMnkbkzX4mZGhQ
+StableBeluga2,0.861,2023-07-20,Stability AI,United Kingdom of Great Britain and Northern Ireland,,,StableBeluga2 70B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,reca6kz5FN4kqYoLL
+Qwen-1_8B,0.532,2023-11-30,,,,,QWEN 1.8B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recTH4MZO44wHEljJ
+Qwen-7B,0.753,2023-09-28,Alibaba,China,1.01e+23,"2.4T tokens per Table 1
+
+7b*2.4T*6 = 1.01e23",QWEN 7B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recGHH7EGCn0ZpKha
+Qwen-14B,0.844,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",QWEN 14B,,0-shot,Qwen Technical Report,https://arxiv.org/abs/2309.16609,,recb3dKzs466t5yxc
+PaLM 540B,0.601,2022-04-04,Google Research,United States of America,2.5272e+24,"See Table 20.
+
+6144 TPUv4 for 1200 hours + 3072 TPUv4 for 336 hours.
+Equivalent to 6144 TPUv4 for 1368 hours.
+
+46.2% model FLOPs utilization
+
+""The 540B-parameter PaLM model sustained a remarkable 57.8% of the peak hardware floating point performance over 50 days while training on TPU v4 supercomputers."" https://cloud.google.com/blog/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains",PaLM,0.85,1-shot,PaLM 2 Technical Report,http://arxiv.org/abs/2305.10403,,recoZOE4lE6gjLj0D
+PaLM 2-S,0.596,2023-05-17,,,,,PaLM 2-S,0.856,1-shot,PaLM 2 Technical Report,http://arxiv.org/abs/2305.10403,,rec6sY7Z0wdEAbFCL
+PaLM 2-M,0.649,2023-05-17,,,,,PaLM 2-M,0.88,1-shot,PaLM 2 Technical Report,http://arxiv.org/abs/2305.10403,,recr4wf65U2XCfXQt
+PaLM 2-L,0.692,2023-05-17,,,,,PaLM 2-L,0.897,1-shot,PaLM 2 Technical Report,http://arxiv.org/abs/2305.10403,,recojP6HTbGGTVbzk
+Llama-2-13b,0.494,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA-2 13B,0.773,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recvbbV1ndfleEaFI
+Llama-2-34b,0.545,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA-2 34B,0.794,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recE3lvgrGObdJyUb
+Qwen-14B,0.844,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",Qwen 14B,0.903,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recPlkIgHY3AIp4VA
+Mistral-7B-v0.1,0.555,2023-09-27,Mistral AI,France,,,Mistral 7B,0.8,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recywSGJNH0NxjYpT
+gemma-7b,0.532,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,0.815,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recnxE0Ob3qfuAUIo
+Nemotron-4 15B,0.555,2024-02-26,NVIDIA,United States of America,7.5005116e+23,"6ND = 6 FLOP/token/parameter * 15*10^9 parameters * 8*10^12 tokens = 7.2e+23 FLOP
+
+""Nemotron-4 was trained using 384 DGX H100 nodes; each node contains 8 H100 80GB SXM5 GPUs based on the NVIDIA Hopper architecture (NVIDIA, 2022). Each H100 GPU has a peak throughput of 989 teraFLOP/s when doing 16-bit floating point (bfloat16) arithmetic without sparsity.
+
+Table 2 reports more detailed training schedule:
+
+989*10^12 FLOP/sec * 3600 sec/hour * 24 hours * (768 gpus * 0.343 [reported utilization] * 0.8 days +  1536 gpus * 0.333 [reported utilization] * 0.4 days + 2304 gpus * 0.305 [reported utilization] * 11.9 days) = 7.5005116e+23 FLOP",Nemotron-4 15B,0.809,0-shot,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,,recKztdCp2jstcKfc
+falcon-7b,0.4343,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,0.7474,0-shot,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recS3RjfIU600rOkX
+falcon-7b,0.4786,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,,25-shot,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recP3Y7YbGtlvVoLz
+falcon-40b,0.5469,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,0.8186,0-shot,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recJlXiNWhl3fA6kY
+falcon-40b,0.6186,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,,25-shot,Falcon2-11B Technical Report,http://arxiv.org/abs/2407.14885,,recct3WooWBjSgf7i
+mpt-7b,0.426,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,0.702,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recIwq5o7M0MzTSOQ
+mpt-30b,0.506,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
+""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,0.765,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,receG6c5LTBxKHwK3
+falcon-7b,0.424,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,0.7,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recLxwQkk6elP9rvJ
+falcon-40b,0.545,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,0.792,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recyiJ5QhobNkgTh8
+LLaMA-7B,0.476,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLAMA 1 7B,0.728,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recfekftkllVQjldP
+LLaMA-13B,0.527,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLAMA 1 13B,0.748,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recTN8LK88YmYWoJe
+LLaMA-33B,0.578,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLAMA 1 33B,0.8,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,rec5EHyTp1YUNUlIV
+LLaMA-65B,0.56,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLAMA 1 65B,0.789,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recBTk09y2SlTwbse
+Llama-2-7b,0.459,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLAMA 2 7B,0.752,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recMlVcLfzfIeByw5
+Llama-2-13b,0.494,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLAMA 2 13B,0.773,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,rec4odRrMQ8MiCOBG
+Llama-2-34b,0.545,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLAMA 2 34B,0.794,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recdrH9ADacP1cq1N
+Llama-2-70b-hf ,0.574,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLAMA 2 70B,0.802,0-shot,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,,recCunGxbV5MxvAIQ
+text-davinci-001,0.514,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 175B,0.514,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,recHNTbNvpxyoh4wP
+PaLM 62B,0.525,2022-04-04,,,,,PaLM 62B,0.525,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,recL1vBgiMBZ5R4DU
+PaLM 540B,0.53,2022-04-04,Google Research,United States of America,2.5272e+24,"See Table 20.
+
+6144 TPUv4 for 1200 hours + 3072 TPUv4 for 336 hours.
+Equivalent to 6144 TPUv4 for 1368 hours.
+
+46.2% model FLOPs utilization
+
+""The 540B-parameter PaLM model sustained a remarkable 57.8% of the peak hardware floating point performance over 50 days while training on TPU v4 supercomputers."" https://cloud.google.com/blog/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains",PaLM 540B,0.53,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,reccXZcXgV6vDCk2y
+LLaMA-7B,0.476,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA 7B,0.476,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,recG8mIav5orjHdDC
+LLaMA-13B,0.527,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,0.527,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,recCVeGPJ1aSElADj
+LLaMA-33B,0.578,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,0.578,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,recIDEycNEywpwdkf
+LLaMA-65B,0.56,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,0.56,0-shot,LLaMA: Open and Efficient Foundation Language Models,http://arxiv.org/abs/2302.13971,,rec1kNbH3eKsesiQn
+DeepSeek-V2,0.922,2024-05-07,DeepSeek,China,1.02e+24,21b active params * 8.1 trillion * 6 = 1.02e24,DeepSeek-V2 Base       ,0.976,25-shot,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,,rech3PGmSJM5UVUj1
+Qwen2.5-72B,0.945,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",Qwen2.5 72B Base       ,0.984,25-shot,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,,rec0eZFhwFqf505ep
+Llama-3.1-405B,0.953,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",LLaMA-3.1 405B Base    ,0.984,25-shot,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,,recqQq5QZQFh9wVBf
+DeepSeek-V3,0.953,2024-12-26,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",DeepSeek-V3 Base       ,0.989,25-shot,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,,recJdOZPC2C12w8XY
+Llama-2-7b,0.432,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA 2 7B     ,0.687,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recCVgWGnaJ4pJcjb
+Llama-2-13b,0.488,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA 2 13B    ,0.752,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recxm6VEU7XA7OetW
+LLaMA-33B,0.544,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 1 33B    ,0.796,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recRd4cheNnjH84Mj
+Llama-2-70b-hf ,0.565,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA 2 70B    ,0.799,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recZnTdIuD44Xt6sD
+Mistral-7B-v0.1,0.549,2023-09-27,Mistral AI,France,,,Mistral 7B     ,0.805,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recc1svpFIcg7vAL9
+Mixtral-8x7B-v0.1,0.597,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
+
+6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7B   ,0.831,0-shot,Mixtral of Experts,http://arxiv.org/abs/2401.04088,,recwv4JdA8LfWCnVJ
+Phi-3-mini-4k-instruct,0.849,2024-04-23,Microsoft,United States of America,7.524e+22,"counting operations: 6×3.3×10^12 tokens ×3.8×10^9 parameters ≈7.524×10^22 FLOPS
+hardware estimate: 7 days ×24 hours / day×3600 sec / hour *989,000,000,000,000 FLOP/s*512 GPUs*0.3 [assumed utilization]=9.187540992×10^22",Phi-3-mini 3.8b        ,0.946,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recFlvyWCd6NoUbI5
+Phi-3-small-8k-instruct,0.907,2024-04-23,Microsoft,United States of America,2.1312e+23,6ND = 6 FLOP / parameter / token * 7.4B parameters * 4.8T tokens = 2.1312e+23 FLOP,Phi-3-small 7b         ,0.97,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recxwZXkfAY9VYS4M
+Phi-3-medium-128k-instruct,0.916,2024-04-23,Microsoft,United States of America,4.032e+23,counting operations: 6×4.8×10^12 tokens × 14×10^9 parameters ≈ 4.032×10^23 FLOPS,Phi-3-medium 14b       ,0.977,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recnLrwmDVsPnimhW
+phi-2,0.759,2023-12-12,Microsoft,United States of America,2.27e+22,"2.7B params, trained on 1.4T tokens
+
+2.7 billion * 1.4 trillion * 6 = 2.27e22
+
+96*14 A100-days
+
+14 * 96 * 312 trillion * 24 * 3600 * 0.3 = 1.09e22",Phi-2 2.7b             ,0.885,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,rec9o6whbdGoRj4EL
+Mistral-7B-v0.1,0.786,2023-09-27,Mistral AI,France,,,Mistral 7b             ,0.906,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recm8JgtAr9cYvI3c
+gemma-7b,0.783,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7b               ,0.914,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,reccsBnBbU3vLIlXL
+Meta-Llama-3-8B-Instruct,0.828,2024-04-18,Meta AI,United States of America,7.2e+23,"Counting operations
+15000000000000 tokens*8000000000.00 parameters*6 FLOP / token / parameter = 7.2×10^23 FLOP
+
+GPU calculation
+400 TFLOPS per GPU * 1.3M GPU hours * 3600s=1.872×10^24 
+(it is not confident that 400 TFLOPs applies to the Llama 3-8B training run)",Llama-3-In 8b          ,0.934,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recyK5toDoO0k8HO4
+Mixtral-8x7B-v0.1,0.873,2023-12-11,Mistral AI,France,7.74e+23,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
+
+6 FLOP / token / parameter * 12.9 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 7.74e+23 FLOP",Mixtral 8x7b           ,0.956,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recMzqmrpgMj3B6cS
+gpt-3.5-turbo-1106,0.874,2023-11-06,OpenAI,United States of America,,,GPT-3.5 version 1106   ,0.963,10-shot,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,,recfRXMnx6rHuGIBt
+Llama-2-7b,0.459,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA-2 7B   ,0.752,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recYond491moEZsn0
+Llama-2-13b,0.494,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA-2 13B  ,0.773,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recZUkL7VensCpe7G
+Mistral-7B-v0.1,0.549,2023-09-27,Mistral AI,France,,,Mistral 7B   ,0.805,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recyVBqHxwXmkfQPN
+gemma-2b,0.421,2024-02-21,Google DeepMind,United States of America,4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+
+(assuming 1 epoch)",Gemma 2B     ,0.732,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,recQD5p42nBSC7DhU
+gemma-7b,0.532,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B     ,0.815,,Gemma: Open Models Based on Gemini Research and Technology,http://arxiv.org/abs/2403.08295,,rec9mwOSlc5EhlJyP
+Qwen2.5-Coder-0.5B,0.344,2024-09-18,,,,,Qwen2.5-Coder-0.5B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recj6fIwM4g5QhZPo
+deepseek-coder-1.3b-base,0.254,2023-11-02,"DeepSeek,Peking University",China,1.56e+22,2T tokens * 1.3B parameters * 6 FLOP / parameter / token = 15.6 * 10^21 = 1.56 * 10^22 FLOP,DS-Coder-1.3B-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recHGOaX4WRoiifCr
+Qwen2.5-Coder-1.5B,0.452,2024-09-18,Alibaba,China,5.082e+22,6ND =  6*1540000000 parameters *5.5T tokens =5.082e+22,Qwen2.5-Coder-1.5B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec7OCOx9wHGEaQoJ
+starcoder2-3b,0.342,2024-02-22,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,5.94e+22,estimation is given in Table 6 ,StarCoder2-3B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recxa9NmUOx3zyxMY
+Qwen2.5-Coder-3B,0.529,2024-09-18,,,,,Qwen2.5-Coder-3B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec50W2CfGuH4w5Uy
+starcoder2-7b,0.387,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,1.55e+23,estimation is given in Table 6 ,StarCoder2-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recmivd1RvFYMTrow
+deepseek-coder-6.7b-base,0.364,2023-11-02,"DeepSeek,Peking University",China,8.04e+22,2T tokens * 6.7B parameters * 6 FLOP / parameter / token = 8.04*10^22 FLOP,DS-Coder-6.7B-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec5apbI4aqTcGOt2
+DeepSeek-Coder-V2-Lite-Base,0.573,2024-06-13,,,,,DS-Coder-V2-Lite-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,reck06B6EFq2sdA9w
+CodeQwen1.5-7B,0.357,2024-04-15,,,,,CodeQwen1.5-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recpJSkO0X2NX3uo4
+Qwen2.5-Coder-7B,0.609,2024-09-18,Alibaba,China,2.5113e+23,6ND = 6 FLOP / token / parameter *7610000000 parameters *5.5T tokens =2.5113e+23 FLOP,Qwen2.5-Coder-7B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recXIKMqsRclf2Qql
+starcoder2-15b,0.472,2024-02-20,"Hugging Face,ServiceNow,NVIDIA,BigCode",United States of America,3.87e+23,estimation is given in Table 6 ,StarCoder2-15B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recZRpnfj4C3Md7l1
+Qwen2.5-Coder-14B,0.66,2024-09-18,,,,,Qwen2.5-Coder-14B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recoOOluDbZTCxEFb
+deepseek-coder-33b-base,0.422,2023-11-02,"DeepSeek,Peking University",China,3.96e+23,"""Step 1: Initially pre-trained with a dataset consisting of 87% code, 10% code-related language (Github Markdown and StackExchange), and 3% non-code-related Chinese language. Models are pre-trained using 1.8T tokens and a 4K window size in this step.
+Step 2: Further Pre-training using an extended 16K window size on an additional 200B tokens, resulting in foundational models (DeepSeek-Coder-Base).
+Step 3: Instruction Fine-tuning on 2B tokens of instruction data, resulting in instruction-tuned models (DeepSeek-Coder-Instruct).""
+
+This means it was trained on 2T tokens. 2T * 33B * 6 = 3.96e23",DS-Coder-33B-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recpeuK5Fs5GpJMEj
+DeepSeek-Coder-V2-Base,0.643,2024-06-17,DeepSeek,China,1.2852e+24,"Trained on a total of 10.2T tokens
+6NC: 6 * 10.2T * 21B active parameters = 1.285e24",DS-Coder-V2-Base,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,recZW2JY1PtSj2NeX
+Qwen2.5-Coder-32B,0.705,2024-09-18,Alibaba,China,1.0725e+24,"Assuming 1 epoch
+
+6ND = 6*32.5 parameters *10^9*5.5*10^12 tokens = 1.0725e+24",Qwen2.5-Coder-32B,,,Qwen2.5-Coder Technical Report,http://arxiv.org/abs/2409.12186,,rec3ZJZr9FPPsNCST
+vicuna-13b-v1.1,0.432,2023-04-12,,,,,Vicuna-13B (v1.1),0.754,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recoGOGv6pY2Z77AB
+Llama-2-7b,0.434,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",Llama2-7B,0.763,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recSNV2YipA1bob60
+LLaMA-7B,0.385,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",Llama-7B,0.682,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recH3a6zzXMsqvy9U
+mpt-7b,0.405,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,0.749,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec81EbC7EomkLKBX
+falcon-7b,0.363,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon-7B,0.719,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recDO0Z46FYYeRAj8
+,0.282,,,,,,Falcon-rw-1.3B,0.633,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,rec328KDuE0wcry3j
+opt-1.3b,0.232,2022-05-11,Meta AI,United States of America,,,OPT-1.3B,0.57,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recY7BYwRaSw0WvJH
+,0.274,,,,,,GPT-Neo-2.7B,0.611,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recl5dU2L0etusoaO
+gpt2-xl,0.25,2019-11-05,OpenAI,United States of America,1.920000000001e+21,"Estimating based on compute = 6 FLOP/token/param * epochs * parameters * tokens.
+
+40GB dataset is approximately 8B words, or 1/0.75 * 8B = 10.66B tokens.
+
+The number of epochs is not reported, but another paper [1] claims in table 1 that it is 20 or 100 epochs, and another paper [2] claims 12 epochs based on communication with the GPT-2 authors (page 4).
+
+12 epochs is the modal, most credible value. Mean of probability mass is probably around 20 epochs, so calculating from that value:
+
+6 * (40 * 200 million * 1/0.75 * 20) * 1.5 billion parameters = 1.92e21
+https://www.wolframalpha.com/input?i=6+FLOP+*+20+*+%2840+billion+%2F+5+*+%284%2F3%29%29+*+1.5+billion
+
+[1] https://arxiv.org/abs/1906.06669 One Epoch Is All You Need
+[2] https://www.usenix.org/system/files/sec21-carlini-extracting.pdf Extracting Data From Large Language Models
+
+It also appears the model was trained on TPU v3 chips:
+https://huggingface.co/openai-community/gpt2",GPT2-XL-1.5B,0.583,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recKlotp4q8bnKtwd
+,0.329,,,,,,phi-1.5-web-only (1.3B),0.666,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recgOdAV6Fy1Oqq2M
+,0.449,,,,,,phi-1.5-web (1.3B),0.761,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,reck8zqnBzwmuHWKc
+phi-1_5,0.444,2023-09-11,Microsoft,United States of America,1.17e+21,"150B training tokens
+
+150B*1.3B*6 = 1.17e21
+
+also, took 1.5k GPU-hours with A100s, per Table 1
+
+1500 * 312 trillion * 3600 * 0.3 (utilization assumption) = 5.05e20
+
+so utilization was likely ~60%. may be high due to the relatively small cluster.
+",phi-1.5 (1.3B),0.756,,Textbooks Are All You Need II: phi-1.5 technical report,http://arxiv.org/abs/2309.05463,,recoj6GK2WTBxH06V
+,0.963,,,,,,GPT-4,,25-shot,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,,recnbaPIOtKCOtJ0V
+text-davinci-002,0.852,2022-03-15,OpenAI,United States of America,2.578e+24,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI,GPT-3.5,,25-shot,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,,recGUeMteustGGfMg
+PaLM 540B,0.852,2022-04-04,Google Research,United States of America,2.5272e+24,"See Table 20.
+
+6144 TPUv4 for 1200 hours + 3072 TPUv4 for 336 hours.
+Equivalent to 6144 TPUv4 for 1368 hours.
+
+46.2% model FLOPs utilization
+
+""The 540B-parameter PaLM model sustained a remarkable 57.8% of the peak hardware floating point performance over 50 days while training on TPU v4 supercomputers."" https://cloud.google.com/blog/topics/systems/tpu-v4-enables-performance-energy-and-co2e-efficiency-gains",8-shot PaLM,,8-shot,GPT-4 Technical Report,http://arxiv.org/abs/2303.08774,,rechw4k0fmZIGuIGv
+text-davinci-001,0.514,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 (175B) (Zero-shot),0.688,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recsaQHxqvzRAnRqF
+,0.48,,,,,,GLaM (64B/64E) (Zero-shot),0.716,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recBGxKI2qp2Vzmtz
+text-davinci-001,0.532,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 (175B) (One-shot),0.712,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,reco3SamtEdKFjE4P
+,0.503,,,,,,GLaM (64B/64E) (One-shot),0.766,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recJ9BDPpOIL845dB
+text-davinci-001,0.515,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 (175B) (50-shot),0.701,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recH2Cy2QrGCCajNe
+,0.52,,,,,,GLaM (64B/64E) (3-shot),,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,recI25UXKgeWd2uxU
+,,,,,,,GLaM (64B/64E) (16-shot),0.789,,GLaM: Efficient Scaling of Language Models with Mixture-of-Experts,http://arxiv.org/abs/2112.06905,,rec6qlE7YYs8hIOWQ
+claude-instant-1.1,0.857,,Anthropic,United States of America,,,Claude Instant 1.1,,,Releasing Claude Instant 1.2,https://www.anthropic.com/news/releasing-claude-instant-1-2,,recNlveRZDstMlvIa
+claude-instant-1.2,0.863,2023-08-09,Anthropic,United States of America,,,Claude Instant 1.2,,,Releasing Claude Instant 1.2,https://www.anthropic.com/news/releasing-claude-instant-1-2,,recCzRTq1cFC8vOhO
+,,,,,,,Switch-Base,,,,,,recmPMvGdviW8gLMV
+,,,,,,,T5-Base,,,,,,rec3bc6kbIygGnaBo
+xgen-7b-8k-base,0.412,2023-06-27,Salesforce,United States of America,8.02e+22,"270,336 TPUv4-hours per the carbon emissions section. They must mean chip-hours, not core-hours, because they multiply by 192W, which is the max power consumption of a TPU-v4 chip.
+
+https://cloud.google.com/tpu/docs/system-architecture-tpu-vm#tpu_v4
+
+This is probably the total for the whole paper? They released two versions of the base model, one of which is just trained further than the other, and they have two fine-tuned versions. If fine-tuning compute is minor, then this total is close to the largest training compute for any single model in the paper. 
+
+270336 * 275 teraflop/s * 3600 * 0.3 = 8.02e22 FLOP
+
+also, using 6ND:
+
+1484 billion tokens * 6.7 billion * 6 = 5.97e22",XGen-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recDdVbzbODl8KRDE
+LLaMA-7B,0.448,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,rec96oGAR33iueEEJ
+falcon-7b,0.434,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recIJQRtQygxkLIBx
+mpt-7b,0.417,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recbWNpk3h1b9y7PR
+open_llama_7b,0.387,2023-06-07,,,,,OpenLLaMA-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recdgUh5eB5jQ4oyE
+RedPajama-INCITE-7B-Base,0.391,2023-05-04,,,,,Redpajama-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,rec8cEStkqtkCyGmJ
+gpt-neox-20b,0.411,2022-04-07,EleutherAI,United States of America,9.31627008e+22,Trained for 3 months on 96 A100s (according to correspondence with author). Let's say 0.4 utilization rate.,GPT-neox-20B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recSYskjlkTSJPrPU
+opt-13b,0.358,2022-05-11,,,,,OPT-13B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recsLxqhuH0roOIAF
+gpt-j-6b,0.363,2021-08-05,"EleutherAI,LAION","Germany,United States of America",1.5e+22,source: zero shot evaluation table in GitHub,GPT-J-6B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recPDicLmVESGltVO
+dolly-v2-12b,0.396,2023-04-11,Databricks,United States of America,,,Dolly-v2-12B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recpM34slUJwZbjqj
+Cerebras-GPT-13B,0.324,2023-03-20,Cerebras Systems,United States of America,2.3e+22,"2.3e22, per table 2",Cerebras-GPT-13B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recuKcLt2nDob6ZLa
+stablelm-tuned-alpha-7b,0.27,2023-04-19,,,,,StableLM-alpha-7B,,,XGen-7B Technical Report,http://arxiv.org/abs/2309.03450,,recHdiAAANd9V5aXp
+INTELLECT-1-Instruct,0.5452,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,,recPfTdB5uSeoqZv6
