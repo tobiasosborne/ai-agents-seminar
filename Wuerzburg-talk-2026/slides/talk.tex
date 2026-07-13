@@ -502,29 +502,29 @@ while not done:
   \vfill
   \centering
   \begin{tikzpicture}[every node/.style={align=center}]
-    \node[tjo box, minimum width=4.4cm, minimum height=1.5cm, font=\small] (chat)
-      at (-4,0) {\textbf{Chat}\\[3pt]{\small closed loop, through \emph{you}}\\[2pt]
-        {\color{red!70!black}you cut, paste, re-prompt}};
-    \node[tjo box fill, minimum width=4.4cm, minimum height=1.5cm, font=\small] (agent)
-      at (4,0) {\textbf{Agent}\\[3pt]{\small closed loop, through tools}\\[2pt]
-        {\color{tjo@darkteal}results feed back automatically}};
+    \node[tjo box, minimum height=1.5cm, font=\small] (chat)
+      at (-4.6,0) {\textbf{Chat}\\[3pt]closed loop, through \emph{you}\\[2pt]
+        {\color{red!70!black}cut, paste, re-prompt}};
+    \node[tjo box fill, minimum height=1.5cm, font=\small] (agent)
+      at (4.6,0) {\textbf{Agent}\\[3pt]closed loop, through tools\\[2pt]
+        {\color{tjo@darkteal}feedback is automatic}};
 
     \draw[tjo arrow, line width=2pt] (chat.east) -- (agent.west)
-      node[midway, above=8pt, font=\footnotesize, text=tjo@black!60] {same loop, no human relay};
+      node[midway, above=6pt, font=\footnotesize, text=tjo@black!60] {same loop, faster};
   \end{tikzpicture}
 
-  \vskip1.2em
+  \vskip0.8em
   \begin{flushleft}
   \hspace{1.5em}Chat is a feedback loop too --- you are the wire
 
-  \vskip0.6em
+  \vskip0.5em
   \hspace{1.5em}A failing test, a stack trace, a wrong number: each flows straight back into the context
   \end{flushleft}
 
-  \vskip1em
+  \vskip0.7em
   \centering
   {\color{tjo@darkteal}\bfseries
-    The agent closes the same loop faster, with no human cutting and pasting}
+    Agents close the loop with no human cutting and pasting}
   \vfill
 \end{frame}
 
@@ -754,19 +754,19 @@ while not done:
   \vfill
   \centering
   \begin{tikzpicture}[every node/.style={align=center}]
-    \node[tjo box, minimum width=3.4cm, minimum height=1.5cm, font=\small] (claim)
-      at (-4.6,0) {\textbf{Claim 1}\\{\small the theorem}};
-    \node[tjo box fill, minimum width=3.4cm, minimum height=1.5cm, font=\small] (steps)
-      at (0,0) {\textbf{1.1, 1.2, 1.1.1, \ldots}\\{\small atomic steps}};
-    \node[tjo box, fill=tjo@darkteal, text=white, minimum width=3.4cm, minimum height=1.5cm, font=\small] (val)
-      at (4.6,0) {\textbf{Validated}\\{\small survived attack}};
+    \node[tjo box, minimum width=2.8cm, minimum height=1.5cm, font=\small] (claim)
+      at (-5.0,0) {\textbf{Claim 1}\\{\small the theorem}};
+    \node[tjo box fill, minimum width=2.8cm, minimum height=1.5cm, font=\small] (steps)
+      at (0,0) {\textbf{1.1, 1.2, \ldots}\\{\small atomic steps}};
+    \node[tjo box, fill=tjo@darkteal, text=white, minimum width=2.8cm, minimum height=1.5cm, font=\small] (val)
+      at (5.0,0) {\textbf{Validated}\\{\small survived attack}};
     \draw[tjo arrow] (claim) -- (steps)
-      node[midway, above=6pt, font=\footnotesize, text=tjo@black!60] {decompose};
+      node[midway, above=5pt, font=\scriptsize, text=tjo@black!60] {decompose};
     \draw[tjo arrow] (steps) -- (val)
-      node[midway, above=6pt, font=\footnotesize, text=tjo@black!60] {challenge};
+      node[midway, above=5pt, font=\scriptsize, text=tjo@black!60] {challenge};
   \end{tikzpicture}
 
-  \vskip1em
+  \vskip0.8em
   \begin{flushleft}
   \hspace{1.5em}A natural-language proof, decomposed into a ledger of tiny numbered claims
 
@@ -787,16 +787,19 @@ while not done:
 \begin{frame}{Vibefeld: how trust accumulates}
   \vfill
   \begin{flushleft}
-  \hspace{1.5em}\textbf{Provers propose}, \textbf{verifiers attack}: a claim is accepted only when every challenge is resolved
+  \hspace{1.5em}\textbf{Provers propose}, \textbf{verifiers attack}:\\
+  \hspace{1.5em}a claim is accepted only when every challenge is resolved
 
-  \vskip0.8em
-  \hspace{1.5em}Every proposal, challenge, and resolution lands in an append-only ledger: a full audit trail
+  \vskip0.7em
+  \hspace{1.5em}Every proposal, challenge, and resolution lands in an\\
+  \hspace{1.5em}append-only ledger: a full audit trail
 
-  \vskip0.8em
-  \hspace{1.5em}Assumptions stay visible: an \emph{admitted} claim taints everything that depends on it
+  \vskip0.7em
+  \hspace{1.5em}Assumptions stay visible:\\
+  \hspace{1.5em}an \emph{admitted} claim taints everything that depends on it
   \end{flushleft}
 
-  \vskip1em
+  \vskip0.8em
   \centering
   {\color{tjo@darkteal}\bfseries Provers convince. Verifiers attack. Truth emerges.}
   \vfill
