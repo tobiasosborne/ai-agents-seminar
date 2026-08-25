@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Muenchen 2026 — timeline slide mockups (G1–G4)</title>
+<style>
+/* ==================================================================
+   VISUAL GROUND TRUTH for four timeline slides.
+   Stage = exactly 1280 x 720 px.  All coordinates below are in that
+   frame; divide by 7.2 for cqh, by 12.8 for cqw when porting to the
+   HTML deck, or multiply by (16cm/1280) = 0.0125cm for TikZ.
+   ================================================================== */
+:root{
+  --black:#111417;
+  --ink:#1a1e21;
+  --muted:#5b6b74;
+  --faint:#8a969c;
+  --white:#fff;
+  --darkteal:#335B74;
+  --lightgrey:#DFE3E5;
+  --rule:#C7CFD3;
+  --cyan:#1CADE4;
+  --medblue:#2683C6;
+  --brightcyan:#27CED7;
+  --green:#42BA97;
+  --teal:#62A39F;
+  --red:#a33;
+  --codebg:#F0F2F3;
+  /* five-stage grief ramp — used on G1, echoed nowhere else */
+  --s-shock:#1CADE4;
+  --s-anger:#a33;
+  --s-barg:#2683C6;
+  --s-depr:#335B74;
+  --s-acc:#42BA97;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:#0c1114;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding:28px 0 60px;
+}
+.wrap{width:1280px;margin:0 auto;}
+.lbl{color:#8fa5b2;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+     margin:34px 0 8px;font-weight:600;}
+.lbl b{color:#27CED7;}
+.stage{
+  position:relative;width:1280px;height:720px;background:#fff;overflow:hidden;
+  color:var(--ink);
+}
+/* single-slide mode for screenshots: body.only-N */
+body[class^="only-"]{background:#fff;padding:0;}
+body[class^="only-"] .lbl{display:none;}
+body[class^="only-"] .wrap{width:1280px;}
+body.only-1 #w2,body.only-1 #w3,body.only-1 #w4,
+body.only-2 #w1,body.only-2 #w3,body.only-2 #w4,
+body.only-3 #w1,body.only-3 #w2,body.only-3 #w4,
+body.only-4 #w1,body.only-4 #w2,body.only-4 #w3{display:none;}
+
+/* ---------- shared slide furniture ---------- */
+.ftitle{position:absolute;left:40px;top:38px;font-size:32px;line-height:1.04;
+        font-weight:650;color:var(--darkteal);letter-spacing:-.01em;}
+.frule{position:absolute;left:40px;top:94px;width:66px;height:4px;
+       background:var(--cyan);border-radius:2px;}
+.kick{position:absolute;right:40px;top:60px;font-size:16px;color:var(--muted);
+      text-align:right;line-height:1.3;}
+.ov{position:absolute;left:0;top:0;width:1280px;height:720px;pointer-events:none;}
+.tb{position:absolute;}                 /* text block */
+.dt{font-size:15px;font-weight:700;letter-spacing:.015em;margin-bottom:4px;}
+.tx{font-size:16px;line-height:1.3;color:var(--ink);}
+.note{position:absolute;font-size:13px;color:var(--faint);font-style:italic;}
+
+/* ---------- G1 stage rail ---------- */
+.pill{position:absolute;height:46px;border-radius:10px;border:1.6px solid;
+      display:flex;align-items:center;justify-content:center;
+      font-size:15px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;}
+.chev{position:absolute;font-size:20px;color:var(--rule);top:576px;font-weight:700;}
+
+/* ---------- G2 ---------- */
+.lanelab{position:absolute;font-size:14px;font-weight:700;letter-spacing:.19em;
+         text-transform:uppercase;color:var(--darkteal);}
+.lanerule{position:absolute;left:40px;width:1200px;height:1.5px;background:var(--lightgrey);}
+.cell{position:absolute;width:184px;}
+.cell .d{font-size:15px;font-weight:700;margin-bottom:4px;}
+.cell .t{font-size:15.5px;line-height:1.3;}
+.cell.past .t{color:#4a575e;}
+.offlab{position:absolute;width:184px;text-align:center;font-size:14px;
+        font-weight:700;color:var(--muted);letter-spacing:.02em;}
+.youare{position:absolute;left:1040px;top:506px;width:200px;height:44px;
+        background:var(--cyan);border-radius:10px;display:flex;align-items:center;
+        justify-content:center;color:#fff;font-size:17px;font-weight:700;
+        letter-spacing:.11em;}
+.yousub{position:absolute;left:1000px;top:558px;width:280px;text-align:center;
+        font-size:13.5px;color:var(--darkteal);font-weight:600;}
+.closer1{position:absolute;left:40px;top:600px;width:1200px;text-align:center;
+         font-size:22px;font-weight:650;color:var(--darkteal);}
+.closer2{position:absolute;left:40px;top:636px;width:1200px;text-align:center;
+         font-size:18px;color:var(--muted);line-height:1.35;}
+.colhi{position:absolute;left:1032px;top:146px;width:216px;height:346px;
+       background:rgba(28,173,228,.07);border-radius:12px;}
+
+/* ---------- G3 ---------- */
+.legrow{position:absolute;left:40px;top:110px;width:1200px;display:flex;gap:34px;
+        align-items:center;font-size:14.5px;color:var(--muted);}
+.legrow b{font-weight:700;}
+.badge{display:inline-flex;align-items:center;justify-content:center;
+       width:58px;height:22px;border-radius:6px;color:#fff;font-size:13px;
+       font-weight:700;letter-spacing:.06em;margin-right:9px;flex:0 0 auto;}
+.row{position:absolute;left:34px;width:802px;height:43px;display:flex;
+     align-items:center;border-radius:7px;}
+.row .bd{margin-left:6px;}
+.row .dd{width:96px;flex:0 0 auto;font-size:14.5px;font-weight:700;
+         color:var(--darkteal);margin-left:2px;}
+.row .tt{font-size:15.8px;line-height:1.25;color:var(--ink);}
+.row .warn{color:var(--red);font-weight:650;}
+.row.phys{background:#F2FAFE;box-shadow:inset 3px 0 0 var(--cyan);}
+.phystag{position:absolute;left:742px;top:246px;width:94px;text-align:right;
+         font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+         color:var(--cyan);}
+.vrule{position:absolute;left:848px;top:150px;width:1px;height:428px;background:var(--lightgrey);}
+.rblock{position:absolute;left:862px;width:378px;}
+.mk{display:flex;align-items:center;gap:11px;margin-bottom:10px;font-size:14.5px;color:var(--ink);}
+.mkc{width:15px;height:15px;border-radius:50%;flex:0 0 auto;}
+.qbox{position:absolute;left:34px;top:504px;width:802px;height:76px;
+      background:var(--codebg);border-left:5px solid var(--cyan);border-radius:8px;
+      padding:12px 18px;}
+.qbox .q{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+         font-size:22.5px;color:var(--darkteal);font-weight:600;letter-spacing:-.015em;}
+.qbox .a{font-size:13.2px;color:var(--muted);margin-top:8px;}
+.summ{position:absolute;left:40px;top:600px;width:1200px;text-align:center;
+      font-size:24px;line-height:1.32;font-weight:650;color:var(--darkteal);}
+
+/* ---------- G4 ---------- */
+.chip{position:absolute;width:380px;border-left:4px solid var(--cyan);padding-left:16px;}
+.chip .n{font-size:37px;font-weight:700;color:var(--cyan);line-height:1.05;
+         letter-spacing:-.02em;}
+.chip .c{font-size:15.5px;line-height:1.28;color:var(--ink);margin-top:5px;}
+.slopelab{position:absolute;font-size:15px;font-weight:650;color:var(--darkteal);
+          transform-origin:0 100%;white-space:nowrap;}
+.bridge{position:absolute;left:40px;top:534px;width:1200px;text-align:center;
+        font-size:17px;color:var(--muted);line-height:1.35;}
+.payload{position:absolute;left:40px;top:590px;width:1200px;text-align:center;
+         font-size:33px;font-weight:650;color:var(--darkteal);line-height:1.15;}
+.paysub{position:absolute;left:40px;top:648px;width:1200px;text-align:center;
+        font-size:23px;font-weight:700;color:var(--cyan);letter-spacing:.02em;}
+.yr{position:absolute;font-size:13px;color:var(--faint);text-align:center;width:60px;}
+.yr.fut{color:#b6c0c5;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================================================================
+     G1 — THE FIVE STAGES OF AI GRIEF
+     ================================================================ -->
+<div id="w1">
+<div class="lbl"><b>G1</b> &nbsp;·&nbsp; The five stages of AI grief &nbsp;·&nbsp; Part 1, after "Four moments"</div>
+<section class="stage" id="s1">
+
+  <div class="ftitle">The five stages of AI grief</div>
+  <div class="frule"></div>
+  <div class="kick">software engineering<br>Nov 2022 &rarr; Jul 2026</div>
+
+  <!-- METR callout label -->
+  <div class="tb" style="left:806px;top:156px;width:240px;text-align:center;">
+    <div style="font-size:13.5px;color:var(--muted);">19 months of comfort &mdash;</div>
+    <div style="font-size:15.5px;font-weight:700;color:var(--darkteal);margin-top:2px;">retired by its own authors</div>
+  </div>
+
+  <svg class="ov" viewBox="0 0 1280 720">
+    <!-- spine -->
+    <line x1="44" y1="366" x2="1236" y2="366" stroke="#DFE3E5" stroke-width="3"/>
+    <!-- year separators -->
+    <g stroke="#C7CFD3" stroke-width="1.4" stroke-dasharray="4 4">
+      <line x1="185" y1="344" x2="185" y2="390"/>
+      <line x1="527" y1="344" x2="527" y2="390"/>
+      <line x1="983" y1="344" x2="983" y2="390"/>
+    </g>
+    <!-- METR arc: Jul 2025 -> Feb 2026 -->
+    <path d="M 812 250 Q 926 198 1038 244" fill="none" stroke="#335B74"
+          stroke-width="2.2" stroke-dasharray="6 5"/>
+    <polygon points="1040,254 1029,240 1043,236" fill="#335B74"/>
+
+    <!-- upper stems + dots (ranks 1,3,5,7,9) -->
+    <g stroke-width="1.6">
+      <line x1="128"  y1="334" x2="128"  y2="366" stroke="#1CADE4"/>
+      <line x1="356"  y1="334" x2="356"  y2="366" stroke="#a33"/>
+      <line x1="584"  y1="334" x2="584"  y2="366" stroke="#1CADE4"/>
+      <line x1="812"  y1="334" x2="812"  y2="366" stroke="#2683C6"/>
+      <line x1="1040" y1="334" x2="1040" y2="366" stroke="#42BA97"/>
+      <!-- lower stems (ranks 2,4,6,8,10) -->
+      <line x1="242"  y1="366" x2="242"  y2="398" stroke="#a33"/>
+      <line x1="470"  y1="366" x2="470"  y2="398" stroke="#2683C6"/>
+      <line x1="698"  y1="366" x2="698"  y2="398" stroke="#a33"/>
+      <line x1="926"  y1="366" x2="926"  y2="398" stroke="#335B74"/>
+      <line x1="1154" y1="366" x2="1154" y2="398" stroke="#42BA97"/>
+    </g>
+    <g stroke="#fff" stroke-width="3">
+      <circle cx="128"  cy="366" r="6.5" fill="#1CADE4"/>
+      <circle cx="242"  cy="366" r="6.5" fill="#a33"/>
+      <circle cx="356"  cy="366" r="6.5" fill="#a33"/>
+      <circle cx="470"  cy="366" r="6.5" fill="#2683C6"/>
+      <circle cx="584"  cy="366" r="6.5" fill="#1CADE4"/>
+      <circle cx="698"  cy="366" r="6.5" fill="#a33"/>
+      <circle cx="812"  cy="366" r="6.5" fill="#2683C6"/>
+      <circle cx="926"  cy="366" r="6.5" fill="#335B74"/>
+      <circle cx="1040" cy="366" r="6.5" fill="#42BA97"/>
+      <circle cx="1154" cy="366" r="6.5" fill="#42BA97"/>
+    </g>
+  </svg>
+
+  <!-- upper lane: ranks 1,3,5,7,9 -->
+  <div class="tb" style="left:24px;top:266px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-shock)">Nov 2022</div>
+    <div class="tx">ChatGPT launches &mdash; everyone can try it</div></div>
+  <div class="tb" style="left:252px;top:266px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-anger)">Mar 2024</div>
+    <div class="tx">Devin &mdash; &ldquo;the first AI software engineer&rdquo;</div></div>
+  <div class="tb" style="left:480px;top:266px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-shock)">Feb 2025</div>
+    <div class="tx">Claude Code ships; Karpathy: &ldquo;vibe coding&rdquo;</div></div>
+  <div class="tb" style="left:708px;top:266px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-barg)">Jul 2025</div>
+    <div class="tx">METR trial: experienced devs 19% slower</div></div>
+  <div class="tb" style="left:936px;top:266px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-acc)">Feb 2026</div>
+    <div class="tx">METR retires it &mdash; no counterfactual left</div></div>
+
+  <!-- year labels -->
+  <div class="tb" style="left:64px;top:372px;width:100px;text-align:center;font-size:13px;color:var(--faint);">2022&ndash;23</div>
+  <div class="tb" style="left:260px;top:372px;width:60px;text-align:center;font-size:13px;color:var(--faint);">2024</div>
+  <div class="tb" style="left:725px;top:372px;width:60px;text-align:center;font-size:13px;color:var(--faint);">2025</div>
+  <div class="tb" style="left:1080px;top:372px;width:60px;text-align:center;font-size:13px;color:var(--faint);">2026</div>
+
+  <!-- lower lane: ranks 2,4,6,8,10 -->
+  <div class="tb" style="left:138px;top:400px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-anger)">Feb 2024</div>
+    <div class="tx">Huang: &ldquo;nobody should learn to code&rdquo;</div></div>
+  <div class="tb" style="left:366px;top:400px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-barg)">Apr 2024</div>
+    <div class="tx">Devin debunked &mdash; fails 85% of tasks</div></div>
+  <div class="tb" style="left:594px;top:400px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-anger)">Mar 2025</div>
+    <div class="tx">Amodei: &ldquo;90% of code in six months&rdquo;</div></div>
+  <div class="tb" style="left:822px;top:400px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-depr)">Dec 2025</div>
+    <div class="tx">Stack Overflow questions &minus;78% in a year</div></div>
+  <div class="tb" style="left:1050px;top:400px;width:208px;text-align:center;">
+    <div class="dt" style="color:var(--s-acc)">Jul 2026</div>
+    <div class="tx">Review time +441%; hiring returns, bifurcated</div></div>
+
+  <!-- stage rail -->
+  <div class="tb" style="left:60px;top:530px;width:400px;font-size:13px;color:var(--muted);
+       font-weight:600;letter-spacing:.05em;">reading the colours &mdash;</div>
+  <div class="pill" style="left:60px;top:556px;width:208px;color:var(--s-shock);
+       border-color:var(--s-shock);background:rgba(28,173,228,.11);">shock</div>
+  <div class="pill" style="left:298px;top:556px;width:208px;color:var(--s-anger);
+       border-color:var(--s-anger);background:rgba(170,51,51,.09);">anger</div>
+  <div class="pill" style="left:536px;top:556px;width:208px;color:var(--s-barg);
+       border-color:var(--s-barg);background:rgba(38,131,198,.10);">bargaining</div>
+  <div class="pill" style="left:774px;top:556px;width:208px;color:var(--s-depr);
+       border-color:var(--s-depr);background:rgba(51,91,116,.10);">depression</div>
+  <div class="pill" style="left:1012px;top:556px;width:208px;color:var(--s-acc);
+       border-color:var(--s-acc);background:rgba(66,186,151,.13);">acceptance</div>
+  <div class="chev" style="left:277px;">&rsaquo;</div>
+  <div class="chev" style="left:515px;">&rsaquo;</div>
+  <div class="chev" style="left:753px;">&rsaquo;</div>
+  <div class="chev" style="left:991px;">&rsaquo;</div>
+
+  <div class="note" style="left:40px;top:626px;width:1200px;text-align:center;">
+    The stages overlap and run concurrently &mdash; the colour marks the dominant public register, not anyone&rsquo;s actual mood.
+  </div>
+</section>
+</div>
+
+<!-- ================================================================
+     G2 — MATHEMATICS IS EIGHTEEN MONTHS BEHIND
+     ================================================================ -->
+<div id="w2">
+<div class="lbl"><b>G2</b> &nbsp;·&nbsp; Mathematics is eighteen months behind &nbsp;·&nbsp; immediately after G1</div>
+<section class="stage" id="s2">
+
+  <div class="ftitle">Mathematics is eighteen months behind</div>
+  <div class="frule"></div>
+  <div class="kick">the same arc, one field later<br>2021 &rarr; 2026</div>
+
+  <!-- highlight column 6 -->
+  <div class="colhi"></div>
+
+  <!-- lane A -->
+  <div class="lanelab" style="left:40px;top:118px;">Software engineering</div>
+  <div class="lanerule" style="top:140px;"></div>
+  <div class="cell past" style="left:48px;top:154px;">
+    <div class="d" style="color:var(--muted)">Jun 2021</div>
+    <div class="t">Copilot: a machine<br>writes plausible code</div></div>
+  <div class="cell past" style="left:248px;top:154px;">
+    <div class="d" style="color:var(--muted)">Nov 2022</div>
+    <div class="t">ChatGPT:<br>everyone tries it</div></div>
+  <div class="cell past" style="left:448px;top:154px;">
+    <div class="d" style="color:var(--muted)">Mar 2024</div>
+    <div class="t">Devin hyped,<br>then debunked</div></div>
+  <div class="cell past" style="left:648px;top:154px;">
+    <div class="d" style="color:var(--muted)">Feb 2025</div>
+    <div class="t">Claude Code:<br>the tooling loop closes</div></div>
+  <div class="cell past" style="left:848px;top:154px;">
+    <div class="d" style="color:var(--muted)">Q2 2025</div>
+    <div class="t">&ldquo;Better than I expected<br>&mdash; at my job&rdquo;</div></div>
+  <div class="cell past" style="left:1048px;top:154px;">
+    <div class="d" style="color:var(--muted)">Nov 2025</div>
+    <div class="t">Opus 4.5 first past<br>80% SWE-bench</div></div>
+
+  <!-- offset labels + converging wedge -->
+  <div class="offlab" style="left:48px;top:244px;">37 months</div>
+  <div class="offlab" style="left:248px;top:244px;">32 months</div>
+  <div class="offlab" style="left:448px;top:244px;">19 months</div>
+  <div class="offlab" style="left:648px;top:244px;">11 months</div>
+  <div class="offlab" style="left:848px;top:244px;">12 months</div>
+  <div class="offlab" style="left:1048px;top:244px;">9 months</div>
+
+  <svg class="ov" viewBox="0 0 1280 720">
+    <path d="M 40 281 L 140 281 L 340 284 L 540 294.6 L 740 301.1 L 940 300.3 L 1140 302.7 L 1240 302.7
+             L 1240 317.3 L 1140 317.3 L 940 319.8 L 740 318.9 L 540 325.4 L 340 336 L 140 339 L 40 339 Z"
+          fill="rgba(51,91,116,.16)" stroke="#335B74" stroke-width="1.2" stroke-opacity=".55"/>
+    <!-- pointer from badge up to lane C cell 6 -->
+    <polygon points="1140,494 1132,506 1148,506" fill="#1CADE4"/>
+  </svg>
+
+  <!-- lane C -->
+  <div class="lanelab" style="left:40px;top:358px;">Mathematics &amp; theoretical physics</div>
+  <div class="lanerule" style="top:380px;"></div>
+  <div class="cell" style="left:48px;top:394px;">
+    <div class="d" style="color:var(--darkteal)">Jul 2024</div>
+    <div class="t">IMO silver: AlphaProof</div></div>
+  <div class="cell" style="left:248px;top:394px;">
+    <div class="d" style="color:var(--darkteal)">Jul 2025</div>
+    <div class="t">IMO gold, in natural language</div></div>
+  <div class="cell" style="left:448px;top:394px;">
+    <div class="d" style="color:var(--darkteal)">Oct 2025</div>
+    <div class="t">&ldquo;Ten Erd&#337;s problems&rdquo;<br>&mdash; retracted</div></div>
+  <div class="cell" style="left:648px;top:394px;">
+    <div class="d" style="color:var(--darkteal)">Jan 2026</div>
+    <div class="t">Erd&#337;s #728:<br>model &rarr; Lean &rarr; human</div></div>
+  <div class="cell" style="left:848px;top:394px;">
+    <div class="d" style="color:var(--darkteal)">May 2026</div>
+    <div class="t">Unit distance falls; Gowers:<br>&ldquo;Annals, no hesitation&rdquo;</div></div>
+  <div class="cell" style="left:1048px;top:394px;">
+    <div class="d" style="color:var(--cyan)">Aug 2026</div>
+    <div class="t">Astra: ten decade-open<br>problems, $2k each</div></div>
+
+  <div class="youare">You are here</div>
+  <div class="yousub">27 August 2026 &mdash; this room</div>
+
+  <div class="closer1">Offset ~3 years in 2024 &nbsp;&middot;&nbsp; ~9 months now &nbsp;&middot;&nbsp; closing at about a year per year</div>
+  <div class="closer2">Mathematics never had to build the tooling. It inherited the one built for code &mdash; and Lean is code.</div>
+</section>
+</div>
+
+<!-- ================================================================
+     G3 — THE FLURRY, AND HOW MUCH OF IT IS CHECKED
+     ================================================================ -->
+<div id="w3">
+<div class="lbl"><b>G3</b> &nbsp;·&nbsp; The flurry &mdash; and how much of it is checked &nbsp;·&nbsp; Part 1, after the two hook slides</div>
+<section class="stage" id="s3">
+
+  <div class="ftitle">The flurry &mdash; and how much of it is checked</div>
+  <div class="frule"></div>
+
+  <div class="legrow">
+    <span style="display:flex;align-items:center;"><span class="badge" style="background:var(--green)">T1</span>machine-checked or officially graded</span>
+    <span style="display:flex;align-items:center;"><span class="badge" style="background:var(--medblue)">T2</span>arXiv &mdash; named humans read it</span>
+    <span style="display:flex;align-items:center;"><span class="badge" style="background:var(--red)">T3</span>announced only, no referee</span>
+  </div>
+
+  <div class="row" style="top:150px;">
+    <span class="badge bd" style="background:var(--green)">T1</span>
+    <span class="dd">Jul 2025</span>
+    <span class="tt">IMO gold, in natural language, officially graded</span></div>
+
+  <div class="row" style="top:193px;">
+    <span class="badge bd" style="background:var(--green)">T1</span>
+    <span class="dd">Jan 2026</span>
+    <span class="tt">Erd&#337;s #728 &mdash; first autonomous solve, with a Lean certificate</span></div>
+
+  <div class="row phys" style="top:236px;">
+    <span class="badge bd" style="background:var(--medblue)">T2</span>
+    <span class="dd">Feb 2026</span>
+    <span class="tt">Gauge-theory amplitudes &mdash; GPT-5.2 and five named physicists</span></div>
+  <div class="phystag">physics</div>
+
+  <div class="row phys" style="top:279px;">
+    <span class="badge bd" style="background:var(--medblue)">T2</span>
+    <span class="dd">Mar 2026</span>
+    <span class="tt">Bethe ansatz, two new integrable chains &mdash; checked vs exact diagonalisation</span></div>
+
+  <div class="row" style="top:322px;">
+    <span class="badge bd" style="background:var(--medblue)">T2</span>
+    <span class="dd">May 2026</span>
+    <span class="tt">Unit distance disproved &mdash; nine mathematicians read it line by line</span></div>
+
+  <div class="row" style="top:365px;">
+    <span class="badge bd" style="background:var(--green)">T1</span>
+    <span class="dd">May 2026</span>
+    <span class="tt">AlphaProof Nexus: 9 Erd&#337;s + 44 OEIS, Lean, a few hundred $ each</span></div>
+
+  <div class="row" style="top:408px;">
+    <span class="badge bd" style="background:var(--red)">T3</span>
+    <span class="dd">Jul 2026</span>
+    <span class="tt">Jacobian conjecture false in dim &ge;&#8202;3 &mdash; announced in one post on X</span></div>
+
+  <div class="row" style="top:451px;">
+    <span class="badge bd" style="background:var(--green)">T1*</span>
+    <span class="dd">Aug 2026</span>
+    <span class="tt">&ldquo;Astra&rdquo;: ten decade-open problems, Lean, &lt;&#8202;$2k each &mdash;
+      <span class="warn">zero referees</span></span></div>
+
+  <div class="vrule"></div>
+
+  <!-- right: the denominator -->
+  <div class="rblock" style="top:148px;">
+    <div style="font-size:19px;font-weight:700;color:var(--darkteal);">&hellip;and the denominator</div>
+    <div style="font-size:14px;color:var(--muted);margin-top:8px;line-height:1.35;">
+      The community&rsquo;s own tracker marks every AI contribution:</div>
+  </div>
+  <div class="rblock" style="top:228px;">
+    <div class="mk"><span class="mkc" style="background:var(--green)"></span>full resolution</div>
+    <div class="mk"><span class="mkc" style="background:linear-gradient(90deg,var(--green) 50%,#fff 50%);box-shadow:inset 0 0 0 1.6px var(--green)"></span>partial progress</div>
+    <div class="mk"><span class="mkc" style="background:var(--red)"></span><b style="font-weight:650">incorrect work</b></div>
+    <div class="mk"><span class="mkc" style="background:#fff;border:2px solid #9aa6ad"></span><b style="font-weight:650">unverified &mdash; never read</b></div>
+  </div>
+  <div class="rblock" style="top:352px;height:1px;background:var(--lightgrey);"></div>
+  <div class="rblock" style="top:368px;">
+    <div style="font-size:15px;line-height:1.4;color:var(--darkteal);font-style:italic;">
+      &ldquo;AI is being used a lot by people who aren&rsquo;t mathematicians&hellip;
+      no human has read it.&rdquo;</div>
+    <div style="font-size:13px;color:var(--muted);margin-top:8px;">
+      &mdash; Thomas Bloom, curator, erdosproblems.com</div>
+  </div>
+  <div class="rblock" style="top:478px;">
+    <div style="font-size:30px;font-weight:700;color:var(--cyan);letter-spacing:-.02em;">1 in 277</div>
+    <div style="font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:4px;">
+      arXiv submissions flagged as unvetted LLM output, early 2026.
+      Now a one-year ban.</div>
+  </div>
+
+  <div class="qbox">
+    <div class="q">&ldquo;hello there the jacobian conjecture is false thanx&rdquo;</div>
+    <div class="a">the entire public announcement, 20 Jul 2026 &mdash; an 87-year-old conjecture, checked by hand within days</div>
+  </div>
+
+  <div class="summ">Generation has been automated faster than verification &mdash;<br>and the gap is the whole story.</div>
+</section>
+</div>
+
+<!-- ================================================================
+     G4 — THE TIMELINE, EXTENDED
+     ================================================================ -->
+<div id="w4">
+<div class="lbl"><b>G4</b> &nbsp;·&nbsp; The timeline, extended &nbsp;·&nbsp; closing, immediately before "the slop cannon is charged"</div>
+<section class="stage" id="s4">
+
+  <div class="ftitle">The timeline, extended</div>
+  <div class="frule"></div>
+  <div class="tb" style="left:40px;top:106px;width:640px;font-size:15px;color:var(--muted);">
+    Left of today: measured. Right of today: extrapolation, clearly labelled.</div>
+
+  <svg class="ov" viewBox="0 0 1280 720">
+    <!-- axis -->
+    <line x1="60" y1="286" x2="1240" y2="286" stroke="#DFE3E5" stroke-width="2"/>
+    <g stroke="#C7CFD3" stroke-width="1.4">
+      <line x1="90"   y1="286" x2="90"   y2="294"/>
+      <line x1="260"  y1="286" x2="260"  y2="294"/>
+      <line x1="430"  y1="286" x2="430"  y2="294"/>
+      <line x1="600"  y1="286" x2="600"  y2="294"/>
+      <line x1="770"  y1="286" x2="770"  y2="294"/>
+      <line x1="940"  y1="286" x2="940"  y2="294"/>
+      <line x1="1110" y1="286" x2="1110" y2="294"/>
+    </g>
+    <!-- today rule -->
+    <line x1="710" y1="183" x2="710" y2="286" stroke="#1CADE4" stroke-width="1.4"
+          stroke-dasharray="3 4" stroke-opacity=".8"/>
+    <!-- capability line: measured -->
+    <line x1="90" y1="270" x2="710" y2="183" stroke="#335B74" stroke-width="3.4"/>
+    <circle cx="90" cy="270" r="4.5" fill="#335B74"/>
+    <circle cx="710" cy="183" r="6" fill="#335B74" stroke="#fff" stroke-width="2.5"/>
+    <!-- capability line: extrapolated -->
+    <line x1="710" y1="183" x2="1180" y2="117" stroke="#1CADE4" stroke-width="3"
+          stroke-dasharray="9 7"/>
+    <g fill="#fff" stroke="#1CADE4" stroke-width="2.4">
+      <circle cx="860"  cy="162" r="7"/>
+      <circle cx="1010" cy="141" r="7"/>
+      <circle cx="1160" cy="120" r="7"/>
+    </g>
+  </svg>
+
+  <div class="slopelab" style="left:146px;top:200px;transform:rotate(-7.97deg);">
+    measured capability &mdash; 179 frontier models since 2023</div>
+
+  <div class="tb" style="left:836px;top:126px;width:60px;text-align:center;font-size:19px;
+       font-weight:700;color:var(--cyan);">?</div>
+  <div class="tb" style="left:986px;top:105px;width:60px;text-align:center;font-size:19px;
+       font-weight:700;color:var(--cyan);">?</div>
+  <div class="tb" style="left:1136px;top:84px;width:60px;text-align:center;font-size:19px;
+       font-weight:700;color:var(--cyan);">?</div>
+  <div class="tb" style="left:830px;top:196px;width:380px;font-size:16px;font-style:italic;
+       color:var(--cyan);font-weight:600;">the slope has not bent yet</div>
+  <div class="tb" style="left:620px;top:158px;width:84px;text-align:right;font-size:13px;
+       font-weight:700;color:var(--darkteal);">today</div>
+
+  <div class="yr" style="left:60px;top:298px;">2023</div>
+  <div class="yr" style="left:230px;top:298px;">2024</div>
+  <div class="yr" style="left:400px;top:298px;">2025</div>
+  <div class="yr" style="left:570px;top:298px;">2026</div>
+  <div class="yr fut" style="left:740px;top:298px;">2027</div>
+  <div class="yr fut" style="left:910px;top:298px;">2028</div>
+  <div class="yr fut" style="left:1080px;top:298px;">2029</div>
+
+  <div class="chip" style="left:40px;top:336px;">
+    <div class="n">+13.0 / yr</div>
+    <div class="c">Epoch Capabilities Index &mdash;<br>still linear, no ceiling in sight</div></div>
+  <div class="chip" style="left:450px;top:336px;">
+    <div class="n">94.6%</div>
+    <div class="c">GPQA Diamond, saturated &mdash;<br>the expert humans sit at 69.7%</div></div>
+  <div class="chip" style="left:860px;top:336px;">
+    <div class="n">32.3%</div>
+    <div class="c">CritPt research physics &mdash;<br><b>your</b> frontier is still wide open</div></div>
+
+  <div class="chip" style="left:40px;top:432px;">
+    <div class="n">~1000&times;</div>
+    <div class="c">Cheaper per attempt than 2023 &mdash;<br>so run it a hundred ways and check</div></div>
+  <div class="chip" style="left:450px;top:432px;">
+    <div class="n">$2,000</div>
+    <div class="c">Price of a decade-open<br>conjecture, August 2026</div></div>
+  <div class="chip" style="left:860px;top:432px;">
+    <div class="n">2 s &rarr; 12 h</div>
+    <div class="c">Autonomous task horizon &mdash;<br>doubling every 4&ndash;7 months</div></div>
+
+  <div class="bridge">Who did well in software: not the people who denied it, not the people who surrendered to it &mdash;<br>
+    the people who learned to specify, to check, and to own the result.</div>
+
+  <div class="payload">What would you attempt if the tedious 90% were free?</div>
+  <div class="paysub">Aim there.</div>
+</section>
+</div>
+
+</div>
+<script>
+(function(){
+  var m = (location.hash||'').match(/^#s(\d)$/);
+  if(m){ document.body.className = 'only-'+m[1]; }
+})();
+</script>
+</body>
+</html>

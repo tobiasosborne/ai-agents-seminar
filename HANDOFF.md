@@ -6,7 +6,53 @@ Materials for a 1-hour seminar: "Large Language Models: A Physicist's
 Perspective." Demystifies LLMs and AI coding agents by rebuilding the
 entire stack from first principles for a physics audience.
 
-## Current state
+## Current focus: MCQST München talk (Thu 27 Aug 2026)
+
+`Muenchen-talk-2026/` — same title/abstract as Würzburg, built by
+extending the Würzburg deck with content from the slop-cannon paper
+(`~/Projects/slop-cannon-paper/structured-proofs.tex`) plus new
+timeline slides. Both formats complete and verified (25 Aug 2026):
+
+- `slides/talk.tex` — 74-page beamer deck (Würzburg's 56 + 18 new),
+  `make` builds clean (lualatex). Deck PDF is gitignored, as for Würzburg.
+- `slides-web/talk.html` — 70-slide self-contained animated HTML deck
+  (extends the Würzburg one; new slides have progressive builds).
+
+The 18 new slides: failure-modes section (zoo ×2, countermeasure
+table, errors-compound, three-ways-to-spend-compute), Lamport arc
+(why structure a proof, format rules, animated no-cloning ledger),
+break-the-correlations, defense-in-depth, afternoon checklist,
+slop-cannon closing; plus four timeline slides — "The flurry" with
+verification-tier badges, "The five stages of AI grief" (SWE arc,
+METR retired-by-its-own-authors callout), "Mathematics is eighteen
+months behind" (converging-wedge offset, You-are-here flag),
+"The timeline, extended" (positive close: "Aim there").
+
+Supporting files, all in `Muenchen-talk-2026/`:
+- `SPEC-EXTENSION.md` — content spec for the slop-cannon slides
+- `research/grief-timeline.md` — 60 dated+sourced events (SWE and
+  maths/physics disruption arcs, grief-stage mapping, offset analysis)
+- `research/llm-proof-results.md` — 33 LLM-assisted conjecture
+  results with 4-tier verification status
+- `design/timeline-slides-design.md` + `design/mockup.html` +
+  `design/renders/` — render-verified design for the timeline slides
+
+Errata fixed in the München decks only: arXiv:2602.12176 is
+"Single-minus gluon tree amplitudes are nonzero" (gauge-theory
+amplitudes, no IAS author) — NOT string theory. **The Würzburg deck
+still carries the wrong caption.**
+
+Open items:
+- Timing: 74 pages for 60 min is tight — rehearse, then cut using
+  the per-slide cut orders in `design/timeline-slides-design.md`
+- Possible overrules (flagged, deliberate design choices): G2 title
+  says "eighteen months" while the data line says ~9 months now;
+  Astra is paired with Opus 4.5's SWE-bench threshold, not Amodei's
+  "90%" quote; beamer G1 has no builds (practice on the HTML deck)
+- Unverified claims deliberately kept off slides: IMO 2026 42/42
+  reports; exact Faros "+441.5%" figure (rounded on slide)
+
+## Current state (earlier seminar material)
 
 **Slides rebuilt twice** — first from v1 review notes, then refined
 from v2 annotations (annotated PDF + two voice memo transcripts).
