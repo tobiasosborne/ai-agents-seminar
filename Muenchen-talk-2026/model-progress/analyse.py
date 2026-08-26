@@ -262,10 +262,10 @@ def fig_gpqa(plt) -> dict:
     ax.set_yticks(np.arange(0, 1.01, 0.2))
     ax.yaxis.set_major_formatter(lambda v, _: f"{v:.0%}")
     ax.set_ylabel("GPQA Diamond accuracy")
-    ax.set_title("The benchmark Adam Brown showed — and why it is now useless",
+    ax.set_title("The benchmark Adam Brown showed, and why it is now useless",
                  loc="left", pad=26)
     ax.text(0.0, 1.028,
-            '"GPQA is dead. It has once again suffered the fate of all benchmarks." — Adam Brown',
+            '"GPQA is dead. It has once again suffered the fate of all benchmarks." (Adam Brown)',
             transform=ax.transAxes, color=MUTED, fontsize=10, style="italic")
     ax.legend(frameon=False, fontsize=9, loc="lower right")
     for ext in ("pdf", "png"):
@@ -302,7 +302,7 @@ def fig_ladder(plt) -> pd.DataFrame:
         })
 
     ax.axhline(1.0, color=MUTED, lw=1.0)
-    ax.annotate("100% — nothing left to measure", xy=(pd.Timestamp("2021-02-01"), 1.02),
+    ax.annotate("100%: nothing left to measure", xy=(pd.Timestamp("2021-02-01"), 1.02),
                 color=MUTED, fontsize=9)
     ax.set_ylim(0, 1.14)
     ax.set_yticks(np.arange(0, 1.01, 0.2))
@@ -311,7 +311,7 @@ def fig_ladder(plt) -> pd.DataFrame:
     ax.set_ylabel("best score achieved by any model")
     ax.set_title("Each benchmark is built harder, and dies faster", loc="left", pad=26)
     ax.text(0.0, 1.028,
-            "each new benchmark's curve is the last one shifted right — and only CritPt and HLE are still alive",
+            "each new benchmark's curve is the last one shifted right; only CritPt and HLE are still alive",
             transform=ax.transAxes, color=MUTED, fontsize=10, style="italic")
     for ext in ("pdf", "png"):
         fig.savefig(FIG / f"fig2_benchmark_ladder.{ext}")
@@ -424,13 +424,13 @@ def fig_eci(plt, eci: pd.DataFrame, lag: pd.DataFrame, est: dict | None = None) 
                                     connectionstyle="angle,angleA=0,angleB=90,rad=0"))
     if est:
         # No "+/-" glyph: Whitney has no U+00B1 and matplotlib drops it silently.
-        ax.annotate("*  vendor-reported benchmarks, ECI estimated —\n"
+        ax.annotate("*  vendor-reported benchmarks, ECI estimated:\n"
                     f"    not an Epoch measurement, give or take {est['sigma']:.0f} points",
                     xy=(xlab, ys[-1] - 1.6 * gap), fontsize=8, color=OPEN,
                     style="italic", va="top", ha="left")
 
     ax.set_ylabel("Epoch Capabilities Index  (Elo-like: no ceiling)")
-    ax.set_title("Capability is still a straight line — and it has no ceiling to hit",
+    ax.set_title("Capability is still a straight line, and it has no ceiling to hit",
                  loc="left", pad=26)
     ax.text(0.0, 1.028,
             f"all {len(d)} models released since 2023 · frontier gains {per_year:.1f} index points/year",
@@ -464,7 +464,7 @@ def fig_cadence(plt, eci: pd.DataFrame) -> dict:
     ax1.bar(q.index, qo.values, width=70, color=OPEN, alpha=0.95,
             edgecolor=SURFACE, linewidth=2, label="open weights")
     ax1.set_ylabel("models released per quarter")
-    ax1.set_title("More capable — and arriving faster", loc="left", pad=26)
+    ax1.set_title("More capable, and arriving faster", loc="left", pad=26)
     ax1.text(0.0, 1.035,
              f"{q[q.index.year == 2023].mean():.0f} models per quarter in 2023  -->  "
              f"{q[q.index.year == 2026].mean():.0f} per quarter in 2026",

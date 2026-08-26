@@ -72,35 +72,28 @@ IRT inversion of vendor-reported GPQA/HLE (documented in
 diamond marked "estimated". Same-snapshot refreshes of fig1/2/4 are
 parked in `model-progress/figures-refreshed/`.
 
-### NEXT STEPS (paused 26 Aug, evening)
+### NEXT STEPS (updated after resume, 26 Aug)
 
-1. **Embed the regenerated figures into talk.html** (mechanical,
-   not yet done — the deck still embeds the 12 Jul snapshots as
-   base64): fig3 → s-eci, fig5 → s-openweight, figures-refreshed/
-   fig2 → s-bench. Update captions: "13 ECI points per year" →
-   13.7; "6.9 months behind (GLM-5.2)" → 4.4 months (Kimi K3);
-   "frontier-minus-7-months" → minus-5-months; GPQA "dead at 94.6%"
-   → 94.8% (Gemini 3.7 Flash); snapshot dates → 2026-08-26.
-   **Reframe s-openweight around Qwen 3.8 27B**: speaker's point is
-   it's the first truly capable model that runs on a commodity
-   3090-class GPU (27B @ 4-bit ≈ 14–16 GB in 24 GB); lag number is
-   the supporting fact. Spoken caveat: Kimi K3 licence is
-   non-commercial; Qwen ECI is a flagged estimate.
-2. **arXiv acknowledgment figure — DONE computing, not yet
-   embedded**: `arxiv-acknowledgments/figures/ack_trend.png` (+pdf),
-   house palette, Wilson bands. Headline: quant-ph LLM
-   acknowledgments 0.0% (all of 2023) → 14.3% Jul 2026; math-ph
-   → 10.8%; first acknowledgment in sample Oct 2024. Bonus finding
-   for the caption/spoken line: of 59 acknowledgments, 16 credit
-   the LLM for RESEARCH CONTENT ("GPT-5.6 Pro suggested Lemma
-   4.6"), and all 16 are from 2026. Caveat to say out loud: this
-   is a DISCLOSURE rate, not a usage rate (stylometric estimates
-   run far higher; see README.md comparison table). Methodology:
-   3,410 papers sampled quarterly, v1 PDFs from the official
-   arXiv GCS bulk dataset, regex screen + every hit hand-read,
-   fully auditable in results/. Insert as its own fullbleed slide
-   s-arxivack at the `<!-- ARXIV-ACK-FIGURE-HERE -->` marker after
-   s-floodstats (recipe in the comment). Deck then = 67 slides.
+1. ~~Embed regenerated figures~~ **DONE**: fig3 → s-eci (caption:
+   13.7 pts/yr, 4.4 months behind via Kimi K3), refreshed fig2 →
+   s-bench (GPQA dead at 94.8%), fig5 → s-openweight, reframed
+   around Qwen 3.8 27B ("first truly capable model that fits one
+   consumer GPU, RTX 3090 24 GB"; Qwen ECI flagged as estimated).
+   All snapshot captions now 2026-08-26. Em dashes also purged from
+   the matplotlib titles in `model-progress/analyse.py` and all
+   figures regenerated dash-free. Spoken caveats: Kimi K3 licence
+   is non-commercial; Qwen ECI estimated from vendor-reported
+   scores (153.7 ± 3.9).
+2. ~~arXiv acknowledgment figure~~ **DONE**: embedded as fullbleed
+   slide s-arxivack (slide 7, right after s-floodstats). Deck is
+   now **67 slides**. Headline on slide: quant-ph 0% through 2023
+   → 14% Jul 2026 (math-ph 10.8%). Spoken lines: of 59
+   acknowledgments 16 credit the LLM for RESEARCH CONTENT
+   ("GPT-5.6 Pro suggested Lemma 4.6"), all 16 from 2026; it is a
+   disclosure rate, not a usage rate (stylometric estimates run
+   far higher, see `arxiv-acknowledgments/README.md`).
+   All four touched slides render-verified (Playwright, zero
+   overflow/overlap; renders `design/renders/rework/embed-*.png`).
 3. **Beamer `slides/talk.tex` is NOT synced** — still the old
    74-page structure/content. Decide whether to port or present
    from HTML only.
