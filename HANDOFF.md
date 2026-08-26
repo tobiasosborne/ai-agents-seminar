@@ -86,12 +86,21 @@ parked in `model-progress/figures-refreshed/`.
    3090-class GPU (27B @ 4-bit ≈ 14–16 GB in 24 GB); lag number is
    the supporting fact. Spoken caveat: Kimi K3 licence is
    non-commercial; Qwen ECI is a flagged estimate.
-2. **arXiv acknowledgment figure**: agent was still computing at
-   pause (sampling quant-ph/math-ph LaTeX sources 2023–2026 for
-   LLM acknowledgments; output → `arxiv-acknowledgments/`,
-   uncommitted). Insert as its own fullbleed slide s-arxivack at
-   the `<!-- ARXIV-ACK-FIGURE-HERE -->` marker after s-floodstats
-   (recipe in the comment). Deck then = 67 slides.
+2. **arXiv acknowledgment figure — DONE computing, not yet
+   embedded**: `arxiv-acknowledgments/figures/ack_trend.png` (+pdf),
+   house palette, Wilson bands. Headline: quant-ph LLM
+   acknowledgments 0.0% (all of 2023) → 14.3% Jul 2026; math-ph
+   → 10.8%; first acknowledgment in sample Oct 2024. Bonus finding
+   for the caption/spoken line: of 59 acknowledgments, 16 credit
+   the LLM for RESEARCH CONTENT ("GPT-5.6 Pro suggested Lemma
+   4.6"), and all 16 are from 2026. Caveat to say out loud: this
+   is a DISCLOSURE rate, not a usage rate (stylometric estimates
+   run far higher; see README.md comparison table). Methodology:
+   3,410 papers sampled quarterly, v1 PDFs from the official
+   arXiv GCS bulk dataset, regex screen + every hit hand-read,
+   fully auditable in results/. Insert as its own fullbleed slide
+   s-arxivack at the `<!-- ARXIV-ACK-FIGURE-HERE -->` marker after
+   s-floodstats (recipe in the comment). Deck then = 67 slides.
 3. **Beamer `slides/talk.tex` is NOT synced** — still the old
    74-page structure/content. Decide whether to port or present
    from HTML only.
