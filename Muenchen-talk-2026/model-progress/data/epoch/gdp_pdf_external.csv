@@ -1,0 +1,32 @@
+Model version,GDP.pdf score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Provider,Last updated,Source,Source link,Notes,id
+claude-fable-5_unknown,0.3,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 / Mythos 5,Anthropic,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,rec7bg6dxysw8NR5Q
+gpt-5.5_xhigh,0.26,2026-04-23,OpenAI,United States of America,,,GPT 5.5 (xHigh reasoning),OpenAI,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recTQqSxqF0lILDYj
+claude-opus-4-8_max,0.24,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (Adaptive/Max),Anthropic,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recRnDhgeDepMekVw
+claude-opus-4-7_max,0.21,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (Adaptive/Max),Anthropic,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recpPhcZvnB3KuwPz
+gemini-3.1-pro-preview,0.17,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro,Google,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recVfCuiq4mi3E3ME
+gemini-3.5-flash_unknown,0.14,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash (default),Google,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recYTXDosKPzreEXS
+kimi-k2.6,0.12,2026-04-20,Moonshot,China,,,Kimi K2.6,Kimi,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recFT788w1BzHc72m
+gemini-3-flash-preview,0.1,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash,Google,06/06/2026,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,rec82iUSNxO9xcFP6
+grok-4-3,0.08,2026-04-17,xAI,United States of America,,,Grok 4.3 (High),Grok,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,,recGGgc1Xoii0Henf
+,0.02,,,,,,Mistral Large 3,Mistral,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,recsH8Yr7mn4iPK4S
+,0.02,,,,,,Nova 2 (Pro),Amazon,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,reccoI7Aon3IRZ2nM
+,0.02,,,,,,NVIDIA Nemotron 3 Nano Omni,NVIDIA,06/06/2026,Surge AI GDP.pdf leaderboard,https://surgehq.ai/leaderboards/gdp-pdf,No model-version mapping in configs/mappings.yaml yet.,recykw9dYl9uNnHhr
+gpt-5.6-sol_unknown,0.307,2026-07-09,OpenAI,United States of America,,,GPT 5.6 Sol,OpenAI,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recEoezFUpx5r9plm
+claude-fable-5_max,0.298,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (Adaptive/Max),Anthropic,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,reciidUSVW7Il7V97
+gpt-5.6-terra_unknown,0.247,2026-07-09,OpenAI,United States of America,,,GPT 5.6 Terra (default),OpenAI,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recOLBqmPqK8cfKsl
+claude-opus-5_max,0.24,2026-07-24,Anthropic,United States of America,,,Claude Opus 5 (Adaptive/Max),Anthropic,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,rec2cs33laSLNj6Lw
+gpt-5.6-luna_unknown,0.227,2026-07-09,OpenAI,United States of America,,,GPT 5.6 Luna (default),OpenAI,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,reckqeB1VdbggHoL6
+kimi-k3_max,0.19,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 (Max reasoning),Kimi,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recfxhDzFdV53LQ0m
+claude-sonnet-4-6_max,0.18,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6 (Adaptive/Max),Anthropic,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,rec4j6mC3UodTLvOe
+muse-spark-1.1,0.15,2026-07-09,Meta AI,United States of America,,,Muse Spark 1.1 (default),Meta,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recpuh3fWrfdSwpl1
+gemini-3.6-flash_unknown,0.14,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash,Google,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recHSD7QMCu8KGrOm
+grok-4.5_high,0.14,2026-07-08,xAI,United States of America,,,Grok 4.5 (High reasoning),Grok,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,reclaaCsvnf5P4Uks
+gemini-3.5-flash-lite_high,0.1,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.5 Flash-Lite (High reasoning),Google,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recimKbn874aJpFRT
+grok-4.3_high,0.08,2026-04-17,xAI,United States of America,,,Grok 4.3 (High reasoning),Grok,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recC0RypB4OulCpYT
+gpt-5.6-sol_max,0.307,2026-07-09,OpenAI,United States of America,,,GPT 5.6 Sol (Max),OpenAI,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recqNsF9PYv7pQ7El
+gemini-3.6-flash_high,0.14,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash (High reasoning),Google,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recpPtfC4TRWfB0tr
+nova-2.0-pro-preview_unknown,0.02,2025-12-02,Amazon,United States of America,,,Nova 2 Pro (default),Amazon,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,reclqb9TCU8e50nr1
+muse-spark-1.2_xhigh,0.16,2026-08-05,Meta AI,United States of America,,,Muse Spark 1.2 (xHigh reasoning),Meta,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recsDYKciDC3SjmIk
+muse-spark-1.2,0.12,2026-08-05,Meta AI,United States of America,,,Muse Spark 1.2 (default),Meta,,https://surgehq.ai/benchmarks/gdp-pdf,https://surgehq.ai/benchmarks/gdp-pdf,,recS9aC08eujgqAAC

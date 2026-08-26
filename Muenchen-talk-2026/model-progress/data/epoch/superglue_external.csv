@@ -1,0 +1,35 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Source,Source link,Notes,id
+text-davinci-001,0.718,2022-01-27,OpenAI,United States of America,3.19181e+23,"""training our 175B PPO-ptx model requires 60 petaflops/s-days, compared to 3,640 petaflops/s-days for GPT-3 (Brown et al., 2020)""
+
+60/3640 = +1.65% to base model compute
+
+base model was reported 3.14e+23 FLOP
+
+3.14e+23 * 1.0165 = 319181000000000000000000",GPT-3 Few-Shot,Language Models are Few-Shot Learners,http://arxiv.org/abs/2005.14165,,recjdKkQvD43gCZIG
+T5-Base,0.751,,,,,,T5-Base,Switch Transformers: Scaling to Trillion Parameter Models with Simple and Eﬃcient Sparsity,http://arxiv.org/abs/2101.03961,,recZEQUJTXyiuueTC
+Switch-Base,0.733,,,,,,Switch-Base,Switch Transformers: Scaling to Trillion Parameter Models with Simple and Eﬃcient Sparsity,http://arxiv.org/abs/2101.03961,,rec295HTE28FPSMIh
+T5-Large,0.827,,,,,,T5-Large,Switch Transformers: Scaling to Trillion Parameter Models with Simple and Eﬃcient Sparsity,http://arxiv.org/abs/2101.03961,,recyMbNGI1OZRdoDb
+Switch-Large,0.847,,,,,,Switch-Large,Switch Transformers: Scaling to Trillion Parameter Models with Simple and Eﬃcient Sparsity,http://arxiv.org/abs/2101.03961,,recOy50NpQz1hM303
+,,,,,,,deBERTa,,,,reccyDHcByzWJvzEC
+T5-Small,0.633,,,,,,T5-Small,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,https://arxiv.org/pdf/1910.10683,,rectWEngA0ZxOhjXS
+T5-Base,0.762,,,,,,T5-Base,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,https://arxiv.org/pdf/1910.10683,,recKOjji7dPv8CMeY
+T5-Large,0.823,,,,,,T5-Large,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,https://arxiv.org/pdf/1910.10683,,recn2AEOdhT6ox1s3
+T5-3B,0.864,,Google,United States of America,9.0000000001e+21,"Akronomicon states 1.04e+22 FLOP. Archived source: https://github.com/lightonai/akronomicon/tree/main/akrodb
+However, this seems dubiously high.
+
+""We pre-train each model for 2^19 = 524,288 steps on C4 before fine-tuning.""
+""In total, this batch size and number of steps corresponds to pre-training on 2^35 ≈ 34B tokens.""
+""To compare these mixing strategies on equal footing with our baseline pre-train-then-fine-tune results, we train multi-task models for the same total number of steps: 2^19 + 2^18 = 786,432""
+Using the 6DN approximation gives: 6 FLOP/token/param * 2^35 pretrain tokens * (1+1/2 finetune tokens per pretrain token) * 1 iteration of training data* 2.8 billion parameters = 8.659e20 FLOP
+https://www.wolframalpha.com/input?i=6+*+2%5E35+*+2.8+billion+*+1.5
+
+update: 9.0E+21 per FLAN paper from Google 
+https://arxiv.org/pdf/2210.11416.pdf",T5-3B,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,https://arxiv.org/pdf/1910.10683,,recsyCrajtvMBWsU7
+T5-11B,0.889,,Google,United States of America,3.3e+22,"https://arxiv.org/ftp/arxiv/papers/2104/2104.10350.pdf
+Table 4, 4.05e22
+
+update: 3.3e22 per FLAN paper from Google 
+https://arxiv.org/pdf/2210.11416.pdf
+
+6ND rule suggests somewhat more FLOPs:
+6 * 1T * 11B = 6.6e22",T5-11B,Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer,https://arxiv.org/pdf/1910.10683,,recyISVSc8fWnwPWJ

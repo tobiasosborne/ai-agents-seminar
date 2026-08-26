@@ -1,0 +1,11 @@
+Model version,Pooled score,Binary Brier,Numeric RPS,Harness,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Pooled 95% CI low,Pooled 95% CI high,Source,Notes
+claude-opus-4-8_xhigh,0.13,0.131,0.129,FutureSearch agent,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (xhigh),0.123,0.138,https://evals.futuresearch.ai/#btf3,
+claude-fable-5_high,0.13,0.132,0.128,FutureSearch agent,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (high),0.123,0.138,https://evals.futuresearch.ai/#btf3,
+gpt-5.5_high,0.134,0.142,0.124,Vendor agent SDK,2026-04-23,OpenAI,United States of America,,,"GPT-5.5 (high, agent SDK)",0.128,0.14,https://evals.futuresearch.ai/#btf3,
+gpt-5.6-sol_high,0.135,0.141,0.129,FutureSearch agent,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (high),0.128,0.143,https://evals.futuresearch.ai/#btf3,
+claude-opus-4-8_high,0.137,0.135,0.14,Vendor agent SDK,2026-05-28,Anthropic,United States of America,,,"Claude Opus 4.8 (high, agent SDK)",0.129,0.145,https://evals.futuresearch.ai/#btf3,
+claude-opus-4-8_high,0.14,0.135,0.145,FutureSearch agent,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (high),0.132,0.147,https://evals.futuresearch.ai/#btf3,
+gpt-5.5_high,0.143,0.148,0.136,FutureSearch agent,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (high),0.136,0.149,https://evals.futuresearch.ai/#btf3,
+claude-sonnet-5_xhigh,0.154,0.154,0.154,FutureSearch agent,2026-06-30,Anthropic,United States of America,,,Claude Sonnet 5 (xhigh),0.146,0.162,https://evals.futuresearch.ai/#btf3,
+claude-opus-5_xhigh,0.118,0.117,0.119,FutureSearch agent,2026-07-24,Anthropic,United States of America,,,Claude Opus 5 (xhigh) §,0.111,0.125,https://evals.futuresearch.ai/#btf3,
+gpt-5.6-sol_max,0.137,0.144,0.129,FutureSearch agent,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (max),0.13,0.145,https://evals.futuresearch.ai/#btf3,

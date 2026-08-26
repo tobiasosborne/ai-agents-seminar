@@ -9,48 +9,112 @@ entire stack from first principles for a physics audience.
 ## Current focus: MCQST München talk (Thu 27 Aug 2026)
 
 `Muenchen-talk-2026/` — same title/abstract as Würzburg, built by
-extending the Würzburg deck with content from the slop-cannon paper
-(`~/Projects/slop-cannon-paper/structured-proofs.tex`) plus new
-timeline slides. Both formats complete and verified (25 Aug 2026):
+extending the Würzburg deck with slop-cannon content plus timeline
+slides. **The HTML deck is the presentation copy** (speaker prefers
+it; interactive builds). The beamer deck is now OUT OF SYNC (see
+below).
 
-- `slides/talk.tex` — 74-page beamer deck (Würzburg's 56 + 18 new),
-  `make` builds clean (lualatex). Deck PDF is gitignored, as for Würzburg.
-- `slides-web/talk.html` — 70-slide self-contained animated HTML deck
-  (extends the Würzburg one; new slides have progressive builds).
+### 26 Aug rework (this session) — HTML deck only
 
-The 18 new slides: failure-modes section (zoo ×2, countermeasure
-table, errors-compound, three-ways-to-spend-compute), Lamport arc
-(why structure a proof, format rules, animated no-cloning ledger),
-break-the-correlations, defense-in-depth, afternoon checklist,
-slop-cannon closing; plus four timeline slides — "The flurry" with
-verification-tier badges, "The five stages of AI grief" (SWE arc,
-METR retired-by-its-own-authors callout), "Mathematics is eighteen
-months behind" (converging-wedge offset, You-are-here flag),
-"The timeline, extended" (positive close: "Aim there").
+Big multi-agent rework of `slides-web/talk.html` from the speaker's
+per-slide notes. Now **66 slides** (was 70): all em dashes removed
+(56 rewritten), slides reordered, retitled, deleted, plus fresh
+research content. Highlights:
 
-Supporting files, all in `Muenchen-talk-2026/`:
-- `SPEC-EXTENSION.md` — content spec for the slop-cannon slides
-- `research/grief-timeline.md` — 60 dated+sourced events (SWE and
-  maths/physics disruption arcs, grief-stage mapping, offset analysis)
-- `research/llm-proof-results.md` — 33 LLM-assisted conjecture
-  results with 4-tier verification status
-- `design/timeline-slides-design.md` + `design/mockup.html` +
-  `design/renders/` — render-verified design for the timeline slides
+- Deleted: four-moments timeline, context-rot statement, "harder
+  problem" divider, s-fail, Dutch proverb, unhinged-MSc statement.
+- Reorder: failure-modes block (divider, zoo ×2, archfacts) now
+  right after the context slide; s-filesystem follows s-errorcorr;
+  the structured-proof/error-correction block (whystructure …
+  defense) moved before the live demo; s-renaissance joined the
+  closing timeline block before s-extended.
+- Retitles: hookA "It started as a drop"; flurry "The trickle is
+  becoming a flood"; grief slide is now just "The timeline" (stage
+  dictionary removed, colours kept implicit); "Theoretical sciences
+  are 18 months behind"; s-capable rewritten as transition into
+  architecture section. New statement slide s-correctable ("There is
+  a way to correct for these errors … This room has done that
+  before.") after s-archfacts.
+- s-flurry reworked: 10 rows all inside 2026, new entries
+  Parisi+Zamponi jamming identity (new T2+ "refereed journal" chip),
+  S⁶/Hopf-problem claim (T3), Schiffer+Pompeiu Lean-verified (T1),
+  elliptic rank record broken twice in a week ≥30→≥31 (T3).
+  Jacobian upgraded T3→T2 (verified within days; Lean-checked
+  instance in DeepMind formal-conjectures PR #4474). Dropped: IMO
+  gold row, AlphaProof Nexus row. Red colour-clash fixed by removing
+  the erdosproblems swatch legend.
+- NEW slide s-floodstats "Now somebody has to count it": registry
+  ecosystem stats (aimath 506 results, 267 in last 8 weeks;
+  vibemathed 630→445→98 Lean-verified funnel; mathdb/theoremdb/
+  proofatlas/Palomar/openproblem cards). Punchline: "Nine ways to
+  count the flood. Not one of them is peer review."
+- s-strategies figure-(b)/caption overlap fixed (viewBox padding),
+  render-verified. Divider renumbered 4½→3½.
+- All changes render-verified via Playwright at 1920×1080, zero
+  overflows/collisions on touched slides; renders in
+  `design/renders/rework/` (incl. full build sequences).
+
+Research (all sourced, in `research/updates-2026-08-26/`):
+trackers-A/B.md (registry ecosystem), alpoge-s6.md (the S⁶ PDF),
+jacobian-elliptic.md (verification status), socials-sweep.md,
+new-models.md (Epoch ECI data). `research/llm-proof-results.md`
+gained a "## Deck updates 26 Aug" audit section (every new row with
+tier + URLs, drop decisions, reserves).
+
+Figures regenerated (pipeline cloned to `model-progress/`, Würzburg
+copy untouched): fig3_eci_frontier + fig5_open_weight_lag rebuilt
+from Epoch's live 26 Aug export (198 scored models). Kimi K3 is the
+new open-weights record (157.49); frontier leader is Claude Fable 5
+162.49 (NOT Opus 5 — new-models.md's headline is wrong, Epoch
+refit). Qwen 3.8 27B has no Epoch ECI; estimated 153.7 ± 3.9 by 2PL
+IRT inversion of vendor-reported GPQA/HLE (documented in
+`model-progress/results/key_numbers.md`), drawn as hollow dashed
+diamond marked "estimated". Same-snapshot refreshes of fig1/2/4 are
+parked in `model-progress/figures-refreshed/`.
+
+### NEXT STEPS (paused 26 Aug, evening)
+
+1. **Embed the regenerated figures into talk.html** (mechanical,
+   not yet done — the deck still embeds the 12 Jul snapshots as
+   base64): fig3 → s-eci, fig5 → s-openweight, figures-refreshed/
+   fig2 → s-bench. Update captions: "13 ECI points per year" →
+   13.7; "6.9 months behind (GLM-5.2)" → 4.4 months (Kimi K3);
+   "frontier-minus-7-months" → minus-5-months; GPQA "dead at 94.6%"
+   → 94.8% (Gemini 3.7 Flash); snapshot dates → 2026-08-26.
+   **Reframe s-openweight around Qwen 3.8 27B**: speaker's point is
+   it's the first truly capable model that runs on a commodity
+   3090-class GPU (27B @ 4-bit ≈ 14–16 GB in 24 GB); lag number is
+   the supporting fact. Spoken caveat: Kimi K3 licence is
+   non-commercial; Qwen ECI is a flagged estimate.
+2. **arXiv acknowledgment figure**: agent was still computing at
+   pause (sampling quant-ph/math-ph LaTeX sources 2023–2026 for
+   LLM acknowledgments; output → `arxiv-acknowledgments/`,
+   uncommitted). Insert as its own fullbleed slide s-arxivack at
+   the `<!-- ARXIV-ACK-FIGURE-HERE -->` marker after s-floodstats
+   (recipe in the comment). Deck then = 67 slides.
+3. **Beamer `slides/talk.tex` is NOT synced** — still the old
+   74-page structure/content. Decide whether to port or present
+   from HTML only.
+4. Manual pre-talk checks: Tao blog quotes (fetches were 403'd,
+   only secondary sources); arXiv:2608.00222 author line; slide 5
+   reserves if a row needs swapping (ω < 2.371177 matrix-mult is
+   the strongest reserve; also Crouzeix, Kourovka, Carathéodory).
+   Kept off slides deliberately: Yau–Tian–Donaldson claim (failed
+   reproduction), Sendov (conflicting tracker info), IMO 2026 42/42
+   (only Celia + dots-note 3.0 officially graded).
+5. Rehearse with timing — 66–67 slides for 60 min.
+6. Pre-existing minor render findings (predate rework, benign):
+   s-context edge segment, s-agent/s-nocloning SVG text metrics,
+   s-defense, s-outsource, s-becon-margin.
 
 Errata fixed in the München decks only: arXiv:2602.12176 is
 "Single-minus gluon tree amplitudes are nonzero" (gauge-theory
 amplitudes, no IAS author) — NOT string theory. **The Würzburg deck
 still carries the wrong caption.**
 
-Open items:
-- Timing: 74 pages for 60 min is tight — rehearse, then cut using
-  the per-slide cut orders in `design/timeline-slides-design.md`
-- Possible overrules (flagged, deliberate design choices): G2 title
-  says "eighteen months" while the data line says ~9 months now;
-  Astra is paired with Opus 4.5's SWE-bench threshold, not Amodei's
-  "90%" quote; beamer G1 has no builds (practice on the HTML deck)
-- Unverified claims deliberately kept off slides: IMO 2026 42/42
-  reports; exact Faros "+441.5%" figure (rounded on slide)
+Other deliberate overrules: "18 months behind" title vs ~9-month
+data line (speaker's choice); Astra paired with Opus 4.5's
+SWE-bench threshold; unverified Faros "+441.5%" rounded on slide.
 
 ## Current state (earlier seminar material)
 

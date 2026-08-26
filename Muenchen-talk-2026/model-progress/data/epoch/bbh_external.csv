@@ -1,0 +1,255 @@
+Model version,Average,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Shots,Notes,Source,Source link,id
+Qwen-1_8B,0.282,2023-11-30,,,,,Qwen 1.8B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recwEiyaFKdx0PezD
+Qwen-7B,0.45,2023-09-28,Alibaba,China,1.01e+23,"2.4T tokens per Table 1
+
+7b*2.4T*6 = 1.01e23",Qwen 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,rec6aaTYSwDqfD2sO
+Qwen-14B,0.534,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",Qwen 14B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recv5qI392enMRudT
+gemma-2b,0.352,2024-02-21,Google DeepMind,United States of America,4.5115822e+22,"6ND = 6*2506434560.00 parameters * 3*10^12 training tokens = 4.5115822e+22
+
+(assuming 1 epoch)",Gemma 2B,,Couldn't find shot count,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rec6WR9YbYjnhvHbQ
+gemma-7b,0.551,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,,Couldn't find shot count,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recQewDuedNzOm3m5
+Mistral-7B-v0.1,0.561,2023-09-27,Mistral AI,France,,,Mistral 7B,,Couldn't find shot count,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rec8po7QMvux1PqYW
+Llama-2-7b,0.326,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLAMA-2 7B,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,recorz7iAu0wehUWu
+Llama-2-13b,0.394,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLAMA-2 13B,,,Gemma: Open Models Based on Gemini Research and Technology,https://arxiv.org/pdf/2403.08295,rec1PIPJMsc2vzPQA
+DeepSeek-V2,0.788,2024-05-07,DeepSeek,China,1.02e+24,21b active params * 8.1 trillion * 6 = 1.02e24,DeepSeek-V2 Base,3,,DeepSeek-V3 Technical Report,https://arxiv.org/pdf/2412.19437,rec0HIGEri0gb87de
+Qwen2.5-72B,0.798,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",Qwen2.5 72B Base,3,,DeepSeek-V3 Technical Report,https://arxiv.org/pdf/2412.19437,rec6UJmvJKZ0mSkf7
+Llama-3.1-405B,0.829,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",LLaMA-3.1 405B Base,3,,DeepSeek-V3 Technical Report,https://arxiv.org/pdf/2412.19437,rechp4lRfnnkUlMX9
+DeepSeek-V3,0.829,2024-12-26,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",DeepSeek-V3 Base,3,,DeepSeek-V3 Technical Report,https://arxiv.org/pdf/2412.19437,recyTTQiA1OzvdQei
+Yi-6B,0.428,2023-11-02,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi 6B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recrxjTojfWuyFdm1
+Yi-34B,0.543,2023-11-02,01.AI,China,6.1e+23,"""The dataset we use contains Chinese & English only. We used approximately 3T tokens"" sounds like this means it was trained on 3T tokens, not necessarily that the dataset contains 3T tokens?
+
+If so, 34b * 3T * 6 = 6.1e23",Yi 34B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recCgyVX0fWUPFOkO
+Llama-2-13b,0.394,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA-2 13B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,rec7clZdHcyLSzBWa
+Llama-2-34b,0.441,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA-2 34B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,reckPGiU6K2bnS6LD
+Baichuan-2-13B-Base,0.488,2023-09-06,Baichuan,China,2.03e+23,"They describe the dataset as having 2.6T tokens, but the checkpoint graph makes it clear that's also the number of tokens the model was trained on.
+
+13b * 2.6t * 6 = 2.03e23",Baichuan-2 13B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recBTqkLV3YTdBEKl
+Qwen-14B,0.534,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",QWEN 14B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recKyeOiSeuHe7mjt
+Mistral-7B-v0.1,0.395,2023-09-27,Mistral AI,France,,,Mistral 7B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recAbnFHkWY8M8u4C
+gemma-7b,0.551,2024-02-21,Google DeepMind,United States of America,3.07e+23,"6ND aproximation 6*8.54B*6T = 3.07e23
+""Gemma 2B and 7B are trained on 2T and 6T tokens respectively of primarily-English data from web documents, mathematics, and code.""
+
+As confirmation: ""We estimate the carbon emissions from pretraining the Gemma models to be ∼ 131 𝑡𝐶𝑂2𝑒𝑞. ""
+
+U.S. avg CO2 per kWh is ~0.87lbs 
+131 tCO2 * 2000 lb/t * (1 kWh/0.87lb) = 3.01e5 kWh
+
+Per SemiAnalysis TPU v5e uses ~ 5x less power than H100, so ~140 W TDP
+3.01e5 kWh * 1000 W/kW * 1 TPUv5e/140 W  = 2.15e6 TPUv5e-hours
+
+In bf16 precision, TPUv5e has peak performance of 197 TF/s, so:
+2.15e6 * 3600 * 197e12 * 0.3 = 4.57e23",Gemma 7B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recAL9kUMxLJLFs1G
+Nemotron-4 15B,0.587,2024-02-26,NVIDIA,United States of America,7.5005116e+23,"6ND = 6 FLOP/token/parameter * 15*10^9 parameters * 8*10^12 tokens = 7.2e+23 FLOP
+
+""Nemotron-4 was trained using 384 DGX H100 nodes; each node contains 8 H100 80GB SXM5 GPUs based on the NVIDIA Hopper architecture (NVIDIA, 2022). Each H100 GPU has a peak throughput of 989 teraFLOP/s when doing 16-bit floating point (bfloat16) arithmetic without sparsity.
+
+Table 2 reports more detailed training schedule:
+
+989*10^12 FLOP/sec * 3600 sec/hour * 24 hours * (768 gpus * 0.343 [reported utilization] * 0.8 days +  1536 gpus * 0.333 [reported utilization] * 0.4 days + 2304 gpus * 0.305 [reported utilization] * 11.9 days) = 7.5005116e+23 FLOP",Nemotron-4 15B,3,,Nemotron-4 15B Technical Report,http://arxiv.org/abs/2402.16819,recppgx1TV7PJqqoR
+gpt-4-0613,0.7512,2023-06-13,OpenAI,United States of America,2.1e+25,"90% CI: 8.2E+24 to 4.4E+25
+
+NOTE: this is a rough estimate based on public information, much less information than most other systems in the database.
+
+Calculation and confidence intervals here: https://colab.research.google.com/drive/1O99z9b1I5O66bT78r9ScslE_nOj5irN9?usp=sharing",GPT-4,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recw72u6BTbC1nVaC
+gpt-3.5-turbo-0613,0.6159,2023-06-13,OpenAI,United States of America,,,GPT-3.5 Turbo,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recUwVGAl716WVpBU
+LLaMA-7B,0.3238,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA-7B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recbBaZ80LOgi2XOG
+Llama-2-7b,0.3916,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA 2-7B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,reclRzjJVPPiU3zg8
+mpt-7b,0.352,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT-7B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,rechXIS7X6UznLYiO
+falcon-7b,0.2877,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon-7B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recAQgXvN1LyZOMbb
+chatglm2-6b,0.3368,2023-06-24,,,,,ChatGLM 2-6B (base)*,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recSk2YMS6sP9ybZP
+Baichuan-7B,0.3248,2023-06-01,Baichuan,China,5.04e+22,7b parameters * 1.2t tokens * 6 FLOP / parameter / token = 5.04e22 FLOP,Baichuan 1-7B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recMowz1c7WAeQP0r
+Baichuan-2-7B-Base,0.4156,2023-09-20,Baichuan,China,1.092e+23,"7b * 2.6t * 6 = 1.092e23
+Also mentions 1,024 NVIDIA A800 GPUs at 180 TFLOPS per GPU",Baichuan 2-7B-Base,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recAPbLpHdl6vjC16
+LLaMA-13B,0.3789,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA-13B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recDxU7yqbO95fPBY
+Llama-2-13b,0.4698,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA 2-13B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,rec5TUJ5B5b5jcApF
+vicuna-13b-v1.1,0.4304,2023-04-12,,,,,Vicuna-13B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recX0LPusfvFRXmeh
+,0.2894,,,,,,Chinese-Alpaca-Plus-13B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recJrh1T4zl8aWEBa
+,0.3806,,,,,,XVERSE-13B,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recFD1ccg1iQk8TfD
+Baichuan-13B-Base,0.4301,2023-07-11,Baichuan,China,9.36e+22,13b parameters * 1.2t tokens * 6 FLOP / parameter / token = 9.36e22 FLOP,Baichuan 1-13B-Base,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recR9iM0H794LUNfw
+Baichuan-2-13B-Base,0.4878,2023-09-06,Baichuan,China,2.03e+23,"They describe the dataset as having 2.6T tokens, but the checkpoint graph makes it clear that's also the number of tokens the model was trained on.
+
+13b * 2.6t * 6 = 2.03e23",Baichuan 2-13B-Base,3,,Baichuan 2: Open Large-scale Language Models,http://arxiv.org/abs/2309.10305,recavR8MmJuWQQ4rY
+Phi-3-mini-4k-instruct,0.717,2024-04-23,Microsoft,United States of America,7.524e+22,"counting operations: 6×3.3×10^12 tokens ×3.8×10^9 parameters ≈7.524×10^22 FLOPS
+hardware estimate: 7 days ×24 hours / day×3600 sec / hour *989,000,000,000,000 FLOP/s*512 GPUs*0.3 [assumed utilization]=9.187540992×10^22",Phi-3-mini,3,3-shot; CoT,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recUKkMoByKnWpuUZ
+Phi-3-small-8k-instruct,0.791,2024-04-23,Microsoft,United States of America,2.1312e+23,6ND = 6 FLOP / parameter / token * 7.4B parameters * 4.8T tokens = 2.1312e+23 FLOP,Phi-3-small,3,3-shot; CoT,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your PhonePhi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recKjdHfv3VjEMtsb
+Phi-3-medium-128k-instruct,0.814,2024-04-23,Microsoft,United States of America,4.032e+23,counting operations: 6×4.8×10^12 tokens × 14×10^9 parameters ≈ 4.032×10^23 FLOPS,Phi-3-medium,3,3-shot; CoT,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,rec9iYkPYoTR9pzyx
+phi-2,0.594,2023-12-12,Microsoft,United States of America,2.27e+22,"2.7B params, trained on 1.4T tokens
+
+2.7 billion * 1.4 trillion * 6 = 2.27e22
+
+96*14 A100-days
+
+14 * 96 * 312 trillion * 24 * 3600 * 0.3 = 1.09e22",Phi-2,3,3-shot; CoT,Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone,http://arxiv.org/abs/2404.14219,recQSNSyrXQd8UgOd
+mpt-7b,0.356,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recnDuyY5Dzi2cIHx
+mpt-30b,0.38,2023-06-22,MosaicML,United States of America,1.8900000000001e+23,"According to their blog post,
+""MPT-30B FLOPs ~= 6 * 30e9 [params] * 1.05e12 [tokens] = 1.89e23 FLOPs""",MPT 30B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recNa6pWGs4Idzlug
+falcon-7b,0.28,2023-04-24,Technology Innovation Institute,United Arab Emirates,6.3e+22,"6ND = 6 * 7B * 1.5T = 6.3e22
+""Falcon-7B is a 7B parameters causal decoder-only model built by TII and trained on 1,500B tokens of RefinedWeb enhanced with curated corpora. It is made available under the Apache 2.0 license.""
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+730 petaflop-days * 1e15 * 24 * 3600 = 6.3072e+22 FLOPs",Falcon 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recY8LrwUj1lJj3Zi
+falcon-40b,0.371,2023-03-15,Technology Innovation Institute,United Arab Emirates,2.4e+23,"C = 6ND = 6 * 40B * 1000B = 2.4e+23 FLOP (assuming one epoch)
+
+Table 1 from https://arxiv.org/pdf/2311.16867 Falcon paper
+
+2,800 petaflop-days * 1e15 * 24 * 3600 = 2.4192e+23 FLOPs",Falcon 40B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recCuhggo9409cVhu
+chatglm2-6b,0.337,2023-06-24,,,,,ChatGLM2,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recSt1c1mDxWjT2kw
+internlm-7b,0.37,2023-07-05,,,,,InternLM 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recGLYH2QJ3KDou88
+internlm-20b,0.525,2023-09-18,,,,,InternLM 20B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recnmQ4nbxuvotbeb
+Baichuan-2-7B-Base,0.416,2023-09-20,Baichuan,China,1.092e+23,"7b * 2.6t * 6 = 1.092e23
+Also mentions 1,024 NVIDIA A800 GPUs at 180 TFLOPS per GPU",Baichuan2 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recbMXxc5kgkoMubB
+Baichuan-2-13B-Base,0.49,2023-09-06,Baichuan,China,2.03e+23,"They describe the dataset as having 2.6T tokens, but the checkpoint graph makes it clear that's also the number of tokens the model was trained on.
+
+13b * 2.6t * 6 = 2.03e23",Baichuan2 13B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recmbmOOCOgqxb1g3
+LLaMA-7B,0.335,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recigmBKoJgg9WY2a
+LLaMA-13B,0.379,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recn0VFcI3UQDghGP
+LLaMA-33B,0.5,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,rec43eD7SvXQ5Dzq4
+LLaMA-65B,0.584,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recSRK6t1MK8dM2dx
+Llama-2-34b,0.441,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA 2 34B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,rec1c1obGEgm8UJON
+Llama-2-70b-hf ,0.649,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA 2 70B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recSGabK4Sqv5tGq4
+StableBeluga2,0.693,2023-07-20,Stability AI,United Kingdom of Great Britain and Northern Ireland,,,StableBeluga2,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recQpPjUchLLKHnr0
+Qwen-1_8B,0.282,2023-11-30,,,,,QWEN 1.8B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,recVIooB7cvf68T0j
+Qwen-7B,0.45,2023-09-28,Alibaba,China,1.01e+23,"2.4T tokens per Table 1
+
+7b*2.4T*6 = 1.01e23",QWEN 7B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,reckyn9rrrmjmrV6z
+Qwen-14B,0.534,2023-09-28,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",QWEN 14B,3,,Qwen Technical Report,https://arxiv.org/pdf/2309.16609,rec8lvLyj6LfxLcTT
+LLaMA-7B,0.303,2023-02-24,Meta AI,United States of America,4.00000001e+22,"1T tokens * 6.7B parameters * 6 FLOP/token/parameter = 4e22 FLOP
+",LLaMA 7B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,rec9x2hh5bO75waHt
+LLaMA-13B,0.37,2023-02-24,Meta AI,United States of America,7.8e+22,"1T tokens * 13B parameters * 6 FLOP/token/parameter = 7.8e22
+
+from paper, Llama-13B took 135,168 GPU hours using A100s
+
+312 trillion * 135,168 * 3600 = 1.518e23 FLOPs at full utilization
+This implies that the actual utilization was:
+MFU = 7.8e22/1.518e23 = 0.514",LLaMA 13B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recVjjfDkF3dxSUAL
+LLaMA-33B,0.398,2023-02-24,Meta AI,United States of America,2.7300000000001e+23,1.4T tokens * 32.5B params * 6 FLOP/token/param = 2.73e+23 FLOP,LLaMA 33B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recsGL3NirdzuPYxz
+LLaMA-65B,0.435,2023-02-24,Meta AI,United States of America,5.5e+23,1.4e12 tokens * 6.52e10 parameters * 6 FLOP/token/parameter = 5.5e23 FLOP,LLaMA 65B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recEPEBlWR8m0MZrr
+Llama-2-7b,0.326,2023-07-18,Meta AI,United States of America,8.4e+22,"Trained on 2 trillion tokens per Table 1. 
+
+C = 6ND = 6 FLOP / token / parameter * 7B parameters * 2T tokens = 8.4e+22 FLOP.
+
+Also, 7B model was trained on 184320 GPU-hours
+
+312 trillion * 184320 GPU-hours * 3600 sec/hour * 0.3 [utilization] = 6.21e22 FLOP",LLaMA 2 7B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recjadyR0KerqJKuo
+Llama-2-13b,0.394,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA 2 13B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recLcZqVyAA4OEgfQ
+Llama-2-34b,0.441,2023-07-18,Meta AI,United States of America,4.08e+23,"All models sizes trained on 2.0T tokens, per table 1
+2T * 34b * 6 = 4.08e23
+
+Also trained on 1038336 A100-hours, which is 3.5e23 at 30% utilization. So the utilization was probably around 35%.",LLaMA 2 34B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recatk8RloeAtyCmo
+Llama-2-70b-hf ,0.512,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA 2 70B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recubgr9UF2uUXY3E
+mpt-7b,0.31,2023-05-05,MosaicML,United States of America,4.2000000000000004e+22,"""As shown in Table 3, nearly all of the training budget was spent on the base MPT-7B model, which took ~9.5 days to train on 440xA100-40GB GPUs, and cost ~$200k.""",MPT 7B,3,,Llama 2: Open Foundation and Fine-Tuned Chat Models,http://arxiv.org/abs/2307.09288,recVOjXMkiQCv2yPt
+DeepSeek-V2,0.788,2024-05-07,DeepSeek,China,1.02e+24,21b active params * 8.1 trillion * 6 = 1.02e24,DeepSeek-V2 Base       ,3,,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,recEi33ywW8PezgV3
+Qwen2.5-72B,0.798,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",Qwen2.5 72B Base       ,3,,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,recHEqDIkyl72Zpiw
+Llama-3.1-405B,0.829,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",LLaMA-3.1 405B Base    ,3,,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,recBt36OsYvimRxTu
+DeepSeek-V3,0.875,2024-12-26,DeepSeek,China,3.3e+24,"6 × 37B × 14.8T = 3.29e24 pretraining FLOPs, 1e22 posttrainining FLOPs - see doc below
+
+https://docs.google.com/document/d/1C4zBvHh4UNnzaorwQSdG61zQJsBV9X3i3A70NeelxHY/edit?usp=sharing",DeepSeek-V3 Base       ,3,,DeepSeek-V3 Technical Report,http://arxiv.org/abs/2412.19437,rechnyAjkN3CHnI5g
+Llama-2-13b-chat,0.329,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA2-Chat 13B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recYo1J8Qmz0VOJEw
+Llama-2-70b-chat,0.424,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA2-Chat 70B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,rece5fh6ERllQI4iK
+Baichuan2-13B-Chat,0.388,2023-09-06,,,,,Baichuan2-Chat 13B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recbtRKdpDgysDGSC
+Qwen-14B-Chat,0.497,2023-09-24,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",Qwen-Chat 14B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recMoa8pBH75GkNPC
+internlm-chat-20b,0.424,2023-09-17,,,,,InternLM-Chat 20B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recMU394COBhaIEAe
+,0.201,,,,,,AquilaChat2 34B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,rechcQwplB1J0oVOb
+Yi-6B-Chat,0.397,2023-11-22,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi-Chat 6B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recwwBrVHafqCEK3w
+Yi-34B-Chat,0.514,2023-11-22,01.AI,China,6.1e+23,"""The dataset we use contains Chinese & English only. We used approximately 3T tokens"" sounds like this means it was trained on 3T tokens, not necessarily that the dataset contains 3T tokens?
+
+If so, 34b * 3T * 6 = 6.1e23",Yi-Chat 34B,0,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recL10qlbGM5RuDG7
+Llama-2-13b-chat,0.582,2023-07-18,Meta AI,United States of America,1.6e+23,13 billion parameters * 2 trillion tokens * 6 FLOP / token / parameter = 1.6e23 FLOP,LLaMA2-Chat 13B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recFvpL4cwIM1jkzD
+Llama-2-70b-chat,0.585,2023-07-18,Meta AI,United States of America,8.1e+23,"""Pretraining utilized a cumulative 3.3M GPU hours of computation on hardware of type A100-80GB"" of which 1720320 GPU hours were used to train the 70B model.
+
+311.84 BF16 TFLOP/s * 1720320 hours * 0.40 utilization = 7.725e+23 FLOP.
+
+Alternatively: the model was trained for 1 epoch on 2 trillion tokens and has 70B parameters. C = 6ND = 6*70B*2T = 8.4e+23 FLOP.",LLaMA2-Chat 70B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recDy6LbjY6SvJbKC
+Baichuan2-13B-Chat,0.472,2023-09-06,,,,,Baichuan2-Chat 13B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recTQ6AnVQI3HzzDR
+Qwen-14B-Chat,0.55,2023-09-24,Alibaba,China,2.5e+23,"3T tokens per Table 1
+
+14B*3T*6 = 2.5e23",Qwen-Chat 14B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recwg8hk8QR2EAEmW
+internlm-chat-20b,0.367,2023-09-17,,,,,InternLM-Chat 20B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recdeDl0iYyeqCdZf
+,0.343,,,,,,AquilaChat2 34B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,reclWJEx2WkhPsO5Q
+Yi-6B-Chat,0.472,2023-11-22,01.AI,China,1.26e+23,6*7*10^9*3*10^12 = 1.26e+23,Yi-Chat 6B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,rec7U0UkrJXKMFZGe
+Yi-34B-Chat,0.717,2023-11-22,01.AI,China,6.1e+23,"""The dataset we use contains Chinese & English only. We used approximately 3T tokens"" sounds like this means it was trained on 3T tokens, not necessarily that the dataset contains 3T tokens?
+
+If so, 34b * 3T * 6 = 6.1e23",Yi-Chat 34B,3,,Yi: Open Foundation Models by 01.AI,http://arxiv.org/abs/2403.04652,recRvnph65VrLPHGb
+INTELLECT-1-Instruct,0.3485,2024-11-29,"Prime Intellect,Hugging Face,Arcee AI",United States of America,6.000001e+22,10B parameters trained on 1T tokens: 6 * 10B * 1T = 6e22,INTELLECT-1-Instruct,,,INTELLECT-1 Technical Report,https://arxiv.org/abs/2412.01152,rec4Pqqt0Y9MQ1HfR
+gemini-1.5-pro-001-feb24,0.84,2024-02-15,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (Feb 2024),3,,Gemini 1.5 report,https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf,recIJaCyW2MtzGFlO
+gemini-1.5-pro-001,0.892,2024-05-14,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,Gemini 1.5 Pro (May 2024),3,,Gemini 1.5 report,https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf,recftOkRLxL5JX8iB

@@ -1,0 +1,37 @@
+Model version,Overall score,Mental Rotation score,Mental Folding score,Visual Penetration score,Mental Animation score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Prompting,Source,Notes
+Qwen2.5-VL-72B-Instruct,0.3331,0.2923,0.24170000000000003,0.39060000000000006,0.4375,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",Qwen2.5-VL-72B-Instruct,CoT,https://arxiv.org/abs/2507.07610,
+Llama-4-Maverick-17B-128E-Instruct,0.3178,0.3385,0.25,0.32189999999999996,0.39170000000000005,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",Llama-4-Maverick-17B-128E-Instruct,CoT,https://arxiv.org/abs/2507.07610,
+Llama-4-Scout-17B-16E-Instruct,0.34240000000000004,0.37310000000000004,0.2861,0.3406,0.3958,2025-04-05,Meta AI,United States of America,4.08e+24,"40T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md  
+
+Estimating training compute from parameters and tokens:
+6 FLOP per token per parameter * 17B active parameters * 40T tokens = 4.08e24 FLOP
+(Implying mean throughput was 227 TFLOPS/GPU, or 11.5% MFU in FP8)
+
+
+The model card also states that Llama 4 Scout used 5.0M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 5 million hours = 7.02e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Scout than for Behemoth.)",Llama-4-Scout-17B-16E-Instruct,CoT,https://arxiv.org/abs/2507.07610,
+o1-2024-12-17_unknown,0.4136,0.4692,0.2972,0.37810000000000005,0.5750000000000001,2024-12-17,OpenAI,United States of America,,,o1,CoT,https://arxiv.org/abs/2507.07610,
+claude-3-7-sonnet-20250219_unknown,0.33899999999999997,0.38079999999999997,0.2472,0.3156,0.4625,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude-3.7-sonnet,CoT,https://arxiv.org/abs/2507.07610,
+gemini-2.5-flash,0.3686,0.3577,0.325,0.3281,0.5,2025-06-17,Google DeepMind,United States of America,,,Gemini-2.5-flash,CoT,https://arxiv.org/abs/2507.07610,
+gemini-2.5-pro,0.4466,0.44229999999999997,0.35000000000000003,0.4219,0.6292,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini-2.5-pro,CoT,https://arxiv.org/abs/2507.07610,
+Qwen-VL-Max,0.32030000000000003,0.2808,0.2444,0.38439999999999996,0.39170000000000005,2024-01-18,,,,,Qwen-VL-max,CoT,https://arxiv.org/abs/2507.07610,

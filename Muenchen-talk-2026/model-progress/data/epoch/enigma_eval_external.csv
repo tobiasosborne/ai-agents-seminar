@@ -1,0 +1,81 @@
+Model version,Accuracy,Accuracy Standard Error,Company,Release date,Organization,Country,Training compute (FLOP),Training compute notes,CI Lower Bound,CI Upper Bound,Name,Source,Notes,id
+gpt-5.4-pro-2026-03-05_unknown,0.2382,0.024300000000000002,openai,2026-03-05,OpenAI,United States of America,,,0.21389999999999998,0.2625,gpt-5.4-pro-2026-03-05,https://labs.scale.com/leaderboard/enigma_eval,,rec9I30aNqMMOAvz9
+gemini-3.1-pro-preview,0.3678,0.0271,google,2026-02-19,Google DeepMind,United States of America,,,0.3407,0.39490000000000003,gemini-3.1-pro-preview-high,https://labs.scale.com/leaderboard/enigma_eval,,reczkTTqNDkpHLfBw
+gpt-5-pro-2025-10-06_unknown,0.1875,0.0222,openai,2025-10-07,OpenAI,United States of America,,,0.1653,0.2097,gpt-5-pro-2025-10-06,https://labs.scale.com/leaderboard/enigma_eval,,recZv3rrIn0Hh0n7f
+gemini-3-pro-preview,0.18239999999999998,0.022000000000000002,google,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,0.1604,0.20439999999999997,gemini-3-pro-preview,https://labs.scale.com/leaderboard/enigma_eval,,recrkWj7aOGNnfZvJ
+gpt-5.4-2026-03-05_xhigh,0.15960000000000002,0.0209,openai,2026-03-05,OpenAI,United States of America,,,0.13870000000000002,0.18050000000000002,gpt-5.4-2026-03-05 (xhigh thinking),https://labs.scale.com/leaderboard/enigma_eval,,rech9nRz3pgAcfRAc
+o3-2025-04-16_medium,0.1309,0.0192,openai,2025-04-16,OpenAI,United States of America,,,0.1117,0.15009999999999998,o3 (medium) (April 2025),https://labs.scale.com/leaderboard/enigma_eval,,receahmxqAfNp04Hz
+claude-opus-4-5-20251101_unknown,0.1191,0.018500000000000003,anthropic,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.1006,0.1376,claude-opus-4-5-20251101-thinking,https://labs.scale.com/leaderboard/enigma_eval,,recBHK1OObzEbFZGv
+o3-2025-04-16_high,0.1191,0.018500000000000003,openai,2025-04-16,OpenAI,United States of America,,,0.1006,0.1376,o3 (high) (April 2025),https://labs.scale.com/leaderboard/enigma_eval,,recyQKxSx0xbZ5JCh
+gpt-5.1-2025-11-13_unknown,0.11230000000000001,0.018000000000000002,openai,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.09430000000000001,0.13030000000000003,gpt-5.1-thinking,https://labs.scale.com/leaderboard/enigma_eval,,recireO7DjaB7TZSb
+gpt-5-2025-08-07_unknown,0.10470000000000002,0.0174,openai,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",0.08730000000000002,0.12210000000000001,gpt-5-2025-08-07,https://labs.scale.com/leaderboard/enigma_eval,,recTM0QtWkCOOzx2n
+gpt-5.2-2025-12-11_unknown,0.1039,0.0174,openai,2025-12-11,OpenAI,United States of America,,,0.08650000000000001,0.1213,gpt-5.2-2025-12-11,https://labs.scale.com/leaderboard/enigma_eval,,recesPyjn6f8vbk41
+o4-mini-2025-04-16_high,0.09210000000000002,0.0165,openai,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.07560000000000001,0.10860000000000002,o4-mini (high) (April 2025),https://labs.scale.com/leaderboard/enigma_eval,,recwiwCIzlm1eaSZx
+gpt-5-mini-2025-08-07_unknown,0.08192600000000001,0.015600000000000001,openai,2025-08-07,OpenAI,United States of America,,,0.06632600000000001,0.09752600000000002,gpt-5-mini-2025-08-07,https://labs.scale.com/leaderboard/enigma_eval,,rech2WN5NSlMILTVU
+claude-opus-4-6_max,0.076,0.0151,anthropic,2026-02-05,Anthropic,United States of America,,,0.060899999999999996,0.0911,claude-opus-4-6-thinking-max,https://labs.scale.com/leaderboard/enigma_eval,,recyLSf4pFkZBDI8M
+claude-opus-4-1-20250805_unknown,0.07179100000000001,0.0147,anthropic,2025-08-05,Anthropic,United States of America,,,0.05709100000000001,0.08649100000000001,claude-opus-4-1-20250805-thinking,https://labs.scale.com/leaderboard/enigma_eval,,recIHAQiSKe37QlrV
+claude-opus-4-6,0.0684,0.0144,anthropic,2026-02-05,Anthropic,United States of America,,,0.054000000000000006,0.0828,claude-opus-4-6 (Non-Thinking),https://labs.scale.com/leaderboard/enigma_eval,,reckakrWHvDEXZCCn
+o4-mini-2025-04-16_medium,0.0681,0.0083,openai,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",0.05979999999999999,0.0764,o4-mini (medium) (April 2025),https://labs.scale.com/leaderboard/enigma_eval,,reczXOhQYxfQ4z6UI
+o1-pro-2025-03-19,0.061399999999999996,0.013700000000000002,openai,2025-03-19,OpenAI,United States of America,,,0.04769999999999999,0.0751,o1 Pro (March 2025),https://labs.scale.com/leaderboard/enigma_eval,,recn9NeslnlYNPpi6
+claude-sonnet-4-5-20250929_unknown,0.059966,0.013500000000000002,anthropic,2025-09-29,Anthropic,United States of America,,,0.04646599999999999,0.073466,claude-sonnet-4-5-20250929-thinking,https://labs.scale.com/leaderboard/enigma_eval,,rec9ylDuv236QEdRz
+o1-2024-12-17_unknown,0.0565,0.013200000000000002,openai,2024-12-17,OpenAI,United States of America,,,0.0433,0.0697,o1 (December 2024),https://labs.scale.com/leaderboard/enigma_eval,,reczEK6cTdemcEFoY
+claude-opus-4-20250514_unknown,0.055700000000000006,0.0131,anthropic,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.042600000000000006,0.0688,Claude Opus 4 (Thinking),https://labs.scale.com/leaderboard/enigma_eval,,recajp4Xzqdl1hWVE
+gemini-2.5-pro-preview-06-05,0.055700000000000006,0.0131,google,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.042600000000000006,0.0688,gemini-2.5-pro-preview-06-05,https://labs.scale.com/leaderboard/enigma_eval,,recDbzX7JurywUXag
+claude-3-7-sonnet-20250219_unknown,0.042300000000000004,0.0117,anthropic,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,0.030600000000000002,0.054000000000000006,Claude 3.7 Sonnet Thinking (Feb 2025),https://labs.scale.com/leaderboard/enigma_eval,,recqgAd66eaZUdytK
+gemini-2.5-pro-exp-03-25,0.0414,0.0116,google,2025-03-25,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.0298,0.053,Gemini 2.5 Pro Experimental (March 2025),https://labs.scale.com/leaderboard/enigma_eval,,recHs6Sc5m0hdRAQI
+kimi-k2.5,0.0338,0.0103,moonshot,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",0.023499999999999997,0.0441,kimi-k2.5,https://labs.scale.com/leaderboard/enigma_eval,,recYB20EsagJiFNSS
+gpt-4.5-preview-2025-02-27,0.0318,0.0102,openai,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",0.0216,0.042,GPT-4.5 Preview (February 2025),https://labs.scale.com/leaderboard/enigma_eval,,recptVRLzhlKqqAbC
+claude-sonnet-4-20250514_unknown,0.031200000000000002,0.0099,anthropic,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.0213,0.041100000000000005,Claude Sonnet 4 (Thinking),https://labs.scale.com/leaderboard/enigma_eval,,recnSlhjPi5DMIm9L
+gemini-3.1-flash-lite,0.0304,0.0098,google,2026-03-03,Google,United States of America,,,0.0206,0.0402,gemini-3.1-flash-lite-preview,https://labs.scale.com/leaderboard/enigma_eval,,rectxc47EYXrt5A4p
+gemini-2.5-flash-preview-05-20,0.027000000000000003,0.0092,google,2025-05-20,Google DeepMind,United States of America,,,0.017800000000000003,0.0362,Gemini 2.5 Flash Preview (May 2025),https://labs.scale.com/leaderboard/enigma_eval,,reclMZj4AID4W3rFB
+gemini-2.5-pro-preview-05-06,0.0236,0.0087,google,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.0149,0.032299999999999995,Gemini 2.5 Pro Preview (May 06 2025),https://labs.scale.com/leaderboard/enigma_eval,,recl5V5gG8jovVkv0
+claude-3-7-sonnet-20250219,0.0226,0.0086,anthropic,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,0.013999999999999999,0.0312,Claude 3.7 Sonnet (February 2025),https://labs.scale.com/leaderboard/enigma_eval,,rec6zp1wPGHYVjyLu
+gpt-4.1-2025-04-14,0.0217,0.0084,openai,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,0.013300000000000001,0.030100000000000002,GPT-4.1,https://labs.scale.com/leaderboard/enigma_eval,,recyWpf0QCF5zacnN
+gpt-5.1-2025-11-13_none,0.0194,0.0079,openai,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",0.0115,0.0273,gpt-5.1-instant,https://labs.scale.com/leaderboard/enigma_eval,,recB21sSGBxuHQADI
+gemini-2.0-flash-thinking-exp-01-21,0.011000000000000001,0.006,google,2025-01-21,"Google DeepMind,Google",United States of America,,,0.005000000000000001,0.017,Gemini 2.0 Flash Thinking (January 2025),https://labs.scale.com/leaderboard/enigma_eval,,recQZPoJp4e9mxIEX
+claude-3-5-sonnet-20241022,0.0091,0.0055000000000000005,anthropic,2024-10-22,Anthropic,United States of America,,,0.0036,0.014600000000000002,Claude 3.5 Sonnet (October 2024),https://labs.scale.com/leaderboard/enigma_eval,,rectZdJnjJEcv95yF
+pixtral-large-2411,0.0084,0.0053,mistral,2024-11-18,Mistral AI,France,,,0.0030999999999999995,0.0137,Pixtral Large (November 2024),https://labs.scale.com/leaderboard/enigma_eval,,recrs0rEjh7yqB1lr
+claude-3-opus-20240229,0.008199999999999999,0.0045000000000000005,anthropic,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.0036999999999999984,0.0127,Claude 3 Opus,https://labs.scale.com/leaderboard/enigma_eval,,recOmwnjZmNcq0Pvi
+gpt-4o-2024-11-20,0.008,0.0044,openai,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.0036,0.012400000000000001,GPT-4o (November 2024),https://labs.scale.com/leaderboard/enigma_eval,,recXjD048nIZmi1Bc
+gemini-2.0-pro-exp-02-05,0.0069,0.0048,google,2025-02-05,Google DeepMind,United States of America,,Flagship model from a leading developer in early 2025; very likely it used >1e25 FLOP.,0.0021000000000000003,0.011699999999999999,Gemini 2.0 Pro Experimental (Feb 2025),https://labs.scale.com/leaderboard/enigma_eval,,recNfiBVKOOhKY28W
+gemini-2.0-flash-02-05,0.0063,0.0045000000000000005,google,2025-02-05,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",0.0017999999999999995,0.0108,Gemini 2.0 Flash (February 2025),https://labs.scale.com/leaderboard/enigma_eval,,recmlf6ufdqD98ZUR
+Llama-4-Maverick-17B-128E-Instruct,0.0058,0.0043,meta,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",0.0014999999999999996,0.0101,Llama 4 Maverick,https://labs.scale.com/leaderboard/enigma_eval,,rec1GymcsU4urYVLi
+Llama-3.2-90B-Vision-Instruct,0.0038,0.0034999999999999996,meta,2024-09-24,Meta AI,United States of America,,,0.00030000000000000035,0.007299999999999999,Llama 3.2 90B Vision Instruct,https://labs.scale.com/leaderboard/enigma_eval,,rec0FJEYmqS0s0k2C
+claude-fable-5_high,0.39280000000000004,0.027999999999999997,anthropic,2026-06-09,Anthropic,United States of America,,,0.3648,0.42080000000000006,claude-fable-5-high,https://labs.scale.com/leaderboard/enigma_eval,,recXux9NHXeb5HwBk
+gpt-5.6-sol_high,0.3712,0.027999999999999997,openai,2026-07-09,OpenAI,United States of America,,,0.34319999999999995,0.3992,gpt-5.6-sol-high,https://labs.scale.com/leaderboard/enigma_eval,,recIyRaAOijnX5cVP
+gemini-3.5-flash_high,0.2541,0.0245,google,2026-05-19,Google,United States of America,,,0.2296,0.2786,gemini-3.5-flash-high,https://labs.scale.com/leaderboard/enigma_eval,,rectrabR7sN1RLhNF
+claude-opus-4-8_xhigh,0.23510000000000003,0.024100000000000003,anthropic,2026-05-28,Anthropic,United States of America,,,0.21100000000000002,0.25920000000000004,claude-opus-4-8-xhigh,https://labs.scale.com/leaderboard/enigma_eval,,recgVaZ4h79uz51GB

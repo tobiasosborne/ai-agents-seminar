@@ -148,3 +148,99 @@ fraction. Meanwhile arXiv is banning authors for unchecked LLM output at a rate 
 
 **The one-sentence summary:** *the generation of mathematics has been automated faster than the
 verification of mathematics, and the gap is the whole story.*
+
+---
+
+## Deck updates 26 Aug
+
+Content-integration pass on `slides-web/talk.html` for the 27 Aug talk. Two slides now open the
+flood section: `s-flurry` (reworked in place, 10 tiered result rows) and `s-floodstats` (new,
+inserted immediately after it). Everything below is what went **on a slide**, with its tier and
+its source, so the deck stays auditable.
+
+### New rows added to `s-flurry`
+
+| Date | Row text on the slide | Tier used | Source |
+|---|---|---|---|
+| Jun 2026 | Jamming exponents, a 12-year-old identity: Parisi (Nobel) and Zamponi, with Claude, over forty rounds of dialogue. Peer reviewed, *J. Stat. Mech.* | **T2+** (new badge: refereed journal) | [arXiv:2606.03300](https://arxiv.org/abs/2606.03300); *J. Stat. Mech.* (2026) 073301, [doi:10.1088/1742-5468/ae7bd7](https://doi.org/10.1088/1742-5468/ae7bd7); [phys.org, 1 Jul 2026](https://phys.org/news/2026-06-physicists-ai-claude-collaborate-year.html); [Physics World](https://physicsworld.com/a/ai-model-helps-physics-nobel-laureate-out-of-a-decade-old-mathematical-jam/); [Zenodo transcript](https://zenodo.org/records/20633432) |
+| Jul 2026 | Complex structure on S⁶, open since 1947: 108 pages, self-hosted, no arXiv | **T3** | [alpo.ge/s6.pdf](https://alpo.ge/s6.pdf) (108 pp, no author printed, no AI disclosure inside); [vibemathed entry](https://vibemathed.com/problem/modular-family-of-2-tori-as-a-complex-structure-on-s6); [officechai](https://officechai.com/ai/anthropic-researcher-says-claude-helped-build-a-complex-structure-on-s%E2%81%B6-taking-aim-at-the-unsolved-hopf-problem/); [X announcement thread](https://x.com/mark_k/status/2091964029283573913) |
+| Aug 2026 | Schiffer and Pompeiu conjectures disproved, Lean-verified counterexample | **T1** | [aimath.robertj1.com](https://aimath.robertj1.com/) (entry dated 5 Aug 2026; registry lists GPT-5.6 / Claude) |
+| Aug 2026 | Elliptic curve rank record over Q broken twice in a week: ≥ 30, then ≥ 31 | **T3** | [ICARM curve #273 (rank ≥ 30, ~20 Aug)](https://elliptic-rank.icarm.cloud/curve/273); [ICARM curve #302 (rank ≥ 31, 23 Aug)](https://elliptic-rank.icarm.cloud/curve/302); [icarm.io news note](https://icarm.io/news/new-record-breaking-elliptic-curve-reported/); [Quanta on the prior Elkies–Klagsbrun 29 record, 2024](https://www.quantamagazine.org/new-elliptic-curve-breaks-18-year-old-record-20241111/) |
+
+Also added, in the Jacobian quote box, a second caption line: *"The same author's 108-page S⁶
+paper: self-hosted, no arXiv, and reportedly written out by Claude."* The AI-authorship claim
+exists **only** in the social/press layer ([X](https://x.com/mark_k/status/2091964029283573913),
+officechai, huggingnews). The PDF itself contains no author, no acknowledgments and zero mentions
+of Claude/AI in 108 pages. "Reportedly" is load-bearing; do not drop it.
+
+**New tier badge.** A refereed journal paper exceeds T2 (named humans read it) but is not T1 as the
+deck defines T1 (machine-checked or officially graded). Rather than mislabel it, the legend now
+carries a fourth chip, **T2+ = refereed journal**, medblue like T2. Only the Parisi–Zamponi row uses
+it. The Jacobian row stays **T2** (Tao's digestion, Lichtman, Yuan, Speyer, Gallagher, plus the
+merged Lean PR; see the Q1 section of `updates-2026-08-26/jacobian-elliptic.md`).
+
+### Rows dropped from `s-flurry` (for space, at 10 rows)
+
+- **Jul 2025, IMO gold, officially graded (T1).** Reprised two slides later on `s-mathslag` with
+  fuller context. Dropping it also makes every row on the slide fall inside the last eight months,
+  and the row cadence (Jan 1, Feb 1, Mar 1, May 1, Jun 1, Jul 2, Aug 3) now *shows* the acceleration.
+- **May 2026, AlphaProof Nexus, 9 Erdős + 44 OEIS (T1).** Redundant against the Aug 2026 "Astra"
+  row, which carries the same "industrial scale, Lean, cheap" point more recently and with the
+  "zero referees" punch.
+
+### `s-floodstats` (new slide, "Now somebody has to count it")
+
+All figures exactly as sourced; each panel carries its own date stamp on the slide.
+
+| Figure on the slide | Value | Source |
+|---|---|---|
+| Claimed AI-solved results in one registry | **506** (253 proved, 116 disproved, 7 both, 130 unclassified) | [aimath.robertj1.com](https://aimath.robertj1.com/), page last updated 21 Aug 2026 |
+| Monthly split, drawn as one proportion bar | **239** before July, **166** in July, **101** 1–21 Aug → **267 of 506 in the last eight weeks** | same; the 239 is 506 − 166 − 101 |
+| Problems tracked / resolved / Lean-verified | **630 / 445 / 98**, i.e. 22% of the resolved | [vibemathed.com](https://vibemathed.com/) |
+| Weekly inflow | **35** new entries in the last week, down 24% on the week before | vibemathed.com |
+| Open problems catalogued, no verification tags | **74,382** | [mathdb.com](https://mathdb.com/) |
+| Problems reviewed / solved, MCP endpoints for agents | **1,801** / 31 | [theoremdb.org](https://theoremdb.org/) |
+| Research workspaces, read-only beta | **208** | [proofatlas.ai](https://www.proofatlas.ai/advances/) |
+| Palomar launch; its editorial stage uses an LLM to check the formal statement against the informal claim | **18 Aug 2026** | [Tao's blog, 18 Aug 2026](https://terrytao.wordpress.com/2026/08/18/palomar-a-registry-of-lean-verified-mathematics/); [palomar-registry.org](https://palomar-registry.org/) |
+| Published claims / verified-core on the strictest registry | **10 / 0** | [openproblem.ai Mathematical Discovery Ledger](https://openproblem.ai/mathematical-discovery-ledger/) |
+| "Nine independent registries, none older than seven months" | aimath, Lax, lemma.ing, Palomar, proofatlas, openproblem.ai, mathdb, theoremdb, vibemathed | `updates-2026-08-26/trackers-A.md` and `trackers-B.md` |
+
+Two of the nine (laxarchive.org, lemma.ing) are counted in the kicker but not shown as cards; the
+slide says "five more of them" for the card strip, so the arithmetic is honest if anyone asks.
+
+**Correction to the brief.** The August figure is **101 entries in 1–21 Aug**, not "101 in 26 days":
+`aimath.robertj1.com` was last updated 21 Aug 2026, so the August bar covers three weeks, and the
+slide labels it "1–21 Aug". Per-day, August (≈4.8/day) is therefore *not* faster than July
+(≈5.35/day); the honest acceleration claim, and the one the slide makes, is that **267 of the 506
+entries arrived in the last eight weeks**.
+
+### Deliberately left off both slides
+
+- **Yau–Tian–Donaldson (CSCK) disproof claim, 19 Aug**: six other AI systems failed to reproduce it
+  in 12 hours; tracker's own note says the mathematics was not checked.
+- **Sendov's conjecture**: proofatlas lists a Lean-checked claim (5 Aug, "Lech Mazur + AI agents"),
+  while trackers-A reads Tao's Palomar submission as a formalisation *demo*, not a resolution.
+  Conflicting; not slide-safe.
+- **IMO 2026 "42/42"**: only two systems (Huawei Celia, Xiaohongshu dots-note 3.0) were officially
+  graded; the other four self-graded. Too much caveat for one row.
+- **Matrix-multiplication exponent < 2.371177 (17 Aug, AlphaEvolve + Alman + Vassilevska Williams,
+  T2)**, **Crouzeix (4 Aug)**, **Kourovka batch (20 Jul)**, **Carathéodory C^∞ (19 Aug)**,
+  **Bethe-ansatz-adjacent registry items**: all real, all cut purely for row budget. The
+  matrix-multiplication item is the strongest reserve if a row ever frees up.
+- Anything a research file marks UNVERIFIED, including every `aimath.robertj1.com` row that has not
+  been cross-checked against arXiv (the Schiffer/Pompeiu row is the one exception admitted, on the
+  strength of it being explicitly labelled Lean-verified by the registry).
+
+### Other deck change
+
+`s-errorcorr` closing line, which after the reorder now sits *inside* the agent section rather than
+after it: "The agent toolbox from the last section is exactly the cure" → **"Every cure on the right
+is a tool the agent loop already gives us."**
+
+### Pending
+
+An HTML comment marker `<!-- ARXIV-ACK-FIGURE-HERE -->` sits immediately after `s-floodstats`,
+reserving the position for the arXiv acknowledgment figure (fraction of quant-ph and math-ph
+submissions whose acknowledgments name an LLM, over time; produced by
+`arxiv-acknowledgments/analyse.py`). It is intended to become its own full-bleed figure slide
+`s-arxivack`, built like `s-hookB`. Adding it takes the deck from 66 slides to 67.

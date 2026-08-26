@@ -1,0 +1,52 @@
+Model version,% Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,UUID,% Resolved,Average steps,Average costs,Benchmark Organization,Date,Environment model,Source,Source link (site from table),Notes
+claude-3-5-sonnet-20241022,0.344,2024-10-22,Anthropic,United States of America,,,OpenHands + Claude 3.5 Sonnet,recsHmIt77Rr4LD4D,0.24,29.17,6.34,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-sonnet-20241022,"Submission has open-source code, submission patch generations reproduced by Agent Company team. Assuming Claude version based on dates."
+gemini-2.0-flash-001,0.19,2025-02-05,"Google DeepMind,Google",United States of America,,"""We used Trillium TPUs to train the new Gemini 2.0, Google’s most capable AI model yet"" according to https://cloud.google.com/blog/products/compute/trillium-tpu-is-ga",Gemini 2.0 Flash,recg0UBT3qOUyHeaR,0.114,39.85,0.79,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-gemini-2.0-flash,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+gpt-4o-2024-11-20,0.167,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,OpenHands + GPT 4o,recyTMvFANtWFk7jZ,0.086,14.55,1.29,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-gpt-4o-2024-08-06,"Submission has open-source code, submission patch generations reproduced by Agent Company team. Assuming latest 4o version based on date. "
+Llama-3.1-405B-Instruct,0.141,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",OpenHands + Llama-3.1-405b,recpu7npNorRgBdGT,0.074,22.895,3.21,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-llama-3.1-405b,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+Llama-3.1-70B-Instruct,0.128,2024-07-23,Meta AI,United States of America,7.929e+24,"Huggingface page says 3.1-70B used 7.0M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 70B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 70B = 6.3e24 FLOPs
+
+Hardware:
+7M * 9.9e14 * 3600 * 0.4 = 9.98e24 FLOPs
+
+Geometric mean: sqrt(6.3e24 * 9.98e24) = 7.929e24
+
+Note that Llama 3-70B also said it used 15T tokens, but only 6.4M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.
+
+Training compute upper bound: 7M H100-hours * 989 TFLOPS * 50% utilization = 1.25e25 FLOP",OpenHands + LLama-3.3-70b,recjM5TXNeULyzAM4,0.069,20.93,0.93,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-llama-3.3-70b,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+qwen2.5-72b-instruct,0.118,2024-09-19,Alibaba,China,7.8e+24,"Training dataset size was 18 trillion
+
+6ND = 6 * 72.7 billion parameters * 18 trillion tokens = 7.8e24",OpenHands + Qwen-2.5-72b,recJN85mxDtJTm4xa,0.057,23.99,1.53,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-qwen2.5-72b,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+gemini-1.5-pro-002,0.08,2024-09-24,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,OpenHands + Gemini 1.5 Pro,recSEDEJf5qf4uo36,0.034,22.1,6.78,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-gemini-1.5-pro,"Submission has open-source code, submission patch generations reproduced by Agent Company team. Assuming pro-002 version based on dates."
+Llama-3.1-70B-Instruct,0.065,2024-07-23,Meta AI,United States of America,7.929e+24,"Huggingface page says 3.1-70B used 7.0M H100 hours and trained over 15T tokens. https://huggingface.co/meta-llama/Llama-3.1-70B
+The paper also says that 3.1-405B got MFU of between 38-43%; presumably 70B was around the same or a bit higher. I'll assume utilization of 40%
+
+6ND:
+6 * 15T * 70B = 6.3e24 FLOPs
+
+Hardware:
+7M * 9.9e14 * 3600 * 0.4 = 9.98e24 FLOPs
+
+Geometric mean: sqrt(6.3e24 * 9.98e24) = 7.929e24
+
+Note that Llama 3-70B also said it used 15T tokens, but only 6.4M H100 hours. This suggests 3.1 might have used a bit more than 15T tokens.
+
+Training compute upper bound: 7M H100-hours * 989 TFLOPS * 50% utilization = 1.25e25 FLOP",OpenHands + Llama-3.1-70b,rechUIH1qLtkmlKsq,0.017,19.18,0.83,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-llama-3.1-70b,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+amazon.nova-pro-v1:0,0.057,2024-12-03,Amazon,United States of America,6.000010000000001e+24,"""probably just below 1e25 stemming from the Llama 70B serving speed.  If Llama 70B is trained proportionally to 405B, then it's at ~ 6.6e24. Nova Pro is served at 100tk/s, while Llama 70B is served at 70tk/s on average, and 100tk/s by together.ai at FP8. So Nova Pro would be >1e25 if they roughly 2x the amount of training compared to Llama 70B which [seems unlikely]""",OpenHands + Amazon Nova Pro V1:0,recsCakwmRnBzeLtI,0.017,19.59,1.55,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-nova-pro-v1%3A0,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+qwen2-72b-instruct,0.042,2024-06-07,Alibaba,China,3.02e+24,"72 billion params, 7 trillion tokens
+
+6 * 72 billion * 7 trillion ~= 3.02e24",OpenHands + Qwen-2-72b,rec0ig6A3JLlKRUc5,0.011,23.7,0.28,CMU,2024-12-17,Claude 3.5 Sonnet,TheAgentCompany experiment results github,https://github.com/TheAgentCompany/experiments/tree/main/evaluation/1.0.0/20241217_OpenHands-0.14.2-qwen2-72b,"Submission has open-source code, submission patch generations reproduced by Agent Company team "
+gemini-2.5-flash-preview-09-2025,0.518,2025-09-25,Google DeepMind,United States of America,,,MUSE + Gemini 2.5 Flash,rec66F710Pnp62F6d,0.411,,,Shanghai Artificial Intelligence Laboratory,2025-10-13,GPT-4o,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,Unclear exactly what version of Gemini 2.5 Flash used (defaulted to most recent before evaluation date)
+DeepSeek-V3.2-Exp,0.524,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",TTE-MatrixAgent + Deepseek-V3.2,recAxkUUD4IoswYaG,0.429,29.91,0.4,Software Engineering Couch Team,2025-10-13,Qwen_Plus,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,Not confident on organization name.
+claude-sonnet-4-20250514,0.432,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,OpenHands-Versa + Claude Sonnet 4,recs2VYZXpRvV4pYW,0.331,46.45,1.63,CMU,2025-06-14,Claude 3.5 Sonnet,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,
+claude-3-7-sonnet-20250219,0.402,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,OpenHands-Versa + Claude 3.7 Sonnet,recaCvCBsz9PBv8Rr,0.309,52.73,3.7,CMU,2025-06-14,Claude 3.5 Sonnet,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,
+gemini-2.5-pro-preview-05-06,0.393,2025-05-06,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,OpenHands + Gemini 2.5 Pro,recU1309NhQSjUsBh,0.303,27.23,4.23,CMU,2025-05-10,Claude 3.5 Sonnet,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,Unclear exactly what version of Gemini 2.5 Pro used (defaulted to most recent before evaluation date)
+claude-3-7-sonnet-20250219,0.364,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,OpenHands + Claude 3.7 Sonnet,recI14oHMROiMrTxp,0.263,27.78,4.05,CMU,2025-05-10,Claude 3.5 Sonnet,TheAgentCompany leaderboard,https://the-agent-company.com/#/leaderboard,

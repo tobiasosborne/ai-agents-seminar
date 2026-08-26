@@ -1,0 +1,7 @@
+benchmark,first_measured,best_today,date_of_best,dead
+MMLU,2021-08-05,0.881,2024-11-20,False
+MATH level 5,2023-06-13,0.981,2025-08-07,True
+GPQA Diamond,2023-03-14,0.948,2026-08-13,True
+FrontierMath,2024-06-20,0.524,2026-04-23,False
+Humanity's Last Exam,2024-09-24,0.464,2026-02-19,False
+CritPt (research physics),2024-07-23,0.323,2026-07-09,False

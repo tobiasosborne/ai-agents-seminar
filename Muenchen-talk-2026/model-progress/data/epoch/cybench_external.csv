@@ -1,0 +1,59 @@
+Model version,Unguided % Solved,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Subtask-Guided % Solved,Subtasks % Solved,Unguided most difficult task solved (minutes),Subtask-Guided most difficult task solved (minutes),Notes,Source,Source link,id
+claude-opus-4-6_unknown,0.93,2026-02-05,Anthropic,United States of America,,,,,,,"Results from Opus 4.6 system card, also reported on the official Cybench leaderboard. The card states that Opus 4.6 gets ~100% for pass@30.",Opus 4.6 System Card,https://www-cdn.anthropic.com/0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf,recWoHNahp8uxAsGZ
+claude-opus-4-5-20251101_unknown,0.82,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,"Results from Opus 4.5 system card, also reported on the official Cybench leaderboard",Opus 4.5 System Card,https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf,recJjYw1K1NV8Z47n
+claude-sonnet-4-5-20250929_unknown,0.6,2025-09-29,Anthropic,United States of America,,,,,,,"Results from Opus 4.5 system card, also reported on the official Cybench leaderboard",Opus 4.5 System Card,https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf,recbFGPB81lSzLlEv
+claude-sonnet-4-5-20250929,0.55,2025-09-29,Anthropic,United States of America,,,,,,,"Thinking level unknown. ""Results for Claude 4.5 Sonnet, Claude 4.1 Opus, Claude 4 Opus, and Claude 4 Sonnet are from the Claude 4.5 Sonnet System Card on a subset of 37 problems. Percentages are estimates based on probability of success on 1 trial.""",Cybench leaderboard,https://cybench.github.io/,recpAkk0ysXYhjhJu
+grok-4-0709,0.43,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",,,,,Results from Grok 4 model card. Also reported on official Cybench leaderboard.,Grok 4 Model Card,https://data.x.ai/2025-08-20-grok-4-model-card.pdf,rec77oHCMurVWgzvd
+claude-opus-4-1-20250805,0.42,2025-08-05,Anthropic,United States of America,,,,,,,"Thinking level unknown. ""Results for Claude 4.5 Sonnet, Claude 4.1 Opus, Claude 4 Opus, and Claude 4 Sonnet are from the Claude 4.5 Sonnet System Card on a subset of 37 problems. Percentages are estimates based on probability of success on 1 trial.""",Cybench leaderboard,https://cybench.github.io/,recCu9LKRKI8DDSPv
+grok-4-1,0.39,2025-11-17,xAI,United States of America,,,,,,,"Thinking version. Results from Grok 4.1 Model card, also reported on official Cybench leaderboard.",Grok 4.1 Model Card,https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf,recd57Ck0JOqmhCSh
+claude-opus-4-20250514,0.38,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,"Thinking level unknown. ""Results for Claude 4.5 Sonnet, Claude 4.1 Opus, Claude 4 Opus, and Claude 4 Sonnet are from the Claude 4.5 Sonnet System Card on a subset of 37 problems. Percentages are estimates based on probability of success on 1 trial.""",Cybench leaderboard,https://cybench.github.io/,recHS1d8FpTudBN0R
+claude-sonnet-4-20250514,0.35,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,,,,,"Thinking level unknown. ""Results for Claude 4.5 Sonnet, Claude 4.1 Opus, Claude 4 Opus, and Claude 4 Sonnet are from the Claude 4.5 Sonnet System Card on a subset of 37 problems. Percentages are estimates based on probability of success on 1 trial.""",Cybench leaderboard,https://cybench.github.io/,recrjRfouZg28oDuU
+grok-4-fast,0.3,2025-09-19,xAI,United States of America,,,,,,,"Results from Grok 4 Fast Model card, also reported on official Cybench leaderboard.",Grok 4 Fast Model Card,https://data.x.ai/2025-09-19-grok-4-fast-model-card.pdf,recJ2fztLtK3WB0yS
+o3-mini-2025-01-31_medium,0.225,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",,,42.0,,"""* Results from HAL leaderboard evaluation
+
+† The scores for OpenAI o3-mini and OpenAI o1-mini are inflated because HAL likely ran on a fork of the Inspect framework that leaked the answer to a task that both models completed successfully. Their Unguided % Solved scores have been adjusted downward by 2.5% (to 22.5% and 10% respectively) and their FSTs have been updated to reflect their most difficult tasks solved excluding the leaked task (42 min for o3-mini and 11 min for o1-mini).""
+
+Assuming medium reasoning effort.",Cybench leaderboard,https://cybench.github.io/,recZdBmmrzod4SvRl
+claude-3-7-sonnet-20250219,0.2,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,,,11.0,,"""* Results from HAL leaderboard evaluation""",Cybench leaderboard,https://cybench.github.io/,reccK2H4ppj3E4QcM
+gpt-4.5-preview-2025-02-27,0.175,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",,,11.0,,"""* Results from HAL leaderboard evaluation""",Cybench leaderboard,https://cybench.github.io/,rec7SnJJ5vaTPzZMS
+claude-3-5-sonnet-20240620,0.175,2024-06-20,Anthropic,United States of America,2.700000000000001e+25,"Blog post by Dario Amodei includes some info on 3.5 Sonnet compute: https://darioamodei.com/on-deepseek-and-export-controls
+""Claude 3.5 Sonnet is a mid-sized model that cost a few $10M's to train (I won't give an exact number). Also, 3.5 Sonnet was not trained in any way that involved a larger or more expensive model (contrary to some rumors).""
+
+Using assumptions about GPU pricing, this lets us estimate compute. https://docs.google.com/spreadsheets/d/1-p-ab6t6dkUM6T7GwnFp85ePTMpZMW7LFY7fW2t8POs/",0.15,0.439,11.0,11.0,,Cybench leaderboard,https://cybench.github.io/,recnDZnKntPQUMNMP
+gpt-4o-2024-11-20,0.125,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.175,0.287,11.0,52.0,Assuming latest version,Cybench leaderboard,https://cybench.github.io/,reca4ghOZAGJnaIQP
+claude-3-opus-20240229,0.1,2024-02-29,Anthropic,United States of America,,Training compute estimated to be 1.64e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.125,0.368,11.0,11.0,,Cybench leaderboard,https://cybench.github.io/,recBEOU9mpDvDjB0J
+o1-mini-2024-09-12_medium,0.1,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",,,11.0,,"""* Results from HAL leaderboard evaluation
+
+† The scores for OpenAI o3-mini and OpenAI o1-mini are inflated because HAL likely ran on a fork of the Inspect framework that leaked the answer to a task that both models completed successfully. Their Unguided % Solved scores have been adjusted downward by 2.5% (to 22.5% and 10% respectively) and their FSTs have been updated to reflect their most difficult tasks solved excluding the leaked task (42 min for o3-mini and 11 min for o1-mini).""
+
+Assuming medium reasoning effort.",Cybench leaderboard,https://cybench.github.io/,recDdu0Wr7UcjeILN
+o1-preview-2024-09-12,0.1,2024-09-12,OpenAI,United States of America,,,0.1,0.468,11.0,11.0,,Cybench leaderboard,https://cybench.github.io/,recrEGfmnK38cjFjn
+Mixtral-8x22B-Instruct-v0.1,0.075,2024-04-17,Mistral AI,France,2.34e+24,"Assuming the model was trained on ~1-10 trillions of tokens (same OOM as the models from the comparison in Figure 1. Llama 2 was trained on 2T tokens) + Mistral Small 3 was trained on 8T of tokens, we can estimate training compute with ""speculative"" confidence:
+
+6 FLOP / token / parameter * 39 * 10^9 active parameters * 10*10^12 tokens [speculatively] = 2.34e+24 FLOP",0.05,0.152,9.0,7.0,,Cybench leaderboard,https://cybench.github.io/,recFsRheuwg1wunwf
+Llama-3.1-405B-Instruct,0.075,2024-07-23,Meta AI,United States of America,3.8e+25,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25",0.15,0.205,9.0,11.0,,Cybench leaderboard,https://cybench.github.io/,recHTQDbjXmORU18G
+gemini-1.5-pro-001-feb24,0.075,2024-02-15,Google DeepMind,United States of America,,Training compute imputed to be 1.58e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,0.05,0.117,9.0,6.0,,Cybench leaderboard,https://cybench.github.io/,reco8bWKr3VP7mW4o
+Meta-Llama-3-70B-Instruct,0.05,2024-04-18,Meta AI,United States of America,7.861e+24,"Arithmetic calculation:
+6 * 15T tokens * 70B parameters = 6.3e24
+
+GPU calculation:
+https://huggingface.co/meta-llama/Meta-Llama-3-70B indicates training took 6.4M GPU-hours
+We also know their larger scale training runs for 405B were getting between 0.38-0.41 MFU. Presumably the 70B model gets at least 0.43 utilization (405B has to be split across two nodes, while 70B should fit on one).
+990 TFLOPS per GPU * 6.4 million GPU hours * 3600s * 0.43 = 9.808e24
+
+Geometric mean: sqrt(6.3e24 * 9.808e24) = 7.861e24",0.075,0.082,9.0,11.0,,Cybench leaderboard,https://cybench.github.io/,recqUzjd97hyzZN2f

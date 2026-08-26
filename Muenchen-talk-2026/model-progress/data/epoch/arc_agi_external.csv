@@ -1,0 +1,326 @@
+Model version,Score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Cost per task,Source,Source link,Notes,id
+claude-fable-5_xhigh,0.985,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (XHigh),,https://arcprize.org/leaderboard,,,recRjJaF7m8Y15119
+claude-fable-5_max,0.985,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (Max),,https://arcprize.org/leaderboard,,,recr0Gvn97QjInOIz
+gemini-3.1-pro-preview,0.98,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro (Preview),0.5223,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recVzc3uOYbFmIWtV
+gpt-5.6-sol_xhigh,0.975,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (xHigh),0.4,https://arcprize.org/leaderboard,,,recrNPlnXllOt0Hvg
+claude-opus-5_max,0.975,2026-07-24,Anthropic,United States of America,,,Claude Opus 5 (High),,https://arcprize.org/leaderboard,,,recSq1VCkt6IwLBGs
+claude-opus-5_high,0.975,2026-07-24,Anthropic,United States of America,,,Claude Opus 5 (High),,https://arcprize.org/leaderboard,,,recyQEeaf1aLYbe8E
+claude-opus-5_max,0.975,2026-07-24,Anthropic,United States of America,,,Claude Opus 5 (Max),,https://arcprize.org/leaderboard,,,rechlxvtvt0jfACe1
+gpt-5.6-sol_xhigh,0.975,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (XHigh),,https://arcprize.org/leaderboard,,,recP0shtwkpwoQk7S
+gpt-5.6-sol_high,0.97,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (High),0.3,https://arcprize.org/leaderboard,,,recCdwY3IG6HNCGGJ
+gpt-5.5-pro_high,0.965,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Pro (High),4.53,https://arcprize.org/leaderboard,,,recl8K2yYdGuM18Vy
+gpt-5.6-sol_max,0.965,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (Max),0.54,https://arcprize.org/leaderboard,,,recQ2TSIxubhoK4nZ
+gpt-5.6-terra_max,0.965,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (Max),0.55,https://arcprize.org/leaderboard,,,recabQE8jIZy7XTnk
+,0.96,,,,,,Gemini 3 Deep Think (2/26),13.62,,,,recTh8A2nzouwtoS4
+gemini-3-deep-think-preview,0.96,2026-02-12,,,,,Gemini 3 Deep Think (2/26),,https://arcprize.org/leaderboard,,,recB6y5fhltz222iF
+claude-fable-5_high,0.9550000000000001,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (High),,https://arcprize.org/leaderboard,,,recgy0nKpQ48MWzVu
+gemini-3.7-flash_high,0.9550000000000001,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash (High),,https://arcprize.org/leaderboard,,,recsY80edOvxj4oOR
+gpt-5.5_xhigh,0.9500000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (xHigh),0.73,https://arcprize.org/leaderboard,,,recAosypqreZ8jmIT
+gpt-5.5-pro_xhigh,0.9500000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Pro (xHigh),4.52,https://arcprize.org/leaderboard,,,recrLBN8ncVRXcY2G
+gpt-5.5-pro_xhigh,0.9500000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Pro (XHigh),,https://arcprize.org/leaderboard,,,rec9O8ndiJV4IzmHu
+gpt-5.5_xhigh,0.9500000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (XHigh),,https://arcprize.org/leaderboard,,,recqSzsMcRfH9WyxG
+gpt-5.4-pro-2026-03-05_xhigh,0.9450000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 Pro (xHigh),7.21,,,,recoac8q5cQOYtiEr
+gpt-5.5_high,0.9450000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (High),0.56,https://arcprize.org/leaderboard,,,rechGGHK5NkpuRbvZ
+kimi-k3_max,0.9450000000000001,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 (Max),0.7704815999999995,https://arcprize.org/leaderboard,,,recSadJjXBVay9MJG
+gpt-5.4-pro-2026-03-05_xhigh,0.9450000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 Pro (XHigh),,https://arcprize.org/leaderboard,,,recXEd6tFFq0OodXL
+gpt-5.6-terra_xhigh,0.9400000000000001,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (xHigh),0.26,https://arcprize.org/leaderboard,,,recZAbgf19TPU7sN1
+claude-opus-4-6_120K,0.9400000000000001,2026-02-05,Anthropic,United States of America,,,"Claude Opus 4.6 (120K, High)",,https://arcprize.org/leaderboard,,,recazrzN9UYUSV1iu
+gpt-5.6-terra_xhigh,0.9400000000000001,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (XHigh),,https://arcprize.org/leaderboard,,,recUgeEiFE9fXQL3Z
+claude-opus-4-6_120K,0.94,2026-02-05,Anthropic,United States of America,,,"Claude Opus 4.6 (High, 120k thinking)",,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recZTnD93GgPevLI2
+gpt-5.4-2026-03-05_xhigh,0.9367000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (xHigh),0.62,,,,recYZZpkF3X0HOhG6
+gpt-5.4-2026-03-05_xhigh,0.9367000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (XHigh),,https://arcprize.org/leaderboard,,,recWiLBMjYySlXFw8
+claude-opus-4-7_high,0.935,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (High),1.41,,,,recsAZge7JFpmZUCV
+claude-opus-4-7_high,0.935,2026-04-16,Anthropic,United States of America,,,Claude 4.7 (High),,https://arcprize.org/leaderboard,,,recGPGem5qYI7gRl4
+claude-opus-4-6_120K,0.93,2026-02-05,Anthropic,United States of America,,,"Claude Opus 4.6 (120K, Max)",,https://arcprize.org/leaderboard,,,recM43lOIaRtUf1mn
+gpt-5.4-2026-03-05_high,0.9267000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (High),0.37,,,,recggD3Y6D88kSVaH
+gemini-3.5-flash_high,0.925,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash (High),0.4278,https://arcprize.org/leaderboard,,,recVnYyaVQjDvDtup
+claude-opus-4-8_max,0.925,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (Max),2.332,https://arcprize.org/leaderboard,,,recX5Vpu2SxT2jvtJ
+gpt-5.6-sol_medium,0.925,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (Medium),0.22,https://arcprize.org/leaderboard,,,recBnEMNkjbANkBPV
+claude-fable-5_medium,0.925,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (Medium),,https://arcprize.org/leaderboard,,,recnnva4EmGtevmRJ
+gpt-5.5_medium,0.9217000000000001,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (Medium),0.39,https://arcprize.org/leaderboard,,,rec3T7XZVcuk74DEh
+claude-opus-4-7_max,0.92,2026-04-16,Anthropic,United States of America,,,Claude Opus 4.7 (Max),2.58,,,,recBvnwhpAjJYVBYf
+claude-opus-4-8_high,0.92,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (High),1.0416,https://arcprize.org/leaderboard,,,recYbC1GbUCLyPSIp
+gpt-5.6-terra_high,0.92,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (High),0.19,https://arcprize.org/leaderboard,,,recgED1Md3qIP7P7j
+claude-opus-4-6_120K,0.92,2026-02-05,Anthropic,United States of America,,,"Claude Opus 4.6 (120K, Medium)",,https://arcprize.org/leaderboard,,,recoN4YV9cS1BcESr
+claude-opus-4-7_max,0.92,2026-04-16,Anthropic,United States of America,,,Claude 4.7 (Max),,https://arcprize.org/leaderboard,,,rec0Zi0OrdC9mEo7f
+claude-opus-4-8_medium,0.915,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (Medium),0.9115,https://arcprize.org/leaderboard,,,recOGBDeWlb8DCkFv
+gemini-3.6-flash_high,0.9116666666666666,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash (High),,https://arcprize.org/leaderboard,,,recwFpri94sXuU76A
+gemini-3.7-flash_medium,0.9116666666666666,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash (Medium),,https://arcprize.org/leaderboard,,,recfGdSHF9DQEv10q
+claude-opus-4-7_low,0.91,2026-04-16,Anthropic,United States of America,,,Claude 4.7 (Low),0.76,https://arcprize.org/leaderboard,,,recQXzhqc6WDcJWp6
+claude-opus-4-7_medium,0.91,2026-04-16,Anthropic,United States of America,,,Claude 4.7 (Medium),1.04,https://arcprize.org/leaderboard,,,recBBFNgJ4AHLvHWQ
+gpt-5.2-pro-2025-12-11_xhigh,0.905,2025-12-11,OpenAI,United States of America,,,GPT-5.2 Pro (X-High),11.6542,,,,recT4SRr3jv5zIy1J
+gpt-5.2-pro-2025-12-11_xhigh,0.905,2025-12-11,OpenAI,United States of America,,,GPT-5.2 Pro (xHigh),,https://arcprize.org/leaderboard,,,recKxtWWM4vXnlEV3
+gpt-5.2-pro-2025-12-11_xhigh,0.905,2025-12-11,OpenAI,United States of America,,,GPT-5.2 Pro (XHigh),,https://arcprize.org/leaderboard,,,recgKflccwPhpkeuw
+claude-fable-5_low,0.905,2026-06-09,Anthropic,United States of America,,,Claude Fable 5 (Low),,https://arcprize.org/leaderboard,,,recicAFlVclfoLIh1
+deepseek-v4-pro-0813_low,0.905,2026-08-13,DeepSeek,China,9.702e+24,From https://api-docs.deepseek.com/news/news260813/: built on the DeepSeek-V4-Pro (Preview) model structure with a DSpark speculative-decoding module; agent-focused post-training upgrades. Pre-training compute carried over from DeepSeek-V4-Pro (6 * 49e9 active parameters * 33e12 tokens = 9.702E24).,DeepSeek V4 Pro 0813 (Low),,https://arcprize.org/leaderboard,,,rec0JM4Fs9lGdZZjO
+deepseek-v4-pro-0813_max,0.9,2026-08-13,DeepSeek,China,9.702e+24,From https://api-docs.deepseek.com/news/news260813/: built on the DeepSeek-V4-Pro (Preview) model structure with a DSpark speculative-decoding module; agent-focused post-training upgrades. Pre-training compute carried over from DeepSeek-V4-Pro (6 * 49e9 active parameters * 33e12 tokens = 9.702E24).,DeepSeek V4 Pro 0813 (Max),,https://arcprize.org/leaderboard,,,reci9sB7ercpQZT3r
+grok-4-20,0.895,2026-02-17,xAI,United States of America,,,Grok 4.20 (Reasoning),0.35,https://arcprize.org/leaderboard,,,rec1UyvWkk0dqISpu
+deepseek-v4-flash-0731_max,0.89,2026-07-31,DeepSeek,China,2.496e+24,"From https://api-docs.deepseek.com/updates/: ""DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained.""
+
+6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training",DeepSeek V4 Flash 0731 (Max),,https://arcprize.org/leaderboard,,,rece26MXZZVoiMLqB
+claude-opus-4-8_low,0.88,2026-05-28,Anthropic,United States of America,,,Claude Opus 4.8 (Low),0.6711,https://arcprize.org/leaderboard,,,rec3CNglZ0AQBUIRC
+gpt-5.6-luna_max,0.88,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (Max),0.32,https://arcprize.org/leaderboard,,,recYjOYezFdRMvEGW
+gpt-5.6-luna_xhigh,0.8767,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (xHigh),0.21,https://arcprize.org/leaderboard,,,recN52OtrmxlFYCZs
+gpt-5.6-luna_xhigh,0.8767,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (XHigh),,https://arcprize.org/leaderboard,,,recqLDFFeV5jU45oY
+gemini-3-deep-think-preview,0.875,2026-02-12,,,,,Gemini 3 Deep Think (Preview),77.16,,,,recpC5nib10TXfNiG
+gemini-3-deep-think-preview,0.875,2026-02-12,,,,,Gemini 3 Deep Think (Preview) ²,,https://arcprize.org/leaderboard,,,recvkCnt2z3iBicgq
+grok-4.6_medium,0.875,2026-08-12,xAI,United States of America,,,Grok 4.6 (Medium),,https://arcprize.org/leaderboard,,,recIu38h0FzayjCH9
+grok-4.5_medium,0.8717,2026-07-08,xAI,United States of America,,,Grok 4.5 (Medium),0.31,https://arcprize.org/leaderboard,,,recaxlUnEyQPIo6dH
+deepseek-v4-pro-0813_high,0.8716666666666666,2026-08-13,DeepSeek,China,9.702e+24,From https://api-docs.deepseek.com/news/news260813/: built on the DeepSeek-V4-Pro (Preview) model structure with a DSpark speculative-decoding module; agent-focused post-training upgrades. Pre-training compute carried over from DeepSeek-V4-Pro (6 * 49e9 active parameters * 33e12 tokens = 9.702E24).,DeepSeek V4 Pro 0813 (High),,https://arcprize.org/leaderboard,,,rechTprNycUD7yIEb
+deepseek-v4-flash-0731_high,0.87,2026-07-31,DeepSeek,China,2.496e+24,"From https://api-docs.deepseek.com/updates/: ""DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained.""
+
+6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training",DeepSeek V4 Flash 0731 (High),,https://arcprize.org/leaderboard,,,rec3H90U0FFYQCSXb
+grok-4.6_xhigh,0.87,2026-08-12,xAI,United States of America,,,Grok 4.6 (XHigh),,https://arcprize.org/leaderboard,,,recs712JyZ2vRzQvO
+grok-4.6_high,0.87,2026-08-12,xAI,United States of America,,,Grok 4.6 (High),,https://arcprize.org/leaderboard,,,recwvQT7NkltiBYPm
+kimi-k3_high,0.8666666666666666,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 (High),0.47977101000000005,https://arcprize.org/leaderboard,,,recqGzK15OabAHffc
+claude-sonnet-4-6_high,0.865,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6 (High),1.1908,,,,recVQARdNCk8I5YS2
+gpt-5.2-2025-12-11_xhigh,0.862,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (X-High),0.96,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recgxHD7jV9nk6VyZ
+gpt-5.4-2026-03-05_medium,0.8617,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (Medium),0.25,,,,recJZdb4rBpTeaaTI
+gpt-5.2-2025-12-11_xhigh,0.8617,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (xHigh),,https://arcprize.org/leaderboard,,,recKpS4EjVfqnm3Ow
+gpt-5.2-2025-12-11_xhigh,0.8617,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (XHigh),,https://arcprize.org/leaderboard,,,recoRUIJo45xau1mW
+claude-sonnet-4-6_max,0.86,2026-02-17,Anthropic,United States of America,,,Claude Sonnet 4.6 (Max),1.452,,,,recsU65UVdKsRlUJk
+claude-opus-4-6_120K,0.86,2026-02-05,Anthropic,United States of America,,,"Claude Opus 4.6 (120K, Low)",,https://arcprize.org/leaderboard,,,recAgfLcp2ceTsir9
+gpt-5.2-pro-2025-12-11_high,0.8567,2025-12-11,OpenAI,United States of America,,,GPT-5.2 Pro (High),5.8694,,,,recKYn0z5TIlRsr82
+grok-4.5_high,0.8567,2026-07-08,xAI,United States of America,,,Grok 4.5 (High),0.33,https://arcprize.org/leaderboard,,,recmSEXUPS7bh0iUI
+gemini-3.7-flash_low,0.8516666666666666,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash (Low),,https://arcprize.org/leaderboard,,,recIL73XKtvNVD7Om
+gemini-3-flash-preview,0.8467,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash Preview (High),0.1743,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recc51QLAwOR4KjmP
+inkling-small_xhigh,0.84,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (XHigh),,https://arcprize.org/leaderboard,,,rec19KlLfCM7UpqBJ
+deepseek-v4-flash-0731_low,0.84,2026-07-31,DeepSeek,China,2.496e+24,"From https://api-docs.deepseek.com/updates/: ""DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained.""
+
+6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training",DeepSeek V4 Flash 0731 (Low),,https://arcprize.org/leaderboard,,,recgsyaqI99Ziz4t5
+gemini-3.6-flash_medium,0.8316666666666666,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash (Medium),,https://arcprize.org/leaderboard,,,reczMZaXZ861qN6Hg
+gpt-5.2-pro-2025-12-11_medium,0.8117000000000001,2025-12-11,OpenAI,United States of America,,,GPT-5.2 Pro (Medium),3.9774,,,,recAdSbvORoPGa4Qi
+claude-opus-4-5-20251101_64K,0.8,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5 (64k thinking),1.47,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recXBzrtTETaQuvxw
+claude-opus-4-5-20251101_64K,0.8,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Opus 4.5 (Thinking, 64K)",,https://arcprize.org/leaderboard,,,recDG3Rbrpu9Cjze2
+Inkling,0.795,2026-07-15,Thinking Machines,United States of America,1.845e+24,6ND = 41e9 active parameters * 45e12 tokens = 1.845e+24 FLOP,Inkling,0.30047416199999993,https://arcprize.org/leaderboard,,,recMea5hfj7XIOzYH
+grok-4.5_low,0.7917000000000001,2026-07-08,xAI,United States of America,,,Grok 4.5 (Low),0.18,https://arcprize.org/leaderboard,,,recTjmRwwXkhXuf3X
+gpt-5.2-2025-12-11_high,0.7867000000000001,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (High),0.5196,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recG0lrSvCvamnnBm
+inkling-small_high,0.78,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (High),,https://arcprize.org/leaderboard,,,recgRmEW1KZcdGKZm
+glm-5.2_unknown,0.77,2026-06-16,Z.ai (Zhipu AI),China,,,GLM-5.2,0.1916,https://arcprize.org/leaderboard,,,rec783bNfpoKvxStC
+gpt-5.6-terra_medium,0.77,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (Medium),0.13,https://arcprize.org/leaderboard,,,rec2gOLjWGIo3EDZc
+gpt-5.6-luna_high,0.765,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (High),0.13,https://arcprize.org/leaderboard,,,recZ2UaRzTx3PmoSP
+gemini-3.6-flash_low,0.765,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash (Low),,https://arcprize.org/leaderboard,,,recC6P2Ozh3zZKLqc
+gpt-5.5_low,0.7617,2026-04-23,OpenAI,United States of America,,,GPT-5.5 (Low),0.2,https://arcprize.org/leaderboard,,,rec7WJ0gbABZ60vSH
+claude-opus-4-5-20251101_32K,0.7583,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Opus 4.5 (Thinking, 32K)",,https://arcprize.org/leaderboard,,,recQaSIdYDM01Js2n
+claude-opus-4-5-20251101_32K,0.758,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4.5 (32k thinking),0.95,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recn5WFdr0nWTOt7b
+,0.757,,,,,,o3-preview (Low)*,,ARC Prize Leaderboard,https://arcprize.org/leaderboard,Excluded since there will never be any other benchmark data for it apart from FrontierMath,recM25loZNyA1teVD
+gemini-3-pro-preview,0.75,2025-11-18,Google DeepMind,United States of America,,Almost certainly >1e25,Gemini 3 Pro,0.4926,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recJT3M7RL0TgeABi
+grok-4.6_low,0.7483333333333334,2026-08-12,xAI,United States of America,,,Grok 4.6 (Low),,https://arcprize.org/leaderboard,,,recFcvwZPnbu9Wk1z
+gpt-5.6-sol_low,0.745,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol (Low),0.17,https://arcprize.org/leaderboard,,,recFnbBRcRFSkkzd1
+gpt-5.1-2025-11-13_high,0.7283,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+","GPT-5.1 (Thinking, High)",,https://arcprize.org/leaderboard,,,recGheKChbMIg5rp8
+gpt-5.1-2025-11-13_high,0.728,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT-5.1 (High),0.674,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec8sLsUfujiSrlk4
+gpt-5.2-2025-12-11_medium,0.7267,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (Medium),0.3448,,,,recgYU9vtVcXAzyE7
+claude-opus-4-5-20251101_16K,0.72,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Opus 4.5 (Thinking, 16K)",0.62,,,,recPFxyFbtk2zgGrK
+gpt-5-pro-2025-10-06_high,0.702,2025-10-07,OpenAI,United States of America,,,GPT-5 Pro,,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec4jlS7emdBeDgkx
+gpt-5-pro-2025-10-06_unknown,0.7017,2025-10-07,OpenAI,United States of America,,,GPT-5 Pro,4.7785,,,,recS53Gln4vftmgkx
+gpt-5.4-2026-03-05_low,0.6817000000000001,2026-03-05,OpenAI,United States of America,,,GPT-5.4 (Low),0.15,,,,recmvkkmWAsDklsPA
+inkling-small_medium,0.67,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (Medium),,https://arcprize.org/leaderboard,,,recqGEDOjI6CKQgg0
+grok-4-0709,0.6667000000000001,2025-07-09,xAI,United States of America,5.0000000000001e+26,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+",Grok 4 (Thinking),2.17,,,,rec2xTKJLWfMMxIvS
+gpt-5-2025-08-07_high,0.6567000000000001,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (High),0.5087,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recy0dyn1Ex4jNC4H
+kimi-k3_low,0.6566666666666666,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 (Low),0.18061866,https://arcprize.org/leaderboard,,,rec5cJ247ekdZACxN
+kimi-k2.5,0.6533,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5,0.15,,,,reckd4ffXh86QXwwY
+claude-sonnet-4-5-20250929_32K,0.6367,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5 (Thinking 32K),0.5193,,,,rec17BpugSGZTB9s8
+MiniMax-M2.5,0.6367,2026-02-12,MiniMax,China,,,Minimax M2.5,0.07,,,,receB8OOl8dtDUVr6
+gpt-5.4-mini-2026-03-17_xhigh,0.6367,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Mini (xHigh),0.51,https://arcprize.org/leaderboard,,,rec05QEcCMeKiXIgI
+gpt-5.4-mini-2026-03-17_xhigh,0.6367,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Mini (XHigh),,https://arcprize.org/leaderboard,,,recg1uxrFjyxqvPTs
+o3-2025-04-16_high,0.6083,2025-04-16,OpenAI,United States of America,,,o3 (High),0.5002,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recyX2f3amNA4ZPUQ
+gpt-5.6-terra_low,0.6017,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra (Low),0.09,https://arcprize.org/leaderboard,,,recHsvqtEj8sE4t1S
+o3-pro-2025-06-10_high,0.5933,2025-06-10,OpenAI,United States of America,,,o3-Pro (High),4.16,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recgEreMuMqYTWJuX
+o4-mini-2025-04-16_high,0.5867,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (High),0.4058,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,receup1qngSep4blO
+claude-opus-4-5-20251101_8K,0.5867,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Opus 4.5 (Thinking, 8K)",0.38,,,,recnTJS3iYYQ2jc7n
+gpt-5.4-mini-2026-03-17_high,0.58,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Mini (High),0.27,https://arcprize.org/leaderboard,,,recQuMohacriH1ZXn
+gpt-5.1-2025-11-13_medium,0.577,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT-5.1 (Medium),0.3149,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,reccC3Lgebztl4MAm
+gemini-3-flash-preview,0.5767,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash Preview (Medium),0.0612,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recuhSCKFRclgYZzv
+gpt-5.1-2025-11-13_medium,0.5767,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+","GPT-5.1 (Thinking, Medium)",,https://arcprize.org/leaderboard,,,recfBsUpGwiKhprnF
+o3-pro-2025-06-10_medium,0.57,2025-06-10,OpenAI,United States of America,,,o3-Pro (Medium),3.1766,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,reco8WbS3E6S6DSwq
+deepseek/deepseek-v3.2,0.57,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",Deepseek V3.2,0.08,,,,recexUBOP4rLbxskl
+gpt-5.6-luna_medium,0.565,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (Medium),0.06,https://arcprize.org/leaderboard,,,recUw0ZVlPFxA8ETK
+gpt-5-2025-08-07_medium,0.5617,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (Medium),0.3301,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recfuBzPqyWo5BEjp
+gpt-5.2-2025-12-11_low,0.5567,2025-12-11,OpenAI,United States of America,,,GPT-5.2 (Low),0.1657,,,,rectoL9U5nR5I823g
+gpt-5-mini-2025-08-07_high,0.5433,2025-08-07,OpenAI,United States of America,,,GPT-5 Mini (High),0.116,,,,recYLj0L3xmejkpDR
+o3-2025-04-16_medium,0.5383,2025-04-16,OpenAI,United States of America,,,o3 (Medium),0.2882,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,reczsOK58YJa6GAAz
+gemini-3.5-flash-lite_high,0.535,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.5 Flash-Lite (High),,https://arcprize.org/leaderboard,,,rec3MeJ4tl0mWlnxT
+inkling-small_low,0.525,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (Low),,https://arcprize.org/leaderboard,,,recG1iu3ZYYWAELeh
+gpt-5.4-nano-2026-03-17_xhigh,0.515,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Nano (xHigh),0.13,https://arcprize.org/leaderboard,,,recNETiFSCWWQlZLG
+gpt-5.4-nano-2026-03-17_xhigh,0.515,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Nano (XHigh),,https://arcprize.org/leaderboard,,,recXcgwRs2pY4JXLA
+gemini-3.5-flash_minimal,0.4883,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash (Minimal),0.0645,https://arcprize.org/leaderboard,,,recnkvbCp6BqU3GuM
+grok-4-fast,0.485,2025-09-19,xAI,United States of America,,,Grok 4 (Fast Reasoning),0.0307,,,,recNDgnXdjMNbLBuO
+inkling-small_minimal,0.485,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (Minimal),,https://arcprize.org/leaderboard,,,recPyBo0rj5J9H8TR
+claude-sonnet-4-5-20250929_16K,0.4833,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5 (Thinking 16K),0.2683,,,,recBS5Nb7JpfywLTo
+claude-haiku-4-5-20251001_32K,0.4767,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (Thinking 32K),0.2558,,,,recSjmMESs5Bif5dG
+claude-sonnet-4-5-20250929_8K,0.465,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5 (Thinking 8K),0.1776,,,,recm8p4NdctHUJDq3
+glm-5,0.44670000000000004,2026-02-11,Z.ai (Zhipu AI),China,6.84e+24,6 * 40B parameters * 28.5e12 tokens = 6.84e24 FLOP estimated,GLM-5,0.17,,,,reczebBHCblQzBn5N
+o3-pro-2025-06-10_low,0.4433000000000001,2025-06-10,OpenAI,United States of America,,,o3-Pro (Low),1.6382,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,rec2DTU08MgXm0hds
+gpt-5-2025-08-07_low,0.44,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (Low),0.1531,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recyhP0MFpu4yP9Fs
+o4-mini-2025-04-16_medium,0.4183,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (Medium),0.15,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recFnX3IAcQd2NffG
+o3-2025-04-16_low,0.415,2025-04-16,OpenAI,United States of America,,,o3 (Low),0.1764,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recmynZQA4oogWrzw
+gemini-2.5-pro_16K,0.41000000000000003,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (Thinking 16K),0.4839,,,,recMuDqJwbLT2EDuY
+gpt-5.4-mini-2026-03-17_medium,0.4083,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Mini (Medium),0.16,https://arcprize.org/leaderboard,,,recmn6AVhsYVjq4DI
+claude-sonnet-4-20250514_16K,0.4,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4 (Thinking 16K),0.3658,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec00IX4WEZ6XvDQd
+tiny-recursion-model,0.4,2025-10-06,,,,,Tiny Recursion Model (TRM),1.7638,,,,recFIWEjevgWkejR0
+claude-opus-4-5-20251101,0.4,2025-11-24,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Opus 4.5 (Thinking, None)",0.13,,,,recQS3YkzKXSzapvO
+gpt-5.4-nano-2026-03-17_high,0.38170000000000004,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Nano (High),0.07,https://arcprize.org/leaderboard,,,recKvmcoxVuVU3rEP
+gpt-5-mini-2025-08-07_medium,0.3733000000000001,2025-08-07,OpenAI,United States of America,,,GPT-5 Mini (Medium),0.0401,,,,rec5TE9pAmGVT4dTe
+claude-haiku-4-5-20251001_16K,0.3733000000000001,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (Thinking 16K),0.1042,,,,rec66qqPrc9KEuz6G
+gemini-2.5-pro_32K,0.37,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (Thinking 32K),0.5123,,,,recgu9IZuwPFiUJYg
+claude-opus-4-20250514_16K,0.3567,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4 (Thinking 16K),1.2496,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recpPgRxRuNQ6MJbU
+gemini-3.6-flash_minimal,0.34500000000000003,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash (Minimal),,https://arcprize.org/leaderboard,,,recydzNjNPevATSzW
+o3-mini-2025-01-31_high,0.345,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o3-mini (High),0.3989,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recsslT51vOvwD7Hw
+gpt-5.6-luna_low,0.3417,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna (Low),0.04,https://arcprize.org/leaderboard,,,recABKYEfZ7PyiB5S
+gemini-2.5-flash-preview-05-20_16K,0.3333,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview) (Thinking 16K),0.2134,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recPvvngATSJ9tzRl
+gemini-2.5-flash-preview-05-20,0.3333,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview),0.0371,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recRaEsoFzvHSY2ds
+gpt-5.1-2025-11-13_low,0.33170000000000005,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+","GPT-5.1 (Thinking, Low)",0.1,,,,recwxEKhGNXOQtDaL
+,0.331,,,,,,GPT-5.1 (Low),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rectUG8eOKZjJ1xGs
+gemini-2.5-pro-preview-03-25,0.33,2025-03-31,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (Preview),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recGhSAAXTywTt6ks
+gpt-5.4-nano-2026-03-17_medium,0.33,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Nano (Medium),0.04,https://arcprize.org/leaderboard,,,recjUSAkzsZXxB1Bq
+gemini-3.5-flash-lite_medium,0.3233333333333333,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.5 Flash-Lite (Medium),,https://arcprize.org/leaderboard,,,recmVW0vB0fyGe6YR
+gemini-2.5-flash-preview-05-20_23K,0.3233,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview) (Thinking 24K),0.1971,,,,recrGgsi1mnHqQ5CS
+gemini-2.5-flash-preview-04-17 (24K thinking),0.323,2025-04-17,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview) (Thinking 24K),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec9VDig3HkReY0oP
+gemini-2.5-pro-preview-06-05_1K,0.313,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,"Gemini 2.5 Pro (Preview, Thinking 1K)",0.0573,ARC Prize Leaderboard,https://arcprize.org/leaderboard,Thinking budgets have only been supported since 06-05,recdEFBjW5RECOz15
+claude-sonnet-4-5-20250929_1K,0.31,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5 (Thinking 1K),0.0928,,,,recZuRgDEIeVMg4pB
+o1-2024-12-17_medium,0.307,2024-12-17,OpenAI,United States of America,,,o1 (Medium),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec3bVHAcLI4a7u7z
+claude-opus-4-20250514_8K,0.3067,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4 (Thinking 8K),0.7408,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,rec5eQ6jRbh3n8fQc
+gemini-2.5-pro_8K,0.295,2025-06-17,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (Thinking 8K),0.2947,,,,recRQcZH0KSrPBUgQ
+claude-sonnet-4-20250514_8K,0.29,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4 (Thinking 8K),0.1952,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recd23dJHC8IgD2IC
+gemini-3-flash-preview,0.29,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash Preview (Low),0.0163,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recYOvqwUmS3YeSk7
+claude-3-7-sonnet-20250219_16K,0.286,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 (16K),0.33,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recgR391dmSWyZjKu
+claude-sonnet-4-20250514_1K,0.28,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4 (Thinking 1K),0.0937,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recs4iQhoJgUrLWrd
+codex-mini-2025-05-16,0.2733,2025-05-16,,,,,Codex Mini (Latest),0.1597,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recBLorgitaes8FMx
+o1-2024-12-17_low,0.272,2024-12-17,OpenAI,United States of America,,,o1 (Low),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recxLLEulVCEVpIcG
+claude-opus-4-20250514_1K,0.27,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4 (Thinking 1K),0.5021,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recOlznt9pRz5uq9J
+gpt-5-mini-2025-08-07_low,0.2633,2025-08-07,OpenAI,United States of America,,,GPT-5 Mini (Low),0.0135,,,,recPVPAR1lQ3MnEGK
+gemini-2.5-flash-preview-05-20_8K,0.2583,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview) (Thinking 8K),0.1344,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recy1lONU8pakDYKr
+claude-sonnet-4-5-20250929,0.255,2025-09-29,Anthropic,United States of America,,,Claude Sonnet 4.5,0.0808,,,,recfm25PSdUjoU7HO
+claude-haiku-4-5-20251001_8K,0.255,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (Thinking 8K),0.0687,,,,rechpW8H5iHdEgOUM
+claude-sonnet-4-20250514,0.2383,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Sonnet 4,0.0806,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recXVePhVjOhYoNSC
+o1-pro-2025-03-19_low,0.233,2025-03-19,OpenAI,United States of America,,,o1-pro (Low),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recW7rLYsNpIjAlPE
+claude-opus-4-20250514,0.225,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude Opus 4,0.4036,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recU2yBBdPh7FDErC
+o3-mini-2025-01-31_medium,0.2233,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o3-mini (Medium),0.1907,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recKkBnHhDmmhkCSp
+gemini-3-flash-preview,0.215,2025-12-17,Google DeepMind,United States of America,,,Gemini 3 Flash Preview (Minimal),0.012,,,,recUb9rzqKIPGj4Ll
+o4-mini-2025-04-16_low,0.2133,2025-04-16,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o4-mini (Low),0.0406,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,reci1Fl7wFPBUAxIi
+DeepSeek-R1-0528,0.2121,2025-05-28,DeepSeek,China,4.020010000000001e+24,"Estimates by Ege Erdil in Gradient Updates:
+https://epoch.ai/gradient-updates/what-went-into-training-deepseek-r1
+""A dataset size of 14.8 trillion tokens is reasonable and in line with other models of this scale. Assuming that’s valid, the pretraining of this model would have required 6 * (37 billion) * (14.8 trillion) = 3e24 FLOP. If we assume DeepSeek’s training cluster consists of H800s with the PCIe form factor, then each should be capable of 1.5e15 FP8 per second, and the implied model FLOP utilization (MFU) of DeepSeek v3’s 55 day training run ends up being around 23%.""
+
+6 FLOP/token/param * 14.8T tokens * 37B active params = 3.29e24 FLOP (pretraining)
+1.2e23 FLOP (post-training)
+6.1e23 FLOP (fine-tuning)
+
+Total compute: 3.29e24 + 1.2e23 + 6.1e23 = 4.02e24",Deepseek R1 (05/28),0.0464,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,recsscdqM4qvGHGT3
+claude-3-7-sonnet-20250219_8K,0.212,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 (8K),0.21,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,reckQgsdCUEH1BmYZ
+gpt-5-nano-2025-08-07_medium,0.2071,2025-08-07,OpenAI,United States of America,,,GPT-5 Nano (Medium),0.0124,,,,reccPnp1eWrOMDX51
+gpt-5.4-nano-2026-03-17_low,0.1833,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Nano (Low),0.01,https://arcprize.org/leaderboard,,,recfphgegRzZ4mOYq
+o1-preview-2024-09-12,0.18,2024-09-12,OpenAI,United States of America,,,o1-preview,,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,reclttZQlaXCYpTDb
+gemini-3.5-flash-lite_low,0.17,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.5 Flash-Lite (Low),,https://arcprize.org/leaderboard,,,recnf60khv2UIdIGX
+claude-haiku-4-5-20251001_1K,0.16830000000000003,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5 (Thinking 1K),0.0306,,,,rechYdBGiz7Q83lQN
+gpt-5-nano-2025-08-07_high,0.1667,2025-08-07,OpenAI,United States of America,,,GPT-5 Nano (High),0.0292,,,,rec5XtpFjG24wKtGF
+grok-3-mini-beta_low,0.165,2025-04-09,xAI,United States of America,,,Grok 3 Mini (Low),,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recUL8yDJO8uotk8q
+grok-3-mini_low,0.165,2025-06-24,xAI,United States of America,,,Grok 3 Mini (Low),0.0099,,,,recmB2931TiCLxLua
+gemini-2.5-flash-preview-05-20_1K,0.16,2025-05-20,Google DeepMind,United States of America,,,Gemini 2.5 Flash (Preview) (Thinking 1K),0.0356,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recxGd7FrJeq7ZyUy
+gemini-2.5-pro-preview-06-05_1K,0.16,2025-06-05,Google DeepMind,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Gemini 2.5 Pro (Thinking 1K),,https://arcprize.org/leaderboard,,,rec2WZOsDxvKPGFle
+DeepSeek-R1,0.158,2025-01-20,DeepSeek,China,3.5e+24,"3.29e24 + 1.8e23 = 3.47e24, round to 3.5e24 due to lack of sigfigs",Deepseek R1,0.06,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec9Em7ivae72BNBO
+o3-mini-2025-01-31_low,0.145,2025-01-31,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o3-mini (Low),0.0519,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recoKTXJX6Wtyzmyn
+claude-haiku-4-5-20251001,0.1433,2025-10-15,Anthropic,United States of America,,,Claude Haiku 4.5,0.0263,,,,recO8w0BTuGH9P0y9
+o1-mini-2024-09-12_medium,0.14,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o1-mini,,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recjBMo8w3uRVYaQN
+o1-mini-2024-09-12_unknown,0.14,2024-09-12,OpenAI,United States of America,,"We can’t make a precise estimate, but seems unlikely to exceed 10^25 FLOP. We think active parameter count is 10-30B. This would require >55T tokens to reach 10^25 FLOP at the large size, i.e. well beyond 10x overtraining relative to Chinchilla.",o1-mini,0.135,,,,rec5TYrCBulg0P7BN
+claude-3-7-sonnet-20250219,0.136,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7,0.058,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recDy7yrZGrBGUAKD
+gpt-5.4-mini-2026-03-17_low,0.13,2026-03-17,OpenAI,United States of America,,,GPT-5.4 Mini (Low),0.04,https://arcprize.org/leaderboard,,,recwxgmyNfideG5hT
+deepseek-v4-pro-0813_none,0.13,2026-08-13,DeepSeek,China,9.702e+24,From https://api-docs.deepseek.com/news/news260813/: built on the DeepSeek-V4-Pro (Preview) model structure with a DSpark speculative-decoding module; agent-focused post-training upgrades. Pre-training compute carried over from DeepSeek-V4-Pro (6 * 49e9 active parameters * 33e12 tokens = 9.702E24).,DeepSeek V4 Pro 0813 (None),,https://arcprize.org/leaderboard,,,rec5EN1pnHdlwhDyR
+gpt-5.2-2025-12-11_none,0.1233,2025-12-11,OpenAI,United States of America,,,GPT-5.2,0.082,,,,reckceJM0xScUaZLy
+gpt-5.2-2025-12-11_unknown,0.1233,2025-12-11,OpenAI,United States of America,,,GPT-5.2,,https://arcprize.org/leaderboard,,,recBUAKMpjE17mSDr
+deepseek-v4-flash-0731_none,0.11833333333333335,2026-07-31,DeepSeek,China,2.496e+24,"From https://api-docs.deepseek.com/updates/: ""DeepSeek-V4-Flash-0731 keeps the same model architecture and size as DeepSeek-V4-Flash-Preview, and was only re-post-trained.""
+
+6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training",DeepSeek V4 Flash 0731 (None),,https://arcprize.org/leaderboard,,,rec5A1zniiTY6ZtUV
+claude-3-7-sonnet-20250219_1K,0.116,2025-02-24,Anthropic,United States of America,3.35e+25,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0,Claude 3.7 (1K),0.07,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec96fPyndWwzLTzI
+Qwen3-235B-A22B-Instruct-2507,0.11,2025-07-25,Alibaba,China,4.752e+24,6 FLOP / parameter / token * 22*10^9 active parameters * 36000000000000 tokens = 4.752e+24 FLOP,Qwen3-235b-a22b Instruct (25/07),0.0025,,,,recXyCIvzq1Y2Fu9B
+gpt-4.5-preview-2025-02-27,0.103,2025-02-27,OpenAI,United States of America,3.8e+26,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 ",GPT-4.5,0.29,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recqWXrYnfvx1C2KT
+gemini-3.5-flash-lite_minimal,0.075,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.5 Flash-Lite (Minimal),,https://arcprize.org/leaderboard,,,recGGYJXXvy8DSVWD
+magistral-medium-2506,0.061200000000000004,2025-06-10,Mistral AI,France,,,Magistral Medium (Thinking),0.123,https://arcprize.org/leaderboard,,,recNqBbmZH3t0BZnD
+gpt-5-2025-08-07_minimal,0.06,2025-08-07,OpenAI,United States of America,6.6e+25,"Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus",GPT-5 (Minimal),0.0335,,,,rec7EWmQhvfrKlA5M
+magistral-medium-2506,0.0591,2025-06-10,Mistral AI,France,,,Magistral Medium,0.108,,,,recq9HDi3QWg3tymY
+gpt-5.1-2025-11-13_none,0.058300000000000005,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+","GPT-5.1 (Thinking, None)",0.0338,,,,recvFAXe18z3JQjOe
+gpt-4.1-2025-04-14,0.055,2025-04-14,OpenAI,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,GPT-4.1,0.039,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec3x5nkdnWzgTzeC
+grok-3,0.055,2025-04-09,xAI,United States of America,3.5e+26,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing",Grok 3,0.0931,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,rec6qqzTzHa8ARTi6
+inkling-small_none,0.055,2026-07-15,Thinking Machines,United States of America,,,Inkling Small (None),,https://arcprize.org/leaderboard,,,recwdFt5kxgB2Wsps
+gpt-5-mini-2025-08-07_minimal,0.0533,2025-08-07,OpenAI,United States of America,,,GPT-5 Mini (Minimal),0.0057,,,,recjlR2PzTtBVfJjg
+magistral-small-2506,0.05,2025-06-10,Mistral AI,France,,,Magistral Small,0.0399,,,,recitQEg9v6tfnwI9
+gpt-4o-2024-11-20,0.045,2024-11-20,OpenAI,United States of America,,Training compute estimated to be 3.8e25 FLOP from benchmark scores. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing,GPT-4o,0.05,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recEtb28sN0f3OFf5
+Llama-4-Maverick-17B-128E-Instruct,0.0438,2025-04-05,Meta AI,United States of America,2.244000000001e+24,"22T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md   
+
+Maverick was trained using co-distillation from Llama 4 Behemoth. It isn't 100% clear that all 22T tokens used distillation, but we assume this for the time being.
+
+Estimating training compute from parameters and tokens:
+Compute = 6 FLOP per token per parameter * 17B active parameters * 22T tokens = 2.244e24 FLOP
+(Implying mean throughput was 262 TFLOPS/GPU, or 13.2% MFU in FP8)
+
+
+The model card also states that Llama 4 Maverick used 2.38M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 2.38 million hours = 3.342e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Maverick than for Behemoth.)",Llama 4 Maverick,0.0078,https://arcprize.org/leaderboard,https://arcprize.org/leaderboard,,rec0EiReUxsja9Iui
+gpt-5-nano-2025-08-07_low,0.0404,2025-08-07,OpenAI,United States of America,,,GPT-5 Nano (Low),0.0033,,,,recrZHnvXhnIH3CXM
+gpt-4.1-mini-2025-04-14,0.035,2025-04-14,OpenAI,United States of America,,,GPT-4.1-Mini,0.0078,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recFVGAte0Uy8kc22
+gpt-5-nano-2025-08-07_minimal,0.015,2025-08-07,OpenAI,United States of America,,,GPT-5 Nano (Minimal),0.0015,,,,rec2bl4JRg9TTqfnc
+Llama-4-Scout-17B-16E-Instruct,0.005,2025-04-05,Meta AI,United States of America,4.08e+24,"40T training tokens per model card:
+
+https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md  
+
+Estimating training compute from parameters and tokens:
+6 FLOP per token per parameter * 17B active parameters * 40T tokens = 4.08e24 FLOP
+(Implying mean throughput was 227 TFLOPS/GPU, or 11.5% MFU in FP8)
+
+
+The model card also states that Llama 4 Scout used 5.0M H100-hours.
+The blog post gives a figure of 390 TFLOPS/GPU, but this may have been the utilization rate for Behemoth, or all of the models together. Using this utilization, we have:
+Compute = 390 TFLOP/s * 5 million hours = 7.02e24 FLOP
+(This value is higher than the compute implied by parameters and tokens, and suggests utilization may have been lower for Scout than for Behemoth.)",Llama 4 Scout,0.0041,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recNN11X9GLUAxRYd
+gpt-4.1-nano-2025-04-14,0.0,2025-04-14,OpenAI,United States of America,,,GPT-4.1-Nano,0.0021,ARC Prize Leaderboard,https://arcprize.org/leaderboard,,recNs9X6RPBPUfcRN

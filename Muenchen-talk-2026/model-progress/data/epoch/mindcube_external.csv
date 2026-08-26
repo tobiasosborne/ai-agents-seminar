@@ -1,0 +1,6 @@
+Model version,Overall score,Rotation score,Among score,Around score,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Group,Source,Notes
+gemma-3-12b-it,0.4667,0.3839,0.48380000000000006,0.34630000000000005,2025-03-12,Google DeepMind,United States of America,8.64e+23,6ND = 6 * 12B parameters * 12T training tokens = 8.64 × 10^23 FLOP,Gemma-3-12B-it,Open-weight,https://mind-cube.github.io/,
+mPLUG-Owl3-7B-241101,0.4485,0.37840000000000007,0.4711,0.2691,2024-11-26,,,,,mPLUG-Owl3-7B-241101,Open-weight,https://mind-cube.github.io/,
+LLaVA-Video-7B-Qwen2,0.41960000000000003,0.35710000000000003,0.4355,0.3012,2024-09-02,,,,,LLaVA-Video-Qwen-7B,Open-weight,https://mind-cube.github.io/,
+LongVA-7B,0.29460000000000003,0.3589,0.29550000000000004,0.2488,2024-06-13,,,,,LongVA-7B,Open-weight,https://mind-cube.github.io/,
+claude-sonnet-4-20250514_unknown,0.4475,0.4842,0.4421,0.47619999999999996,2025-05-22,Anthropic,United States of America,,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.,Claude-4-Sonnet-20250514,Proprietary,https://mind-cube.github.io/,

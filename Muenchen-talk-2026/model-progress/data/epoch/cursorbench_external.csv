@@ -1,0 +1,82 @@
+Model version,Score,Reasoning level,Cost per task,Tokens per task,Steps per task,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Rank,Source,Notes
+claude-fable-5_max,0.705,Max,17.32,103525,72,2026-06-09,Anthropic,United States of America,,,Fable 5 Max,2,https://cursor.com/cursorbench,
+claude-fable-5_xhigh,0.684,Extra High,11.73,64971,56,2026-06-09,Anthropic,United States of America,,,Fable 5 Extra High,6,https://cursor.com/cursorbench,
+claude-fable-5_high,0.665,High,8.77,43747,48,2026-06-09,Anthropic,United States of America,,,Fable 5 High,10,https://cursor.com/cursorbench,
+claude-opus-4-7_max,0.648,Max,11.02,62989,96,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Max,5,https://cursor.com/cursorbench,
+gpt-5.5_xhigh,0.584,Extra High,2.85,17534,32,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Extra High,31,https://cursor.com/cursorbench,
+claude-opus-4-8_max,0.623,Max,5.77,71411,44,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Max,17,https://cursor.com/cursorbench,
+gpt-5.5_high,0.584,High,2.05,12183,28,2026-04-23,OpenAI,United States of America,,,GPT-5.5 High,30,https://cursor.com/cursorbench,
+claude-opus-4-8_xhigh,0.594,Extra High,4.5,51121,40,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Extra High,26,https://cursor.com/cursorbench,
+claude-opus-4-7_xhigh,0.616,Extra High,7.11,43942,72,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Extra High,12,https://cursor.com/cursorbench,
+claude-opus-4-7_high,0.594,High,5.01,32227,59,2026-04-16,Anthropic,United States of America,,,Opus 4.7 High,13,https://cursor.com/cursorbench,
+gpt-5.5_medium,0.538,Medium,1.51,8522,25,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Medium,40,https://cursor.com/cursorbench,
+claude-opus-4-8_high,0.58,High,3.15,33548,33,2026-05-28,Anthropic,United States of America,,,Opus 4.8 High,32,https://cursor.com/cursorbench,
+claude-opus-4-8_medium,0.561,Medium,2.81,28384,32,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Medium,36,https://cursor.com/cursorbench,
+glm-5.2_max,0.55,Max,1.76,35946,58,2026-06-16,Z.ai (Zhipu AI),China,,,GLM 5.2 Max,38,https://cursor.com/cursorbench,
+claude-opus-4-8_low,0.531,Low,2.02,19624,27,2026-05-28,Anthropic,United States of America,,,Opus 4.8 Low,43,https://cursor.com/cursorbench,
+claude-opus-4-7_medium,0.527,Medium,2.93,19193,41,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Medium,19,https://cursor.com/cursorbench,
+glm-5.2_high,0.515,High,1.19,21829,49,2026-06-16,Z.ai (Zhipu AI),China,,,GLM 5.2 High,46,https://cursor.com/cursorbench,
+gemini-3.5-flash_unknown,0.498,,1.94,35105,79,2026-05-19,Google,United States of America,,,Gemini 3.5 Flash,22,https://cursor.com/cursorbench,
+claude-sonnet-4-6_max,0.49,Max,3.09,40280,55,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 Max,23,https://cursor.com/cursorbench,
+gpt-5.5_low,0.466,Low,0.98,5168,20,2026-04-23,OpenAI,United States of America,,,GPT-5.5 Low,55,https://cursor.com/cursorbench,
+claude-sonnet-4-6_high,0.488,High,3.06,37352,57,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 High,25,https://cursor.com/cursorbench,
+claude-opus-4-7_low,0.483,Low,1.87,13164,29,2026-04-16,Anthropic,United States of America,,,Opus 4.7 Low,26,https://cursor.com/cursorbench,
+kimi-k2.6,0.47600000000000003,,1.27,24783,56,2026-04-20,Moonshot,China,,,Kimi 2.6,27,https://cursor.com/cursorbench,
+claude-sonnet-4-6_medium,0.46,Medium,2.64,31360,50,2026-02-17,Anthropic,United States of America,,,Sonnet 4.6 Medium,28,https://cursor.com/cursorbench,
+kimi-k2.5,0.319,,0.87,9446,30,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi 2.5,30,https://cursor.com/cursorbench,
+claude-sonnet-5_max,0.615,Max,4.3,92882,86,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Max,20,https://cursor.com/cursorbench,
+claude-sonnet-5_xhigh,0.5870000000000001,Extra High,2.77,52871,67,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Extra High,29,https://cursor.com/cursorbench,
+gpt-5.6-sol_max,0.672,Max,5.69,28320,48,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol Max,7,https://cursor.com/cursorbench,
+claude-opus-5_max,0.7000000000000001,Max,8.23,61838,78,2026-07-24,Anthropic,United States of America,,,Opus 5 Max,3,https://cursor.com/cursorbench,
+claude-opus-5_xhigh,0.693,Extra High,7.35,54239,72,2026-07-24,Anthropic,United States of America,,,Opus 5 Extra High,5,https://cursor.com/cursorbench,
+claude-opus-5_high,0.667,High,3.91,27932,48,2026-07-24,Anthropic,United States of America,,,Opus 5 High,9,https://cursor.com/cursorbench,
+grok-4.6_xhigh,0.708,Extra High,2.81,41136,46,2026-08-12,xAI,United States of America,,,Grok 4.6 Extra High,1,https://cursor.com/cursorbench,
+grok-4.6_high,0.6990000000000001,High,2.34,32449,39,2026-08-12,xAI,United States of America,,,Grok 4.6 High,4,https://cursor.com/cursorbench,
+grok-4.6_medium,0.6709999999999999,Medium,1.28,17942,29,2026-08-12,xAI,United States of America,,,Grok 4.6 Medium,8,https://cursor.com/cursorbench,
+claude-fable-5_medium,0.652,Medium,6.8,30366,41,2026-06-09,Anthropic,United States of America,,,Fable 5 Medium,11,https://cursor.com/cursorbench,
+gpt-5.6-terra_max,0.649,Max,2.31,32969,47,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra Max,12,https://cursor.com/cursorbench,
+gpt-5.6-sol_xhigh,0.645,Extra High,3.88,19699,38,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol Extra High,13,https://cursor.com/cursorbench,
+claude-opus-5_medium,0.643,Medium,3.29,23612,44,2026-07-24,Anthropic,United States of America,,,Opus 5 Medium,14,https://cursor.com/cursorbench,
+gpt-5.6-sol_high,0.635,High,2.79,13867,32,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol High,15,https://cursor.com/cursorbench,
+claude-opus-5_low,0.628,Low,2.55,18529,37,2026-07-24,Anthropic,United States of America,,,Opus 5 Low,16,https://cursor.com/cursorbench,
+claude-fable-5_low,0.621,Low,4.46,18182,31,2026-06-09,Anthropic,United States of America,,,Fable 5 Low,18,https://cursor.com/cursorbench,
+gemini-3.7-flash_high,0.616,High,1.2,38448,99,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash High,19,https://cursor.com/cursorbench,
+gpt-5.6-luna_max,0.611,Max,0.39,87973,61,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna Max,21,https://cursor.com/cursorbench,
+grok-4.6_low,0.61,Low,0.7,10658,23,2026-08-12,xAI,United States of America,,,Grok 4.6 Low,22,https://cursor.com/cursorbench,
+kimi-k3_max,0.608,Max,2.7,38428,57,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 Max,23,https://cursor.com/cursorbench,
+gpt-5.6-sol_medium,0.6,Medium,1.95,9747,27,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol Medium,24,https://cursor.com/cursorbench,
+kimi-k3_high,0.5970000000000001,High,1.89,26846,47,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 High,25,https://cursor.com/cursorbench,
+gpt-5.6-terra_xhigh,0.5920000000000001,Extra High,1.15,16089,29,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra Extra High,27,https://cursor.com/cursorbench,
+gemini-3.7-flash_medium,0.59,Medium,0.95,30953,82,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash Medium,28,https://cursor.com/cursorbench,
+gpt-5.6-luna_xhigh,0.5770000000000001,Extra High,0.23,22480,48,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna Extra High,33,https://cursor.com/cursorbench,
+claude-sonnet-5_high,0.569,High,2.13,39483,57,2026-06-30,Anthropic,United States of America,,,Sonnet 5 High,34,https://cursor.com/cursorbench,
+gpt-5.6-luna_high,0.568,High,0.16,15141,40,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna High,35,https://cursor.com/cursorbench,
+Composer 2.5,0.561,,0.44,14286,33,2026-05-18,Cursor,United States of America,3.87e+25,"Said by Cursor that 85% of the total compute was performed by their team (from figure following ""Composer 2.5 is built on the same open-source checkpoint as Composer 2, Moonshot's Kimi K2.5."" here https://cursor.com/blog/composer-2-5) - 5.8e24 / 0.15 = 3.8666666667E25 FLOP",Composer 2.5,37,https://cursor.com/cursorbench,
+gpt-5.6-terra_high,0.542,High,0.71,9468,23,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra High,39,https://cursor.com/cursorbench,
+gemini-3.7-flash_low,0.538,Low,0.74,20594,68,2026-08-13,Google DeepMind,United States of America,,,Gemini 3.7 Flash Low,41,https://cursor.com/cursorbench,
+gemini-3.6-flash_high,0.535,High,1.56,30436,64,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash High,42,https://cursor.com/cursorbench,
+gpt-5.6-sol_low,0.526,Low,1.01,5104,19,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Sol Low,44,https://cursor.com/cursorbench,
+claude-sonnet-5_medium,0.524,Medium,1.44,26200,46,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Medium,45,https://cursor.com/cursorbench,
+gemini-3.6-flash_medium,0.512,Medium,1.48,28511,62,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash Medium,47,https://cursor.com/cursorbench,
+kimi-k3_low,0.505,Low,0.99,13007,33,2026-07-16,Moonshot,China,2.0001e+25,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models.",Kimi K3 Low,48,https://cursor.com/cursorbench,
+gpt-5.6-terra_medium,0.503,Medium,0.49,6222,20,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra Medium,49,https://cursor.com/cursorbench,
+kimi-k2.7-code,0.49700000000000005,,1.43,31247,58,2026-06-12,Moonshot,China,,,Kimi K2.7 Code,50,https://cursor.com/cursorbench,
+gpt-5.6-luna_medium,0.47700000000000004,Medium,0.08,7095,28,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna Medium,51,https://cursor.com/cursorbench,
+claude-sonnet-5_low,0.47700000000000004,Low,0.87,16269,33,2026-06-30,Anthropic,United States of America,,,Sonnet 5 Low,52,https://cursor.com/cursorbench,
+gemini-3.6-flash_low,0.474,Low,1.13,20529,50,2026-07-21,Google DeepMind,United States of America,,,Gemini 3.6 Flash Low,53,https://cursor.com/cursorbench,
+gpt-5.6-terra_low,0.469,Low,0.42,5312,19,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Terra Low,54,https://cursor.com/cursorbench,
+gpt-5.6-luna_low,0.376,Low,0.03,3209,17,2026-07-09,OpenAI,United States of America,,,GPT-5.6 Luna Low,56,https://cursor.com/cursorbench,

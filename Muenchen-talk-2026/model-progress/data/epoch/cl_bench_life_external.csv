@@ -1,0 +1,38 @@
+Model version,Overall,Release date,Organization,Country,Training compute (FLOP),Training compute notes,Name,Overall std dev,Communication & social interactions score,Communication & social interactions std dev,Fragmented information & revisions score,Fragmented information & revisions std dev,Behavioral records & activity trails score,Behavioral records & activity trails std dev,id
+gpt-5.5_high,0.222,2026-04-23,OpenAI,United States of America,,,GPT 5.5 (High),0.005,0.23500000000000001,0.006999999999999999,0.17800000000000002,0.006,0.254,0.025,recg5QiqL5ur0TMP6
+gpt-5.4-2026-03-05_xhigh,0.217,2026-03-05,OpenAI,United States of America,,,GPT 5.4 (xHigh),0.0,0.23,0.0,0.174,0.0,0.24600000000000002,0.0,recNrp7ZrTpzx4Mgj
+gpt-5.4-2026-03-05_high,0.193,2026-03-05,OpenAI,United States of America,,,GPT 5.4 (High),0.005,0.222,0.006999999999999999,0.158,0.009000000000000001,0.2,0.006999999999999999,recMIYYtJTzv6SCNJ
+gpt-5.1-2025-11-13_high,0.173,2025-11-13,OpenAI,United States of America,,"Almost certainly > 1e25
+",GPT 5.1 (High),0.0,0.215,0.0,0.11900000000000001,0.0,0.185,0.0,recCojnbwwVIS85Fs
+claude-opus-4-6_high,0.17,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6 (High),0.013000000000000001,0.217,0.033,0.165,0.009000000000000001,0.128,0.015,recteQfW5CfQPwtaY
+gemini-3.1-pro-preview,0.169,2026-02-19,Google DeepMind,United States of America,,,Gemini 3.1 Pro (High),0.012,0.188,0.017,0.136,0.019,0.18300000000000002,0.015,recXnEvPXtnJGxu0B
+gpt-5.4-2026-03-05_unknown,0.138,2026-03-05,OpenAI,United States of America,,,GPT 5.4,0.0,0.17,0.0,0.10400000000000001,0.0,0.141,0.0,rectS8ABFjpDFk5jA
+claude-opus-4-6_unknown,0.136,2026-02-05,Anthropic,United States of America,,,Claude Opus 4.6,0.0,0.207,0.0,0.111,0.0,0.08900000000000001,0.0,recHnGNtXYiffKcWS
+deepseek-v4-pro_high,0.135,2026-04-24,DeepSeek,China,9.702e+24,6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training,DeepSeek V4 Pro (High),0.013999999999999999,0.126,0.016,0.121,0.024,0.158,0.003,receUba4SjxSFW7n9
+kimi-k2.5,0.132,2026-01-27,Moonshot,China,5.8e+24,"Per section 3.2, ""The joint pre-training stage continues from a near-end Kimi K2 checkpoint over additional 15T vision-text tokens at 4K sequence length""
+
+Kimi K2 was pretrained on 15T tokens. A near-end checkpoint of K2 was trained into K2.5 over another 15T tokens (or 15.2 to 15.5T tokens). This makes for a total of ~30T.
+
+There are an additional 1T tokens in ""Stage 1"" used to train the ViT encoder, which is likely much smaller than the full LLM, so we omit those tokens to calculate training compute.
+
+30e12 tokens * 32B parameters * 6 = 5.76e24 FLOP
+
+Per Kimi talk (timestamp 26:00), the 15 trillion tokens of K2.5 were additive, for 30T training tokens overall: https://x.com/Kimi_Moonshot/status/2035011542115393973?s=20",Kimi K2.5 (High),0.008,0.153,0.011000000000000001,0.114,0.015,0.128,0.004,rec9D98JysK1Sczay
+qwen3.5-plus,0.12400000000000001,2026-02-16,Alibaba,China,,,Qwen 3.5 Plus (High),0.001,0.131,0.009000000000000001,0.10099999999999999,0.011000000000000001,0.141,0.006999999999999999,rec634ax46X5sSTPm
+grok-4-20,0.119,2026-02-17,xAI,United States of America,,,Grok 4.20 (High),0.004,0.128,0.009000000000000001,0.11900000000000001,0.015,0.109,0.026000000000000002,recb8nzTuuGW1x5wl
+zai-org/glm-4.7,0.109,2025-12-22,Z.ai (Zhipu AI),China,4.42e+24,"Training tokens not disclosed.
+
+Presuming this is a post-training update from GLM-4.5 (23T tokens) with minor additional compute, training compute is at least:
+
+6 FLOP/parameter/token * 32B active parameters * 23T tokens = 4.42e24 FLOP",GLM-4.7 (High),0.0,0.126,0.0,0.111,0.0,0.08900000000000001,0.0,rec8ofxVXDYvOH6Mf
+DeepSeek-V3.2-Exp_thinking,0.095,2025-09-29,DeepSeek,China,4.18e+24,"3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek V3.2 Thinking,0.004,0.12300000000000001,0.011000000000000001,0.077,0.011000000000000001,0.086,0.017,rec7DtKf0ASL4g5K9
+deepseek/deepseek-v3.2,0.074,2025-12-01,DeepSeek,China,4.2e+24,"Pre-trained base was DeepSeek-V3.1-Terminus
+3.594058e+24 FLOP [base model] + 2.095014e+23 FLOP = 3.8035594e+24 FLOP for pre-training plus continued pre-training
+
+Then, ""this framework allocates a
+post-training computational budget exceeding 10% of the pre-training cost"", so 4.18e24",DeepSeek V3.2,0.0,0.10400000000000001,0.0,0.059000000000000004,0.0,0.059000000000000004,0.0,recx2jDLimazkXNNc
+mimo-v2-pro,0.069,,Xiaomi Corp,China,,,MiMo v2 Pro (High),0.0,0.096,0.0,0.052000000000000005,0.0,0.059000000000000004,0.0,rec6PuXyRy8YfxMVo
+MiniMax-M2.5,0.063,2026-02-12,MiniMax,China,,,MiniMax M2.5 (Thinking),0.01,0.086,0.021,0.052000000000000005,0.013000000000000001,0.052000000000000005,0.013000000000000001,recsyFLtORK2PIRNY
