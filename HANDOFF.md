@@ -12,7 +12,7 @@ entire stack from first principles for a physics audience.
 adapted on 2 Sep 2026 for the Special QuSoft Seminar "The industrialization of
 theoretical sciences" at CWI (Turing Room, Amsterdam Science Park; chair Jonas
 Helsen; other speakers Holmes, Guo, Dominik, Renaud, Evers). **Present from
-`QuSoft-talk-2026/slides-web/talk.html`** (68 slides, render-verified 4 Sep).
+`QuSoft-talk-2026/slides-web/talk.html`** (69 slides, render-verified 4 Sep).
 
 Read first: `QuSoft-talk-2026/SPEAKER-NOTES-2026-09-04.md` (what to say, caveats,
 reserves, the HAWK/CWI sensitivity, the DAG explorer), `CHANGELOG-2026-09-04.md`
@@ -31,7 +31,9 @@ OpenAI's harness, 62.7% in ARC Prize's). Backups: `slides-web/talk.html.pre-0904
 (before 4 Sep), `slides-web/talk.html.pre-qusoft` (München). Tooling:
 `design/render.mjs` (all slides), `design/render-steps.mjs <id>` (one slide per
 build step, page errors), `design/print-pdf.mjs` (print export; `talk.pdf` is
-now the 68-page QuSoft export).
+now the 69-page QuSoft export). Late-morning addition: `s-ackexp` (slide 8), the
+acknowledgment hockey stick on a log axis with a Poisson exponential fit,
+doubling every 2.9 months; script `arxiv-acknowledgments/analyse_log.py`.
 
 What changed vs München on 2 Sep: title and venue; hooks reordered (maths first);
 `s-flurry` rows swapped (HAWK-256/CWI, Riemann zeta 2/3, Holevo-Shirokov in;
