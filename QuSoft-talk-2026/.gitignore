@@ -1,0 +1,8 @@
+# Only the presentation deck is tracked. Research, pipelines, renders, backups
+# and the beamer sources stay local (see HANDOFF.md).
+*
+!.gitignore
+!slides-web/
+slides-web/*
+!slides-web/talk.html
+!slides-web/talk.pdf

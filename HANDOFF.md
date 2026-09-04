@@ -6,7 +6,49 @@ Materials for a 1-hour seminar: "Large Language Models: A Physicist's
 Perspective." Demystifies LLMs and AI coding agents by rebuilding the
 entire stack from first principles for a physics audience.
 
-## Current focus: MCQST München talk (Thu 27 Aug 2026)
+## Current focus: QuSoft seminar, Amsterdam (Fri 4 Sep 2026, 11:00-12:00)
+
+`QuSoft-talk-2026/` is a copy of the München talk (research, pipelines, decks)
+adapted on 2 Sep 2026 for the Special QuSoft Seminar "The industrialization of
+theoretical sciences" at CWI (Turing Room, Amsterdam Science Park; chair Jonas
+Helsen; other speakers Holmes, Guo, Dominik, Renaud, Evers). **Present from
+`QuSoft-talk-2026/slides-web/talk.html`** (68 slides, render-verified 4 Sep).
+
+Read first: `QuSoft-talk-2026/SPEAKER-NOTES-2026-09-04.md` (what to say, caveats,
+reserves, the HAWK/CWI sensitivity, the DAG explorer), `CHANGELOG-2026-09-04.md`
+(morning-of edits), `CHANGELOG-2026-09-02.md` (the 2 Sep adaptation, every edit
+with sources), `SPEC-QUSOFT.md` (the decided edit list). Research for the 2 Sep
+pass is in `QuSoft-talk-2026/research/updates-2026-09-02/`.
+
+4 Sep morning edits (speaker review): hooks swapped ("It started as a drop" is
+slide 3); `s-hawk`, `s-div5`, `s-demo` cut (HAWK stays as a row on `s-flurry`;
+the live demo runs outside the deck); Part Six renumbered to Five; Jeffery
+closer line removed; new interactive slide `s-dagx` (proof-DAG explorer of
+`../almost-idempotent-stochastic-maps`, 364 nodes, click-to-highlight closure,
+presets on build steps) after `s-referee`; GPT-6 Astra (released 3 Sep) added to
+`s-eci` as a black estimated marker (ECI about 163.8, ARC-AGI-3 99.9% in
+OpenAI's harness, 62.7% in ARC Prize's). Backups: `slides-web/talk.html.pre-0904`
+(before 4 Sep), `slides-web/talk.html.pre-qusoft` (München). Tooling:
+`design/render.mjs` (all slides), `design/render-steps.mjs <id>` (one slide per
+build step, page errors), `design/print-pdf.mjs` (print export; `talk.pdf` is
+now the 68-page QuSoft export).
+
+What changed vs München on 2 Sep: title and venue; hooks reordered (maths first);
+`s-flurry` rows swapped (HAWK-256/CWI, Riemann zeta 2/3, Holevo-Shirokov in;
+Schiffer/Pompeiu out as misattributed, Bethe ansatz and elliptic rank out);
+`s-floodstats` recounted (2 Sep); arXiv acknowledgment survey extended to Aug 2026
+(quant-ph 20.4%, math-ph 18.1%); Epoch snapshot 2026-09-02 (221 models, 13.1
+pts/yr, Fable 5.1 as an estimated marker); new slides `s-euhosted`
+(Cortecs prices), `s-sovereign`, `s-budget`, `s-referee`, `s-jeffery`;
+`s-context` cut. Kontorovich slide kept.
+
+Not done: beamer `slides/talk.tex` not synced (present from HTML); the QuSoft
+directory has never been committed (the whole 2 Sep and 4 Sep work is untracked;
+empty `.git`, `.agents`, `.codex` folders left by the codex run should be removed
+before `git add`); München recording not yet public (MCQST YouTube channel, or
+info@mcqst.de for the Zoom recording).
+
+## Previous focus: MCQST München talk (Thu 27 Aug 2026)
 
 `Muenchen-talk-2026/` — same title/abstract as Würzburg, built by
 extending the Würzburg deck with slop-cannon content plus timeline
