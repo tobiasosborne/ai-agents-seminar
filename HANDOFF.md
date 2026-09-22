@@ -6,7 +6,31 @@ Materials for a 1-hour seminar: "Large Language Models: A Physicist's
 Perspective." Demystifies LLMs and AI coding agents by rebuilding the
 entire stack from first principles for a physics audience.
 
-## Current focus: QuSoft seminar, Amsterdam (Fri 4 Sep 2026, 11:00-12:00)
+## Current focus: MPI Magdeburg talk (Wed 23 Sep 2026)
+
+`Magdeburg-talk-2026/` is a copy of the QuSoft deck adapted on 22 Sep 2026 for
+the Max Planck Institute for Dynamics of Complex Technical Systems (host Luís
+Pires, Nueske group). **Present from `Magdeburg-talk-2026/slides-web/talk.html`**
+(68 slides, all render-verified 22 Sep; `talk.pdf` is the 68-page export; economics backup slides removed).
+
+Read first: `Magdeburg-talk-2026/SPEAKER-NOTES-2026-09-23.md` (room, what to
+say per changed slide, rumours, reserves) and `CHANGELOG-2026-09-22.md` (every
+edit). Audience and guiding-problem research:
+`Magdeburg-talk-2026/research/magdeburg-2026-09-22/`.
+
+Main changes vs QuSoft: title and venue; `s-lyapunov` replaces no-cloning; new
+`s-here` (institute problems by bottleneck) and `s-ackcontrol` (eess.SY
+acknowledgments, 12% in Sep, mostly language); Navier-Stokes row on
+`s-flurry`; registry counts, Cortecs prices, Epoch 22 Sep snapshot (GPQA
+95.8%) and arXiv September data refreshed; SURF/Dutch items replaced by GWDG.
+`model-progress/analyse.py` now hides four new estimates from fig3 via
+`"plot": False`.
+
+Not done: nothing committed (the folder's `.gitignore` tracks only
+`slides-web/talk.html` and `talk.pdf`); Opus 5.5 and "GPT-6 Sol" were only
+rumours as of 22 Sep afternoon; Palomar and openproblem.ai counts not re-read.
+
+## Previous focus: QuSoft seminar, Amsterdam (Fri 4 Sep 2026, 11:00-12:00)
 
 `QuSoft-talk-2026/` is a copy of the München talk (research, pipelines, decks)
 adapted on 2 Sep 2026 for the Special QuSoft Seminar "The industrialization of
