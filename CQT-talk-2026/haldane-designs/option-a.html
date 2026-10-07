@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option A: The Doubling Machine (Haldane gap, family 268)</title>
+<style>
+/* ===== minimal copy of the deck engine CSS (not part of the paste region) ===== */
+:root{--black:#111417;--white:#ffffff;--darkteal:#335B74;--lightgrey:#DFE3E5;--cyan:#1CADE4;--medblue:#2683C6;
+  --brightcyan:#27CED7;--green:#42BA97;--paper:#ffffff;--ink:#1a1e21;--muted:#5b6b74;--codebg:#F0F2F3;--stagew:1280;--stageh:720;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#0c1114;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden;}
+#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 0%, #14202a 0%, #0a0f12 70%);}
+#stage{position:relative;width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);background:var(--paper);overflow:hidden;
+  container-type:size;box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 30px 80px rgba(0,0,0,.55);}
+.slide{position:absolute;inset:0;padding:7cqh 8cqw;display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .38s ease;overflow:hidden;}
+.slide.active{opacity:1;visibility:visible;z-index:2;}
+.build{opacity:0;transform:translateY(1.4cqh);transition:opacity .5s ease, transform .5s ease;}
+.build.shown{opacity:1;transform:none;}
+#progress{position:fixed;left:0;bottom:0;height:4px;background:var(--cyan);z-index:10;transition:width .3s;}
+#counter{position:fixed;right:12px;bottom:8px;color:#56636b;font-size:12px;z-index:10;}
+#help{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);color:#fff;z-index:20;align-items:center;justify-content:center;font-size:18px;line-height:1.7;}
+#help.on{display:flex;}
+@media print{@page{size:1280px 720px;margin:0} body{overflow:visible} #deck{position:static;display:block}
+  #stage{width:1280px;height:720px;overflow:visible} .slide{position:relative;opacity:1!important;visibility:visible!important;
+  width:1280px;height:720px;page-break-after:always} .build{opacity:1!important;transform:none!important} #progress,#counter{display:none}}
+</style>
+</head>
+<body>
+<div id="deck"><div id="stage">
+
+<!-- BEGIN HALDANE SLIDES -->
+<!-- ================================================================== -->
+<!--  Haldane-gap proof, option A "The Doubling Machine".                -->
+<!--  Five slides, dark instrument panel. Two live computations:         -->
+<!--  (1) the classical Ising ring, Z_n = l+^n + l-^n, exact for any     -->
+<!--      (n, beta); (2) spin-1/2 and spin-1 Heisenberg rings (4 to 8    -->
+<!--      sites, up to 729 states) diagonalised at load with a cyclic    -->
+<!--      Jacobi eigensolver, sector by sector in total S^z.             -->
+<!--  Keys: arrows as in the deck. Tab selects a knob, [ ] adjusts it,  -->
+<!--  { } coarse. Slide 4: P paper seed, E explainer toy, G gapless.    -->
+<!--  Mouse: knobs are range inputs, bars on slide 3 are draggable.      -->
+<!--  Maths: context/haldane-proof-ideas.md sections 1 to 7 and          -->
+<!--  context/review-268-haldane.md (openai/math family 268, 7 Oct 2026). -->
+<!-- ================================================================== -->
+<style>
+/* ---------- shared, scoped to the five s-hg-* slides ---------- */
+.slide[id^="s-hg-"]{padding:0;display:block;background:#0a0e13;color:#e6edf3;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.slide[id^="s-hg-"]::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(90% 60% at 50% 0%, rgba(242,184,75,.06) 0%, rgba(0,0,0,0) 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, rgba(0,0,0,0) 1px 4px);}
+.slide[id^="s-hg-"] .mono, .slide[id^="s-hg-"] .hg-ro{font-family:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;}
+.slide[id^="s-hg-"] sub, .slide[id^="s-hg-"] sup{font-size:68%;line-height:0;}
+.hg-head{position:absolute;left:5cqh;top:3.4cqh;right:5cqh;height:9cqh;display:flex;align-items:flex-start;justify-content:space-between;}
+.hg-title{font-size:4.2cqh;font-weight:650;line-height:1.1;color:#f3f6f9;letter-spacing:-.01em;}
+.hg-title::after{content:"";display:block;width:9cqh;height:.45cqh;background:#f2b84b;margin-top:1.1cqh;border-radius:.2cqh;box-shadow:0 0 1.2cqh rgba(242,184,75,.55);}
+.hg-tag{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.85cqh;color:#7d8c99;letter-spacing:.14em;text-align:right;line-height:1.5;padding-top:.3cqh;white-space:nowrap;}
+.hg-tag b{color:#f2b84b;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+.hg-tag .keys{display:block;font-size:1.75cqh;letter-spacing:.02em;color:#5f6d7a;}
+.hg-panel{position:absolute;background:linear-gradient(180deg,#121a23,#0d131a);border:.14cqh solid #243140;border-radius:1.2cqh;
+  box-shadow:inset 0 0 0 .28cqh #0a0e13, inset 0 0 2.4cqh rgba(0,0,0,.65), 0 .6cqh 2cqh rgba(0,0,0,.5);padding:1.4cqh 2cqh;overflow:hidden;}
+.hg-ph{display:flex;align-items:center;justify-content:space-between;gap:1.5cqh;height:7.2cqh;flex:0 0 auto;min-width:0;}
+.hg-pt{font-size:2.2cqh;line-height:1.5;letter-spacing:.06em;color:#9fb0bf;font-weight:600;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;}
+.hg-toy{display:inline-block;font-size:1.75cqh;letter-spacing:.14em;border:.12cqh solid #e5566b;color:#ff8da0;border-radius:.5cqh;padding:0 .6cqh;margin-left:1cqh;vertical-align:middle;font-weight:600;}
+.hg-paper{display:inline-block;font-size:1.75cqh;letter-spacing:.14em;border:.12cqh solid #4fd18b;color:#7fe3a9;border-radius:.5cqh;padding:0 .6cqh;margin-left:1cqh;vertical-align:middle;font-weight:600;}
+.hg-knobs{display:flex;gap:1.1cqh;}
+.hg-knob{width:13cqh;background:#0a0e13;border:.14cqh solid #243140;border-radius:.8cqh;padding:.5cqh .9cqh .5cqh;cursor:pointer;flex:0 0 auto;}
+.hg-knob.sel{border-color:#f2b84b;box-shadow:0 0 1.4cqh rgba(242,184,75,.45);}
+.hg-knob .kl{font-size:1.75cqh;letter-spacing:.04em;color:#7d8c99;white-space:nowrap;}
+.hg-knob .kv{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:2.4cqh;color:#f2b84b;line-height:1.2;white-space:nowrap;}
+.hg-knob input{width:100%;height:1.1cqh;margin:.35cqh 0 0;accent-color:#f2b84b;cursor:pointer;display:block;}
+.hg-story{position:absolute;left:5cqh;top:84.4cqh;width:156.6cqh;height:7.4cqh;font-size:2.35cqh;line-height:1.35;color:#d9e1e8;overflow:hidden;}
+.hg-story .build{display:none;} .hg-story .build.shown{display:block;} .hg-story .build.shown:has(~ .build.shown){display:none;}
+.hg-story .n{display:inline-block;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#f2b84b;margin-right:.9cqh;}
+.hg-story .am{color:#f2b84b;} .hg-story .cy{color:#4fd3e8;} .hg-story .vi{color:#c792ff;}
+.hg-foot{position:absolute;left:5cqh;right:5cqh;top:94.2cqh;font-size:1.75cqh;line-height:1.5;color:#6c7a87;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hg-amber{color:#f2b84b;} .hg-cyan{color:#4fd3e8;} .hg-violet{color:#c792ff;} .hg-red{color:#ff7b8e;} .hg-green{color:#7fe3a9;} .hg-mute{color:#7d8c99;}
+.hg-lamp{display:inline-block;width:1.6cqh;height:1.6cqh;border-radius:50%;margin-right:1cqh;vertical-align:-.1cqh;flex:0 0 auto;}
+.hg-lamp.g{background:#4fd18b;box-shadow:0 0 1cqh rgba(79,209,139,.8);} .hg-lamp.a{background:#f2b84b;box-shadow:0 0 1cqh rgba(242,184,75,.8);}
+.hg-lamp.r{background:#e5566b;box-shadow:0 0 1cqh rgba(229,86,107,.8);} .hg-lamp.off{background:#2a3644;}
+/* charts and gauges */
+.hg-two{display:flex;gap:2.4cqh;margin-top:1cqh;}
+.hg-chart{flex:1 1 0;min-width:0;}
+.hg-chart .ch{font-size:2cqh;letter-spacing:.04em;color:#9fb0bf;display:flex;justify-content:space-between;align-items:baseline;gap:1cqh;white-space:nowrap;}
+.hg-chart .ch .f{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;letter-spacing:0;font-size:2cqh;}
+.hg-chart.amber .ch .f{color:#f2b84b;} .hg-chart.cyan .ch .f{color:#4fd3e8;}
+.hg-chart svg.bars{display:block;width:100%;height:22cqh;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.6cqh;margin-top:.6cqh;}
+.hg-chart .ax{font-size:1.75cqh;line-height:1.5;color:#6c7a87;margin-top:.3cqh;white-space:nowrap;}
+.hg-gauge{display:flex;align-items:center;gap:1.4cqh;margin-top:1cqh;}
+.hg-gauge svg{width:15cqh;height:8.6cqh;flex:0 0 auto;display:block;}
+.hg-gauge .gl{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.95cqh;line-height:1.4;color:#9fb0bf;white-space:nowrap;}
+.hg-gauge .gs{font-size:1.75cqh;line-height:1.35;color:#6c7a87;}
+.hg-gauge .gn{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:3.4cqh;line-height:1.1;}
+.hg-chart.amber .gn{color:#f2b84b;} .hg-chart.cyan .gn{color:#4fd3e8;}
+.hg-zrow{display:flex;align-items:baseline;gap:1.2cqh;margin-top:.6cqh;font-size:2.2cqh;color:#9fb0bf;white-space:nowrap;}
+.hg-zrow .big{font-size:3.1cqh;color:#f3f6f9;}
+.hg-zrow .mono{color:#c9d3dc;}
+/* slide 1 quantum column */
+#s-hg-readings .qstat{display:flex;gap:2.6cqh;margin-top:.6cqh;font-size:2cqh;color:#9fb0bf;white-space:nowrap;}
+#s-hg-readings .qstat b{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-weight:500;color:#f3f6f9;font-size:2.4cqh;}
+#s-hg-readings .qgauges{display:flex;gap:2.4cqh;}
+#s-hg-readings .qgauges .hg-gauge{flex:1 1 0;min-width:0;}
+#s-hg-readings .gapline{margin-top:1.2cqh;font-size:2.05cqh;color:#d9e1e8;line-height:1.4;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.6cqh;padding:.7cqh 1.1cqh;min-height:7.5cqh;}
+#s-hg-readings .gapline .mono{color:#f2b84b;}
+/* slide 2 */
+#s-hg-square .board{display:block;width:100%;height:57cqh;margin-top:.4cqh;}
+#s-hg-square .corners{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.9cqh 1.4cqh;}
+#s-hg-square .corner{background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.7cqh;padding:.6cqh 1.1cqh;font-size:1.9cqh;color:#9fb0bf;white-space:nowrap;min-width:0;overflow:hidden;}
+#s-hg-square .corner .cl{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:2cqh;}
+#s-hg-square .corner .cz{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:2.5cqh;color:#f3f6f9;line-height:1.25;}
+#s-hg-square .corner .cp{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.85cqh;color:#9fb0bf;}
+#s-hg-square svg.tokens{display:block;width:100%;height:27cqh;margin-top:1cqh;}
+#s-hg-square .check{margin-top:.6cqh;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.7cqh;padding:.6cqh 1.2cqh;font-size:1.95cqh;color:#9fb0bf;line-height:1.45;display:grid;grid-template-columns:19cqh minmax(0,1fr) minmax(0,1fr) 12cqh;column-gap:1.2cqh;white-space:nowrap;}
+#s-hg-square .check .hd{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:1.85cqh;}
+#s-hg-square .check .v{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#f3f6f9;font-size:2.15cqh;}
+#s-hg-square .check .ok{color:#7fe3a9;font-weight:600;}
+#s-hg-square .ident2{margin-top:.7cqh;font-size:1.9cqh;color:#9fb0bf;white-space:nowrap;}
+#s-hg-square .ident2 .mono{color:#c9d3dc;}
+/* slide 3 */
+#s-hg-squaring svg.pv{display:block;width:100%;height:36cqh;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.6cqh;margin-top:.5cqh;cursor:ns-resize;}
+#s-hg-squaring .pvh{font-size:2cqh;letter-spacing:.04em;color:#9fb0bf;white-space:nowrap;display:flex;justify-content:space-between;}
+#s-hg-squaring .pvs{display:flex;flex-direction:column;gap:.2cqh;margin-top:.5cqh;font-size:2cqh;line-height:1.5;color:#9fb0bf;white-space:nowrap;}
+#s-hg-squaring .pvs b{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-weight:500;font-size:2.5cqh;color:#f3f6f9;}
+#s-hg-squaring .lemma{margin-top:.9cqh;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.7cqh;padding:.7cqh 1.1cqh;font-size:2cqh;color:#d9e1e8;line-height:1.45;}
+#s-hg-squaring .lemma .mono{color:#f2b84b;}
+#s-hg-squaring svg.hop{display:block;width:100%;height:39cqh;}
+#s-hg-squaring .hleg{display:flex;flex-wrap:wrap;gap:.2cqh 2.6cqh;font-size:1.9cqh;line-height:1.4;white-space:nowrap;margin-top:.2cqh;min-height:2.8cqh;}
+#s-hg-squaring .hleg .build{display:none;} #s-hg-squaring .hleg .build.shown{display:inline;}
+#s-hg-squaring .hoptab{margin-top:.4cqh;font-size:1.9cqh;line-height:1.45;color:#d9e1e8;}
+#s-hg-squaring .hoptab .r{display:grid;grid-template-columns:22.5cqh 12cqh 12cqh 9cqh minmax(0,1fr);white-space:nowrap;gap:1cqh;border-top:.1cqh solid #1e2a37;padding:.35cqh 0;align-items:baseline;}
+#s-hg-squaring .hoptab .r.one{display:flex;justify-content:space-between;}
+#s-hg-squaring .hoptab .r:first-child{border-top:0;}
+#s-hg-squaring .hoptab .mono{color:#f3f6f9;}
+/* slide 4 */
+#s-hg-bootstrap .ladder{margin-top:.8cqh;font-size:2.05cqh;color:#d9e1e8;}
+#s-hg-bootstrap .lr{display:grid;grid-template-columns:4cqh 9cqh 10cqh 13cqh 1fr 15cqh;gap:1.2cqh;align-items:center;height:6.1cqh;border-top:.1cqh solid #1e2a37;white-space:nowrap;}
+#s-hg-bootstrap .lr.hd{height:3.6cqh;border-top:0;font-size:1.8cqh;letter-spacing:.04em;color:#7d8c99;}
+#s-hg-bootstrap .lr .mono{color:#f3f6f9;}
+#s-hg-bootstrap .lr .u{color:#f2b84b;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;}
+#s-hg-bootstrap .lr .bd{color:#7fe3a9;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;text-align:right;}
+#s-hg-bootstrap .bar{height:2.2cqh;background:#0a0e13;border:.1cqh solid #1e2a37;border-radius:.4cqh;position:relative;overflow:hidden;}
+#s-hg-bootstrap .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#f2b84b,#ffd98a);box-shadow:0 0 .8cqh rgba(242,184,75,.6);}
+#s-hg-bootstrap .bar i.bad{background:linear-gradient(90deg,#e5566b,#ff8da0);box-shadow:0 0 .8cqh rgba(229,86,107,.7);}
+#s-hg-bootstrap .bar s{position:absolute;top:0;bottom:0;width:.15cqh;background:#4fd3e8;opacity:.9;}
+#s-hg-bootstrap .lr.vac .u{color:#ff7b8e;}
+#s-hg-bootstrap svg.conv{display:block;width:100%;height:20cqh;background:#0a0e13;border:.12cqh solid #1e2a37;border-radius:.6cqh;margin-top:.5cqh;}
+#s-hg-bootstrap .lim{font-size:1.95cqh;color:#9fb0bf;margin-top:.6cqh;line-height:1.4;}
+#s-hg-bootstrap .lim .mono{color:#7fe3a9;}
+#s-hg-bootstrap .gapless{font-size:1.95cqh;color:#d9e1e8;line-height:1.4;}
+#s-hg-bootstrap .gapless .gl{display:grid;grid-template-columns:3cqh 10cqh 1fr;gap:1cqh;align-items:center;height:3.6cqh;white-space:nowrap;}
+#s-hg-bootstrap .gapless .gl .u{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#ff7b8e;}
+#s-hg-bootstrap .gapless .why{margin-top:.5cqh;color:#9fb0bf;border-top:.1cqh solid #1e2a37;padding-top:.5cqh;font-size:1.9cqh;line-height:1.38;}
+#s-hg-bootstrap .gapless .why .mono{color:#f3f6f9;}
+/* slide 5 */
+#s-hg-proved .thm{font-size:2.45cqh;line-height:1.45;color:#f3f6f9;}
+#s-hg-proved .thm .mono{color:#f2b84b;}
+#s-hg-proved .rows{margin-top:.6cqh;}
+#s-hg-proved .row{display:flex;align-items:flex-start;gap:0;font-size:2.05cqh;line-height:1.38;color:#d9e1e8;padding:.55cqh 0;border-top:.1cqh solid #1e2a37;}
+#s-hg-proved .row .hg-lamp{margin-top:.6cqh;}
+#s-hg-proved .row b{color:#f3f6f9;font-weight:600;}
+#s-hg-proved .row .mono{color:#c9d3dc;}
+#s-hg-proved .verdict{position:absolute;left:5cqh;top:72.8cqh;width:156.6cqh;height:9.8cqh;background:linear-gradient(90deg,rgba(242,184,75,.14),rgba(242,184,75,.03));border:.14cqh solid #5a4a2a;border-radius:1cqh;padding:1.2cqh 2cqh;display:flex;align-items:center;gap:3cqh;font-size:2.3cqh;color:#f3f6f9;line-height:1.4;}
+#s-hg-proved .verdict .pct{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:5.2cqh;color:#f2b84b;line-height:1;white-space:nowrap;}
+</style>
+
+<!-- ================= 1. one Z, two readings ================= -->
+<section class="slide" id="s-hg-readings">
+  <div class="hg-head"><div class="hg-title">One Z, two readings</div><div class="hg-tag"><b>The Doubling Machine</b><br>1 / 5<span class="keys">Tab select knob &middot; [ ] adjust &middot; { } coarse</span></div></div>
+
+  <div class="hg-panel no-nav" style="left:5cqh;top:13.6cqh;width:79.5cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">Classical Ising ring<span class="hg-toy">toy</span></div><div class="hg-knobs" id="r1k"></div></div>
+    <div class="hg-zrow"><span>Z<sub>n</sub>(&beta;) = Tr e<sup>&minus;&beta;H</sup> =</span><span class="hg-ro big" id="r1z">&nbsp;</span><span class="mono" id="r1lam">&nbsp;</span></div>
+    <div class="hg-two">
+      <div class="hg-chart amber">
+        <div class="ch"><span>physical reading</span><span class="f build" data-step="1">p<sub>k</sub> = e<sup>&minus;&beta;E<sub>k</sub></sup>/Z</span></div>
+        <svg class="bars" id="r1g" style="height:29cqh" viewBox="0 0 300 150" preserveAspectRatio="none" role="img" aria-label="Gibbs weights over the energy levels of the Ising ring"></svg>
+        <div class="ax">Gibbs weight per energy level, E &minus; E<sub>0</sub> &rarr;</div>
+        <div class="hg-gauge"><svg viewBox="0 0 120 68" id="r1gT"></svg><div><div class="gl build" data-step="1">T = Z<sub>n</sub>(2&beta;) / Z<sub>n</sub>(&beta;)<sup>2</sup></div><div class="gn" id="r1T">&nbsp;</div><div class="gs">two ground states (all up, all down), so T &rarr; 1/2 and never above</div></div></div>
+      </div>
+      <div class="hg-chart cyan">
+        <div class="ch"><span>spatial reading</span><span class="f build" data-step="2">q<sub>i</sub> = &lambda;<sub>i</sub><sup>n</sup>/Z</span></div>
+        <svg class="bars" id="r1s" style="height:29cqh" viewBox="0 0 300 150" preserveAspectRatio="none" role="img" aria-label="weights of the two transfer eigenvalues"></svg>
+        <div class="ax">weights &lambda;<sub>+</sub><sup>n</sup>/Z and &lambda;<sub>&minus;</sub><sup>n</sup>/Z</div>
+        <div class="hg-gauge"><svg viewBox="0 0 120 68" id="r1gS"></svg><div><div class="gl build" data-step="2">S = Z<sub>2n</sub>(&beta;) / Z<sub>n</sub>(&beta;)<sup>2</sup></div><div class="gn" id="r1S">&nbsp;</div><div class="gs">one top eigenvalue, so S &rarr; 1 once n &Gt; &xi; = 1/log coth &beta;</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hg-panel no-nav" style="left:87cqh;top:13.6cqh;width:74.7cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">Quantum ring, exact<span class="hg-toy">toy</span></div><div class="hg-knobs" id="r1q"></div></div>
+    <div class="hg-zrow"><span>Z<sub>n</sub>(&beta;) =</span><span class="hg-ro big" id="q1z">&nbsp;</span><span class="mono" id="q1dim">&nbsp;</span></div>
+    <div class="qstat"><span>E<sub>0</sub> = <b id="q1e0"></b></span><span>true gap &gamma; = E<sub>1</sub> &minus; E<sub>0</sub> = <b id="q1gap"></b></span></div>
+    <div class="hg-chart amber" style="margin-top:.6cqh;">
+      <div class="ch"><span>physical reading</span><span class="f build" data-step="1">p<sub>k</sub> = e<sup>&minus;&beta;E<sub>k</sub></sup>/Z</span></div>
+      <svg class="bars" id="q1g" style="height:24cqh" viewBox="0 0 300 150" preserveAspectRatio="none" role="img" aria-label="Gibbs weights over the exact energy levels of a small Heisenberg ring"></svg>
+      <div class="ax">Gibbs weight per level, E &minus; E<sub>0</sub> &rarr;</div>
+    </div>
+    <div class="qgauges">
+      <div class="hg-chart amber"><div class="hg-gauge"><svg viewBox="0 0 120 68" id="q1gT"></svg><div><div class="gl">T(n,&beta;)</div><div class="gn" id="q1T">&nbsp;</div></div></div></div>
+      <div class="hg-chart cyan"><div class="hg-gauge"><svg viewBox="0 0 120 68" id="q1gS"></svg><div><div class="gl">S(n,&beta;) = Z<sub>2n</sub>/Z<sub>n</sub><sup>2</sup></div><div class="gn" id="q1S">&nbsp;</div><div class="gs" id="q1Sn">&nbsp;</div></div></div></div>
+    </div>
+    <div class="gapline build" data-step="3" id="q1bound">&nbsp;</div>
+  </div>
+
+  <div class="hg-story">
+    <div class="build" data-step="0">One number, Z<sub>n</sub>(&beta;) = Tr e<sup>&minus;&beta;H</sup>, read two ways. Left: a classical toy where both readings are exact. Right: a quantum ring diagonalised in this page (Jacobi, all 2<sup>n</sup> or 3<sup>n</sup> states).</div>
+    <div class="build" data-step="1"><span class="n">1</span><span class="am">Physical reading:</span> Gibbs weights over energy levels. Their purity T(n,&beta;) = Z<sub>n</sub>(2&beta;)/Z<sub>n</sub>(&beta;)<sup>2</sup>. Large &beta; drives it to 1.</div>
+    <div class="build" data-step="2"><span class="n">2</span><span class="cy">Spatial reading:</span> Z<sub>n</sub> = &Sigma; &lambda;<sub>i</sub><sup>n</sup>, the transfer spectrum across one bond. Purity S(n,&beta;) = Z<sub>2n</sub>(&beta;)/Z<sub>n</sub>(&beta;)<sup>2</sup>; large n drives it to 1. The paper's kernel is real symmetric, so even powers are weights.</div>
+    <div class="build" data-step="3"><span class="n">3</span>max<sub>k</sub> p<sub>k</sub> &ge; &Sigma; p<sub>k</sub><sup>2</sup>. So T &gt; 1/2 forces a unique ground state, and e<sup>&minus;&beta;&gamma;</sup> &le; u/(1 &minus; u), u = 1 &minus; T. Turn &beta; up on the quantum ring: the bound closes on the true gap.</div>
+  </div>
+  <div class="hg-foot">toy models: classical Ising ring (J = 1, h = 0); spin-1/2 and spin-1 Heisenberg rings, not the paper's L &ge; 60 spin-1 chain &middot; formulas: openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ================= 2. the square and the cancellation ================= -->
+<section class="slide" id="s-hg-square">
+  <div class="hg-head"><div class="hg-title">The square and the cancellation</div><div class="hg-tag"><b>The Doubling Machine</b><br>2 / 5<span class="keys">Tab select knob &middot; [ ] slide the square</span></div></div>
+
+  <div class="hg-panel no-nav" style="left:5cqh;top:13.6cqh;width:64cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">(n, &beta;) board<span class="hg-toy">Ising toy</span></div><div class="hg-knobs" id="r2k"></div></div>
+    <svg class="board" id="r2b" viewBox="0 0 440 420" role="img" aria-label="the (n, beta) plane with a sliding 2 by 2 square"></svg>
+  </div>
+
+  <div class="hg-panel no-nav" style="left:71.5cqh;top:13.6cqh;width:90.2cqh;height:69cqh;">
+    <div class="corners" id="r2c"></div>
+    <svg class="tokens build" data-step="1" id="r2t" viewBox="0 0 1000 300" role="img" aria-label="the two purity products written as partition functions upstairs and downstairs"></svg>
+    <div class="check build" data-step="3" id="r2chk"></div>
+    <div class="ident2 build" data-step="3">One square up, same bookkeeping: <span class="mono">T(4n,&beta;) = T(2n,&beta;)<sup>2</sup> S(2n,2&beta;) / S(2n,&beta;)<sup>2</sup></span></div>
+  </div>
+
+  <div class="hg-story">
+    <div class="build" data-step="0">Four partition functions sit at the corners of a 2&times;2 square in the (n, &beta;) plane. Each purity is a ratio of two of them. Slide the square with the knobs.</div>
+    <div class="build" data-step="1"><span class="n">1</span>Write <span class="cy">S(n,2&beta;)</span> T(n,&beta;)<sup>2</sup> and S(n,&beta;)<sup>2</sup> <span class="am">T(2n,&beta;)</span> as Z's: upstairs and downstairs.</div>
+    <div class="build" data-step="2"><span class="n">2</span>Every Z appears once upstairs and once downstairs. The pairs cancel, and both sides are Z<sub>2n</sub>(2&beta;) / Z<sub>n</sub>(&beta;)<sup>4</sup>. Trivial algebra, not previously exploited.</div>
+    <div class="build" data-step="3"><span class="n">3</span>S(n,2&beta;) = S(n,&beta;)<sup>2</sup> T(2n,&beta;) / T(n,&beta;)<sup>2</sup>: movement along &beta; is paid for with movement along n. Slide the square: it holds to every shown digit.</div>
+  </div>
+  <div class="hg-foot">toy: classical Ising ring, Z<sub>n</sub> = &lambda;<sub>+</sub><sup>n</sup> + &lambda;<sub>&minus;</sub><sup>n</sup> exact &middot; quantum check: spin-1/2 Heisenberg ring, n = 4 and 8, exact diagonalisation &middot; identities: openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ================= 3. squaring moves each purity along its own axis ================= -->
+<section class="slide" id="s-hg-squaring">
+  <div class="hg-head"><div class="hg-title">Squaring moves each purity along its own axis</div><div class="hg-tag"><b>The Doubling Machine</b><br>3 / 5<span class="keys">Tab select bar or knob &middot; [ ] adjust &middot; drag bars</span></div></div>
+
+  <div class="hg-panel no-nav" style="left:5cqh;top:13.6cqh;width:77cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">Vector p<span class="hg-toy">toy</span></div><div class="hg-knobs" id="r3k"></div></div>
+    <div class="hg-two" style="margin-top:.4cqh;">
+      <div class="hg-chart amber">
+        <div class="pvh"><span>p</span><span class="hg-mute">drag a bar, or Tab and [ ]</span></div>
+        <svg class="pv" id="r3a" viewBox="0 0 320 200" role="img" aria-label="editable probability vector"></svg>
+        <div class="pvs"><span>purity &Sigma; p<sup>2</sup> = <b id="r3pur"></b></span><span>defect u = <b id="r3u"></b></span></div>
+      </div>
+      <div class="hg-chart amber build" data-step="1">
+        <div class="pvh"><span>p<sup>2</sup> / &Sigma; p<sup>2</sup></span><span class="hg-mute">normalised square</span></div>
+        <svg class="pv" id="r3b" viewBox="0 0 320 200" role="img" aria-label="the normalised square of the vector" style="cursor:default"></svg>
+        <div class="pvs"><span>purity = <b id="r3pur2"></b></span><span>defect u&prime; = <b id="r3u2"></b></span></div>
+      </div>
+    </div>
+    <div class="lemma build" data-step="1" id="r3lem"></div>
+  </div>
+
+  <div class="hg-panel no-nav" style="left:84.5cqh;top:13.6cqh;width:77.2cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">On the board<span class="hg-toy">toys</span></div><div class="hg-knobs" id="r3n"></div></div>
+    <svg class="hop" id="r3h" viewBox="0 0 440 290" role="img" aria-label="the two squaring moves on the (n, beta) board"></svg>
+    <div class="hleg"><span class="build hg-amber" data-step="2">&#9632; Gibbs weights squared: &beta; &rarr; 2&beta;</span><span class="build hg-cyan" data-step="3">&#9632; spatial weights squared: n &rarr; 2n</span><span class="build hg-violet" data-step="4">&#9632; the identities: (n, &beta;) &rarr; (2n, 2&beta;)</span></div>
+    <div class="hoptab" id="r3tab"></div>
+  </div>
+
+  <div class="hg-story">
+    <div class="build" data-step="0">Purity &Sigma; p<sub>k</sub><sup>2</sup> is close to 1 exactly when one entry dominates. The defect is u = 1 &minus; &Sigma; p<sub>k</sub><sup>2</sup>. Shape the vector.</div>
+    <div class="build" data-step="1"><span class="n">1</span>Square and renormalise: the dominant entry pulls away quadratically. Lemma 4.1: the new defect is at most u<sup>2</sup>/(2(1 &minus; u)<sup>2</sup>), about u<sup>2</sup>/2.</div>
+    <div class="build" data-step="2"><span class="n">2</span><span class="am">Gibbs weights squared</span> are Gibbs weights at 2&beta;, because e<sup>&minus;2&beta;E</sup> = (e<sup>&minus;&beta;E</sup>)<sup>2</sup>. Squaring moves T along the &beta; axis.</div>
+    <div class="build" data-step="3"><span class="n">3</span><span class="cy">Spatial weights squared</span> are spatial weights at 2n, because |&lambda;|<sup>2n</sup> = (|&lambda;|<sup>n</sup>)<sup>2</sup>. Squaring moves S along the n axis.</div>
+    <div class="build" data-step="4"><span class="n">4</span>Neither move alone reaches (2n, 2&beta;). <span class="vi">The two identities trade the axes:</span> a bound on T at larger n is paid for with bounds on S, and back.</div>
+  </div>
+  <div class="hg-foot">toys: a free probability vector; spin-1 Heisenberg ring (n = 4, 81 states, exact) for the Gibbs hop; classical Ising ring for the spatial hop &middot; Lemma 4.1, section 4: openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ================= 4. the bootstrap ================= -->
+<section class="slide" id="s-hg-bootstrap">
+  <div class="hg-head"><div class="hg-title">The bootstrap: defects collapse, &beta; only doubles</div><div class="hg-tag"><b>The Doubling Machine</b><br>4 / 5<span class="keys">Tab, [ ] adjust &middot; P paper seed &middot; E toy &middot; G gapless</span></div></div>
+
+  <div class="hg-panel no-nav" style="left:5cqh;top:13.6cqh;width:93cqh;height:69cqh;">
+    <div class="hg-ph"><div class="hg-pt">Ladder from the seed (60, 105/4)<span class="hg-paper" id="r4tag">toy</span></div><div class="hg-knobs" id="r4k"></div></div>
+    <div class="ladder" id="r4l"></div>
+  </div>
+
+  <div class="hg-panel no-nav" style="left:100.5cqh;top:13.6cqh;width:61.2cqh;height:35.4cqh;">
+    <div class="hg-ph" style="height:5cqh;"><div class="hg-pt">Gap bound log(1/3u<sub>j</sub>) / &beta;<sub>j</sub></div></div>
+    <svg class="conv build" data-step="3" id="r4c" viewBox="0 0 520 180" role="img" aria-label="the gap bound against the number of doublings, flattening to a positive constant"></svg>
+    <div class="lim build" data-step="3" id="r4lim"></div>
+  </div>
+
+  <div class="hg-panel no-nav build" data-step="4" style="left:100.5cqh;top:51cqh;width:61.2cqh;height:31.6cqh;">
+    <div class="hg-ph" style="height:5cqh;"><div class="hg-pt hg-red">Gapless chain: the seed fails</div><div class="hg-pt" style="color:#7d8c99;font-weight:400;">u<sub>0</sub> = 0.4, same C</div></div>
+    <div class="gapless" id="r4g"></div>
+  </div>
+
+  <div class="hg-story">
+    <div class="build" data-step="0">Suppose both defects are at most u<sub>0</sub> at one (n, &beta;). The paper certifies u<sub>0</sub> = 1/8 at (60, 105/4). Shown: u<sub>0</sub> = 0.1, C = 5, the explainer's toy run.</div>
+    <div class="build" data-step="1"><span class="n">1</span>One turn: along &beta;, S pays a factor T<sup>2</sup> (defect 3u) and squares to (3u)<sup>2</sup>/2; along n, T pays S<sup>2</sup> (defect 2u) and squares to 2u<sup>2</sup>. Together u<sub>1</sub> &le; C u<sub>0</sub><sup>2</sup>, C &lt; 7.9 for u &le; 1/8.</div>
+    <div class="build" data-step="2"><span class="n">2</span>Iterate: u, Cu<sup>2</sup>, C<sup>3</sup>u<sup>4</sup>, C<sup>7</sup>u<sup>8</sup>. Doubly exponential in the number of doublings, while n<sub>j</sub> = 2<sup>j</sup>n<sub>0</sub> and &beta;<sub>j</sub> = 2<sup>j</sup>&beta;<sub>0</sub> only double.</div>
+    <div class="build" data-step="3"><span class="n">3</span>e<sup>&minus;&beta;<sub>j</sub>&gamma;</sup> &le; 3u<sub>j</sub> gives &gamma; &ge; log(1/3u<sub>j</sub>)/&beta;<sub>j</sub>. Both grow like 2<sup>j</sup>, so the bound flattens at log(1/r)/&beta;<sub>0</sub>, r = Cu<sub>0</sub>. Press P: the paper's r = 79/80 gives 4.8&times;10<sup>&minus;4</sup>.</div>
+    <div class="build" data-step="4"><span class="n">4</span>Why not every chain: T &rarr; 1 needs v&beta; &Gt; n, S &rarr; 1 needs n &Gt; v&beta;. Gapless: both cannot hold, best defects 0.3 to 0.5, Cu<sub>0</sub> &gt; 1, the machine stalls. Gapped: the two demands decouple.</div>
+  </div>
+  <div class="hg-foot">recurrence and constants: openai/math, family 268, read 7 Oct 2026 (Prop 4.3: C &lt; 7.9 at u &le; 1/8, r = 79/80, seeds (60, 105/4) and (36, 49/4)) &middot; toy run u<sub>0</sub> = 0.1, C = 5 from the explainer</div>
+</section>
+
+<!-- ================= 5. what is actually proved ================= -->
+<section class="slide" id="s-hg-proved">
+  <div class="hg-head"><div class="hg-title">What is actually proved</div><div class="hg-tag"><b>The Doubling Machine</b><br>5 / 5<span class="keys">&rarr; reveals the rows</span></div></div>
+
+  <div class="hg-panel" style="left:5cqh;top:13.6cqh;width:156.6cqh;height:13.2cqh;padding:1.4cqh 2.2cqh;">
+    <div class="thm"><span class="hg-paper" style="margin:0 1.2cqh 0 0;vertical-align:.3cqh;">paper</span><b>Theorem 1.1.</b> H<sub>L</sub> = &Sigma;<sub>j</sub> <b>S</b><sub>j</sub>&middot;<b>S</b><sub>j+1</sub>, spin 1, periodic. For every even L &ge; 60 the ground state is unique and <span class="mono">&gamma;<sub>L</sub> &gt; (4/105) log(80/79) &asymp; 4.8&times;10<sup>&minus;4</sup></span>. For every even L &ge; 2304, <span class="mono">&gamma;<sub>L</sub> &gt; log 20 / 784 &asymp; 3.8&times;10<sup>&minus;3</sup></span>. Hence liminf<sub>L</sub> &gamma;<sub>L</sub> &gt; 0.</div>
+  </div>
+
+  <div class="hg-panel" style="left:5cqh;top:28.4cqh;width:77cqh;height:43cqh;">
+    <div class="hg-pt">Scope and constants</div>
+    <div class="rows">
+      <div class="row build" data-step="1"><span class="hg-lamp a"></span><div><b>Even periodic rings, liminf of finite gaps.</b> Not a statement about every infinite-volume ground state: Cor 6.1 covers subsequential limits of periodic ground states only. The headline "resolves the Haldane conjecture" overstates this.</div></div>
+      <div class="row build" data-step="2"><span class="hg-lamp a"></span><div><b>Thin seeds, tiny constants.</b> S(60, 105/4) &gt; 7/8 by <span class="mono">6&times;10<sup>&minus;4</sup></span>; tightest scalar margin <span class="mono">4.7&times;10<sup>&minus;5</sup></span>. Certified gap <span class="mono">4.8&times;10<sup>&minus;4</sup></span> against a true gap of about <span class="mono">0.41</span>: a factor of a thousand.</div></div>
+      <div class="row build" data-step="2"><span class="hg-lamp g"></span><div><b>Where the work is.</b> Seed 1 from exact Z<sub>6,8,10</sub>(21/2), 59,049 states in integer arithmetic, a D = 26 matrix-product state giving Z<sub>120</sub> &gt; 1, and a 5/2-power raise to &beta; = 105/4. Seed 2 from Z<sub>4..12</sub>(49/4): defects 0.048 and 0.18 at (36, 49/4), six doublings to below 0.01 at (2304, 784).</div></div>
+    </div>
+  </div>
+
+  <div class="hg-panel" style="left:84.6cqh;top:28.4cqh;width:77cqh;height:43cqh;">
+    <div class="hg-pt">Verification status (reviewer's read, 7 Oct 2026)</div>
+    <div class="rows">
+      <div class="row build" data-step="3"><span class="hg-lamp r"></span><div><b>No Lean.</b> Computer-assisted, not machine-checked. Certificates are exact rationals: integer Horner for the thermal tables with error &le; 281(&radic;3<sup>n</sup> + 1), big-integer MPS contraction, <span class="mono">Fraction</span> scalars.</div></div>
+      <div class="row build" data-step="3"><span class="hg-lamp g"></span><div><b>Re-run and passed:</b> both scalar scripts, both trial contractions (e &asymp; &minus;1.4014821 &gt; e<sub>&infin;</sub> = &minus;1.40148404), independent exact diagonalisation for n &le; 9 matching every tabulated centre to 10<sup>&minus;6</sup>.</div></div>
+      <div class="row build" data-step="3"><span class="hg-lamp a"></span><div><b>Unverified:</b> Z<sub>10</sub>(21/2, {1, P, C}), which the L &ge; 60 theorem needs; n = 10, 11, 12 at &beta; = 49/4; the symmetry and orbit-multiplicity reductions in detail. No mathematical error found; the roughness is presentational.</div></div>
+    </div>
+  </div>
+
+  <div class="verdict build" data-step="4"><div class="pct">85&ndash;90%</div><div>Reviewer's probability that the theorem is proved as written, conditional on the n = 10 to 12 integer totals. Quickest way to close it: recompute Z<sub>10</sub>(21/2, {1, P, C}), then the n = 11, 12 totals at 49/4. Nothing in the mechanism uses spin 1; the seed is what a gapless chain cannot supply.</div></div>
+
+  <div class="hg-story">
+    <div class="build" data-step="0">The theorem, verbatim from the referee read. Constants, not asymptotics.</div>
+    <div class="build" data-step="1"><span class="n">1</span>Scope: a finite-volume statement about even rings and the liminf of their gaps.</div>
+    <div class="build" data-step="2"><span class="n">2</span>The mechanism (slides 2 to 4) is short and checked line by line. The seed is where the labour and the thin margins are, and where a mistake would hide.</div>
+    <div class="build" data-step="3"><span class="n">3</span>Status lamps: green re-run by the reviewer, amber unverified, red not machine-checked.</div>
+    <div class="build" data-step="4"><span class="n">4</span>A rigorous finite-size renormalisation criterion, bought at the price of constants a thousand times too small.</div>
+  </div>
+  <div class="hg-foot">openai/math, family 268, preprints/The-periodic-spin-one-Haldane-gap-September-24-2026, read 7 Oct 2026 &middot; review: one Opus pass, numerics re-run as stated</div>
+</section>
+
+<script>
+/* ================================================================== */
+/*  Haldane option A: maths, knobs, five slide controllers.            */
+/*  Runs before the engine script; registers on DOMContentLoaded.      */
+/* ================================================================== */
+(function(){
+'use strict';
+const STILL = location.search.indexOf('still') >= 0;
+const NS = 'http://www.w3.org/2000/svg';
+const el = (t, a, parent) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; };
+const txt = (x, y, s, a, parent) => { const e = el('text', Object.assign({x, y}, a), parent); e.textContent = s; return e; };
+const dom = (tag, cls, parent, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; if (parent) parent.appendChild(e); return e; };
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const ease = x => x*x*(3 - 2*x);
+const AMBER = '#f2b84b', CYAN = '#4fd3e8', VIOLET = '#c792ff', WHITE = '#e6edf3', RED = '#ff7b8e', GREEN = '#7fe3a9', MUTE = '#7d8c99', GRID = '#1e2a37';
+const MONO = '"SF Mono",ui-monospace,Menlo,Consolas,monospace';
+const SANS = 'system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif';
+
+/* ---------- number formatting ---------- */
+function sci(lnZ){               /* natural log -> "1.234e+41" */
+  const l10 = lnZ/Math.LN10, e = Math.floor(l10), m = Math.pow(10, l10 - e);
+  return m.toFixed(3) + 'e' + (e >= 0 ? '+' : '') + e;
+}
+function fmtBeta(b){ if (b >= 1) return (Math.round(b*1000)/1000).toString(); const inv = Math.round(1/b); return Math.abs(inv*b - 1) < 1e-9 ? '1/' + inv : b.toFixed(3); }
+function fmtP(x){ return x < 1e-3 && x > 0 ? x.toExponential(1) : x.toFixed(3); }
+function fmtU(x){ if (x >= 1) return x.toFixed(2); if (x >= 1e-3) return x.toFixed(4); return x.toExponential(1).replace('e-', 'e−'); }
+
+/* ---------- maths: classical Ising ring, J = 1, h = 0 ---------- */
+function isingLogZ(n, b){ return n*Math.log(2*Math.cosh(b)) + Math.log1p(Math.pow(Math.tanh(b), n)); }
+function isingS(n, b){ const rn = Math.pow(Math.tanh(b), n); return (1 + rn*rn)/((1 + rn)*(1 + rn)); }
+function isingT(n, b){ const rn = Math.pow(Math.tanh(b), n), r2n = Math.pow(Math.tanh(2*b), n);
+  const a = 1 - 1/(2*Math.cosh(b)*Math.cosh(b)); return Math.pow(a, n)*(1 + r2n)/((1 + rn)*(1 + rn)); }
+function isingLevels(n){ const out = []; let c = 1; for (let k = 0; k <= n; k++){ if (k % 2 === 0) out.push({E: -(n - 2*k), g: 2*c}); c = c*(n - k)/(k + 1); } return out; }
+function gibbs(levels, b){ const E0 = levels[0].E; let Z = 0, Z2 = 0;
+  const w = levels.map(l => { const x = l.g*Math.exp(-b*(l.E - E0)); Z += x; Z2 += l.g*Math.exp(-2*b*(l.E - E0)); return x; });
+  return {p: w.map(x => x/Z), T: Z2/(Z*Z), logZ: -b*E0 + Math.log(Z)}; }
+
+/* ---------- maths: Heisenberg rings by exact diagonalisation ---------- */
+function jacobi(A){ const n = A.length; if (n === 1) return [A[0][0]];
+  for (let sweep = 0; sweep < 100; sweep++){
+    let off = 0; for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) off += A[i][j]*A[i][j];
+    if (off < 1e-24) break;
+    for (let p = 0; p < n - 1; p++) for (let q = p + 1; q < n; q++){
+      const apq = A[p][q]; if (Math.abs(apq) < 1e-300) continue;
+      const th = (A[q][q] - A[p][p])/(2*apq), t = (th >= 0 ? 1 : -1)/(Math.abs(th) + Math.sqrt(th*th + 1));
+      const c = 1/Math.sqrt(t*t + 1), s = t*c;
+      for (let k = 0; k < n; k++){ const akp = A[k][p], akq = A[k][q]; A[k][p] = c*akp - s*akq; A[k][q] = s*akp + c*akq; }
+      for (let k = 0; k < n; k++){ const apk = A[p][k], aqk = A[q][k]; A[p][k] = c*apk - s*aqk; A[q][k] = s*apk + c*aqk; }
+    } }
+  const ev = []; for (let i = 0; i < n; i++) ev.push(A[i][i]); return ev; }
+function heisenbergSpectrum(n, twoS){
+  const d = twoS + 1, s = twoS/2, dim = Math.pow(d, n), digits = new Array(n), sectors = new Map();
+  for (let st = 0; st < dim; st++){ let x = st, sum = 0; for (let i = 0; i < n; i++){ digits[i] = x % d; sum += digits[i]; x = (x - digits[i])/d; }
+    if (!sectors.has(sum)) sectors.set(sum, []); sectors.get(sum).push(st); }
+  const sp = m => Math.sqrt(s*(s + 1) - m*(m + 1)), all = [], pw = Array.from({length: n}, (_, i) => Math.pow(d, i));
+  for (const states of sectors.values()){
+    const N = states.length, pos = new Map(); states.forEach((st, k) => pos.set(st, k));
+    const H = Array.from({length: N}, () => new Float64Array(N));
+    states.forEach((st, k) => { let x = st; for (let i = 0; i < n; i++){ digits[i] = x % d; x = (x - digits[i])/d; }
+      for (let i = 0; i < n; i++){ const j = (i + 1) % n, mi = digits[i] - s, mj = digits[j] - s;
+        H[k][k] += mi*mj;
+        if (digits[i] < twoS && digits[j] > 0) H[pos.get(st + pw[i] - pw[j])][k] += 0.5*sp(mi)*sp(mj - 1);
+        if (digits[i] > 0 && digits[j] < twoS) H[pos.get(st - pw[i] + pw[j])][k] += 0.5*sp(mi - 1)*sp(mj); } });
+    jacobi(H).forEach(e => all.push(e)); }
+  all.sort((a, b) => a - b); return all; }
+function levelsOf(ev){ const out = []; ev.forEach(e => { const L = out[out.length - 1]; if (L && Math.abs(e - L.E) < 1e-7) L.g++; else out.push({E: e, g: 1}); }); return out; }
+/* the quantum models offered on slide 1 (all diagonalised now, at load) */
+const QMODELS = [
+  {label: 's = 1/2, n = 4', twoS: 1, n: 4}, {label: 's = 1/2, n = 6', twoS: 1, n: 6}, {label: 's = 1/2, n = 8', twoS: 1, n: 8},
+  {label: 's = 1,   n = 4', twoS: 2, n: 4}, {label: 's = 1,   n = 6', twoS: 2, n: 6}];
+QMODELS.forEach(m => { m.ev = heisenbergSpectrum(m.n, m.twoS); m.levels = levelsOf(m.ev); m.dim = m.ev.length; });
+const Q4 = QMODELS[0].levels, Q8 = QMODELS[2].levels;   /* spin-1/2 n = 4 and n = 8, used for S(4, b) and the square check */
+const qLogZ = (lv, b) => gibbs(lv, b).logZ;
+
+/* ---------- squaring and bootstrap ---------- */
+const purity = p => p.reduce((a, x) => a + x*x, 0);
+const normSquare = p => { const q = p.map(x => x*x), z = q.reduce((a, x) => a + x, 0); return q.map(x => x/z); };
+const lemma41 = u => u*u/(2*(1 - u)*(1 - u));
+
+/* ---------- animation helper (jumps to the end under ?still) ---------- */
+function anim(ms, fn, done){ if (STILL){ fn(1); if (done) done(); return {cancel(){}}; }
+  let raf = 0; const t0 = performance.now();
+  function loop(t){ const x = clamp((t - t0)/ms, 0, 1); fn(ease(x)); if (x < 1) raf = requestAnimationFrame(loop); else { raf = 0; if (done) done(); } }
+  raf = requestAnimationFrame(loop); return {cancel(){ if (raf) cancelAnimationFrame(raf); raf = 0; }}; }
+
+/* ---------- knobs: Tab selects, [ ] adjusts, { } coarse; range inputs for the mouse ---------- */
+const KNOBS = {}, KSEL = {};
+function knob(slideId, host, spec){
+  const k = Object.assign({slideId}, spec);
+  k.el = dom('div', 'hg-knob no-nav', host); if (spec.width) k.el.style.width = spec.width;
+  dom('div', 'kl', k.el, spec.label);
+  k.vEl = dom('div', 'kv', k.el);
+  k.input = dom('input', '', k.el); k.input.type = 'range';
+  if (spec.values){ k.input.min = 0; k.input.max = spec.values.length - 1; k.input.step = 1; k.idx = spec.index || 0; k.input.value = k.idx; }
+  else { k.input.min = spec.min; k.input.max = spec.max; k.input.step = spec.step; k.val = spec.value; k.input.value = k.val; }
+  k.get = () => spec.values ? spec.values[k.idx] : k.val;
+  k.show = () => { k.vEl.textContent = spec.fmt ? spec.fmt(k.get()) : k.get(); };
+  k.set = (v, silent) => { if (spec.values){ k.idx = clamp(Math.round(v), 0, spec.values.length - 1); k.input.value = k.idx; }
+    else { k.val = clamp(v, spec.min, spec.max); k.input.value = k.val; } k.show(); if (!silent) spec.onChange(); };
+  k.bump = (dir, big) => { if (spec.values) k.set(k.idx + dir*(big ? 2 : 1)); else k.set(k.val + dir*spec.step*(big ? (spec.big || 10) : 1)); };
+  k.input.addEventListener('input', () => { k.set(+k.input.value); select(slideId, KNOBS[slideId].indexOf(k)); });
+  k.el.addEventListener('click', () => select(slideId, KNOBS[slideId].indexOf(k)));
+  k.show();
+  (KNOBS[slideId] = KNOBS[slideId] || []).push(k);
+  if (KSEL[slideId] === undefined){ KSEL[slideId] = 0; k.el.classList.add('sel'); }
+  return k;
+}
+function select(slideId, i){ const ks = KNOBS[slideId]; if (!ks || !ks.length) return; i = ((i % ks.length) + ks.length) % ks.length; KSEL[slideId] = i;
+  ks.forEach((k, j) => k.el.classList.toggle('sel', j === i)); if (ks[i].onSelect) ks[i].onSelect(); }
+const EXTRA_KEYS = {};   /* slideId -> function(e) returning true if handled */
+document.addEventListener('keydown', e => {
+  const sec = document.querySelector('.slide.active'); if (!sec || sec.id.indexOf('s-hg-') !== 0) return;
+  const ks = KNOBS[sec.id] || [];
+  if (e.key === 'Tab'){ if (ks.length){ select(sec.id, KSEL[sec.id] + (e.shiftKey ? -1 : 1)); e.preventDefault(); } return; }
+  if (e.key === '[' || e.key === ']' || e.key === '{' || e.key === '}'){
+    if (ks.length){ const dir = (e.key === ']' || e.key === '}') ? 1 : -1; ks[KSEL[sec.id]].bump(dir, e.key === '{' || e.key === '}'); e.preventDefault(); } return; }
+  const x = EXTRA_KEYS[sec.id]; if (x && x(e)) e.preventDefault();
+});
+
+/* ---------- drawing primitives ---------- */
+function drawBars(svg, p, xs, colour, opts){   /* p: weights in [0,1]; xs: x positions 0..1; bars fill from the floor */
+  opts = opts || {};
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const W = 300, H = 150, pad = 8, w = opts.w || Math.max(2.5, Math.min(18, 0.6*W/Math.max(1, p.length)));
+  el('line', {x1: 0, y1: H - pad + .5, x2: W, y2: H - pad + .5, stroke: GRID, 'stroke-width': 1}, svg);
+  [0.25, 0.5, 0.75, 1].forEach(v => el('line', {x1: 0, y1: H - pad - v*(H - 2*pad), x2: W, y2: H - pad - v*(H - 2*pad), stroke: GRID, 'stroke-width': .6, 'stroke-dasharray': '2 4'}, svg));
+  p.forEach((v, i) => { const h = Math.max(v > 0 ? 1 : 0, v*(H - 2*pad)), x = pad + xs[i]*(W - 2*pad) - w/2;
+    el('rect', {x, y: H - pad - h, width: w, height: h, fill: colour, 'fill-opacity': .9, rx: 1}, svg); });
+}
+function gauge(svg, v, colour, opts){            /* semicircular meter 0..1, ticks at 1/2 and 7/8 */
+  opts = opts || {};
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const cx = 60, cy = 58, R = 48, arc = (a0, a1, r) => { const p0 = [cx - r*Math.cos(a0), cy - r*Math.sin(a0)], p1 = [cx - r*Math.cos(a1), cy - r*Math.sin(a1)];
+    return `M${p0[0].toFixed(2)},${p0[1].toFixed(2)} A${r},${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${p1[0].toFixed(2)},${p1[1].toFixed(2)}`; };
+  el('path', {d: arc(0, Math.PI, R), fill: 'none', stroke: '#1e2a37', 'stroke-width': 9, 'stroke-linecap': 'butt'}, svg);
+  if (v > 0) el('path', {d: arc(0, Math.PI*clamp(v, 0.002, 1), R), fill: 'none', stroke: colour, 'stroke-width': 9, 'stroke-opacity': .95}, svg);
+  [[0.5, '1/2'], [0.875, '7/8']].forEach(([t, lab]) => { const a = Math.PI*t, x = cx - Math.cos(a), y = cy - Math.sin(a);
+    el('line', {x1: cx - (R - 8)*Math.cos(a), y1: cy - (R - 8)*Math.sin(a), x2: cx - (R + 8)*Math.cos(a), y2: cy - (R + 8)*Math.sin(a), stroke: WHITE, 'stroke-width': 1.4}, svg);
+    txt(cx - (R + 15)*Math.cos(a), cy - (R + 15)*Math.sin(a) + 4, lab, {fill: MUTE, 'font-size': 10, 'text-anchor': 'middle', 'font-family': MONO}, svg); });
+  const a = Math.PI*clamp(v, 0, 1);
+  el('line', {x1: cx, y1: cy, x2: cx - (R - 4)*Math.cos(a), y2: cy - (R - 4)*Math.sin(a), stroke: '#f3f6f9', 'stroke-width': 2}, svg);
+  el('circle', {cx, cy, r: 3.5, fill: '#f3f6f9'}, svg);
+  txt(cx - R, cy + 10, '0', {fill: MUTE, 'font-size': 10, 'text-anchor': 'middle', 'font-family': MONO}, svg);
+  txt(cx + R, cy + 10, '1', {fill: MUTE, 'font-size': 10, 'text-anchor': 'middle', 'font-family': MONO}, svg);
+}
+/* a Z token label in SVG: Z, subscript, argument */
+function zText(parent, x, y, sub, arg, size, fill, anchor){
+  const t = el('text', {x, y, fill, 'font-size': size, 'font-family': MONO, 'text-anchor': anchor || 'middle'}, parent);
+  const a = el('tspan', {}, t); a.textContent = 'Z';
+  const b = el('tspan', {dy: size*0.28, 'font-size': size*0.68}, t); b.textContent = sub;
+  const c = el('tspan', {dy: -size*0.28, 'font-size': size}, t); c.textContent = '(' + arg + ')';
+  return t;
+}
+/* the (n, beta) lattice board shared by slides 2 and 3 */
+const NS_ = [4, 8, 16, 32, 64, 128], BS_ = [1/8, 1/4, 1/2, 1, 2, 4, 8];
+function boardGeom(W, H, rows){ rows = rows || BS_.length; const x0 = 58, x1 = W - 22, y0 = H - 40, y1 = 22;
+  return {X: i => x0 + i*(x1 - x0)/(NS_.length - 1), Y: k => y0 - k*(y0 - y1)/(rows - 1), x0, x1, y0, y1, rows}; }
+function drawBoardBase(svg, g){
+  el('rect', {x: 0, y: 0, width: svg.viewBox.baseVal.width, height: svg.viewBox.baseVal.height, fill: '#0a0e13', rx: 6}, svg);
+  for (let i = 0; i < NS_.length; i++) el('line', {x1: g.X(i), y1: g.y1, x2: g.X(i), y2: g.y0, stroke: GRID, 'stroke-width': 1}, svg);
+  for (let k = 0; k < g.rows; k++) el('line', {x1: g.x0, y1: g.Y(k), x2: g.x1, y2: g.Y(k), stroke: GRID, 'stroke-width': 1}, svg);
+  for (let i = 0; i < NS_.length; i++) for (let k = 0; k < g.rows; k++) el('circle', {cx: g.X(i), cy: g.Y(k), r: 2.2, fill: '#34465a'}, svg);
+  NS_.forEach((n, i) => txt(g.X(i), g.y0 + 20, String(n), {fill: MUTE, 'font-size': 13, 'text-anchor': 'middle', 'font-family': MONO}, svg));
+  for (let k = 0; k < g.rows; k++) txt(g.x0 - 10, g.Y(k) + 4.5, fmtBeta(BS_[k]), {fill: MUTE, 'font-size': 13, 'text-anchor': 'end', 'font-family': MONO}, svg);
+  txt(g.x1, g.y0 + 36, 'n  (ring length, log scale)', {fill: MUTE, 'font-size': 12, 'text-anchor': 'end', 'font-family': SANS}, svg);
+  txt(g.x0 - 46, g.y1 - 8, 'β', {fill: MUTE, 'font-size': 14, 'text-anchor': 'start', 'font-family': SANS}, svg);
+}
+function glowDefs(svg, id){ const d = el('defs', {}, svg); const f = el('filter', {id, x: '-50%', y: '-50%', width: '200%', height: '200%'}, d);
+  el('feGaussianBlur', {stdDeviation: 3, result: 'b'}, f); const m = el('feMerge', {}, f); el('feMergeNode', {in: 'b'}, m); el('feMergeNode', {in: 'SourceGraphic'}, m); }
+
+/* ================================================================== */
+/*  Slide 1: one Z, two readings                                        */
+/* ================================================================== */
+const S1 = (function(){
+  const sec = document.getElementById('s-hg-readings'); if (!sec) return null;
+  const NV = []; for (let n = 4; n <= 64; n += 2) NV.push(n);
+  const kN = knob(sec.id, document.getElementById('r1k'), {label: 'n (Ising)', values: NV, index: 2, onChange: draw});
+  const kB = knob(sec.id, document.getElementById('r1k'), {label: 'β (both)', min: 0.05, max: 8, step: 0.05, big: 10, value: 2.0, fmt: v => v.toFixed(2), onChange: draw});
+  const kQ = knob(sec.id, document.getElementById('r1q'), {label: 'ring', width: '21cqh', values: QMODELS.map(m => m.label), index: 2, onChange: draw});
+  const $ = id => document.getElementById(id);
+  function draw(){
+    const n = kN.get(), b = kB.get();
+    /* Ising */
+    const lv = isingLevels(n), gb = gibbs(lv, b);
+    $('r1z').textContent = sci(isingLogZ(n, b));
+    $('r1lam').textContent = 'λ₊ = ' + (2*Math.cosh(b)).toFixed(3) + '  λ₋ = ' + (2*Math.sinh(b)).toFixed(3);
+    drawBars($('r1g'), gb.p, lv.map(l => (l.E - lv[0].E)/(2*n)), AMBER);
+    const rn = Math.pow(Math.tanh(b), n), q = [1/(1 + rn), rn/(1 + rn)];
+    drawBars($('r1s'), q, [0.3, 0.7], CYAN, {w: 60});
+    const T = isingT(n, b), S = isingS(n, b);
+    gauge($('r1gT'), T, AMBER); $('r1T').textContent = T.toFixed(4);
+    gauge($('r1gS'), S, CYAN); $('r1S').textContent = S.toFixed(4);
+    /* quantum */
+    const m = QMODELS[kQ.idx], ql = m.levels, qg = gibbs(ql, b);
+    $('q1z').textContent = sci(qg.logZ);
+    $('q1dim').textContent = m.dim + ' states \u00B7 ' + ql.length + ' levels \u00B7 Jacobi';
+    $('q1e0').textContent = ql[0].E.toFixed(4);
+    const gap = ql[1].E - ql[0].E; $('q1gap').textContent = gap.toFixed(4);
+    const Emax = ql[ql.length - 1].E - ql[0].E;
+    drawBars($('q1g'), qg.p, ql.map(l => (l.E - ql[0].E)/Emax), AMBER, {w: 4});
+    gauge($('q1gT'), qg.T, AMBER); $('q1T').textContent = qg.T.toFixed(4);
+    if (m.twoS === 1 && m.n === 4){ const S4 = Math.exp(qLogZ(Q8, b) - 2*qLogZ(Q4, b)); gauge($('q1gS'), S4, CYAN); $('q1S').textContent = S4.toFixed(4); $('q1Sn').textContent = 'from Z₈ and Z₄, both exact here'; }
+    else { gauge($('q1gS'), 0, CYAN); $('q1S').textContent = 'n/a'; $('q1Sn').textContent = 'needs Z₂ₙ: only the s = 1/2, n = 4 ring'; }
+    const u = 1 - qg.T;
+    $('q1bound').innerHTML = u < 0.5
+      ? 'u = 1 − T = <span class="mono">' + u.toFixed(4) + '</span> &lt; 1/2: ground state unique (two degenerate levels would each carry at most 1/2). Gap bound <span class="mono">log((1−u)/u)/β = ' + (Math.log((1 - u)/u)/b).toFixed(4) + '</span> &le; true gap <span class="mono">' + gap.toFixed(4) + '</span>.'
+      : 'u = 1 − T = <span class="mono">' + u.toFixed(4) + '</span> &ge; 1/2: purity says nothing yet. Raise β (Tab to the β knob, then ]).';
+  }
+  return {draw, onStep(){}, onEnter(){ draw(); }, onLeave(){}};
+})();
+
+/* ================================================================== */
+/*  Slide 2: the square and the cancellation                           */
+/* ================================================================== */
+const S2 = (function(){
+  const sec = document.getElementById('s-hg-square'); if (!sec) return null;
+  const kN = knob(sec.id, document.getElementById('r2k'), {label: 'n', width: '11cqh', values: NS_.slice(0, 5), index: 2, onChange: draw});
+  const kB = knob(sec.id, document.getElementById('r2k'), {label: 'β', width: '11cqh', values: BS_.slice(0, 6), index: 3, fmt: fmtBeta, onChange: draw});
+  const board = document.getElementById('r2b'), G = boardGeom(440, 420);
+  glowDefs(board, 'hgGlow2'); drawBoardBase(board, G);
+  const sq = el('rect', {fill: 'rgba(242,184,75,.08)', stroke: AMBER, 'stroke-width': 2.2, filter: 'url(#hgGlow2)'}, board);
+  const COL = {A: WHITE, B: CYAN, C: AMBER, D: VIOLET};
+  const dots = {}, labs = {};
+  ['A', 'B', 'C', 'D'].forEach(c => { dots[c] = el('circle', {r: 6, fill: COL[c], stroke: '#0a0e13', 'stroke-width': 1.5, filter: 'url(#hgGlow2)'}, board);
+    labs[c] = txt(0, 0, '', {fill: COL[c], 'font-size': 13, 'font-family': MONO, 'text-anchor': 'middle'}, board); });
+  /* edge labels: S along n, T along beta */
+  const eS1 = txt(0, 0, 'S(n,β)', {fill: CYAN, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'middle'}, board);
+  const eS2 = txt(0, 0, 'S(n,2β)', {fill: CYAN, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'middle'}, board);
+  const eT1 = txt(0, 0, 'T(n,β)', {fill: AMBER, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'end'}, board);
+  const eT2 = txt(0, 0, 'T(2n,β)', {fill: AMBER, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'start'}, board);
+  /* corner readouts */
+  const cHost = document.getElementById('r2c'), cEl = {};
+  [['C', '(n, 2β)'], ['D', '(2n, 2β)'], ['A', '(n, β)'], ['B', '(2n, β)']].forEach(([c, name]) => {
+    const d = dom('div', 'corner', cHost); d.style.borderColor = COL[c] + '55';
+    d.innerHTML = '<div class="cl" style="color:' + COL[c] + '">' + name + '</div><div class="cz"></div><div class="cp"></div>'; cEl[c] = d; });
+  /* tokens */
+  const tsvg = document.getElementById('r2t');
+  const SLOT = i => 300 + i*118, TW = 110, TH = 46;
+  const rows = [{num: ['D', 'C', 'C'], den: ['C', 'C', 'A', 'A', 'A', 'A'], y: 48, lab: 'S(n,2β)·T(n,β)²', pairs: [[1, 0], [2, 1]]},
+                {num: ['B', 'B', 'D'], den: ['A', 'A', 'A', 'A', 'B', 'B'], y: 190, lab: 'S(n,β)²·T(2n,β)', pairs: [[0, 4], [1, 5]]}];
+  const toks = [], lines = [];
+  txt(34, 158, '=', {fill: WHITE, 'font-size': 44, 'font-family': MONO, 'text-anchor': 'middle'}, tsvg);
+  const SUB = {A: 'n', B: '2n', C: 'n', D: '2n'}, ARG = {A: 'β', B: 'β', C: '2β', D: '2β'};
+  rows.forEach((r, ri) => {
+    txt(70, r.y + 42, r.lab, {fill: ri === 0 ? CYAN : AMBER, 'font-size': 19, 'font-family': MONO}, tsvg);
+    const line = el('line', {x1: SLOT(0) - TW/2 - 4, y1: r.y + 52, x2: SLOT(5) + TW/2 + 4, y2: r.y + 52, stroke: WHITE, 'stroke-width': 2}, tsvg);
+    lines.push(line);
+    const mk = (c, slot, up, key) => { const g = el('g', {}, tsvg); const x = SLOT(slot), y = r.y + (up ? 0 : 68);
+      el('rect', {x: -TW/2, y: -TH/2, width: TW, height: TH, rx: 8, fill: COL[c], 'fill-opacity': .14, stroke: COL[c], 'stroke-width': 1.6}, g);
+      zText(g, 0, 8, SUB[c], ARG[c], 22, COL[c]);
+      toks.push({g, home: [x, y], to: [x, y], alive: true, key}); return toks[toks.length - 1]; };
+    const up = r.num.map((c, i) => mk(c, i, true, ri + 'u' + i)), dn = r.den.map((c, i) => mk(c, i, false, ri + 'd' + i));
+    /* targets for the collapsed state */
+    r.pairs.forEach(([ui, di]) => { const a = up[ui], b = dn[di]; const mid = [(a.home[0] + b.home[0])/2, (a.home[1] + b.home[1])/2]; a.to = mid; b.to = mid; a.alive = false; b.alive = false; });
+    let s = 0; up.forEach(t => { if (t.alive) t.to = [SLOT(s++), t.home[1]]; });
+    s = 0; dn.forEach(t => { if (t.alive) t.to = [SLOT(s++), t.home[1]]; });
+  });
+  let phase = 0, run = null;
+  function place(x){ toks.forEach(t => { const px = t.home[0] + (t.to[0] - t.home[0])*x, py = t.home[1] + (t.to[1] - t.home[1])*x;
+      const sc = t.alive ? 1 : 1 - x, op = t.alive ? 1 : 1 - x; t.g.setAttribute('transform', `translate(${px.toFixed(1)},${py.toFixed(1)}) scale(${sc.toFixed(3)})`); t.g.setAttribute('opacity', op.toFixed(3)); });
+    lines.forEach(l => l.setAttribute('x2', (SLOT(5) + TW/2 + 4 - x*(SLOT(5) - SLOT(3))).toFixed(1))); }
+  function setPhase(p){ if (run) run.cancel(); if (p === phase && p !== 1){ place(p); return; }
+    const from = phase; phase = p; run = anim(1400, x => place(from + (p - from)*x)); }
+  function draw(){
+    const i = kN.idx, k = kB.idx, n = kN.get(), b = kB.get();
+    const X0 = G.X(i), X1 = G.X(i + 1), Y0 = G.Y(k), Y1 = G.Y(k + 1);
+    sq.setAttribute('x', X0); sq.setAttribute('y', Y1); sq.setAttribute('width', X1 - X0); sq.setAttribute('height', Y0 - Y1);
+    const P = {A: [X0, Y0], B: [X1, Y0], C: [X0, Y1], D: [X1, Y1]};
+    for (const c in P){ dots[c].setAttribute('cx', P[c][0]); dots[c].setAttribute('cy', P[c][1]);
+      labs[c].setAttribute('x', P[c][0]); labs[c].setAttribute('y', P[c][1] + (c === 'A' || c === 'B' ? 22 : -12)); }
+    labs.A.textContent = '(' + n + ', ' + fmtBeta(b) + ')'; labs.B.textContent = '(' + 2*n + ', ' + fmtBeta(b) + ')';
+    labs.C.textContent = '(' + n + ', ' + fmtBeta(2*b) + ')'; labs.D.textContent = '(' + 2*n + ', ' + fmtBeta(2*b) + ')';
+    eS1.setAttribute('x', (X0 + X1)/2); eS1.setAttribute('y', Y0 + 38); eS2.setAttribute('x', (X0 + X1)/2); eS2.setAttribute('y', Y1 - 26);
+    eT1.setAttribute('x', X0 - 12); eT1.setAttribute('y', (Y0 + Y1)/2 + 4); eT2.setAttribute('x', X1 + 12); eT2.setAttribute('y', (Y0 + Y1)/2 + 4);
+    const Z = {A: isingLogZ(n, b), B: isingLogZ(2*n, b), C: isingLogZ(n, 2*b), D: isingLogZ(2*n, 2*b)};
+    const Sa = isingS(n, b), Sc = isingS(n, 2*b), Ta = isingT(n, b), Tb = isingT(2*n, b);
+    const pur = {A: 'S = ' + Sa.toFixed(4) + '  T = ' + Ta.toFixed(4), B: 'T = ' + Tb.toFixed(4), C: 'S = ' + Sc.toFixed(4), D: 'upstairs on both sides'};
+    for (const c in Z){ cEl[c].querySelector('.cz').textContent = 'Z = ' + sci(Z[c]); cEl[c].querySelector('.cp').textContent = pur[c]; }
+    const p12 = x => x >= 0.01 ? x.toPrecision(12) : x.toExponential(11).replace('e-', 'e−');
+    const L = Sc*Ta*Ta, R = Sa*Sa*Tb, sL = p12(L), sR = p12(R);
+    /* the same identity on the quantum ring at n = 4, from Z_4 and Z_8 */
+    const z4 = qLogZ(Q4, b), z8 = qLogZ(Q8, b), z4b = qLogZ(Q4, 2*b), z8b = qLogZ(Q8, 2*b);
+    const qS = Math.exp(z8 - 2*z4), qSb = Math.exp(z8b - 2*z4b), qT = Math.exp(z4b - 2*z4), qT8 = Math.exp(z8b - 2*z8);
+    const qL = qSb*qT*qT, qR = qS*qS*qT8, sqL = p12(qL), sqR = p12(qR);
+    const ok = (a, c) => '<span class="' + (a === c ? 'ok' : 'hg-red') + '">' + (a === c ? '12 digits agree' : 'differ') + '</span>';
+    document.getElementById('r2chk').innerHTML =
+      '<span></span><span class="hd"><span class="hg-cyan">S(n,2β)</span>·T(n,β)²</span><span class="hd">S(n,β)²·<span class="hg-amber">T(2n,β)</span></span><span></span>' +
+      '<span>Ising (' + n + ', ' + fmtBeta(b) + ')</span><span class="v">' + sL + '</span><span class="v">' + sR + '</span>' + ok(sL, sR) +
+      '<span>spin-1/2 ring (4, ' + fmtBeta(b) + ')</span><span class="v">' + sqL + '</span><span class="v">' + sqR + '</span>' + ok(sqL, sqR);
+  }
+  function onStep(s){ setPhase(s >= 2 ? 1 : 0); }
+  return {draw, onStep, onEnter(){ draw(); }, onLeave(){ if (run) run.cancel(); }};
+})();
+
+/* ================================================================== */
+/*  Slide 3: squaring moves each purity along its own axis             */
+/* ================================================================== */
+const S3 = (function(){
+  const sec = document.getElementById('s-hg-squaring'); if (!sec) return null;
+  const K = 4, w = [0.90, 0.05, 0.05, 0.00];
+  const kb = [];
+  for (let i = 0; i < K; i++) kb.push(knob(sec.id, document.getElementById('r3k'), {label: 'p' + (i + 1), width: '10cqh', min: 0, max: 1, step: 0.01, big: 10, value: w[i], fmt: v => v.toFixed(2), onChange: draw}));
+  const kN = knob(sec.id, document.getElementById('r3n'), {label: 'n (Ising)', width: '12cqh', values: NS_.slice(0, 5), index: 4, onChange: draw});
+  const kB = knob(sec.id, document.getElementById('r3n'), {label: 'β', width: '12cqh', min: 0.25, max: 8, step: 0.05, big: 10, value: 2.2, fmt: v => v.toFixed(2), onChange: draw});
+  const A = document.getElementById('r3a'), B = document.getElementById('r3b'), $ = id => document.getElementById(id);
+  const PW = 320, PH = 200, pad = 14, BW = 50, bx = i => 40 + i*72;
+  function pvec(){ const s = kb.reduce((a, k) => a + k.get(), 0); return kb.map(k => s > 0 ? k.get()/s : 1/K); }
+  function barsInto(svg, p, colour, editable){
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    el('rect', {x: 0, y: 0, width: PW, height: PH, fill: '#0a0e13'}, svg);
+    [0.25, 0.5, 0.75, 1].forEach(v => el('line', {x1: 0, y1: PH - pad - v*(PH - 2*pad - 20), x2: PW, y2: PH - pad - v*(PH - 2*pad - 20), stroke: GRID, 'stroke-width': .6, 'stroke-dasharray': '2 4'}, svg));
+    p.forEach((v, i) => { const h = v*(PH - 2*pad - 20), x = bx(i);
+      const r = el('rect', {x: x - BW/2, y: PH - pad - h, width: BW, height: Math.max(h, .5), fill: colour, 'fill-opacity': .88, rx: 2}, svg);
+      if (editable) r.setAttribute('data-i', i);
+      txt(x, PH - pad - h - 6, v.toFixed(3), {fill: WHITE, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'middle'}, svg); });
+  }
+  let cur2 = null, run = null;
+  function draw(){
+    const p = pvec(), u = 1 - purity(p), q = normSquare(p), u2 = 1 - purity(q), f = lemma41(u);
+    barsInto(A, p, AMBER, true);
+    $('r3pur').textContent = (1 - u).toFixed(4); $('r3u').textContent = u.toFixed(4);
+    $('r3pur2').textContent = (1 - u2).toFixed(4); $('r3u2').textContent = u2.toFixed(4);
+    $('r3lem').innerHTML = 'Lemma 4.1: u′ = <span class="mono">' + u2.toFixed(4) + '</span> &le; u<sup>2</sup>/(2(1 − u)<sup>2</sup>) = <span class="mono">' + (f < 10 ? f.toFixed(4) : f.toExponential(1)) + '</span>' + (u2 <= f + 1e-12 ? ' <span class="hg-green">holds</span>' : ' <span class="hg-red">fails</span>') + (f >= 1 ? ' <span class="hg-mute">(vacuous: u too close to 1)</span>' : ', about u<sup>2</sup>/2 = <span class="mono">' + (u*u/2).toFixed(4) + '</span>') + '.';
+    if (cur2 && !run) barsInto(B, q, AMBER, false); cur2 = q;
+    drawHops();
+  }
+  function squareAnim(){ if (run) run.cancel(); const p = pvec(), q = normSquare(p);
+    run = anim(1200, x => barsInto(B, p.map((v, i) => v + (q[i] - v)*x), AMBER, false), () => { run = null; }); }
+  /* mouse: drag a bar */
+  let drag = -1;
+  A.addEventListener('pointerdown', e => { const t = e.target; if (t.dataset && t.dataset.i !== undefined){ drag = +t.dataset.i; A.setPointerCapture(e.pointerId); move(e); } });
+  A.addEventListener('pointermove', move); A.addEventListener('pointerup', () => { drag = -1; }); A.addEventListener('pointercancel', () => { drag = -1; });
+  function move(e){ if (drag < 0) return; const r = A.getBoundingClientRect(); const v = clamp(1 - ((e.clientY - r.top)/r.height*PH - pad)/(PH - 2*pad - 20), 0, 1);
+    /* set this bar's weight so that its share becomes v, holding the others' weights fixed */
+    const others = kb.reduce((a, k, i) => a + (i === drag ? 0 : k.get()), 0);
+    const wnew = v >= 0.999 ? 1 : (others > 0 ? v*others/(1 - v) : 1);
+    kb[drag].set(clamp(wnew, 0, 1)); select(sec.id, drag); }
+  /* the board with the two hops */
+  const H = document.getElementById('r3h'), G = boardGeom(440, 290, 6);
+  glowDefs(H, 'hgGlow3'); drawBoardBase(H, G);
+  const defs = H.querySelector('defs');
+  [['arrAm', AMBER], ['arrCy', CYAN], ['arrVi', VIOLET]].forEach(([id, c]) => { const m = el('marker', {id, viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse'}, defs); el('path', {d: 'M0,0 L10,5 L0,10 z', fill: c}, m); });
+  const hopT = el('line', {stroke: AMBER, 'stroke-width': 3, 'marker-end': 'url(#arrAm)', filter: 'url(#hgGlow3)', opacity: 0}, H);
+  const hopS = el('line', {stroke: CYAN, 'stroke-width': 3, 'marker-end': 'url(#arrCy)', filter: 'url(#hgGlow3)', opacity: 0}, H);
+  const hopD = el('line', {stroke: VIOLET, 'stroke-width': 3, 'stroke-dasharray': '7 5', 'marker-end': 'url(#arrVi)', filter: 'url(#hgGlow3)', opacity: 0}, H);
+  const pt = el('circle', {r: 6, fill: WHITE, filter: 'url(#hgGlow3)'}, H), ptLab = txt(0, 0, '', {fill: WHITE, 'font-size': 13, 'font-family': MONO, 'text-anchor': 'middle'}, H);
+  let step = 0;
+  function drawHops(){
+    const i = kN.idx, b = kB.get(), n = kN.get();
+    const kf = Math.log2(b/BS_[0]), kk = clamp(kf, 0, G.rows - 2);   /* fractional row for a continuous beta */
+    const X0 = G.X(i), X1 = G.X(i + 1), Y0 = G.Y(kk), Y1 = G.Y(kk + 1);
+    pt.setAttribute('cx', X0); pt.setAttribute('cy', Y0); ptLab.setAttribute('x', X0 + 10); ptLab.setAttribute('y', Y0 + 24); ptLab.setAttribute('text-anchor', 'start'); ptLab.textContent = '(' + n + ', ' + b.toFixed(2) + ')';
+    hopT.setAttribute('x1', X0); hopT.setAttribute('y1', Y0 - 8); hopT.setAttribute('x2', X0); hopT.setAttribute('y2', Y1 + 4);
+    hopS.setAttribute('x1', X0 + 8); hopS.setAttribute('y1', Y0); hopS.setAttribute('x2', X1 - 4); hopS.setAttribute('y2', Y0);
+    hopD.setAttribute('x1', X0 + 6); hopD.setAttribute('y1', Y0 - 6); hopD.setAttribute('x2', X1 - 5); hopD.setAttribute('y2', Y1 + 5);
+    const b2 = 2*b, n2 = 2*n;
+    /* Gibbs hop on the spin-1 ring with 4 sites (81 states, unique ground state), spatial hop on the Ising ring */
+    const S1L = QMODELS[3].levels, gT = gibbs(S1L, b).T, gT2 = gibbs(S1L, b2).T, uT = 1 - gT, uT2 = 1 - gT2, uS = 1 - isingS(n, b), uS2 = 1 - isingS(n2, b);
+    const fb = u => { const f = lemma41(u); return f >= 1 ? 'f(u) ≥ 1, vacuous' : '≤ f(u) = ' + fmtU(f); };
+    const row = (cls, html) => '<div class="r ' + cls + '">' + html + '</div>';
+    document.getElementById('r3tab').innerHTML =
+      (step >= 2 ? row('', '<span class="hg-amber">spin-1 ring: T(4, ' + b.toFixed(2) + ')</span><span class="mono">u = ' + fmtU(uT) + '</span><span class="hg-amber">T(4, ' + b2.toFixed(2) + ')</span><span class="mono">' + fmtU(uT2) + '</span><span class="hg-mute">' + fb(uT) + '</span>') : '') +
+      (step >= 3 ? row('', '<span class="hg-cyan">Ising ring: S(' + n + ', ' + b.toFixed(2) + ')</span><span class="mono">u = ' + fmtU(uS) + '</span><span class="hg-cyan">S(' + n2 + ', ' + b.toFixed(2) + ')</span><span class="mono">' + fmtU(uS2) + '</span><span class="hg-mute">' + fb(uS) + '</span>') : '') +
+      (step >= 4 ? row('one', '<span class="hg-violet">S(n,2β) = S(n,β)<sup>2</sup> T(2n,β) / T(n,β)<sup>2</sup></span><span class="hg-violet">T(4n,β) = T(2n,β)<sup>2</sup> S(2n,2β) / S(2n,β)<sup>2</sup></span>') : '');
+  }
+  function onStep(s){ const prev = step; step = s;
+    hopT.setAttribute('opacity', s >= 2 ? 1 : 0);
+    hopS.setAttribute('opacity', s >= 3 ? 1 : 0);
+    hopD.setAttribute('opacity', s >= 4 ? 1 : 0);
+    if (s >= 1 && prev < 1) squareAnim(); else if (s >= 1) barsInto(B, normSquare(pvec()), AMBER, false);
+    drawHops(); }
+  return {draw, onStep, onEnter(){ draw(); }, onLeave(){ if (run) run.cancel(); run = null; }};
+})();
+
+/* ================================================================== */
+/*  Slide 4: the bootstrap                                              */
+/* ================================================================== */
+const S4 = (function(){
+  const sec = document.getElementById('s-hg-bootstrap'); if (!sec) return null;
+  const N0 = 60, B0 = 105/4, J = 8, JC = 14;
+  const UV = []; for (let x = -3; x <= Math.log10(0.5) + 1e-9; x += 0.05) UV.push(Math.pow(10, x)); UV.push(0.1); UV.push(0.125); UV.push(0.4); UV.sort((a, b) => a - b);
+  const kU = knob(sec.id, document.getElementById('r4k'), {label: 'u₀ (seed defect)', width: '16cqh', values: UV, index: UV.indexOf(0.1), fmt: v => v >= 0.01 ? v.toFixed(3) : v.toExponential(1), onChange: draw});
+  const kC = knob(sec.id, document.getElementById('r4k'), {label: 'C', min: 1, max: 12, step: 0.1, big: 10, value: 5, fmt: v => v.toFixed(1), onChange: draw});
+  const host = document.getElementById('r4l'), rows = [];
+  host.innerHTML = '<div class="lr hd"><span>j</span><span>nⱼ</span><span>βⱼ</span><span>defect uⱼ</span><span>uⱼ, log scale 1 → 10⁻³⁰ (tick: 1/8)</span><span style="text-align:right">gap bound</span></div>';
+  for (let j = 0; j < J; j++){ const r = dom('div', 'lr' + (j === 0 ? '' : ' build'), host); if (j > 0) r.dataset.step = j === 1 ? '1' : '2';
+    r.innerHTML = '<span class="mono">' + j + '</span><span class="mono">' + N0*Math.pow(2, j) + '</span><span class="mono">' + (B0*Math.pow(2, j)).toString() + '</span><span class="u"></span><div class="bar"><i></i><s style="left:' + (100*Math.log10(1/0.125)/30).toFixed(2) + '%"></s></div><span class="bd"></span>';
+    rows.push(r); }
+  const conv = document.getElementById('r4c'), CW = 520, CH = 180, cx0 = 58, cx1 = CW - 14, cy0 = CH - 40, cy1 = 14;
+  function draw(){
+    const u0 = kU.get(), C = kC.get(), r = C*u0;
+    document.getElementById('r4tag').textContent = (Math.abs(u0 - 0.125) < 1e-9 && Math.abs(C - 7.9) < 1e-9) ? 'paper seed' : (Math.abs(u0 - 0.1) < 1e-9 && Math.abs(C - 5) < 1e-9 ? 'explainer toy' : 'your inputs');
+    const u = [u0]; for (let j = 0; j < JC; j++) u.push(Math.min(C*u[j]*u[j], 1e300));
+    rows.forEach((row, j) => { const uj = u[j], bj = B0*Math.pow(2, j), vac = uj >= 1/3;
+      row.classList.toggle('vac', vac);
+      row.querySelector('.u').textContent = uj >= 1 ? '≥ 1' : fmtU(uj);
+      const bar = row.querySelector('.bar i'); const frac = uj >= 1 ? 1 : clamp(Math.log10(1/uj)/30, 0, 1); bar.style.width = (uj >= 1 ? 100 : 100*frac) + '%'; bar.classList.toggle('bad', vac);
+      bar.style.left = '0'; if (uj < 1){ bar.style.left = '0'; bar.style.width = (100*frac) + '%'; }
+      row.querySelector('.bd').textContent = vac ? 'vacuous' : (Math.log(1/(3*uj))/bj).toExponential(2).replace('e-', 'e−'); });
+    /* convergence chart: bound_j vs j, log y axis, asymptote log(1/r)/B0 */
+    while (conv.firstChild) conv.removeChild(conv.firstChild);
+    /* u_j underflows to 0 after a dozen doublings at small seeds; only finite, positive defects give a point */
+    const pts = []; for (let j = 0; j <= JC; j++){ if (u[j] > 1e-300 && u[j] < 1/3) pts.push([j, Math.log(1/(3*u[j]))/(B0*Math.pow(2, j))]); }
+    const lim = r < 1 ? Math.log(1/r)/B0 : 0;
+    const ys = pts.map(p => p[1]).concat(lim > 0 ? [lim] : []).filter(v => isFinite(v) && v > 0);
+    const ymax = ys.length ? Math.max(...ys) : 1, ymin = ys.length ? Math.min(...ys) : 1e-4;
+    const lo = clamp(Math.floor(Math.log10(Math.max(ymin, 1e-6)) - 0.2), -8, 2), hi = clamp(Math.ceil(Math.log10(Math.min(ymax, 1e3)) + 0.2), lo + 1, 4);
+    const X = j => cx0 + j*(cx1 - cx0)/JC, Y = v => cy0 - (Math.log10(v) - lo)/(hi - lo)*(cy0 - cy1);
+    for (let d = lo; d <= hi; d++){ el('line', {x1: cx0, y1: Y(Math.pow(10, d)), x2: cx1, y2: Y(Math.pow(10, d)), stroke: GRID, 'stroke-width': 1}, conv);
+      txt(cx0 - 6, Y(Math.pow(10, d)) + 5, '1e' + d, {fill: MUTE, 'font-size': 15, 'font-family': MONO, 'text-anchor': 'end'}, conv); }
+    for (let j = 0; j <= JC; j += 2) txt(X(j), cy0 + 19, String(j), {fill: MUTE, 'font-size': 15, 'font-family': MONO, 'text-anchor': 'middle'}, conv);
+    txt(cx1, cy0 + 35, 'doublings j  (βⱼ = 2ʲ · 105/4)', {fill: MUTE, 'font-size': 15, 'font-family': SANS, 'text-anchor': 'end'}, conv);
+    if (lim > 0){ el('line', {x1: cx0, y1: Y(lim), x2: cx1, y2: Y(lim), stroke: GREEN, 'stroke-width': 1.5, 'stroke-dasharray': '6 5'}, conv);
+      txt(cx1 - 4, Y(lim) + 20, 'limit ' + lim.toExponential(2).replace('e-', 'e−'), {fill: GREEN, 'font-size': 16, 'font-family': MONO, 'text-anchor': 'end'}, conv); }
+    if (pts.length > 1) el('polyline', {points: pts.map(p => X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1)).join(' '), fill: 'none', stroke: AMBER, 'stroke-width': 2.2}, conv);
+    pts.forEach(p => el('circle', {cx: X(p[0]), cy: Y(p[1]), r: 4, fill: AMBER}, conv));
+    if (!pts.length) txt((cx0 + cx1)/2, (cy0 + cy1)/2, 'no bound: 3uⱼ ≥ 1 at every j', {fill: RED, 'font-size': 18, 'font-family': SANS, 'text-anchor': 'middle'}, conv);
+    document.getElementById('r4lim').innerHTML = r < 1
+      ? 'r = C·u₀ = <span class="mono">' + r.toFixed(4) + '</span>, uⱼ = r<sup>2ʲ</sup>/C, limit log(1/r)/β₀ = <span class="mono">' + lim.toExponential(2).replace('e-', 'e−') + '</span>. Paper: r = 79/80, β₀ = 105/4: <span class="mono">4.79e−4</span>.'
+      : 'r = C·u₀ = <span class="mono">' + r.toFixed(3) + '</span> ≥ 1: the recurrence does not contract. No bound at any scale.';
+    /* the gapless panel: u0 = 0.4 with the same C */
+    const g = document.getElementById('r4g'); let h = ''; let v = 0.4;
+    for (let j = 0; j < 3; j++){ h += '<div class="gl"><span class="mono">' + j + '</span><span class="mono">β = ' + (B0*Math.pow(2, j)) + '</span><span>uⱼ &le; <span class="u">' + (v >= 1 ? v.toFixed(2) + ' (vacuous)' : v.toFixed(3) + (v >= 1/3 ? '  (3u ≥ 1: no bound)' : '')) + '</span></span></div>'; v = C*v*v; }
+    h += '<div class="why">Critical chain, velocity v: gap ≈ v/n, ξ ≈ vβ. T needs <span class="mono">vβ ≫ n</span>, S needs <span class="mono">n ≫ vβ</span>. Best compromise vβ ≈ √2 n leaves defects 0.3 to 0.5; here C·u₀ = ' + (C*0.4).toFixed(2) + ' &gt; 1. Gapped: ξ and 1/Δ finite, the demands decouple.</div>';
+    g.innerHTML = h;
+  }
+  EXTRA_KEYS[sec.id] = e => { const k = e.key.toLowerCase();
+    if (k === 'p'){ kU.set(UV.indexOf(0.125), true); kC.set(7.9); return true; }
+    if (k === 'e'){ kU.set(UV.indexOf(0.1), true); kC.set(5); return true; }
+    if (k === 'g'){ kU.set(UV.indexOf(0.4)); return true; } return false; };
+  return {draw, onStep(){}, onEnter(){ draw(); }, onLeave(){}};
+})();
+
+/* ================================================================== */
+/*  Slide 5: static reveal, no controller logic needed                 */
+/* ================================================================== */
+
+/* ---------- registration: after the engine has booted ---------- */
+function register(){
+  if (typeof controllers === 'undefined') return;
+  const mods = {'s-hg-readings': S1, 's-hg-square': S2, 's-hg-squaring': S3, 's-hg-bootstrap': S4};
+  for (const id in mods){ const m = mods[id]; if (!m) continue;
+    controllers[id] = {onEnter(){ m.onEnter(); m.onStep(state.step); }, onLeave(){ m.onLeave(); }, onStep(s){ m.onStep(s); }}; }
+  const cur = slides[state.current]; if (cur && mods[cur.id]){ mods[cur.id].onEnter(); mods[cur.id].onStep(state.step); }
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+})();
+</script>
+<!-- END HALDANE SLIDES -->
+
+</div></div>
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="help"><div>&rarr; / Space: next &middot; &larr;: back &middot; Tab: select knob &middot; [ ]: adjust &middot; { }: coarse &middot; F: fullscreen &middot; Esc: close</div></div>
+
+<script>
+"use strict";
+/* ===== minimal copy of the deck engine (verbatim behaviour of talk.html) ===== */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const controllers = {};
+const state = { current: 0, step: 0 };
+function maxStepsFor(slide){
+  const c = controllers[slide.id];
+  if (c && typeof c.maxSteps === 'number') return c.maxSteps;
+  let m = 0;
+  slide.querySelectorAll('[data-step]').forEach(b => m = Math.max(m, +b.dataset.step));
+  return m;
+}
+function applySteps(slide, step){
+  slide.querySelectorAll('[data-step]').forEach(b => { b.classList.toggle('shown', (+b.dataset.step) <= step); });
+  const c = controllers[slide.id];
+  if (c && c.onStep) c.onStep(step);
+}
+function render(){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===state.current));
+  applySteps(slides[state.current], state.step);
+  const total = slides.length;
+  document.getElementById('progress').style.width = (((state.current)/(total-1))*100) + '%';
+  document.getElementById('counter').textContent = (state.current+1)+' / '+total;
+  if (location.hash !== '#'+(state.current+1)) history.replaceState(null,'','#'+(state.current+1));
+}
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if (i === state.current) return;
+  const old = slides[state.current];
+  const oc = controllers[old.id]; if (oc && oc.onLeave) oc.onLeave();
+  state.current = i;
+  state.step = (dir === 'back') ? maxStepsFor(slides[i]) : 0;
+  render();
+  const nc = controllers[slides[i].id]; if (nc && nc.onEnter) nc.onEnter();
+}
+function next(){
+  const slide = slides[state.current];
+  if (state.step < maxStepsFor(slide)){ state.step++; applySteps(slide, state.step); }
+  else goTo(state.current+1, 'fwd');
+}
+function prev(){
+  if (state.step > 0){ state.step--; applySteps(slides[state.current], state.step); }
+  else goTo(state.current-1, 'back');
+}
+document.addEventListener('keydown', e => {
+  const help = document.getElementById('help');
+  if (e.key === '?'){ help.classList.toggle('on'); e.preventDefault(); return; }
+  if (e.key === 'Escape'){ help.classList.remove('on'); return; }
+  if (help.classList.contains('on')) return;
+  switch(e.key){
+    case 'ArrowRight': case ' ': case 'PageDown': case 'ArrowDown': next(); e.preventDefault(); break;
+    case 'ArrowLeft': case 'PageUp': case 'ArrowUp': prev(); e.preventDefault(); break;
+    case 'Home': goTo(0,'fwd'); e.preventDefault(); break;
+    case 'End': goTo(slides.length-1,'fwd'); e.preventDefault(); break;
+    case 'f': case 'F':
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen();
+      e.preventDefault(); break;
+  }
+});
+document.getElementById('stage').addEventListener('click', e => {
+  if (e.target.closest('button,input,a,.no-nav')) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if (e.clientX - r.left > r.width * 0.62) next();
+});
+function boot(){
+  const still = location.search.indexOf('still') >= 0;
+  if (still){
+    const st = document.createElement('style');
+    st.textContent = '.slide,.build,#pulse{transition:none!important;animation:none!important}';
+    document.head.appendChild(st);
+  }
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  state.current = (!isNaN(h) && h>=1 && h<=slides.length) ? h-1 : 0;
+  state.step = still ? maxStepsFor(slides[state.current]) : 0;
+  render();
+  const c = controllers[slides[state.current].id]; if (c && c.onEnter) c.onEnter();
+}
+window.addEventListener('hashchange', ()=>{
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  if (!isNaN(h) && (h-1)!==state.current) goTo(h-1,'fwd');
+});
+boot();
+</script>
+</body>
+</html>
