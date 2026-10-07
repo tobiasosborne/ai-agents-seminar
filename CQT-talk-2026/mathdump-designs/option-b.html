@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mathdump option B: The Night Sky</title>
+<style>
+/* ---- minimal copy of the deck engine CSS (talk.html) ---- */
+:root{
+  --black:#111417;--white:#ffffff;--darkteal:#335B74;--lightgrey:#DFE3E5;--cyan:#1CADE4;
+  --medblue:#2683C6;--brightcyan:#27CED7;--green:#42BA97;--paper:#ffffff;--ink:#1a1e21;
+  --muted:#5b6b74;--codebg:#F0F2F3;--stagew:1280;--stageh:720;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#0c1114;color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden;}
+#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 0%, #14202a 0%, #0a0f12 70%);}
+#stage{position:relative;width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);
+  background:var(--paper);overflow:hidden;container-type:size;
+  box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 30px 80px rgba(0,0,0,.55);}
+.slide{position:absolute;inset:0;padding:7cqh 8cqw;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transition:opacity .38s ease;overflow:hidden;}
+.slide.active{opacity:1;visibility:visible;z-index:2;}
+.build{opacity:0;transform:translateY(1.4cqh);transition:opacity .5s ease, transform .5s ease;}
+.build.shown{opacity:1;transform:none;}
+#progress{position:fixed;left:0;top:0;height:4px;background:var(--cyan);
+  width:0;z-index:50;transition:width .3s ease;box-shadow:0 0 8px rgba(28,173,228,.6);}
+#counter{position:fixed;right:14px;bottom:10px;z-index:50;color:rgba(255,255,255,.5);
+  font-size:13px;font-family:ui-monospace,monospace;letter-spacing:.05em;}
+#hint{position:fixed;left:14px;bottom:10px;z-index:50;color:rgba(255,255,255,.35);
+  font-size:12px;font-family:system-ui;}
+#help{position:fixed;inset:0;z-index:100;background:rgba(8,12,15,.9);
+  display:none;align-items:center;justify-content:center;color:#e6ecef;}
+#help.on{display:flex;}
+#help .card{background:#16232c;border:1px solid #2c4552;border-radius:14px;
+  padding:34px 44px;max-width:560px;font-size:16px;line-height:2;}
+#help h3{color:var(--brightcyan);margin-bottom:14px;font-size:20px;}
+#help kbd{background:#0d1418;border:1px solid #38525f;border-radius:5px;
+  padding:2px 9px;font-family:ui-monospace,monospace;font-size:14px;color:#bfe6f6;margin-right:6px;}
+.hrow{display:flex;gap:16px;align-items:baseline;margin:6px 0;}
+.hrow .keys{flex:0 0 180px;}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff;}
+  #deck{position:static;display:block;background:none;}
+  #stage{width:1280px;height:auto;box-shadow:none;overflow:visible;container-type:normal;}
+  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;
+    page-break-after:always;break-after:page;width:1280px;height:720px;}
+  .build{opacity:1!important;transform:none!important;}
+  #progress,#counter,#hint,#help{display:none!important;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="counter">1 / 1</div>
+<div id="hint">press <b>?</b> for keys &nbsp;&middot;&nbsp; <b>F</b> fullscreen</div>
+<div id="help"><div class="card">
+  <h3>Keyboard</h3>
+  <div class="hrow"><span class="keys"><kbd>&rarr;</kbd><kbd>Space</kbd><kbd>PgDn</kbd></span> next step / slide</div>
+  <div class="hrow"><span class="keys"><kbd>&larr;</kbd><kbd>PgUp</kbd></span> previous</div>
+  <div class="hrow"><span class="keys"><kbd>Home</kbd><kbd>End</kbd></span> first / last slide</div>
+  <div class="hrow"><span class="keys"><kbd>F</kbd></span> toggle fullscreen</div>
+  <div class="hrow"><span class="keys"><kbd>?</kbd> <kbd>Esc</kbd></span> close this help</div>
+</div></div>
+
+<div id="deck"><div id="stage">
+<!-- BEGIN MATHDUMP SLIDES -->
+<!-- Option B "The Night Sky": 5 slides, ids s-md-sky, s-md-constellations, s-md-names, s-md-zoom, s-md-coda.
+     All CSS is scoped to these ids; all JS is in the one IIFE below and registers controllers on DOMContentLoaded.
+     Data: 372 families from github.com/openai/math (cloned 7 Oct 2026) via stats/fam.json; per-day counts from stats.json. -->
+<style>
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda){
+  --nk-ink:#eef2f9; --nk-dim:#a9b8cf; --nk-faint:#7d8ba3;
+  --nk-gold:#ffd88a; --nk-H:#5fe0b0; --nk-F:#f3b451; --nk-D:#8fb8ff; --nk-N:#f0808c;
+  --nk-serif:"Iowan Old Style","Palatino Linotype",Palatino,"Charis SIL","Bitstream Charter","DejaVu Serif",Georgia,serif;
+  --nk-sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --nk-mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+  padding:0;display:block;background:#02040b;color:var(--nk-ink);font-family:var(--nk-sans);
+}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-cv{position:absolute;inset:0;width:100%;height:100%;display:block;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-ov text{font-family:var(--nk-sans);fill:var(--nk-ink);}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-title{position:absolute;left:4.4cqh;top:3.4cqh;font-weight:300;font-size:4.6cqh;line-height:1.1;
+  color:#f4f7fc;letter-spacing:-.005em;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-sub{position:absolute;left:4.5cqh;top:10.2cqh;font-size:2.4cqh;color:var(--nk-dim);line-height:1.3;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-src{position:absolute;right:9cqh;bottom:1.6cqh;font-size:1.8cqh;color:var(--nk-faint);text-align:right;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate{position:absolute;left:0;top:0;max-width:50cqh;padding:1.2cqh 1.7cqh 1.3cqh;border-radius:1cqh;
+  background:rgba(7,13,32,.97);border:.14cqh solid rgba(170,195,240,.45);box-shadow:0 1cqh 4cqh rgba(0,0,0,.5);
+  pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:5;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate.on{opacity:1;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate .no{font-size:1.9cqh;color:var(--nk-dim);letter-spacing:.06em;text-transform:uppercase;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate .tt{font-family:var(--nk-serif);font-size:2.8cqh;line-height:1.22;color:#fff;margin-top:.5cqh;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate .mt{font-size:2.1cqh;color:var(--nk-dim);margin-top:.7cqh;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate .mt b{color:var(--nk-gold);font-weight:600;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .nk-plate .mt i{color:#b4c4dc;font-style:normal;}
+:is(#s-md-sky,#s-md-constellations,#s-md-names,#s-md-zoom,#s-md-coda) .gnt{transform:none!important;}
+
+/* ---------- slide 1: the sky arrives ---------- */
+#s-md-sky .nk-head{position:absolute;left:3cqh;right:3cqh;top:2.4cqh;display:flex;justify-content:space-between;}
+#s-md-sky .nk-num{text-align:center;flex:1 1 0;}
+#s-md-sky .nk-num .v{font-weight:200;font-size:8.6cqh;line-height:1;color:#f6f8fc;letter-spacing:-.02em;}
+#s-md-sky .nk-num .v small{font-size:5cqh;font-weight:200;}
+#s-md-sky .nk-num .k{font-size:2.4cqh;color:var(--nk-dim);letter-spacing:.14em;text-transform:uppercase;margin-top:.5cqh;}
+#s-md-sky .nk-tick{position:absolute;left:107cqh;top:88.6cqh;font-size:2.6cqh;color:var(--nk-ink);transition:opacity .5s;}
+#s-md-sky .nk-tick .dt{font-size:3.6cqh;font-weight:300;margin-right:1.4cqh;}
+#s-md-sky .nk-tick .ct{color:var(--nk-dim);}
+#s-md-sky.st2 .nk-tick{opacity:0;}
+#s-md-sky .nk-leg{position:absolute;left:107cqh;top:87.6cqh;font-size:2.15cqh;line-height:1.36;color:var(--nk-ink);}
+#s-md-sky .nk-leg span.g{display:inline-block;width:4.6cqh;}
+#s-md-sky .nk-strip text{font-size:14px;fill:var(--nk-dim);}
+#s-md-sky .nk-strip .ann{font-size:17px;fill:var(--nk-gold);opacity:0;transition:opacity .6s;}
+#s-md-sky.st2 .nk-strip .ann{opacity:1;}
+#s-md-sky .nk-strip .bar{fill:#cfdcf5;}
+#s-md-sky .nk-strip .bar.hot{fill:var(--nk-gold);}
+#s-md-sky .nk-strip .base{stroke:rgba(170,190,230,.45);stroke-width:1.5;}
+#s-md-sky .nk-strip .ph{stroke:var(--nk-gold);stroke-width:2;opacity:.9;}
+
+/* ---------- slide 2: constellations ---------- */
+#s-md-constellations .nk-dl{font-family:var(--nk-serif);font-style:italic;font-size:17px;fill:#c3d0e6;
+  paint-order:stroke;stroke:#03060f;stroke-width:4px;stroke-linejoin:round;transition:opacity .7s, fill .7s;}
+#s-md-constellations .nk-dl .ct{font-style:normal;font-family:var(--nk-sans);font-size:15px;fill:#8b9bb6;}
+#s-md-constellations.st1 .nk-dl:not(.q){opacity:0;}
+#s-md-constellations.st1 .nk-dl.q{fill:#fff;font-size:21px;}
+#s-md-constellations .nk-cl line{stroke:rgba(190,212,255,.75);stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s ease-in-out;}
+#s-md-constellations .nk-cl.shown line{stroke-dashoffset:0;}
+#s-md-constellations .nk-qs{opacity:0;transition:opacity .7s ease .5s;}
+#s-md-constellations .nk-qs.shown{opacity:1;}
+#s-md-constellations .nk-qs text{font-size:17px;fill:var(--nk-ink);paint-order:stroke;stroke:#03060f;stroke-width:4px;}
+#s-md-constellations .nk-qs text .b{fill:var(--nk-gold);font-weight:600;}
+#s-md-constellations .nk-leg2{position:absolute;left:4.5cqh;bottom:1.6cqh;font-size:2.0cqh;color:var(--nk-dim);}
+
+/* ---------- slide 3: named stars ---------- */
+#s-md-names .nk-nm{opacity:0;transition:opacity .8s ease;}
+#s-md-names.st1 .nk-nm{opacity:1;}
+#s-md-names .nk-nm text{font-family:var(--nk-serif);font-variant:small-caps;font-weight:600;font-size:19px;letter-spacing:.03em;
+  fill:#f3f6fb;paint-order:stroke;stroke:#02040b;stroke-width:5px;stroke-linejoin:round;transition:fill .7s;}
+#s-md-names .nk-nm .ring{fill:none;stroke:#e8eefb;stroke-width:2;transition:stroke .7s, fill .7s;}
+#s-md-names .nk-nm .lead{stroke:rgba(220,230,250,.55);stroke-width:1.5;transition:stroke .7s;}
+#s-md-names.st2 .nk-nm.H text{fill:var(--nk-H);} #s-md-names.st2 .nk-nm.H .ring{stroke:var(--nk-H);fill:rgba(95,224,176,.35);}
+#s-md-names.st2 .nk-nm.F text{fill:var(--nk-F);} #s-md-names.st2 .nk-nm.F .ring{stroke:var(--nk-F);}
+#s-md-names.st2 .nk-nm.D text{fill:var(--nk-D);} #s-md-names.st2 .nk-nm.D .ring{stroke:var(--nk-D);stroke-dasharray:4 3;}
+#s-md-names.st2 .nk-nm.N text{fill:var(--nk-N);} #s-md-names.st2 .nk-nm.N .ring{stroke:var(--nk-N);stroke-dasharray:2 4;}
+#s-md-names .nk-nm .half{fill:var(--nk-F);opacity:0;transition:opacity .7s;}
+#s-md-names.st2 .nk-nm.F .half{opacity:.75;}
+#s-md-names .nk-legend{position:absolute;left:50%;transform:translateX(-50%);top:84.4cqh;width:150cqh;
+  padding:1.1cqh 2.2cqh 1.2cqh;border-radius:1.2cqh;background:rgba(4,8,22,.86);border:.14cqh solid rgba(150,175,225,.3);
+  text-align:center;}
+#s-md-names .nk-legend.build{transform:translateX(-50%) translateY(1.4cqh);}
+#s-md-names .nk-legend.build.shown{transform:translateX(-50%);}
+#s-md-names .nk-legend .row{display:flex;justify-content:center;gap:3.2cqh;font-size:2.4cqh;color:var(--nk-ink);}
+#s-md-names .nk-legend .row b{font-weight:700;font-size:2.9cqh;margin-right:.5cqh;}
+#s-md-names .nk-legend .H{color:var(--nk-H);} #s-md-names .nk-legend .F{color:var(--nk-F);}
+#s-md-names .nk-legend .D{color:var(--nk-D);} #s-md-names .nk-legend .N{color:var(--nk-N);}
+#s-md-names .nk-legend .say{font-size:2.5cqh;color:#fff;margin-top:.6cqh;font-family:var(--nk-serif);}
+#s-md-names .nk-src{bottom:.7cqh;font-size:1.65cqh;}
+
+/* ---------- slide 4: zoom into family 265 ---------- */
+#s-md-zoom .nk-tt{opacity:0;transition:opacity .6s ease;}
+#s-md-zoom:not(.st1) .nk-tt.t0,#s-md-zoom.st1:not(.st2) .nk-tt.t1,
+#s-md-zoom.st2:not(.st3) .nk-tt.t2,#s-md-zoom.st3 .nk-tt.t3{opacity:1;}
+#s-md-zoom .nk-ret{transition:opacity .5s ease;}
+#s-md-zoom.st1 .nk-ret{opacity:0;}
+#s-md-zoom .nk-ret circle,#s-md-zoom .nk-ret line{fill:none;stroke:var(--nk-gold);stroke-width:2;}
+#s-md-zoom .nk-ret text{font-family:var(--nk-serif);font-variant:small-caps;font-weight:600;font-size:22px;fill:var(--nk-gold);
+  paint-order:stroke;stroke:#02040b;stroke-width:5px;}
+#s-md-zoom .nk-ret text.m{font-family:var(--nk-sans);font-variant:normal;font-weight:400;font-size:17px;fill:var(--nk-dim);}
+#s-md-zoom .nk-bin{opacity:0;transition:opacity .7s ease, transform 1.05s ease-in-out;transform-origin:390px 330px;}
+#s-md-zoom.st1 .nk-bin{opacity:1;transition:opacity .7s ease .55s, transform 1.05s ease-in-out;}
+#s-md-zoom.st2 .nk-bin{opacity:0;transform:scale(3.2);transition:opacity .6s ease, transform 1.05s ease-in-out;}
+#s-md-zoom .nk-disc{transition:transform 1s ease-in-out .35s;}
+#s-md-zoom:not(.st1) .nk-disc.a{transform:translate(250px,30px) scale(.25);}
+#s-md-zoom:not(.st1) .nk-disc.b{transform:translate(-250px,30px) scale(.25);}
+#s-md-zoom .nk-bin text{font-family:var(--nk-serif);font-size:21px;fill:#fff;text-anchor:middle;}
+#s-md-zoom .nk-bin text.m{font-family:var(--nk-sans);font-size:17px;fill:var(--nk-dim);}
+#s-md-zoom .nk-bin .orb{fill:none;stroke:rgba(160,190,245,.35);stroke-width:2;stroke-dasharray:6 7;}
+#s-md-zoom .nk-thm{position:absolute;left:50%;top:70cqh;transform:translateX(-50%);width:120cqh;text-align:center;
+  opacity:0;transition:opacity .7s ease;}
+#s-md-zoom.st1:not(.st2) .nk-thm{opacity:1;transition:opacity .7s ease 1s;}
+#s-md-zoom .nk-thm .f{font-family:var(--nk-serif);font-size:4.4cqh;color:#fff;}
+#s-md-zoom .nk-thm .f i{font-style:italic;}
+#s-md-zoom .nk-thm .c{font-size:2.5cqh;color:var(--nk-dim);margin-top:1cqh;line-height:1.4;}
+#s-md-zoom .nk-thm .c b{color:var(--nk-N);font-weight:600;}
+#s-md-zoom .nk-skel{opacity:0;transform:scale(.45);transform-origin:390px 330px;transition:opacity .6s ease, transform 1.05s ease-in-out;}
+#s-md-zoom.st2 .nk-skel{opacity:1;transform:none;transition:opacity .8s ease .35s, transform 1.05s ease-in-out;}
+#s-md-zoom .nk-skel .edge{stroke:rgba(190,210,250,.7);stroke-width:2.5;transition:stroke .7s, opacity .7s;}
+#s-md-zoom .nk-skel .node{fill:#cfe0ff;stroke:#fff;stroke-width:2;transition:fill .7s, stroke .7s;}
+#s-md-zoom .nk-skel .node.thm{fill:#fff;}
+#s-md-zoom .nk-skel text{font-size:21px;fill:#fff;text-anchor:middle;font-family:var(--nk-sans);transition:fill .7s, opacity .7s;}
+#s-md-zoom .nk-skel text.sec{font-family:var(--nk-serif);font-size:19px;fill:var(--nk-gold);font-weight:600;}
+#s-md-zoom .nk-skel text.d{font-size:17px;fill:var(--nk-dim);font-family:var(--nk-serif);font-style:italic;}
+#s-md-zoom .nk-skel .glow{fill:var(--nk-H);opacity:0;transition:opacity .8s;}
+#s-md-zoom.st3 .nk-skel .glow{opacity:.35;}
+#s-md-zoom.st3 .nk-skel .edge{stroke:rgba(150,165,195,.35);stroke-dasharray:5 6;}
+#s-md-zoom.st3 .nk-skel g:not(.lean) .node{fill:#02040b;stroke:#6f7f99;stroke-dasharray:4 4;}
+#s-md-zoom.st3 .nk-skel g:not(.lean) text{opacity:.5;}
+#s-md-zoom.st3 .nk-skel g.lean .node{fill:var(--nk-H);stroke:#fff;}
+#s-md-zoom.st3 .nk-skel g.lean text{fill:var(--nk-H);}
+#s-md-zoom .nk-lean{position:absolute;top:71cqh;width:72cqh;padding:1.3cqh 2cqh;border-radius:1.2cqh;
+  background:rgba(4,8,22,.88);}
+#s-md-zoom .nk-lean.yes{left:5cqh;border:.2cqh solid var(--nk-H);}
+#s-md-zoom .nk-lean.no{right:5cqh;border:.2cqh dashed var(--nk-N);}
+#s-md-zoom .nk-lean .h{font-size:2.9cqh;font-weight:600;}
+#s-md-zoom .nk-lean.yes .h{color:var(--nk-H);} #s-md-zoom .nk-lean.no .h{color:var(--nk-N);}
+#s-md-zoom .nk-lean .l{font-size:2.4cqh;color:var(--nk-ink);margin-top:.6cqh;line-height:1.35;}
+#s-md-zoom .nk-lean code{font-family:var(--nk-mono);font-size:2.2cqh;color:#d6f5ea;}
+#s-md-zoom .nk-take{position:absolute;left:0;right:0;top:88cqh;text-align:center;font-family:var(--nk-serif);
+  font-size:3cqh;color:#fff;}
+
+/* ---------- slide 5: coda ---------- */
+#s-md-coda .nk-veil{position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 50%, rgba(2,4,11,.0), rgba(2,4,11,.55));pointer-events:none;}
+#s-md-coda .nk-line{position:absolute;left:50%;top:15cqh;width:140cqh;transform:translateX(-50%);text-align:center;
+  font-family:var(--nk-serif);font-weight:400;font-size:6cqh;line-height:1.18;color:#fff;
+  text-shadow:0 0 3cqh rgba(2,4,11,.9),0 0 1cqh rgba(2,4,11,.9);}
+#s-md-coda .nk-line.build{transform:translateX(-50%) translateY(1.4cqh);}
+#s-md-coda .nk-line.build.shown{transform:translateX(-50%);}
+#s-md-coda .nk-zero{position:absolute;left:0;right:0;top:88cqh;text-align:center;font-weight:300;font-size:3.2cqh;color:var(--nk-ink);
+  letter-spacing:.02em;text-shadow:0 0 2cqh rgba(2,4,11,.9);}
+#s-md-coda .nk-zero.build.shown{transition:opacity .8s ease 1.2s;}
+#s-md-coda .nk-zero em{font-style:normal;color:var(--nk-gold);font-weight:600;}
+#s-md-coda .nk-line em{font-style:italic;color:var(--nk-gold);}
+#s-md-coda .nk-q{position:absolute;top:50cqh;width:73cqh;padding:2.2cqh 2.6cqh 2cqh;border-radius:1.2cqh;
+  background:rgba(4,8,22,.92);border-left:.6cqh solid var(--nk-gold);}
+#s-md-coda .nk-q.a{left:8cqh;} #s-md-coda .nk-q.b{right:8cqh;}
+#s-md-coda .nk-q .t{font-family:var(--nk-serif);font-style:italic;font-size:3.2cqh;line-height:1.36;color:#fff;}
+#s-md-coda .nk-q .w{font-size:2.3cqh;color:var(--nk-dim);margin-top:1.4cqh;line-height:1.35;}
+#s-md-coda .nk-q .w b{color:var(--nk-ink);font-weight:600;}
+</style>
+
+<!-- ============ 1. THE SKY ARRIVES ============ -->
+<section class="slide" id="s-md-sky">
+  <canvas class="nk-cv"></canvas>
+  <svg class="nk-ov nk-strip" viewBox="0 0 1280 720" role="img" aria-label="papers per day, 10 Sep to 6 Oct 2026"></svg>
+  <div class="nk-head">
+    <div class="nk-num"><div class="v">722</div><div class="k">manuscripts</div></div>
+    <div class="nk-num"><div class="v">372</div><div class="k">result families</div></div>
+    <div class="nk-num"><div class="v">17</div><div class="k">disciplines</div></div>
+    <div class="nk-num"><div class="v">26.0<small>M</small></div><div class="k">lines of Lean</div></div>
+  </div>
+  <div class="nk-tick build gnt" data-step="1"><span class="dt" id="nkTickDate">10 Sep 2026</span><span class="ct" id="nkTickCt">0 stars</span></div>
+  <div class="nk-leg build gnt" data-step="2">
+    <div><span class="g" id="nkLg1"></span>size: papers in the family, 1 to 14</div>
+    <div><span class="g" id="nkLg2"></span>bright, solid: Lean doc exists (235)</div>
+    <div><span class="g" id="nkLg3"></span>faint, flickering: no Lean doc (137)</div>
+  </div>
+  <div class="nk-plate"></div>
+  <div class="nk-src">github.com/openai/math, cloned 7 Oct 2026 &middot; dates from directory names</div>
+  <!-- Source: stats.md (722 manuscripts, 372 families, 17 disciplines, 26,001,191 Lean lines; per-day counts; Sep 23-24 = 370 = 51.2%); lean docs 235 of 372. -->
+</section>
+
+<!-- ============ 2. CONSTELLATIONS ============ -->
+<section class="slide" id="s-md-constellations">
+  <canvas class="nk-cv"></canvas>
+  <svg class="nk-ov" viewBox="0 0 1280 720" role="img" aria-label="17 discipline constellations; three quantum-relevant ones highlighted"></svg>
+  <div class="nk-title">Seventeen constellations</div>
+  <div class="nk-sub">One per discipline. Three of them are where this room lives.</div>
+  <div class="nk-leg2">star size: papers in the family &middot; bright, solid: a Lean doc exists &middot; faint: none</div>
+  <div class="nk-plate"></div>
+  <div class="nk-src">github.com/openai/math, cloned 7 Oct 2026 &middot; disciplines as in overview.tex</div>
+  <!-- Source: stats.md per discipline (families / papers / lean docs): Prob & stat mech 29/105/19, Math phys 25/59/17, Operator algebras 19/31/14. -->
+</section>
+
+<!-- ============ 3. NAMED STARS ============ -->
+<section class="slide" id="s-md-names">
+  <canvas class="nk-cv"></canvas>
+  <svg class="nk-ov" viewBox="0 0 1280 720" role="img" aria-label="21 famous problem names next to their stars, coloured by Lean status"></svg>
+  <div class="nk-title">Named stars</div>
+  <div class="nk-sub">48 famous problem names appear in the headings. Here are 21.</div>
+  <div class="nk-legend build" data-step="2">
+    <div class="row">
+      <span class="H"><b id="nkcH">5</b>headline in Lean</span>
+      <span class="F"><b id="nkcF">5</b>only a fragment in Lean</span>
+      <span class="D"><b id="nkcD">8</b>Lean doc, scope unchecked</span>
+      <span class="N"><b id="nkcN">3</b>no Lean</span>
+    </div>
+    <div class="say">A Lean doc does not mean the headline theorem is checked.</div>
+  </div>
+  <div class="nk-plate"></div>
+  <div class="nk-src">github.com/openai/math, cloned 7 Oct 2026 &middot; physics statuses read by hand (relevance overview, &sect;3, &sect;6)</div>
+  <!-- Source: stats.md "Famous named problems in headings (48)"; Lean status: relevance-overview.md section 6 for physics families
+       (headline in Lean: 273 274 275 287 288; fragment: 261 265 266 267 271; nothing: 268); others: lean/docs entry present or absent in fam.json. -->
+</section>
+
+<!-- ============ 4. ZOOM: FAMILY 265 ============ -->
+<section class="slide" id="s-md-zoom">
+  <canvas class="nk-cv"></canvas>
+  <svg class="nk-ov" viewBox="0 0 1280 720" role="img" aria-label="zoom into family 265: two papers, the proof skeleton, and the one formalized section"></svg>
+  <div class="nk-title nk-tt t0">One faint star</div>
+  <div class="nk-title nk-tt t1">Family 265: a two-paper system</div>
+  <div class="nk-title nk-tt t2">Paper 1: the proof, &sect;2 to &sect;10</div>
+  <div class="nk-title nk-tt t3">What Lean actually guarantees</div>
+  <div class="nk-sub nk-tt t0">Faint means: no Lean doc.</div>
+  <div class="nk-sub nk-tt t1">Both papers dated 24 Sep 2026.</div>
+  <div class="nk-sub nk-tt t2">Ten sections. Not an AGSP argument: gap &rarr; decay of mutual information &rarr; tiling.</div>
+  <div class="nk-sub nk-tt t3">One section is formalized. The theorem is not.</div>
+  <div class="nk-thm">
+    <div class="f">Theorem 1.1 &nbsp; <i>S</i><sub>&Omega;</sub>(<i>A</i>) &le; <i>C</i>&thinsp;|&part;<i>A</i>| &nbsp;for every region <i>A</i></div>
+    <div class="c">Any finite subgraph of &#8484;&sup2;. Unique ground state. Only a global gap &Delta; &gt; 0.<br>
+      <i>C</i> is not explicit. <b>No lean/docs entry for family 265.</b></div>
+  </div>
+  <div class="nk-lean yes build gnt" data-step="3">
+    <div class="h">In Lean: &sect;2 only</div>
+    <div class="l"><code>uniform_subvolume_square</code><br>~24k lines, 0 sorry. It proves <i>S</i>(box of side <i>r</i>) &le; <i>C</i>&thinsp;<i>r</i><sup>1+<i>e</i></sup>, <i>e</i> &lt; 1.</div>
+  </div>
+  <div class="nk-lean no build gnt" data-step="3">
+    <div class="h">Not formalized</div>
+    <div class="l">&sect;3 to &sect;10, Theorem 1.1 itself, and the whole PEPS paper. Family 265 has no lean/docs entry.</div>
+  </div>
+  <div class="nk-take build gnt" data-step="3">Lean checks a subvolume bound. The area law rests on the unchecked rest.</div>
+  <div class="nk-plate"></div>
+  <div class="nk-src">github.com/openai/math, family 265, lean/OAI/MathematicalPhysics/PEPSSubvolume &middot; proof read structurally, not checked</div>
+  <!-- Source: relevance-overview.md section 2 (two papers, no Lean doc; section 2 formalized as uniform_subvolume_square, about 24k lines, no sorry);
+       report-265.md (section-by-section skeleton). -->
+</section>
+
+<!-- ============ 5. CODA ============ -->
+<section class="slide" id="s-md-coda">
+  <canvas class="nk-cv"></canvas>
+  <div class="nk-veil"></div>
+  <div class="nk-zero build gnt" data-step="0">372 families. 722 papers. <em>0</em> refereed.</div>
+  <div class="nk-line build" data-step="1">The bottleneck moved from <em>producing</em> claims<br>to <em>adjudicating</em> them.</div>
+  <div class="nk-q a build gnt" data-step="2">
+    <div class="t">&ldquo;&hellip;treat any claims about one-shotting problems with a single agent as unverified. We should ask for receipts.&rdquo;</div>
+    <div class="w"><b>Andrew Sutherland</b>, MIT<br>syndicated news article (Yahoo), Oct 2026</div>
+  </div>
+  <div class="nk-q b build gnt" data-step="3">
+    <div class="t">&ldquo;The existing equilibrium has broken. We&rsquo;ll have to find a new one.&rdquo;</div>
+    <div class="w"><b>Daniel Litt</b>, Toronto<br>Quanta Magazine, 5 Oct 2026</div>
+  </div>
+  <div class="nk-plate"></div>
+  <!-- Source: research-trends-reaction.md section D, items 1 (Sutherland, syndicated via Yahoo, 6-7 Oct 2026) and 4 (Litt in Quanta, Cepelewicz, 5 Oct 2026). -->
+</section>
+
+<script type="application/json" id="nsk-data">{"stars":[[1,0,1,0,55.8,199.3,[13],"Milne’s rationality conjecture and algebraic specialization"],[2,0,3,0,111.6,204.0,[14,14,23],"The full BSD formula from low Selmer corank"],[3,0,3,1,150.1,167.4,[20,21,25],"The quasi-Riemann hypothesis"],[4,0,2,0,230.5,243.8,[14,14],"Hilbert’s tenth problem over ℚ"],[5,0,1,1,231.1,193.8,[14],"Irrationality of Catalan’s constant"],[6,0,2,0,89.9,200.1,[13,13],"Goldfeld’s conjecture: densities and mean analytic rank"],[7,0,1,1,72.9,186.9,[14],"Ordinary two-point correlations and the corrected Elliott conjecture"],[8,0,1,1,80.9,166.9,[13],"The Deligne–Drinfeld conjecture"],[9,0,3,1,110.0,180.5,[13,25,25],"Function-field reconstruction from Milnor K-theory and Galois data"],[10,0,3,0,134.0,195.2,[13,24,25],"Unrestricted pro-modularity at the prime two"],[11,0,3,0,120.0,155.8,[7,14,14],"Prime-factor statistics of <i>p-1<\/i>"],[12,0,1,1,173.5,160.8,[14],"Independent largest prime factors of consecutive integers"],[13,0,1,1,203.1,159.8,[14],"Ostmann’s inverse Goldbach conjecture"],[14,0,8,0,184.6,183.4,[14,14,14,25,25,25,25,25],"Restricted geometric Langlands, global Arthur enhancements, and generic Ramanujan"],[15,0,3,1,160.5,201.8,[14,25,25],"Torus-packet equidistribution in prime, quartic, and sextic degrees"],[16,0,4,0,224.3,169.2,[14,14,14,14],"Zilber–Pink in abelian varieties and the Siegel threefold"],[17,0,1,1,209.1,198.1,[14],"The irrationality exponent of <i>π<\/i> is 2"],[18,0,2,0,244.2,216.8,[13,25],"The Margulis–Platonov conjecture over global fields"],[19,0,2,0,217.9,222.9,[14,14],"The local <i>p<\/i>-adic section conjecture and global consequences"],[20,0,1,1,177.8,215.5,[14],"Squarefree quartics and power-free polynomial values"],[21,0,1,1,197.8,229.8,[15],"A quadratic bound for Jacobsthal’s function"],[22,0,1,0,206.3,250.4,[15],"The weak inhomogeneous Duffin–Schaeffer conjecture"],[23,0,1,1,182.8,248.6,[15],"Patterson's first moment for cubic Gauss sums"],[24,0,1,1,160.5,230.9,[15],"An asymptotic formula for the number of totients"],[25,0,1,1,170.2,265.5,[15],"Short Egyptian fractions"],[26,0,1,1,152.9,252.5,[15],"Positive lower density of large prime gaps"],[27,0,1,0,116.9,257.5,[15],"Potential integral density on curve character varieties"],[28,0,1,1,132.3,228.4,[16],"Uniformly bounded components of Gaussian-prime graphs"],[29,0,2,0,89.4,250.8,[24,24],"Primitive roots for every admissible integer base"],[30,0,1,0,99.8,231.2,[24],"Modularity of elliptic curves over imaginary quadratic fields"],[31,0,1,0,67.5,232.4,[25],"Uchida’s conjecture for open homomorphisms of Galois groups"],[32,1,8,0,299.5,188.3,[0,8,20,20,20,20,23,24],"Hodge and Kuga–Satake results for all projective K3 surfaces"],[33,1,5,1,279.1,183.3,[0,16,16,16,17],"Iitaka subadditivity, variation, and logarithmic additivity"],[34,1,14,0,352.9,187.2,[14,14,15,16,17,17,17,17,17,23,24,24,25,25],"Log abundance for compact Kähler spaces under logarithmic Iitaka subadditivity"],[35,1,2,0,317.9,171.9,[14,25],"Log-canonical threefold abundance in numerical dimension one"],[36,1,4,0,300.5,156.9,[14,14,23,24],"Numerical semiampleness and generalized minimal models"],[37,1,2,0,328.5,149.6,[14,14],"The ordinary-double-point volume gap"],[38,1,1,0,348.8,165.7,[13],"Fujita’s freeness conjecture"],[39,1,4,1,352.8,144.3,[13,13,25,25],"Nagata’s conjecture and maximal Seshadri constants"],[40,1,1,0,377.1,180.0,[14],"Bloch’s conjecture for complex surfaces"],[41,1,2,0,379.1,134.1,[13,13],"Hyperkähler SYZ and projective-space bases"],[42,1,1,0,383.7,156.8,[13],"Oka classification for minimal compact complex surfaces: Kodaira dimension zero and class VII"],[43,1,1,0,406.9,153.3,[14],"<i>P<\/i> = <i>W<\/i> for fixed-determinant SL<sub><i>n<\/i><\/sub> moduli spaces"],[44,1,1,0,424.1,139.2,[14],"The equivariant cohomological Hikita conjecture"],[46,1,2,0,433.0,159.9,[13,25],"Shafarevich counterexamples in dimension two and with large fundamental group"],[47,1,1,1,457.0,164.0,[13],"Zariski cancellation and affine fibrations over the complex numbers"],[48,1,1,0,417.1,185.2,[13],"A characteristic-zero counterexample to Lipman–Zariski"],[49,1,2,1,397.2,192.4,[14,25],"A stable-coordinate counterexample in four variables"],[50,1,1,1,482.2,170.3,[14],"A counterexample to Griffiths’ positivity conjecture"],[51,1,1,0,445.2,184.8,[13],"Kobayashi’s canonical-ampleness conjecture"],[52,1,2,1,492.6,192.9,[13,13],"Tangent splittings and product decompositions"],[53,1,1,0,462.3,201.4,[14],"A counterexample to Pixton completeness in Chow"],[54,1,1,0,475.9,225.8,[14],"Irrational cubic fourfolds with Hodge-theoretic and categorical K3 associations"],[55,1,2,0,427.9,216.2,[14,14],"Gepner symmetry and large-volume stability on threefolds"],[56,1,5,0,455.0,233.6,[14,14,25,25,25],"Termination of projective and Kähler fourfold minimal model programs"],[57,1,3,0,433.8,247.1,[13,14,25],"Fundamental groups of special complex varieties and root orbifolds"],[58,1,2,1,413.0,253.1,[14,14],"Semialgebraic universal covers and bounded domains"],[59,1,2,0,400.6,230.9,[14,17],"Counterexamples to Zariski’s multiplicity conjecture"],[60,1,1,0,389.3,258.1,[14],"The Global Spherical Shell conjecture"],[62,1,1,0,368.9,240.3,[13],"Projective contact classification and the LeBrun–Salamon conjecture"],[63,1,1,0,336.6,244.4,[14],"The generalized Mukai conjecture"],[64,1,1,0,373.0,206.3,[14],"Topological triviality of <i>μ<\/i>-constant surface singularities"],[65,1,2,0,349.3,216.0,[14,25],"Virasoro constraints for complete intersections and projective-bundle towers"],[66,1,2,0,318.7,231.8,[15,15],"Bounded klt complements for Fano contractions"],[67,1,1,0,306.7,213.8,[15],"The Campana–Peternell conjecture in dimension six"],[68,1,7,0,328.9,207.4,[16,16,16,16,16,16,16],"Anticanonical nonvanishing in every dimension"],[69,1,1,0,283.3,205.3,[24],"Global quantum geometric Langlands at irrational level"],[71,2,2,1,523.4,198.7,[13,13],"Koebe’s circle-domain conjecture"],[72,2,2,1,560.6,189.6,[14,14],"Brennan's conjecture and the integral-means spectrum"],[73,2,1,1,577.3,169.0,[13],"The Falconer distance conjecture"],[74,2,2,0,597.5,180.6,[13,14],"Kakeya in three and four dimensions"],[75,2,1,0,594.3,203.2,[13],"The <i>L log L<\/i> Fourier-convergence conjecture"],[76,2,3,1,624.0,179.6,[13,25,25],"Real ultraflat Littlewood polynomials and unbounded binary merit factors"],[77,2,2,0,652.4,187.9,[14,14],"Fourier restriction for positively curved surfaces"],[78,2,1,0,622.4,207.3,[14],"The three-dimensional Bochner–Riesz conjecture"],[79,2,1,0,664.4,205.3,[14],"Local smoothing in three dimensions"],[80,2,2,0,636.6,223.1,[14,14],"The exact Sobolev endpoint for Schrödinger convergence"],[81,2,1,1,627.2,243.1,[14],"Riesz transforms and rectifiability in higher codimension"],[82,2,3,1,595.9,224.2,[14,25,25],"Annular variation and dyadic absolute bounds for the triangular Hilbert transform"],[83,2,1,1,583.7,249.7,[15],"Hilbert transforms along Lipschitz directions"],[84,2,2,1,547.0,241.6,[15,25],"The geometric case of the Erdős similarity conjecture"],[85,2,1,1,569.6,215.3,[16],"Endpoint Sobolev regularity of centered disk averages"],[86,2,1,0,529.5,220.8,[25],"An <i>L<\/i><sup>3<\/sup> bound for the trilinear Hilbert transform"],[87,3,3,1,760.2,151.1,[12,12,12],"The Mahler conjectures, functional inequalities and polar-product symplectic width"],[88,3,2,1,734.7,192.8,[14,14],"Sharp projection-body inequalities and a counterexample to simplex maximization"],[89,3,2,1,708.7,185.6,[13,13],"Bounded-distortion <i>L<\/i><sub>1<\/sub> embeddings of planar and bounded-treewidth graphs"],[90,3,4,1,738.8,167.0,[13,13,13,16],"Triangular-lattice optimality, long-range Riesz and Coulomb energies, and spherical logarithmic energy"],[91,3,1,1,776.8,170.9,[13],"Logarithmic and <i>L<\/i><sub><i>p<\/i><\/sub> Brunn–Minkowski inequalities and the B-conjecture"],[92,3,2,1,807.0,169.8,[13,13],"The optimal order of convex-body covering density"],[93,3,1,0,774.9,192.4,[13],"Dimension-free logarithmic Sobolev inequality for subgaussian log-concave measures"],[94,3,1,1,796.3,190.8,[13],"Subpolynomial dimension reduction in <i>L<\/i><sub><i>p<\/i><\/sub>"],[95,3,3,1,826.5,193.5,[14,25,25],"Hyperbolicity cones without semidefinite lifts"],[96,3,1,1,819.3,214.9,[14],"The Gaussian propeller conjecture in every dimension"],[97,3,1,1,800.7,230.3,[14],"The Euclidean Steinitz–Bergström bound"],[98,3,1,1,767.4,231.3,[15],"Compact counterexamples to bi-Lipschitz dimension reduction"],[99,3,3,1,755.3,203.6,[17,17,17],"The sharp exponential scale of edit-distance distortion"],[100,3,4,1,724.7,230.0,[17,17,17,17],"Cylinder coverings below the half-area bound"],[101,3,1,0,693.6,202.9,[25],"The sharp simplex conjecture for isotropic constants"],[102,4,5,1,987.4,144.6,[13,13,13,13,13],"The Unique Games Conjecture and optimal approximation thresholds"],[103,4,1,0,875.2,207.1,[13],"Exact derandomization of logarithmic space: <i>L=RL=BPL<\/i>"],[104,4,4,1,869.7,185.9,[15,15,25,25],"Quasipolynomial algorithms for mean-payoff, stochastic and parity games"],[105,4,1,1,924.2,197.2,[13],"Perfect completeness for 2-to-1 games"],[106,4,1,1,893.4,189.9,[14],"Hardness of coloring three-colorable graphs"],[107,4,3,1,891.3,165.6,[14,14,22],"Matrix multiplication with exponent at most 9/4"],[108,4,1,1,949.4,192.1,[14],"A cubic permanent–determinant lower bound"],[109,4,1,0,929.3,172.8,[13],"Integer multiplication below <i>n log n<\/i>"],[110,4,2,1,918.5,152.1,[14,14],"Optimal-order randomized <i>k<\/i>-server on arbitrary metrics"],[111,4,1,1,956.1,162.4,[13],"One-sample matroid prophet inequalities against an almighty adversary"],[112,4,1,1,971.8,195.2,[13],"Beyond the square-root exponent for depth-three circuits"],[113,4,2,1,978.7,166.1,[13,13],"Approximate counting and entropy of perfect matchings"],[114,4,2,1,1006.3,159.5,[13,25],"Approximate counting of common integer polymatroid bases"],[115,4,2,1,1032.2,161.3,[14,14],"Sampling and counting contingency tables with arbitrary margins"],[116,4,3,1,997.1,190.7,[14,14,24],"Uniform black-box noncommutative identity testing across characteristics"],[117,4,2,1,1021.5,182.9,[14,14],"Uniform sparsest cut: hardness and semidefinite gaps"],[118,4,1,1,1045.7,179.2,[14],"Bin packing and unbounded configuration-LP gaps"],[119,4,2,1,1065.8,171.1,[14,14],"The Courtade–Kumar and Hellinger conjectures"],[120,4,1,0,1054.2,200.6,[14],"Almost-linear-time exact matching and prescribed-degree factors in general graphs"],[121,4,1,1,1085.7,198.7,[14],"Almost-linear approximation of edit distance"],[122,4,3,1,1076.5,218.1,[14,25,25],"Quantitative trace-reconstruction bounds with a uniform decoder"],[124,4,1,1,1016.5,216.9,[14],"Polynomial-time scheduling on three identical machines"],[125,4,2,1,1048.4,229.6,[14,14],"The metric <i>k<\/i>-median approximation threshold and recovery"],[126,4,1,1,1066.1,242.5,[25],"Exponential semidefinite complexity of perfect matching"],[127,4,1,1,995.2,217.6,[15],"Average sensitivity of polynomial threshold functions"],[128,4,1,1,1046.0,256.8,[14],"A factor-two approximation for shortest common superstring"],[129,4,2,1,1011.0,242.0,[15,15],"Exponential state costs for two-way automata"],[130,4,2,1,1021.0,265.7,[15,15],"Exact Fourier transforms below <i>n log n<\/i>"],[131,4,1,1,1000.0,271.7,[15],"Rapid mixing of graph switches for every degree sequence"],[132,4,1,1,981.3,252.7,[15],"A superquadratic separation of sensitivity and block sensitivity"],[133,4,4,1,970.6,271.8,[15,15,15,15],"The computational complexity of Weisfeiler–Leman refinement"],[134,4,3,1,972.6,233.0,[15,15,15],"Generalized star height at most three"],[135,4,1,1,950.4,265.7,[15],"Homogeneous depth-five lower bounds for iterated matrix multiplication"],[136,4,1,0,925.2,258.4,[15],"A quasilinear PCP theorem for PPAD"],[137,4,1,0,938.5,242.1,[15],"One-tape time simulation in two-fifths-power space"],[138,4,2,0,956.3,217.6,[16,24],"Subset Sum in <i>O(2<sup>0.49n<\/sup>)<\/i> time"],[139,4,1,1,902.2,242.6,[16],"Subpolynomial query complexity for log-concave sampling"],[140,4,6,1,878.0,238.2,[17,17,17,17,17,17],"Memory–sample lower bounds for noiseless Gaussian regression"],[141,4,1,0,935.2,217.3,[24],"Existential–universal real sentences in the counting hierarchy"],[142,4,1,0,894.9,221.9,[24],"Deterministic polynomial factorization over prime fields"],[143,5,2,1,1132.1,186.4,[14,14],"Hilbert's sixteenth problem: uniform bounds for limit cycles"],[144,5,1,1,1164.6,162.0,[13],"Banach’s simple Lebesgue-spectrum problem"],[145,5,1,1,1195.5,177.2,[13],"Rokhlin’s multiple-mixing problem"],[146,5,1,1,1221.7,184.1,[13],"Positive metric entropy for the standard map"],[147,5,2,0,1188.7,197.9,[14,14],"The near-boundary Birkhoff conjecture"],[148,5,1,1,1209.7,203.1,[14],"The entropy-rate dimension formula for self-similar measures"],[149,5,2,1,1241.3,206.7,[15,25],"Classwise permanence for weakly reversible mass-action systems"],[150,5,2,1,1216.0,232.9,[15,25],"Weak mixing of triangular billiards with an irrational angle"],[151,5,1,1,1172.2,216.9,[15],"A <i>C<\/i><sup>1<\/sup> counterexample to the entropy conjecture"],[152,5,1,1,1158.3,233.9,[15],"Zero entropy does not guarantee a smooth positive-volume model"],[153,5,1,0,1121.1,211.9,[23],"Arithmetic classification and non-Pisot singularity for Bernoulli convolutions"],[154,5,4,0,1144.3,204.2,[24,24,24,24],"Pointwise multiple ergodic averages for mixing transformations"],[155,6,1,1,54.5,377.2,[13],"A counterexample to periodic tiling in dimension three"],[156,6,1,1,78.4,378.5,[13],"Borsuk's conjecture fails in dimension nine"],[157,6,3,1,252.2,400.2,[13,13,13],"Graph coloring, clique minors, and Colin de Verdière invariants"],[158,6,1,1,122.9,379.3,[13],"The Euclidean plane cannot be colored with five colors"],[159,6,1,1,69.7,348.2,[13],"Erdős’s reciprocal-sum conjecture and quasipolynomial Szemerédi bounds"],[160,6,1,1,108.5,362.7,[13],"Superexponential van der Waerden numbers"],[161,6,1,1,144.1,329.4,[13],"Counterexamples to Sidorenko’s conjecture and the forcing conjecture"],[162,6,2,1,91.1,339.6,[13,17],"Counterexamples to Ryser’s covering conjecture"],[164,6,1,0,122.2,340.9,[13],"Hindman’s finite sums and products conjecture"],[165,6,2,1,135.2,361.7,[13,13],"The Harary–Hill and Zarankiewicz crossing-number formulas"],[166,6,1,0,159.5,344.3,[13],"The higher-dimensional Erdős distinct-distances conjecture"],[167,6,2,1,180.3,338.4,[13,13],"Planar distinct distances and unit-distance bounds"],[168,6,1,1,164.4,371.0,[14],"Combinatorial invariance of Kazhdan–Lusztig polynomials"],[169,6,1,1,202.1,341.5,[14],"Shareshian–Wachs elementary positivity"],[170,6,2,1,189.3,360.1,[14,14],"Sharp logarithmic exponents for off-diagonal Ramsey numbers"],[171,6,1,0,222.1,350.4,[13],"The hypercube Ramsey conjecture"],[172,6,1,1,212.9,369.4,[13],"Classification of finite Euclidean Ramsey configurations"],[173,6,1,1,236.2,366.3,[13],"Seymour’s second-neighborhood conjecture"],[174,6,2,1,190.1,389.7,[13,13],"Deterministic construction of strong thin spanning trees"],[175,6,3,1,165.2,392.1,[13,13,25],"Talagrand’s expectation thresholds, discrete convexity, and graph decompositions"],[176,6,1,1,217.3,393.7,[14],"The second Kahn–Kalai conjecture with an edge-count bound"],[177,6,1,1,241.0,420.0,[14],"Bounded-degree coboundary expanders"],[178,6,1,0,219.9,427.9,[13],"Deterministic nonbipartite Ramanujan graphs in every fixed degree"],[179,6,1,1,184.2,429.6,[13],"The circulant Hadamard and Barker-sequence conjectures"],[180,6,1,1,196.1,447.7,[14],"Barnette’s Hamiltonian-cycle conjecture"],[181,6,1,1,167.8,452.1,[14],"The Erdős–Gallai cycle-decomposition conjecture"],[182,6,3,1,153.0,412.6,[14,25,25],"Power savings for intersective polynomial differences and prime arguments"],[183,6,1,1,139.6,449.3,[15],"Power savings for planar halving lines and <i>k<\/i>-sets"],[184,6,2,1,116.5,452.1,[15,25],"Correspondence coloring with a fixed forbidden subgraph"],[185,6,1,1,122.8,428.0,[14],"Counterexamples to infinite matroid intersection and packing/covering"],[186,6,2,1,89.1,446.2,[15,25],"Uniform influence and sharp thresholds for graph and hypergraph properties"],[187,6,1,1,132.9,404.2,[15],"Snaky in 21 Maker moves"],[188,6,1,1,99.3,427.3,[15],"The sharp terminal leave in random triangle removal"],[189,6,1,1,75.6,428.5,[15],"Cycle–clique Ramsey numbers"],[190,6,1,1,48.6,402.6,[15],"Polynomial removal fails for ordered binary matrices"],[191,6,1,1,70.3,399.5,[15],"A power improvement in the Heilbronn triangle lower bound"],[192,6,1,1,91.4,397.0,[16],"Boolean functions violate the square-root degree bound by arbitrary factors"],[193,7,1,0,1120.3,566.6,[13],"Serre’s intersection-multiplicity conjecture"],[194,7,1,1,1097.3,555.4,[13],"Lech’s multiplicity conjecture"],[195,7,1,0,1142.4,559.0,[13],"A counterexample to the small Cohen–Macaulay module conjecture"],[196,7,1,1,1122.2,544.2,[13],"A counterexample to Kaplansky’s zero-divisor conjecture"],[197,7,4,1,1138.4,529.2,[13,13,16,24],"A torsion-free group algebra that is not directly finite"],[198,7,1,1,1160.0,534.7,[13],"A counterexample to finitistic-dimension finiteness"],[199,7,2,1,1181.6,533.8,[13,13],"Counterexamples to Auslander–Reiten, Tachikawa and related homological conjectures"],[200,7,2,0,1170.7,562.4,[13,13],"Eisenbud–Green–Harris and lex-plus-powers"],[201,7,1,0,1204.3,550.3,[13],"A counterexample to Kurosh’s division-ring problem"],[202,7,1,0,1223.8,561.3,[13],"The blockwise Alperin weight conjecture"],[203,7,2,0,1187.2,576.6,[14,15],"Donovan's conjecture over fields and complete mixed-characteristic DVRs"],[204,7,1,0,1209.4,583.1,[14],"Tensor saturation for even spin groups"],[205,7,2,1,1203.3,605.4,[14,14],"Saxl’s conjecture and universal tensor squares"],[206,7,2,1,1163.9,586.5,[14,14],"Finite lattice representation and undecidability"],[207,7,2,1,1165.7,610.9,[14,25],"The ℓ¹-Bass conjecture for all discrete groups"],[208,7,1,0,1129.5,609.0,[14],"Finite symmetric tensor categories and the Verlinde tower"],[209,7,2,0,1109.1,587.7,[15,16],"Integral counterexamples to Gersten’s conjecture"],[210,7,2,1,1077.8,570.4,[15,15],"Foulkes' conjecture for sixth powers and quadratic stabilization"],[211,8,7,1,355.2,385.4,[14,14,14,14,25,25,25],"The geometric phase diagram, diffusion, and spectra of random planar maps"],[212,8,2,1,319.5,378.8,[14,14],"Planar first-passage geometry and the absence of bigeodesics"],[213,8,2,1,289.3,375.8,[14,14],"Critical percolation on every quasi-transitive graph"],[214,8,1,1,318.5,348.4,[14],"The Benjamini–Schramm nonuniqueness conjecture"],[215,8,5,1,346.5,352.7,[13,13,24,24,25],"Canonical <i>O(3)<\/i> continuum limit and exact <i>O(4)<\/i> mass asymptotics"],[216,8,6,0,368.8,340.3,[14,14,25,25,25,25],"Critical and near-critical XY scaling and BKT universality"],[217,8,2,0,387.8,361.8,[14,14],"The low-temperature Sherrington–Kirkpatrick fluctuation law"],[218,8,6,1,403.6,335.9,[13,13,13,25,25,25],"Conformal universality for weakly interacting and random-bond Ising models"],[219,8,2,0,430.5,345.9,[13,25],"GOE bulk universality for regular graphs with weak Anderson disorder"],[220,8,3,1,416.7,370.2,[13,13,25],"Directional zero–one laws beyond iid environments and iid ballisticity"],[221,8,1,1,468.2,341.7,[13],"The Mézard–Parisi formula for diluted spin glasses"],[222,8,4,1,451.6,367.4,[14,14,14,14],"Perceptron free energies and microscopic jamming exponents"],[223,8,6,0,495.3,361.1,[13,13,25,25,25,25],"Random-cluster interfaces: critical, disordered, thermal, and natural-time scaling"],[224,8,3,0,476.8,376.0,[13,25,25],"Critical and quenched near-critical universality for Poisson–Voronoi percolation"],[225,8,1,0,435.9,387.3,[13],"Gaussian free field limits throughout the balanced six-vertex regime"],[226,8,1,0,460.8,393.3,[13],"The double-dimer loop ensemble converges to CLE<sub>4<\/sub>"],[227,8,8,1,494.0,400.4,[14,14,14,14,14,15,25,25],"Critical SK autocorrelation processes and dynamics across the temperature transition"],[228,8,2,1,462.6,418.1,[14,14],"Continuum phase transitions for radial pair potentials"],[229,8,3,1,411.9,394.0,[15,25,25],"Exact three- and four-state reconstruction thresholds and four-state tree capacity"],[230,8,2,1,442.1,434.0,[15,16],"Exact Hausdorff gauges for SLE"],[231,8,1,1,412.9,420.3,[15],"The free uniform spanning forest is a factor of IID"],[232,8,3,0,420.3,445.4,[15,15,15],"Gaussian fields and interfaces for triangular-lattice Lipschitz heights"],[233,8,1,0,391.7,445.7,[15],"The joint critical Ashkin–Teller current limit"],[234,8,1,1,370.1,427.0,[15],"All-temperature pressure of orthogonally invariant Ising spin glasses"],[235,8,4,1,339.3,430.8,[15,17,17,25],"Limiting random SAT thresholds, sharp variance and computability"],[236,8,1,1,376.2,400.9,[16],"The exact factor-of-IID threshold for free Ising spins on trees"],[237,8,13,1,313.7,425.2,[16,16,16,16,16,16,16,16,16,16,16,16,16],"The three-quarter exponent for honeycomb self-avoiding walk"],[238,8,12,1,329.5,406.7,[16,16,16,16,16,16,16,16,16,16,16,16],"Optimal logarithmic mixing of the Thorp shuffle"],[239,8,2,0,299.3,400.2,[23,24],"Sharp singularity rates for symmetric random sign matrices"],[240,9,2,1,1131.5,376.5,[14,14],"Shelah's eventual categoricity and the prescribed-threshold obstruction"],[241,9,1,1,1152.7,380.4,[14],"Rigidity of the Turing degrees"],[242,9,1,1,1189.5,374.1,[14],"Single-fold Diophantine representations and undecidability under an at-most-one-solution promise"],[243,9,2,1,1210.9,401.1,[13,14],"Separating choiceless counting from polynomial time and witnessed choice"],[244,9,1,1,1183.4,412.5,[14],"The Partition Principle does not imply Choice"],[245,9,1,1,1123.8,399.8,[15],"Weak normalization implies strong normalization in pure type systems"],[246,10,1,1,282.8,552.6,[13],"Cannon's conjecture"],[247,10,2,1,308.5,545.4,[13,25],"An infinite finitely presented residually finite 2-group and a finitely presented nil algebra"],[248,10,1,1,338.1,534.8,[13],"Thompson's group <i>F<\/i> is nonamenable"],[249,10,1,1,327.9,556.7,[13],"A finitely generated Eilenberg–Ganea counterexample"],[250,10,3,1,352.7,557.4,[13,13,13],"Boone–Higman embeddings with higher finiteness"],[251,10,2,1,387.0,548.8,[13,25],"Amenability, unitarizability, and strong Ulam stability"],[252,10,1,1,412.1,562.1,[13],"A torsion-free hyperbolic group that is neither residually finite nor linear over any field"],[253,10,1,1,378.9,570.4,[13],"An infinite finitely presented simple amenable group"],[254,10,3,1,396.8,597.6,[13,13,13],"Classifying spaces and geometric obstructions for Artin groups"],[255,10,1,1,365.6,599.4,[14],"Quasi-isometric recognition of virtually polycyclic groups"],[256,10,2,1,345.7,612.2,[14,25],"Nonsingular systems of equations over arbitrary groups"],[257,10,1,1,333.0,583.0,[15],"A hyperbolic group without a geometric CAT(0) action"],[258,10,2,0,292.1,598.8,[15,15],"Gersten’s conjecture and virtual compact specialness of one-relator groups"],[259,10,1,0,291.9,577.6,[25],"A group without fixed price"],[260,11,13,1,618.0,388.8,[17,17,17,17,17,25,25,25,25,25,25,25,25],"Spacetime Penrose inequalities: enclosing area, charge, rotation, and anti-de Sitter extensions"],[261,11,2,1,555.3,380.5,[13,13],"Localization and delocalization in the Anderson model"],[262,11,3,1,630.8,359.6,[13,25,25],"Sharp finite-matrix Lieb–Thirring inequalities and all equality cases"],[263,11,3,1,616.1,335.3,[14,14,14],"The ionization and generalized ionization conjectures"],[264,11,3,0,664.2,371.5,[13,13,13],"Strong cosmic censorship near two-ended Kerr data"],[265,11,2,0,591.3,347.3,[14,14],"Area laws and tensor networks for two-dimensional gapped systems"],[266,11,2,1,710.1,338.2,[14,14],"Exactly three mutually unbiased bases in dimension six"],[267,11,5,1,582.9,434.7,[14,17,25,25,25],"Positive-temperature Bose–Einstein condensation and exact quantum depletion"],[268,11,2,0,646.2,334.9,[14,14],"The spin-one Haldane gap"],[269,11,2,1,681.6,346.0,[14,25],"Uniform Laughlin gap and stability under bounded scalar disorder"],[270,11,2,0,729.1,365.8,[14,25],"Threshold and positive-energy bound states of the BFSS matrix model"],[271,11,4,1,657.3,456.6,[14,25,25,25],"Bloch's law, its lattice correction, and the spherical magnetization law"],[272,11,1,1,701.8,381.1,[17],"Entanglement without distillable secret key"],[273,11,1,1,737.9,443.4,[14],"The entropy photon-number inequality"],[274,11,2,1,752.2,419.0,[14,14],"Parity is not in QAC<sup>0<\/sup>"],[275,11,2,1,757.0,365.1,[14,14],"QMA-hardness of continuum Coulomb energy"],[276,11,1,1,738.2,392.3,[14],"Classical capacity of generalized amplitude damping"],[277,11,1,1,767.2,392.5,[15],"Threshold repetition for entangled games"],[278,11,1,0,710.1,408.1,[15],"Failure of Kohn–Sham ensemble representation"],[279,11,1,1,706.9,443.2,[15],"Exact quantum factoring over a fixed finite gate set"],[280,11,1,1,676.4,412.9,[15],"Unitary vertex operator algebras and conformal nets"],[281,11,2,1,629.8,436.4,[15,17],"QAOA attains the SK optimum in the thermodynamic-first limit"],[282,11,1,0,648.1,401.1,[16],"From scale symmetry to local conformal symmetry in four-dimensional QFT"],[283,11,1,0,562.4,415.5,[25],"Polynomial-time unitary synthesis from a Boolean oracle"],[284,11,1,0,590.8,396.9,[25],"The optimal quartic separation between randomized and quantum queries"],[285,12,3,0,898.1,367.9,[13,13,13],"Counterexamples to Baum–Connes and Kadison–Kaplansky"],[286,12,2,0,883.8,340.5,[13,13],"Rigidity and arithmetic of lattice von Neumann algebras"],[287,12,1,1,988.3,367.0,[13],"Isomorphism of the free group factors"],[288,12,1,1,1004.2,417.3,[13],"Kadison's similarity conjecture"],[289,12,3,1,925.2,376.0,[13,25,25],"Strong Kadison–Kastler stability and its spatial boundaries"],[290,12,2,1,916.0,342.9,[13,13],"Relative bicentralizers and modular spectral recovery"],[291,12,4,1,947.3,334.9,[13,13,13,25],"Cuntz comparison, nuclear dimension, and equivariant Jiang–Su stability"],[292,12,1,1,945.3,358.9,[13],"Kirchberg's <i>O<sub>2<\/sub><\/i> norm-ultrapower embedding problem"],[293,12,2,1,975.0,344.4,[17,17],"Invariant projections, hyperinvariant subspaces, and transitive algebras"],[294,12,1,1,1018.8,384.0,[13],"Kaplansky's quasitrace conjecture and failure of tensor-product stable finiteness"],[295,12,1,1,983.7,390.4,[13],"The Kadison–Ringrose cohomology conjecture"],[296,12,1,1,948.3,394.1,[13],"The generator problem for finite factors"],[297,12,1,1,956.5,425.1,[14],"A ZFC counterexample to Naimark's problem"],[298,12,1,1,926.1,421.7,[15],"Two notions of free entropy differ even when both are finite"],[299,12,1,1,892.5,421.2,[15],"The Kirchberg–Rørdam character criterion and infinite tensor-power Jiang–Su stability"],[300,12,2,0,908.2,396.8,[15,15],"Approximation and quadratic strong-operator paving"],[301,12,1,0,865.6,411.0,[15],"Trace cones and Razak–Jacelon stabilization"],[302,12,2,0,878.5,388.9,[15,15],"Radius of comparison equals half the mean dimension"],[303,12,1,1,854.0,387.8,[15],"Weak pure infiniteness and Cuntz-algebra absorption"],[304,13,1,0,518.3,560.0,[13],"The Hilbert–Smith conjecture in every dimension"],[305,13,3,0,469.8,546.3,[14,14,14],"Four-dimensional disk embedding and Wall's conjecture"],[306,13,1,0,492.8,546.1,[13],"The purely cosmetic surgery conjecture"],[307,13,2,1,497.1,521.5,[13,25],"Failure of rational injectivity for maximal coarse assembly"],[308,13,2,0,532.4,535.5,[13,13],"Finite Smith–Toda complexes at every height"],[309,13,1,0,554.2,519.3,[14],"The Kervaire invariant problem at the prime three"],[310,13,1,0,578.1,526.6,[14],"Quillen's conjecture in rational homology"],[311,13,1,0,553.3,545.9,[14],"The Hovey–Strickland and Chai conjectures"],[312,13,1,1,589.3,551.7,[14],"The Grothendieck homotopy hypothesis"],[313,13,1,0,604.5,572.6,[14],"Finite generation for the <i>K(n)<\/i>-local sphere"],[314,13,1,0,564.5,574.5,[14],"Cyclic length and chromatic fixed-point loss"],[315,13,1,0,570.7,600.0,[15],"The four-dimensional Singer conjecture"],[316,13,1,0,549.9,603.2,[15],"Curtis’s conjecture"],[317,13,1,1,526.1,595.6,[15],"Thomason model structures in all strict higher dimensions"],[318,13,5,0,500.6,581.7,[15,15,15,17,17],"Chromatic splitting: filtrations and counterexamples"],[319,13,1,0,473.9,590.3,[16],"Counterexamples to finite generation at chromatic height two"],[320,13,1,0,453.2,572.9,[24],"Nonhomeomorphic closed aspherical four-manifolds"],[321,13,1,0,481.5,564.9,[26],"A counterexample to Wall's finite D(2) problem"],[322,14,1,1,675.1,567.6,[13],"Tingley’s sphere-isometry problem"],[323,14,1,1,652.9,553.9,[13],"Independence of the separable quotient problem"],[324,14,2,1,693.4,542.5,[14,16],"Lipschitz equivalent Banach spaces need not be linearly isomorphic"],[325,14,2,1,718.1,537.7,[13,16],"The complete Crouzeix conjecture"],[326,14,1,1,727.2,560.8,[13],"The cotype–cotype conjecture under the approximation property"],[327,14,1,1,748.9,549.4,[13],"Markov type characterizes superreflexivity"],[328,14,1,1,768.6,572.1,[14],"Nonexpansive fixed points in reflexive Banach spaces"],[329,14,1,1,721.4,583.3,[14],"A counterexample to metric-entropy duality"],[330,14,1,1,701.1,603.6,[16],"A uniformly discrete counterexample to bounded approximation in Lipschitz-free spaces"],[331,14,7,1,680.3,591.4,[17,17,17,17,17,17,17],"Reflexive midpoint convexity and diamond distortion"],[332,14,1,0,651.2,580.6,[25],"Metric Markov cotype of <i>ℓ<\/i><sub>1<\/sub> and Hilbert-space Lipschitz extension"],[333,15,1,1,833.7,542.9,[13],"Smooth isometric immersions of surfaces into ℝ<sup>4<\/sup>"],[334,15,1,1,881.8,546.1,[14],"A smooth surface metric with no local isometric immersion in ℝ<sup>3<\/sup>"],[335,15,2,0,852.5,526.7,[13,25],"Gromov’s integral scalar-curvature bound for simplicial volume"],[336,15,3,0,873.8,525.5,[13,25,25],"Spectral scalar curvature, Urysohn width, and macroscopic dimension"],[337,15,2,1,894.2,513.3,[13,13],"Sharp Cartan–Hadamard isoperimetry and rigidity"],[338,15,1,0,911.9,526.6,[13],"Yau's uniformization conjecture"],[339,15,1,0,930.3,509.1,[13],"Katok's entropy rigidity conjecture"],[340,15,1,0,919.7,556.4,[13],"A counterexample to the nearby Lagrangian conjecture"],[341,15,1,0,978.6,525.8,[13],"Donaldson's hypersymplectic deformation conjecture"],[342,15,1,1,942.4,548.3,[13],"Donaldson's tamed-to-compatible conjecture"],[343,15,1,1,1002.9,540.0,[13],"Symplectic ball packing in higher dimensions"],[344,15,1,0,973.2,552.1,[13],"The metric Blaschke conjecture"],[345,15,1,0,1012.4,567.8,[14],"Infinitely many closed geodesics on Riemannian spheres and closed three-manifolds"],[346,15,2,0,959.3,569.0,[13,25],"Sharp singular-set bounds for stationary integral varifolds"],[347,15,5,1,995.9,585.3,[13,13,25,25,25],"Counterexamples to stable-Morse and strong Arnold fixed-point bounds"],[348,15,3,1,938.9,576.9,[13,24,25],"Nonnegative-curvature Einstein classification and an <i>L<\/i><sup>2<\/sup> topological gap"],[349,15,1,0,979.0,606.8,[13],"The Solomon–Yau least-volume conjecture"],[350,15,3,1,953.7,605.1,[13,13,13],"Yau’s nodal bounds: surfaces and higher dimensions"],[351,15,3,0,931.3,599.7,[14,14,14],"Scalar curvature and finite-time Ricci-flow singularities"],[352,15,1,0,915.4,579.5,[14],"A finite-time singularity of Calabi flow"],[353,15,2,1,904.4,613.8,[14,25],"Affine Bernstein rigidity through dimension nine and a smooth dimension-ten counterexample"],[354,15,1,1,883.1,615.4,[14],"The isoperimetric profile of the cubic three-torus"],[355,15,1,0,892.8,590.4,[14],"Unique tangent flows at the first surface singularity"],[356,15,2,1,859.7,607.4,[14,14],"Gigli’s characterization of Alexandrov curvature"],[357,15,1,0,869.0,585.4,[15],"Bi-Lipschitz coordinates at every regular RCD point"],[358,15,1,1,835.2,591.1,[14],"A three-manifold without conjugate points or nonpositive curvature"],[359,15,2,1,897.3,568.6,[15,15],"Negative Kähler curvature without bounded holomorphic coordinates"],[360,15,2,1,848.7,567.1,[15,15],"Weak MTW curvature gives convexity and regular optimal transport"],[361,15,2,1,826.3,567.1,[15,16],"Failure of integer-degree harmonic dimension comparison"],[362,16,1,1,79.8,556.6,[13],"Global smoothness for relativistic Vlasov–Maxwell"],[363,16,2,1,119.1,526.2,[13,25],"Nonuniqueness with local conservation for the hard-sphere Boltzmann equation"],[364,16,2,0,130.6,545.6,[13,13],"Kinetic limits and fluctuations over the Boltzmann lifespan"],[365,16,3,1,147.1,524.2,[13,14,25],"Joint metric and connection recovery from one boundary patch"],[366,16,1,0,162.8,538.8,[14],"The planar Mumford–Shah regularity conjecture and local weak-<i>L<\/i><sup>4<\/sup> gradient bounds"],[367,16,1,1,215.3,556.7,[14],"The critical dimension for the one-phase Bernoulli problem"],[368,16,2,0,160.6,567.7,[14,14],"The three-dimensional Ball–Evans approximation problem"],[369,16,1,1,198.9,543.0,[14],"The hot spots conjecture for simply connected planar domains"],[370,16,1,1,187.4,576.5,[14],"The Lane–Emden and Hénon–Lane–Emden conjectures"],[371,16,1,1,188.6,598.5,[14],"Stable blowup for the defocusing Schrödinger equation"],[372,16,1,1,166.0,598.0,[14],"Global uniqueness in smooth isotropic elasticity"],[373,16,1,1,139.4,596.4,[15],"Nonattainment of the three-marginal Coulomb Monge problem"],[374,16,1,1,115.5,588.4,[15],"Sharp one-third stability of Brenier maps"],[375,16,1,0,101.1,554.1,[16],"De Giorgi's conjecture in dimension eight"],[376,16,9,1,131.8,571.9,[17,17,17,17,17,17,17,17,17],"Universal computation in forced Navier–Stokes flows"],[377,16,1,0,92.5,587.2,[24],"Interior <i>C<sup>1,α<\/sup><\/i> regularity for infinity-harmonic functions"]],"disc":[{"name":"Number theory","short":"Number theory","fam":31,"pap":58,"lean":16,"cx":150,"cy":208},{"name":"Algebraic & complex geometry","short":"Algebraic geometry","fam":36,"pap":89,"lean":7,"cx":385,"cy":196},{"name":"Real & complex analysis","short":"Analysis","fam":16,"pap":26,"lean":9,"cx":592,"cy":212},{"name":"Convex & metric geometry","short":"Convex geometry","fam":15,"pap":30,"lean":13,"cx":766,"cy":194},{"name":"Theoretical CS","short":"Theoretical CS","fam":40,"pap":73,"lean":32,"cx":976,"cy":208},{"name":"Dynamics & ergodic theory","short":"Dynamics","fam":12,"pap":19,"lean":9,"cx":1178,"cy":200},{"name":"Combinatorics","short":"Combinatorics","fam":37,"pap":50,"lean":33,"cx":146,"cy":392},{"name":"Algebra","short":"Algebra","fam":18,"pap":29,"lean":9,"cx":1158,"cy":570},{"name":"Probability & stat mech","short":"Probability & stat mech","fam":29,"pap":105,"lean":19,"cx":396,"cy":386},{"name":"Mathematical logic","short":"Logic","fam":6,"pap":8,"lean":6,"cx":1170,"cy":394},{"name":"Group theory","short":"Group theory","fam":14,"pap":22,"lean":12,"cx":345,"cy":574},{"name":"Mathematical physics","short":"Mathematical physics","fam":25,"pap":59,"lean":17,"cx":665,"cy":392},{"name":"Operator algebras","short":"Operator algebras","fam":19,"pap":31,"lean":14,"cx":934,"cy":384},{"name":"Topology","short":"Topology","fam":18,"pap":26,"lean":3,"cx":530,"cy":562},{"name":"Functional analysis","short":"Functional analysis","fam":11,"pap":19,"lean":10,"cx":706,"cy":572},{"name":"Differential geometry","short":"Differential geometry","fam":29,"pap":49,"lean":15,"cx":915,"cy":565},{"name":"PDE","short":"PDE","fam":16,"pap":29,"lean":11,"cx":140,"cy":566}],"hist":[2,0,0,0,0,0,0,1,1,0,0,0,3,177,193,90,53,51,0,0,5,1,1,6,24,112,1]}</script>
+<script>
+(function(){
+"use strict";
+var IDS=['s-md-sky','s-md-constellations','s-md-names','s-md-zoom','s-md-coda'];
+if(!document.getElementById(IDS[0])) return;
+var W=1280,H=720;
+var STILL=location.search.indexOf('still')>=0;
+var DATA=JSON.parse(document.getElementById('nsk-data').textContent);
+var NS='http://www.w3.org/2000/svg';
+function el(t,a,p){var e=document.createElementNS(NS,t);if(a)for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var rng=mulberry(20261008);
+function clamp(x,a,b){return x<a?a:x>b?b:x;}
+function lerp(a,b,u){return a+(b-a)*u;}
+function eio(u){return u<.5?4*u*u*u:1-Math.pow(-2*u+2,3)/2;}
+function eout(u){return 1-Math.pow(1-u,3);}
+function rOf(k){return k<=0?0:4+2.4*(Math.sqrt(k)-1);}
+if(STILL){var stl=document.createElement('style');
+  stl.textContent=IDS.map(function(i){return '#'+i+' *';}).join(',')+'{transition:none!important;animation:none!important}';
+  document.head.appendChild(stl);}
+
+/* ---------------- data ---------------- */
+var DISC=DATA.disc, HIST=DATA.hist;
+var stars=DATA.stars.map(function(a){
+  var s={n:a[0],d:a[1],p:a[2],l:a[3],x:a[4],y:a[5],days:a[6],t:a[7]};
+  s.r=rOf(s.p); s.ph=rng()*6.283; s.w=1.3+rng()*1.5;
+  s.ap=s.days.map(function(d){return d+0.06+rng()*0.85;}).sort(function(a,b){return a-b;});
+  return s;});
+var byN={}; stars.forEach(function(s){byN[s.n]=s;});
+var QUANT={8:1,11:1,12:1};
+function dayLabel(i){return i<=20?(10+i)+' Sep':(i-20)+' Oct';}
+function famTag(n){return (n<10?'00':n<100?'0':'')+n;}
+
+/* ---------------- time-lapse clock ---------------- */
+var DUR=HIST.map(function(h){return 0.13+0.55*Math.min(1,h/90);});
+var CUM=[0]; DUR.forEach(function(d,i){CUM.push(CUM[i]+d);});
+var TL_END=CUM[CUM.length-1];
+function dayAt(t){
+  if(t<0) return t/0.13;
+  for(var i=0;i<DUR.length;i++) if(t<CUM[i+1]) return i+(t-CUM[i])/DUR[i];
+  return DUR.length+(t-TL_END)/0.2;
+}
+
+/* ---------------- background ---------------- */
+function makeBg(){
+  var c=document.createElement('canvas'); c.width=W*2; c.height=H*2;
+  var g=c.getContext('2d'); g.scale(2,2);
+  var gr=g.createRadialGradient(640,330,40,640,360,860);
+  gr.addColorStop(0,'#0e1c40'); gr.addColorStop(.5,'#081130'); gr.addColorStop(1,'#02040b');
+  g.fillStyle=gr; g.fillRect(0,0,W,H);
+  var r2=mulberry(77);
+  function gauss(){return (r2()+r2()+r2()+r2()-2)/2;}
+  for(var i=0;i<900;i++){ /* faint milky band, lower-left to upper-right */
+    var u=r2(), x=-80+u*1440, y=690-u*560+gauss()*95;
+    var rad=10+r2()*34;
+    var gg=g.createRadialGradient(x,y,0,x,y,rad);
+    gg.addColorStop(0,'rgba(120,145,215,'+(0.018+r2()*0.022)+')'); gg.addColorStop(1,'rgba(120,145,215,0)');
+    g.fillStyle=gg; g.fillRect(x-rad,y-rad,rad*2,rad*2);
+  }
+  for(i=0;i<700;i++){ /* dust: much smaller than any data star */
+    var band=r2()<.55; u=r2();
+    x=band?-80+u*1440:r2()*W; y=band?690-u*560+gauss()*80:r2()*H;
+    g.fillStyle='rgba(205,218,255,'+(0.08+r2()*0.22)+')';
+    g.beginPath(); g.arc(x,y,0.35+r2()*0.55,0,6.283); g.fill();
+  }
+  return c;
+}
+var BG=null;
+function sprite(rgb){
+  var c=document.createElement('canvas'); c.width=c.height=64; var g=c.getContext('2d');
+  var gr=g.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba('+rgb+',.6)'); gr.addColorStop(.22,'rgba('+rgb+',.25)'); gr.addColorStop(1,'rgba('+rgb+',0)');
+  g.fillStyle=gr; g.fillRect(0,0,64,64); return c;
+}
+var GW=sprite('255,212,150'), GC=sprite('130,165,235');
+var NEAR=[]; (function(){var r3=mulberry(5); for(var i=0;i<260;i++) NEAR.push([-300+r3()*1880,-200+r3()*1120,0.5+r3()*1.1,0.25+r3()*0.5]);})();
+
+/* ---------------- view state + tweens ---------------- */
+var V={sec:null,cv:null,ctx:null,plate:null,ls:0,tx:640,ty:360,px:640,py:360,
+  tl:1e9,tlRun:false,tlT0:0,focus:null,dim:0,hi265:0,f265:0,bars:null,lastDay:-99,warp:0};
+var tweens=[];
+function tw(key,to,dur,delay){
+  tweens=tweens.filter(function(t){return t.k!==key;});
+  if(STILL||!dur){V[key]=to;return;}
+  tweens.push({k:key,a:V[key],b:to,t0:performance.now()+(delay||0),d:dur,st:false});
+}
+function runTweens(now){
+  tweens=tweens.filter(function(t){
+    if(now<t.t0) return true;
+    if(!t.st){t.st=true;t.a=V[t.k];}
+    var u=clamp((now-t.t0)/t.d,0,1); V[t.k]=lerp(t.a,t.b,eio(u)); return u<1;});
+}
+function retarget(n){ /* keep the current screen mapping, change the zoom anchor to star n (or home) */
+  var S=Math.exp(V.ls), x=n?byN[n].x:640, y=n?byN[n].y:360;
+  V.px=(x-V.tx)*S+V.px; V.py=(y-V.ty)*S+V.py; V.tx=x; V.ty=y;
+}
+function camZoom(n,s,dur){ retarget(n); tw('ls',Math.log(s),dur); tw('px',640,dur); tw('py',360,dur); }
+function camHome(dur){ retarget(null); tw('ls',0,dur); tw('px',640,dur); tw('py',360,dur); }
+function camSet(n,s){ ['ls','px','py'].forEach(function(k){tweens=tweens.filter(function(t){return t.k!==k;});});
+  if(n){V.tx=byN[n].x;V.ty=byN[n].y;V.px=640;V.py=360;V.ls=Math.log(s);} else {V.tx=640;V.ty=360;V.px=640;V.py=360;V.ls=0;} }
+
+/* ---------------- mouse lens ---------------- */
+var M={x:0,y:0,t:-1e9,inn:false}, lensNear=null;
+function lensActive(now){ return M.inn && now-M.t<3200 && Math.exp(V.ls)<1.02 && V.tl>=DUR.length+1; }
+
+/* ---------------- drawing ---------------- */
+function starAlpha(s,t){ return s.l?1:0.62*(0.82+0.18*Math.sin(t*s.w+s.ph)); }
+function drawStar(g,s,X,Y,R,a){
+  if(a<=0.003) return;
+  if(s.l){
+    g.globalAlpha=a*0.95; g.drawImage(GW,X-R*3.4,Y-R*3.4,R*6.8,R*6.8);
+    g.globalAlpha=a; g.fillStyle='#fff6e2'; g.beginPath(); g.arc(X,Y,R,0,6.283); g.fill();
+  } else {
+    g.globalAlpha=a*0.55; g.drawImage(GC,X-R*2.6,Y-R*2.6,R*5.2,R*5.2);
+    g.globalAlpha=a*0.32; g.fillStyle='#9fb6e0'; g.beginPath(); g.arc(X,Y,R,0,6.283); g.fill();
+    g.globalAlpha=a*0.95; g.strokeStyle='#a9c0ea'; g.lineWidth=Math.max(1.6,R*0.28);
+    g.beginPath(); g.arc(X,Y,Math.max(1,R-g.lineWidth/2),0,6.283); g.stroke();
+  }
+}
+function draw(now){
+  var cv=V.cv; if(!cv) return;
+  var dpr=Math.min(2,window.devicePixelRatio||1);
+  var w=Math.round(cv.clientWidth*dpr), h=Math.round(cv.clientHeight*dpr);
+  if(!w||!h) return;
+  if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;}
+  var g=V.ctx; g.setTransform(w/W,0,0,h/H,0,0); g.globalAlpha=1;
+  if(!BG) BG=makeBg();
+  var S=Math.exp(V.ls), t=now/1000;
+  g.fillStyle='#02040b'; g.fillRect(0,0,W,H);
+  var bs=1+Math.log(S)*0.1, ox=V.tx+(V.px-V.tx)*0.06-V.tx*bs, oy=V.ty+(V.py-V.ty)*0.06-V.ty*bs;
+  g.drawImage(BG,ox,oy,W*bs,H*bs);
+  /* fly-through dust during zooms */
+  var wa=clamp(Math.log(S)/1.4,0,1)*0.85;
+  if(wa>0.01){
+    var k=Math.pow(S,0.55); g.fillStyle='#dfe8ff';
+    for(var i=0;i<NEAR.length;i++){var q=NEAR[i], X=(q[0]-V.tx)*k+V.px, Y=(q[1]-V.ty)*k+V.py;
+      if(X<-5||X>W+5||Y<-5||Y>H+5) continue; g.globalAlpha=wa*q[3];
+      var rr=q[2]*(1+Math.log(k)*0.35); g.fillRect(X-rr/2,Y-rr/2,rr,rr);}
+  }
+  /* stars */
+  var tl=V.tl, grow=1+(S-1)*0.45;
+  for(i=0;i<stars.length;i++){
+    var s=stars[i], rr2=s.r, flash=0;
+    if(tl<1e8){
+      if(tl<s.ap[0]) continue;
+      var kk=0; while(kk<s.ap.length && s.ap[kk]<=tl) kk++;
+      var rPrev=rOf(kk-1), rNow=rOf(kk), age=(tl-s.ap[kk-1])/0.5;
+      rr2=lerp(rPrev,rNow,eout(clamp(age,0,1)));
+      if(kk===1 && age<1){ rr2*=1+0.35*Math.sin(Math.PI*clamp(age,0,1)); }
+      flash=(tl-s.ap[0])/0.9;
+    }
+    var X=(s.x-V.tx)*S+V.px, Y=(s.y-V.ty)*S+V.py, R=rr2*grow;
+    if(X<-R*4||X>W+R*4||Y<-R*4||Y>H+R*4) continue;
+    var a=starAlpha(s,t);
+    if(V.focus && !V.focus(s)) a*=1-0.78*V.dim;
+    if(s.n===265){ a=lerp(a,0.95,V.hi265)*(1-V.f265); }
+    drawStar(g,s,X,Y,R,a);
+    if(flash>0&&flash<1){ g.globalAlpha=0.55*(1-flash); g.strokeStyle=s.l?'#ffe2a8':'#b9cdf5'; g.lineWidth=2;
+      g.beginPath(); g.arc(X,Y,R+4+flash*22,0,6.283); g.stroke(); }
+  }
+  /* lens */
+  var plate=V.plate;
+  if(lensActive(now)){
+    var mx=M.x,my=M.y,LR=74,MAG=2.1,best=null,bd=46*46;
+    for(i=0;i<stars.length;i++){var s2=stars[i],dx=s2.x-mx,dy=s2.y-my,dd=dx*dx+dy*dy; if(dd<bd){bd=dd;best=s2;}}
+    g.save(); g.globalAlpha=1; g.beginPath(); g.arc(mx,my,LR,0,6.283); g.clip();
+    g.fillStyle='rgba(10,22,52,.82)'; g.fillRect(mx-LR,my-LR,LR*2,LR*2);
+    for(i=0;i<stars.length;i++){var s3=stars[i]; if(Math.abs(s3.x-mx)>LR/MAG+12||Math.abs(s3.y-my)>LR/MAG+12) continue;
+      var a3=starAlpha(s3,t); if(V.focus && !V.focus(s3)) a3*=1-0.6*V.dim;
+      drawStar(g,s3,mx+(s3.x-mx)*MAG,my+(s3.y-my)*MAG,s3.r*MAG,a3);}
+    if(best){ g.globalAlpha=0.9; g.strokeStyle='#ffd88a'; g.lineWidth=2;
+      g.beginPath(); g.arc(mx+(best.x-mx)*MAG,my+(best.y-my)*MAG,best.r*MAG+7,0,6.283); g.stroke(); }
+    g.restore();
+    g.globalAlpha=0.7; g.strokeStyle='#bcd2ff'; g.lineWidth=2.5; g.beginPath(); g.arc(mx,my,LR,0,6.283); g.stroke();
+    g.globalAlpha=0.18; g.lineWidth=9; g.beginPath(); g.arc(mx,my,LR+5,0,6.283); g.stroke(); g.globalAlpha=1;
+    if(plate){
+      if(best!==lensNear){ lensNear=best;
+        if(best) plate.innerHTML='<div class="no">'+famTag(best.n)+' &middot; '+DISC[best.d].name.replace('&','&amp;')+'</div>'+
+          '<div class="tt">'+best.t+'</div><div class="mt">'+best.p+(best.p>1?' papers':' paper')+' &middot; '+
+          (best.l?'<b>Lean doc exists</b>':'<i>no Lean doc</i>')+'</div>';
+      }
+      if(best){ plate.classList.add('on');
+        var pw=plate.offsetWidth/plate.parentNode.offsetWidth*W, ph=plate.offsetHeight/plate.parentNode.offsetHeight*H;
+        var lx=mx>W*0.58?mx-LR-16-pw:mx+LR+16, ly=clamp(my-ph/2,8,H-ph-8);
+        plate.style.left=(lx/W*100)+'%'; plate.style.top=(ly/H*100)+'%';
+      } else plate.classList.remove('on');
+    }
+  } else if(plate && plate.classList.contains('on')){ plate.classList.remove('on'); lensNear=null; }
+  g.globalAlpha=1;
+}
+
+/* ---------------- loop ---------------- */
+var raf=0;
+function frame(now){
+  raf=requestAnimationFrame(frame);
+  runTweens(now);
+  if(V.tlRun){ var d=dayAt((now-V.tlT0)/1000); V.tl=d; if(d>DUR.length+1.2){V.tlRun=false;V.tl=1e9;} }
+  if(V.bars) updateStrip();
+  draw(now);
+}
+function start(){ if(!raf) raf=requestAnimationFrame(frame); }
+function stop(){ if(raf) cancelAnimationFrame(raf); raf=0; }
+
+/* ---------------- slide 1: strip + ticker ---------------- */
+var STRIP={x0:44,pitch:24.6,bw:15,base:684,hmax:42};
+var tickDate=document.getElementById('nkTickDate'), tickCt=document.getElementById('nkTickCt'), playhead=null;
+function buildStrip(){
+  var svg=document.querySelector('#s-md-sky .nk-strip'); if(!svg) return;
+  var bars=[], mx=Math.max.apply(null,HIST);
+  el('line',{class:'base',x1:STRIP.x0-6,x2:STRIP.x0+27*STRIP.pitch-6,y1:STRIP.base+1,y2:STRIP.base+1},svg);
+  for(var i=0;i<HIST.length;i++){
+    var x=STRIP.x0+i*STRIP.pitch;
+    var b=el('rect',{class:'bar'+((i===13||i===14)?' hot':''),x:x,width:STRIP.bw,y:STRIP.base,height:0,rx:2},svg);
+    b._h=HIST[i]/mx*STRIP.hmax; bars.push(b);
+  }
+  [[0,'10 Sep'],[13,'23'],[14,'24'],[21,'1 Oct'],[26,'6 Oct']].forEach(function(p){
+    var tx=el('text',{x:STRIP.x0+p[0]*STRIP.pitch+STRIP.bw/2,y:STRIP.base+18,'text-anchor':'middle'},svg); tx.textContent=p[1];});
+  var an=el('text',{class:'ann',x:STRIP.x0+13*STRIP.pitch-10,y:STRIP.base-22,'text-anchor':'end'},svg);
+  an.textContent='23 to 24 Sep: 370 papers, 51%';
+  var an2=el('text',{class:'ann',x:STRIP.x0+25*STRIP.pitch-10,y:STRIP.base-14,'text-anchor':'end'},svg);
+  an2.textContent='5 Oct: 112';
+  playhead=el('line',{class:'ph',x1:0,x2:0,y1:STRIP.base-STRIP.hmax-6,y2:STRIP.base+4,opacity:0},svg);
+  STRIP.bars=bars;
+  /* legend glyphs */
+  function glyph(id,fn){var sp=document.getElementById(id); if(!sp) return; var s=el('svg',{viewBox:'0 0 44 22',width:'100%',height:'2.4cqh',style:'vertical-align:-0.5cqh;overflow:visible'}); fn(s); sp.appendChild(s);}
+  glyph('nkLg1',function(s){el('circle',{cx:7,cy:11,r:4,fill:'#fff6e2'},s);el('circle',{cx:28,cy:11,r:10,fill:'#fff6e2'},s);});
+  glyph('nkLg2',function(s){el('circle',{cx:16,cy:11,r:9,fill:'#ffd28a',opacity:.35},s);el('circle',{cx:16,cy:11,r:6,fill:'#fff6e2'},s);});
+  glyph('nkLg3',function(s){el('circle',{cx:16,cy:11,r:6,fill:'#9fb6e0',opacity:.3,stroke:'#a9c0ea','stroke-width':1.8},s);});
+}
+function updateStrip(){
+  var bars=STRIP.bars; if(!bars) return;
+  var tl=V.tl;
+  for(var i=0;i<bars.length;i++){
+    var f=tl>=1e8?1:clamp(tl-i,0,1), hh=bars[i]._h*f;
+    bars[i].setAttribute('y',(STRIP.base-hh).toFixed(1)); bars[i].setAttribute('height',hh.toFixed(1));
+  }
+  var running=V.tlRun && tl>=0 && tl<=DUR.length;
+  if(playhead){ var px=STRIP.x0+clamp(tl,0,DUR.length)*STRIP.pitch-2;
+    playhead.setAttribute('x1',px); playhead.setAttribute('x2',px); playhead.style.opacity=running?0.9:0; }
+  var di=tl>=1e8?26:Math.floor(clamp(tl,0,26));
+  var key=tl<0?-1:di;
+  if(key!==V.lastDay){ V.lastDay=key;
+    var c=0; for(var j=0;j<stars.length;j++) if(tl>=1e8||stars[j].days[0]<=di) c++;
+    if(tl<0) c=0;
+    tickDate.textContent=dayLabel(di)+' 2026'; tickCt.textContent=c+(c===1?' star':' stars');
+  }
+}
+
+/* ---------------- slide 2: constellation lines and labels ---------------- */
+function mst(pts){
+  var n=pts.length, inT=new Array(n).fill(false), d=new Array(n).fill(1e18), par=new Array(n).fill(-1), E=[];
+  d[0]=0;
+  for(var it=0;it<n;it++){ var u=-1; for(var i=0;i<n;i++) if(!inT[i]&&(u<0||d[i]<d[u])) u=i;
+    inT[u]=true; if(par[u]>=0) E.push([par[u],u]);
+    for(var v=0;v<n;v++) if(!inT[v]){var dx=pts[u].x-pts[v].x,dy=pts[u].y-pts[v].y,dd=dx*dx+dy*dy; if(dd<d[v]){d[v]=dd;par[v]=u;}} }
+  return E;
+}
+function buildConst(){
+  var svg=document.querySelector('#s-md-constellations .nk-ov'); if(!svg) return;
+  var gl=el('g',{class:'nk-cl','data-step':1},svg);
+  DISC.forEach(function(D,i){
+    var ss=stars.filter(function(s){return s.d===i;});
+    var x0=1e9,x1=-1e9,y0=1e9,y1=-1e9; ss.forEach(function(s){x0=Math.min(x0,s.x);x1=Math.max(x1,s.x);y0=Math.min(y0,s.y);y1=Math.max(y1,s.y);});
+    var cx=(x0+x1)/2;
+    if(QUANT[i]){
+      mst(ss).forEach(function(e){var a=ss[e[0]],b=ss[e[1]]; el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,pathLength:1},gl);});
+      var gq=el('g',{class:'nk-qs','data-step':1},svg);
+      var t1=el('text',{x:cx,y:y1+29,'text-anchor':'middle'},gq);
+      t1.innerHTML='<tspan class="b">'+D.fam+'</tspan> families &#183; <tspan class="b">'+D.pap+'</tspan> papers';
+      var t2=el('text',{x:cx,y:y1+52,'text-anchor':'middle'},gq);
+      t2.innerHTML='<tspan class="b">'+D.lean+'</tspan> with a Lean doc';
+    }
+    var lab=el('text',{class:'nk-dl'+(QUANT[i]?' q':''),x:cx,y:y0-13,'text-anchor':'middle'},svg);
+    lab.innerHTML=D.short.replace('&','&amp;')+'<tspan class="ct" dx="7">'+D.fam+'</tspan>';
+  });
+}
+
+/* ---------------- slide 3: named stars ---------------- */
+var NAMED=[
+ [3,'Quasi-Riemann 7/8','D'],[4,"Hilbert’s tenth over ℚ",'N'],[5,"Catalan’s constant",'D'],
+ [87,'Mahler','D'],[102,'Unique Games','D'],[157,'Hadwiger disproved','D'],[161,'Sidorenko','D'],
+ [248,"Thompson’s F",'D'],[369,'Hot spots','D'],[375,'De Giorgi, dim 8','N'],
+ [261,'Anderson 2D','F'],[265,'2D area law','F'],[266,'MUB(6) = 3','F'],[267,'BEC at T > 0','F'],
+ [268,'Haldane gap','N'],[271,"Bloch’s law",'F'],[273,'Entropy photon-number','H'],
+ [274,'Parity ∉ QAC⁰','H'],[275,'QMA-hard Coulomb','H'],[287,'L(F₂) ≅ L(F₃)','H'],[288,'Kadison similarity','H']];
+var NAMEDSET={}; NAMED.forEach(function(a){NAMEDSET[a[0]]=a[2];});
+function buildNames(){
+  var sec=document.getElementById('s-md-names'), svg=sec&&sec.querySelector('.nk-ov'); if(!svg) return;
+  var cnt={H:0,F:0,D:0,N:0}; NAMED.forEach(function(a){cnt[a[2]]++;});
+  ['H','F','D','N'].forEach(function(k){var e=document.getElementById('nkc'+k); if(e) e.textContent=cnt[k];});
+  var placed=[], RES=[[0,0,640,104],[150,600,1130,720]];
+  var groups=[];
+  NAMED.forEach(function(a){
+    var s=byN[a[0]], gp=el('g',{class:'nk-nm '+a[2]},svg);
+    var lead=el('line',{class:'lead'},gp);
+    el('circle',{class:'ring',cx:s.x,cy:s.y,r:s.r+5},gp);
+    if(a[2]==='F'){ var rr=s.r+5; el('path',{class:'half',d:'M'+(s.x-rr)+' '+s.y+' A'+rr+' '+rr+' 0 0 1 '+(s.x+rr)+' '+s.y+' Z'},gp); }
+    var tx=el('text',{x:0,y:0},gp); tx.textContent=a[1];
+    groups.push({s:s,g:gp,lead:lead,tx:tx});
+  });
+  /* greedy callout placement: push labels outward from their constellation, avoid labels, named stars and crossing leaders */
+  function ov(a,b){var w=Math.min(a[2],b[2])-Math.max(a[0],b[0]),h=Math.min(a[3],b[3])-Math.max(a[1],b[1]);return w>0&&h>0?w*h:0;}
+  function cross(p1,p2,p3,p4){function o(a,b,c){return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);}
+    return (o(p1,p2,p3)*o(p1,p2,p4)<0)&&(o(p3,p4,p1)*o(p3,p4,p2)<0);}
+  function segBox(p,q,bx){ /* does segment p-q pass through box (sampled) */
+    for(var k=1;k<10;k++){var x=p[0]+(q[0]-p[0])*k/10,y=p[1]+(q[1]-p[1])*k/10; if(x>bx[0]&&x<bx[2]&&y>bx[1]&&y<bx[3]) return true;} return false;}
+  var CC={}; DISC.forEach(function(D,i){var ss=stars.filter(function(o){return o.d===i;}),sx=0,sy=0;ss.forEach(function(o){sx+=o.x;sy+=o.y;});CC[i]=[sx/ss.length,sy/ss.length];});
+  groups.forEach(function(G){G.crowd=0; groups.forEach(function(o){var dx=o.s.x-G.s.x,dy=o.s.y-G.s.y; if(o!==G&&dx*dx+dy*dy<120*120) G.crowd++;});});
+  var order=groups.slice().sort(function(p,q){return q.crowd-p.crowd||p.s.y-q.s.y;});
+  var leaders=[];
+  order.forEach(function(G){
+    var bb=G.tx.getBBox(), w=bb.width||G.tx.textContent.length*10, h=19, s=G.s, best=null;
+    var c=CC[s.d], ox=s.x-c[0], oy=(s.y-c[1])*1.6, ol=Math.sqrt(ox*ox+oy*oy); if(ol<8){ox=0;oy=-1;ol=1;}
+    var th0=Math.atan2(oy/ol,ox/ol);
+    [-150,-120,-90,-60,-40,-20,0,20,40,60,90,120,150,180].forEach(function(dg){
+      [14,34,58,86,118,150].forEach(function(dist){
+        var ang=th0+dg*Math.PI/180, ux=Math.cos(ang), uy=Math.sin(ang);
+        var ax=s.x+ux*(s.r+dist), ay=s.y+uy*(s.r+dist);
+        var bx=ux>0.35?ax:ux<-0.35?ax-w:ax-w/2, by=uy>0.35?ay:uy<-0.35?ay-h:ay-h/2;
+        var box=[bx-4,by-3,bx+w+4,by+h+3], sc=dist*0.5+Math.abs(dg)*0.6;
+        if(box[0]<10||box[2]>W-10||box[1]<10||box[3]>H-10) sc+=1e6;
+        placed.forEach(function(p){sc+=ov(box,p)*60;});
+        RES.forEach(function(p){sc+=ov(box,p)*60;});
+        stars.forEach(function(o){ if(o.x>box[0]-o.r&&o.x<box[2]+o.r&&o.y>box[1]-o.r&&o.y<box[3]+o.r) sc+=NAMEDSET[o.n]?900:4; });
+        var cx=clamp(s.x,box[0],box[2]), cy=clamp(s.y,box[1],box[3]), P=[s.x,s.y], Q=[cx,cy];
+        leaders.forEach(function(L){ if(cross(P,Q,L[0],L[1])) sc+=600; });
+        placed.forEach(function(p){ if(segBox(P,Q,p)) sc+=500; });
+        groups.forEach(function(o){ if(o===G) return; var r=o.s.r+7;
+          if(segBox(P,Q,[o.s.x-r,o.s.y-r,o.s.x+r,o.s.y+r])) sc+=700;
+          leaders.forEach(function(){}); });
+        leaders.forEach(function(L){ if(segBox(L[0],L[1],box)) sc+=500; });
+        if(!best||sc<best.sc) best={sc:sc,box:box,bx:bx,by:by,P:P,Q:Q};
+      });
+    });
+    placed.push(best.box); leaders.push([best.P,best.Q]);
+    G.tx.setAttribute('x',best.bx); G.tx.setAttribute('y',best.by+h-4);
+    var dx=best.Q[0]-s.x, dy=best.Q[1]-s.y, dl=Math.sqrt(dx*dx+dy*dy);
+    if(dl>s.r+12){ var r0=s.r+6; G.lead.setAttribute('x1',s.x+dx/dl*r0); G.lead.setAttribute('y1',s.y+dy/dl*r0);
+      G.lead.setAttribute('x2',best.Q[0]-dx/dl*3); G.lead.setAttribute('y2',best.Q[1]-dy/dl*3); }
+    else G.lead.setAttribute('display','none');
+  });
+}
+
+/* ---------------- slide 4: zoom overlays ---------------- */
+function T(p,attrs,txt){var t=el('text',attrs,p); t.textContent=txt; return t;}
+function buildZoom(){
+  var svg=document.querySelector('#s-md-zoom .nk-ov'); if(!svg) return;
+  var s=byN[265];
+  var defs=el('defs',null,svg);
+  var rg=el('radialGradient',{id:'nkDiscG',cx:'40%',cy:'38%',r:'65%'},defs);
+  el('stop',{offset:'0','stop-color':'#ffffff'},rg); el('stop',{offset:'.55','stop-color':'#b9cdf3'},rg); el('stop',{offset:'1','stop-color':'#5f78b4'},rg);
+  var rh=el('radialGradient',{id:'nkHalo'},defs);
+  el('stop',{offset:'0','stop-color':'#a9c4ff','stop-opacity':'.45'},rh); el('stop',{offset:'1','stop-color':'#a9c4ff','stop-opacity':'0'},rh);
+  /* reticle */
+  var ret=el('g',{class:'nk-ret'},svg);
+  el('circle',{cx:s.x,cy:s.y,r:24},ret);
+  [[0,-1],[0,1],[-1,0],[1,0]].forEach(function(d){el('line',{x1:s.x+d[0]*30,y1:s.y+d[1]*30,x2:s.x+d[0]*44,y2:s.y+d[1]*44},ret);});
+  T(ret,{x:s.x+52,y:s.y-30},'265 · 2D area law');
+  T(ret,{x:s.x+52,y:s.y-8,class:'m'},'2 papers · no Lean doc');
+  /* binary system */
+  var bin=el('g',{class:'nk-bin'},svg);
+  el('ellipse',{class:'orb',cx:640,cy:300,rx:250,ry:46},bin);
+  var A=el('g',{class:'nk-disc a'},bin), B=el('g',{class:'nk-disc b'},bin);
+  el('circle',{cx:390,cy:300,r:120,fill:'url(#nkHalo)'},A); el('circle',{cx:390,cy:300,r:58,fill:'url(#nkDiscG)'},A);
+  el('circle',{cx:890,cy:300,r:96,fill:'url(#nkHalo)'},B); el('circle',{cx:890,cy:300,r:44,fill:'url(#nkDiscG)'},B);
+  T(A,{x:390,y:395},'A two-dimensional area law'); T(A,{x:390,y:421},'from a global spectral gap');
+  T(A,{x:390,y:449,class:'m'},'paper 1 · 24 Sep 2026');
+  T(B,{x:890,y:395},'Polynomial PEPS approximation of'); T(B,{x:890,y:421},'gapped square-grid ground states');
+  T(B,{x:890,y:449,class:'m'},'paper 2 · imports results from paper 1');
+  /* proof skeleton (paper 1, sections in reading order) */
+  var sk=el('g',{class:'nk-skel'},svg);
+  var N=[
+    {x:190,y:225,sec:'§2',name:'Tilt lemma',d:'subvolume bound',lean:true,up:true},
+    {x:460,y:225,sec:'§3',name:'Positive replacement',d:'filtered projectors',up:true},
+    {x:730,y:225,sec:'§4–6',name:'Replicas + Kubo–Ando',d:'Prop. 6.1, the crux',up:true},
+    {x:1030,y:225,sec:'§7',name:'Norm comparison',d:'gap forces ground state',up:true},
+    {x:1030,y:420,sec:'§8',name:'Randomized scanner',d:'mutual info decays'},
+    {x:730,y:420,sec:'§9',name:'Amplification',d:'beyond a thin collar'},
+    {x:460,y:420,sec:'§10',name:'Tiling',d:'two tile families'},
+    {x:190,y:420,sec:'Thm 1.1',name:'Area law',d:'S(A) ≤ C |∂A|',thm:true}];
+  for(var i=0;i<N.length-1;i++){
+    if(N[i].x===N[i+1].x) el('path',{class:'edge',fill:'none',d:'M'+N[i].x+' '+N[i].y+' C'+(N[i].x+190)+' '+N[i].y+' '+(N[i].x+190)+' '+N[i+1].y+' '+N[i+1].x+' '+N[i+1].y},sk);
+    else el('line',{class:'edge',x1:N[i].x,y1:N[i].y,x2:N[i+1].x,y2:N[i+1].y},sk); }
+  N.forEach(function(n){
+    var g=el('g',{class:n.lean?'lean':''},sk);
+    if(n.lean) el('circle',{class:'glow',cx:n.x,cy:n.y,r:30},g);
+    el('circle',{class:'node'+(n.thm?' thm':''),cx:n.x,cy:n.y,r:n.thm?17:13},g);
+    var yb=n.y-66;
+    T(g,{class:'sec',x:n.x,y:yb},n.sec);
+    T(g,{x:n.x,y:yb+25},n.name);
+    T(g,{class:'d',x:n.x,y:n.y+44},n.d);
+  });
+}
+
+/* ---------------- controllers ---------------- */
+var SC={};
+function setSt(sec,step,max){ for(var k=1;k<=max;k++) sec.classList.toggle('st'+k, step>=k); }
+function activate(id){
+  var sc=SC[id]; V.sec=sc.sec; V.cv=sc.cv; V.ctx=sc.ctx; V.plate=sc.plate;
+  V.bars=(id==='s-md-sky'); V.lastDay=-99; lensNear=null; start();
+}
+var APPLY={
+  's-md-sky':function(step,enter){
+    camSet(null); V.focus=null; V.dim=0; V.hi265=0; V.f265=0;
+    if(step===0){ V.tlRun=false; V.tl=-1; }
+    else if(step===1){ if(enter||STILL){ V.tlRun=false; V.tl=1e9; } else if(!V.tlRun && V.tl<0){ V.tlRun=true; V.tlT0=performance.now()+250; V.tl=-1; } }
+    else { V.tlRun=false; V.tl=1e9; }
+  },
+  's-md-constellations':function(step,enter){
+    camSet(null); V.tl=1e9; V.tlRun=false; V.hi265=0; V.f265=0;
+    V.focus=function(s){return !!QUANT[s.d];};
+    tw('dim',step>=1?1:0,enter?0:800);
+  },
+  's-md-names':function(step,enter){
+    camSet(null); V.tl=1e9; V.tlRun=false; V.hi265=0; V.f265=0;
+    V.focus=function(s){return !!NAMEDSET[s.n];};
+    tw('dim',step>=1?0.85:0,enter?0:800);
+  },
+  's-md-zoom':function(step,enter){
+    V.tl=1e9; V.tlRun=false;
+    var Z1=34, Z2=150, D=1100;
+    V.focus=function(s){return s.n===265;}; tw('dim',step===0?0.5:0,enter?0:600);
+    if(enter){
+      if(step===0) camSet(null); else camSet(265,step>=2?Z2:Z1);
+      V.hi265=step>=1?1:0; V.f265=step>=1?1:0; return;
+    }
+    if(step===0){ camHome(D); tw('hi265',0,D); tw('f265',0,500); }
+    else if(step===1){ camZoom(265,Z1,D); tw('hi265',1,D*0.8); tw('f265',1,600,D*0.75); }
+    else { camZoom(265,Z2,D); tw('hi265',1,10); tw('f265',1,10); }
+  },
+  's-md-coda':function(step,enter){
+    V.tl=1e9; V.tlRun=false; V.hi265=0; V.f265=0;
+    V.focus=function(){return false;};
+    if(enter && step===0 && !STILL){ camSet(265,34); V.hi265=1; camHome(1200); tw('hi265',0,1000); V.dim=0; }
+    else if(enter) camSet(null);
+    tw('dim',step>=1?0.45:0,enter?(step===0?0:0):700);
+  }
+};
+var MAX={'s-md-sky':2,'s-md-constellations':1,'s-md-names':2,'s-md-zoom':3,'s-md-coda':3};
+function setup(){
+  IDS.forEach(function(id){
+    var sec=document.getElementById(id); if(!sec) return;
+    var cv=sec.querySelector('.nk-cv');
+    SC[id]={sec:sec,cv:cv,ctx:cv.getContext('2d'),plate:sec.querySelector('.nk-plate')};
+    sec.addEventListener('mousemove',function(e){var r=sec.getBoundingClientRect(); M.x=(e.clientX-r.left)/r.width*W; M.y=(e.clientY-r.top)/r.height*H; M.t=performance.now(); M.inn=true;});
+    sec.addEventListener('mouseleave',function(){M.inn=false;});
+  });
+  buildStrip(); buildConst(); buildNames(); buildZoom();
+}
+function register(){
+  if(typeof controllers==='undefined') return;
+  setup();
+  IDS.forEach(function(id){
+    var sc=SC[id]; if(!sc) return;
+    controllers[id]={
+      maxSteps:MAX[id],
+      onEnter:function(){ activate(id); setSt(sc.sec,state.step,MAX[id]); APPLY[id](state.step,true); },
+      onLeave:function(){ stop(); tweens=[]; V.tlRun=false; if(V.plate) V.plate.classList.remove('on'); V.sec=null; V.cv=null; },
+      onStep:function(s){ setSt(sc.sec,s,MAX[id]); if(V.sec===sc.sec) APPLY[id](s,false); }
+    };
+    if(sc.sec.classList.contains('active')) controllers[id].onEnter();
+  });
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',register); else register();
+})();
+
+</script>
+<!-- END MATHDUMP SLIDES -->
+</div></div>
+
+<script>
+"use strict";
+/* ============================================================= */
+/*  Engine (verbatim copy from talk.html)                        */
+/* ============================================================= */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const controllers = {};
+const state = { current: 0, step: 0 };
+
+function maxStepsFor(slide){
+  const c = controllers[slide.id];
+  if (c && typeof c.maxSteps === 'number') return c.maxSteps;
+  let m = 0;
+  slide.querySelectorAll('[data-step]').forEach(b => m = Math.max(m, +b.dataset.step));
+  return m;
+}
+function applySteps(slide, step){
+  slide.querySelectorAll('[data-step]').forEach(b => {
+    b.classList.toggle('shown', (+b.dataset.step) <= step);
+  });
+  const c = controllers[slide.id];
+  if (c && c.onStep) c.onStep(step);
+}
+function render(){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===state.current));
+  applySteps(slides[state.current], state.step);
+  const total = slides.length;
+  document.getElementById('progress').style.width =
+    (((state.current)/(total-1))*100) + '%';
+  document.getElementById('counter').textContent = (state.current+1)+' / '+total;
+  if (location.hash !== '#'+(state.current+1))
+    history.replaceState(null,'','#'+(state.current+1));
+}
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if (i === state.current) return;
+  const old = slides[state.current];
+  const oc = controllers[old.id]; if (oc && oc.onLeave) oc.onLeave();
+  state.current = i;
+  state.step = (dir === 'back') ? maxStepsFor(slides[i]) : 0;
+  render();
+  const nc = controllers[slides[i].id]; if (nc && nc.onEnter) nc.onEnter();
+}
+function next(){
+  const slide = slides[state.current];
+  if (state.step < maxStepsFor(slide)){ state.step++; applySteps(slide, state.step); }
+  else goTo(state.current+1, 'fwd');
+}
+function prev(){
+  if (state.step > 0){ state.step--; applySteps(slides[state.current], state.step); }
+  else goTo(state.current-1, 'back');
+}
+
+document.addEventListener('keydown', e => {
+  const help = document.getElementById('help');
+  if (e.key === '?'){ help.classList.toggle('on'); e.preventDefault(); return; }
+  if (e.key === 'Escape'){ help.classList.remove('on'); return; }
+  if (help.classList.contains('on')) return;
+  switch(e.key){
+    case 'ArrowRight': case ' ': case 'PageDown': case 'ArrowDown':
+      next(); e.preventDefault(); break;
+    case 'ArrowLeft': case 'PageUp': case 'ArrowUp':
+      prev(); e.preventDefault(); break;
+    case 'Home': goTo(0,'fwd'); e.preventDefault(); break;
+    case 'End': goTo(slides.length-1,'fwd'); e.preventDefault(); break;
+    case 'f': case 'F':
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+      e.preventDefault(); break;
+  }
+});
+// click / tap navigation (right half next, left half prev)
+document.getElementById('stage').addEventListener('click', e => {
+  if (e.target.closest('button,input,a,.no-nav')) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if ((e.clientX - r.left) > r.width*0.62) next();
+});
+
+function boot(){
+  const still = location.search.indexOf('still') >= 0;
+  if (still){
+    const st = document.createElement('style');
+    st.textContent = '.slide,.build,#pulse{transition:none!important;animation:none!important}';
+    document.head.appendChild(st);
+  }
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  state.current = (!isNaN(h) && h>=1 && h<=slides.length) ? h-1 : 0;
+  state.step = still ? maxStepsFor(slides[state.current]) : 0;
+  render();
+  const c = controllers[slides[state.current].id]; if (c && c.onEnter) c.onEnter();
+}
+window.addEventListener('hashchange', ()=>{
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  if (!isNaN(h) && (h-1)!==state.current) goTo(h-1,'fwd');
+});
+boot();
+</script>
+</body>
+</html>

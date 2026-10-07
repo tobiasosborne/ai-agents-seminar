@@ -1,0 +1,1600 @@
+{
+ "total_files": 132880,
+ "ext_top": [
+  [
+   ".lean",
+   122141
+  ],
+  [
+   ".tex",
+   7731
+  ],
+  [
+   ".md",
+   997
+  ],
+  [
+   ".pdf",
+   762
+  ],
+  [
+   ".bib",
+   501
+  ],
+  [
+   ".json",
+   479
+  ],
+  [
+   ".py",
+   125
+  ],
+  [
+   "",
+   31
+  ],
+  [
+   ".txt",
+   28
+  ],
+  [
+   ".patch",
+   23
+  ],
+  [
+   ".cpp",
+   14
+  ],
+  [
+   ".sample",
+   14
+  ]
+ ],
+ "lean_files": 122141,
+ "lean_lines": 26001191,
+ "tex_files": 7731,
+ "tex_chars": 128322422,
+ "tex_lines": 2776290,
+ "pdf_files": 762,
+ "bib_files": 501,
+ "py_files": 125,
+ "verification_dirs": 30,
+ "verification_files": 300,
+ "repo_size": "3,1G",
+ "lean_dir_size": "1,8G",
+ "preprints_size": "606M",
+ "bib_entries": 12928,
+ "families": 372,
+ "papers_linked": 722,
+ "lean_docs_files": 235,
+ "lean_docs_numeric": 235,
+ "docs_not_in_families": [],
+ "disc": [
+  {
+   "name": "Number theory",
+   "range": "001-031",
+   "families": 31,
+   "papers": 58,
+   "lean": 16,
+   "pct": 51.6
+  },
+  {
+   "name": "Algebraic & complex geometry",
+   "range": "032-069",
+   "families": 36,
+   "papers": 89,
+   "lean": 7,
+   "pct": 19.4
+  },
+  {
+   "name": "Real & complex analysis",
+   "range": "070-086",
+   "families": 16,
+   "papers": 26,
+   "lean": 9,
+   "pct": 56.2
+  },
+  {
+   "name": "Convex & metric geometry",
+   "range": "087-101",
+   "families": 15,
+   "papers": 30,
+   "lean": 13,
+   "pct": 86.7
+  },
+  {
+   "name": "Theoretical CS",
+   "range": "102-142",
+   "families": 40,
+   "papers": 73,
+   "lean": 32,
+   "pct": 80.0
+  },
+  {
+   "name": "Dynamics & ergodic",
+   "range": "143-154",
+   "families": 12,
+   "papers": 19,
+   "lean": 9,
+   "pct": 75.0
+  },
+  {
+   "name": "Combinatorics",
+   "range": "155-192",
+   "families": 37,
+   "papers": 50,
+   "lean": 33,
+   "pct": 89.2
+  },
+  {
+   "name": "Algebra",
+   "range": "193-210",
+   "families": 18,
+   "papers": 29,
+   "lean": 9,
+   "pct": 50.0
+  },
+  {
+   "name": "Probability & stat mech",
+   "range": "211-239",
+   "families": 29,
+   "papers": 105,
+   "lean": 19,
+   "pct": 65.5
+  },
+  {
+   "name": "Math logic",
+   "range": "240-245",
+   "families": 6,
+   "papers": 8,
+   "lean": 6,
+   "pct": 100.0
+  },
+  {
+   "name": "Group theory",
+   "range": "246-259",
+   "families": 14,
+   "papers": 22,
+   "lean": 12,
+   "pct": 85.7
+  },
+  {
+   "name": "Math physics",
+   "range": "260-284",
+   "families": 25,
+   "papers": 59,
+   "lean": 17,
+   "pct": 68.0
+  },
+  {
+   "name": "Operator algebras",
+   "range": "285-303",
+   "families": 19,
+   "papers": 31,
+   "lean": 14,
+   "pct": 73.7
+  },
+  {
+   "name": "Topology",
+   "range": "304-321",
+   "families": 18,
+   "papers": 26,
+   "lean": 3,
+   "pct": 16.7
+  },
+  {
+   "name": "Functional analysis",
+   "range": "322-332",
+   "families": 11,
+   "papers": 19,
+   "lean": 10,
+   "pct": 90.9
+  },
+  {
+   "name": "Differential geometry",
+   "range": "333-361",
+   "families": 29,
+   "papers": 49,
+   "lean": 15,
+   "pct": 51.7
+  },
+  {
+   "name": "PDE",
+   "range": "362-377",
+   "families": 16,
+   "papers": 29,
+   "lean": 11,
+   "pct": 68.8
+  }
+ ],
+ "fam_with_lean": 235,
+ "fam_missing_numbers": [
+  "045",
+  "061",
+  "070",
+  "123",
+  "163"
+ ],
+ "ppf": {
+  "min": 1,
+  "median": 1.0,
+  "mean": 1.94,
+  "max": 14,
+  "hist": [
+   [
+    1,
+    205
+   ],
+   [
+    2,
+    96
+   ],
+   [
+    3,
+    36
+   ],
+   [
+    4,
+    13
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    6,
+    4
+   ],
+   [
+    7,
+    3
+   ],
+   [
+    8,
+    3
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    12,
+    1
+   ],
+   [
+    13,
+    2
+   ],
+   [
+    14,
+    1
+   ]
+  ]
+ },
+ "ppf_top": [
+  [
+   14,
+   "034",
+   "Log abundance for compact Kähler spaces under logarithmic Iitaka subadditivity."
+  ],
+  [
+   13,
+   "260",
+   "Spacetime Penrose inequalities: enclosing area, charge, rotation, and anti-de Sitter extensions."
+  ],
+  [
+   13,
+   "237",
+   "The three-quarter exponent for honeycomb self-avoiding walk."
+  ],
+  [
+   12,
+   "238",
+   "Optimal logarithmic mixing of the Thorp shuffle."
+  ],
+  [
+   9,
+   "376",
+   "Universal computation in forced Navier–Stokes flows."
+  ],
+  [
+   8,
+   "227",
+   "Critical SK autocorrelation processes and dynamics across the temperature transition."
+  ],
+  [
+   8,
+   "032",
+   "Hodge and Kuga–Satake results for all projective K3 surfaces."
+  ],
+  [
+   8,
+   "014",
+   "Restricted geometric Langlands, global Arthur enhancements, and generic Ramanujan."
+  ],
+  [
+   7,
+   "331",
+   "Reflexive midpoint convexity and diamond distortion."
+  ],
+  [
+   7,
+   "211",
+   "The geometric phase diagram, diffusion, and spectra of random planar maps."
+  ]
+ ],
+ "undated": [
+  "Tangent-flow-uniqueness-2026-09-24"
+ ],
+ "date_hist": [
+  [
+   "2026-09-10",
+   2
+  ],
+  [
+   "2026-09-17",
+   1
+  ],
+  [
+   "2026-09-18",
+   1
+  ],
+  [
+   "2026-09-22",
+   3
+  ],
+  [
+   "2026-09-23",
+   177
+  ],
+  [
+   "2026-09-24",
+   193
+  ],
+  [
+   "2026-09-25",
+   90
+  ],
+  [
+   "2026-09-26",
+   53
+  ],
+  [
+   "2026-09-27",
+   51
+  ],
+  [
+   "2026-09-30",
+   5
+  ],
+  [
+   "2026-10-01",
+   1
+  ],
+  [
+   "2026-10-02",
+   1
+  ],
+  [
+   "2026-10-03",
+   6
+  ],
+  [
+   "2026-10-04",
+   24
+  ],
+  [
+   "2026-10-05",
+   112
+  ],
+  [
+   "2026-10-06",
+   1
+  ]
+ ],
+ "date_first": [
+  2026,
+  9,
+  10
+ ],
+ "date_last": [
+  2026,
+  10,
+  6
+ ],
+ "busiest": [
+  [
+   [
+    2026,
+    9,
+    24
+   ],
+   193
+  ]
+ ],
+ "sep23_24": 370,
+ "sep23_24_frac": 0.5125,
+ "dirs": 722,
+ "dirs_with_tex": 722,
+ "tex_chars_stats": {
+  "min": 18006,
+  "median": 132005.5,
+  "mean": 177259,
+  "max": 2989884
+ },
+ "tex_lines_stats": {
+  "min": 465,
+  "median": 2948.0,
+  "mean": 3844,
+  "max": 85632
+ },
+ "top10_long": [
+  [
+   2989884,
+   85632,
+   "Uniform-Stability-of-the-Spherical-Laughlin-Gap-October-5-2026"
+  ],
+  [
+   1081388,
+   31380,
+   "A-polynomial-time-algorithm-for-three-machine-unit-job-scheduling-September-24-2026"
+  ],
+  [
+   993346,
+   22469,
+   "Spacetime-Penrose-inequalities-enclosing-area-charge-and-rigidity-October-5-2026"
+  ],
+  [
+   959541,
+   19918,
+   "Natural-Occupation-Measures-for-Critical-Square-Lattice-FK-Interfaces-October-5-2026"
+  ],
+  [
+   893025,
+   17155,
+   "Metric-measure-limits-of-subcritical-FK-and-spanning-tree-planar-maps-September-24-2026"
+  ],
+  [
+   846921,
+   11201,
+   "The-critical-Liouville-quantum-sphere-and-geometric-limits-of-FK-maps-at-q-equals-4-September-24-2026"
+  ],
+  [
+   826229,
+   17692,
+   "uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026"
+  ],
+  [
+   817098,
+   16574,
+   "Self-dual-random-cluster-interfaces-below-one-September-23-2026"
+  ],
+  [
+   766316,
+   16677,
+   "The-Quasi-Riemann-Hypothesis-September-30-2026"
+  ],
+  [
+   755730,
+   15551,
+   "Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026"
+  ]
+ ],
+ "shortest5": [
+  [
+   23042,
+   486,
+   "Etale-covers-with-a-prescribed-exterior-sheet-September-24-2026"
+  ],
+  [
+   22966,
+   569,
+   "A-uniform-influence-bound-for-hypergraph-properties-October-5-2026"
+  ],
+  [
+   20728,
+   535,
+   "A-product-counterexample-to-the-simplex-maximum-for-projection-body-volume-September-24-2026"
+  ],
+  [
+   18775,
+   465,
+   "An-explicit-noncoordinate-polynomial-with-affine-three-space-zero-fibre-September-24-2026"
+  ],
+  [
+   18006,
+   481,
+   "Smooth-Nonquadratic-Affine-Maximal-Graph-in-Dimension-Ten-October-5-2026"
+  ]
+ ],
+ "pdf_pages_failed": [],
+ "pdf_all_pages": {
+  "n": 762,
+  "total": 35087,
+  "min": 1,
+  "median": 37.0,
+  "mean": 46,
+  "max": 262
+ },
+ "main_pdf_pages": {
+  "n": 722,
+  "total": 34815,
+  "min": 6,
+  "median": 39.0,
+  "mean": 48,
+  "max": 262
+ },
+ "main_pdf_hist10": [
+  [
+   0,
+   11
+  ],
+  [
+   10,
+   115
+  ],
+  [
+   20,
+   143
+  ],
+  [
+   30,
+   98
+  ],
+  [
+   40,
+   105
+  ],
+  [
+   50,
+   61
+  ],
+  [
+   60,
+   42
+  ],
+  [
+   70,
+   35
+  ],
+  [
+   80,
+   28
+  ],
+  [
+   90,
+   25
+  ],
+  [
+   100,
+   15
+  ],
+  [
+   110,
+   7
+  ],
+  [
+   120,
+   7
+  ],
+  [
+   130,
+   5
+  ],
+  [
+   140,
+   5
+  ],
+  [
+   150,
+   20
+  ]
+ ],
+ "longest_pdf10": [
+  [
+   262,
+   "Spacetime Penrose inequalities: enclosing area, charge, and rigidity",
+   "preprints/Spacetime-Penrose-inequalities-enclosing-area-charge-and-rigidity-October-5-2026/paper.pdf"
+  ],
+  [
+   232,
+   "Metric-measure limits of subcritical FK and spanning-tree planar maps",
+   "preprints/Metric-measure-limits-of-subcritical-FK-and-spanning-tree-planar-maps-September-24-2026/main.pdf"
+  ],
+  [
+   217,
+   "The critical Liouville quantum sphere and geometric limits of FK maps at q=4",
+   "preprints/The-critical-Liouville-quantum-sphere-and-geometric-limits-of-FK-maps-at-q-equals-4-September-24-2026/main.pdf"
+  ],
+  [
+   207,
+   "Self-dual random-cluster interfaces below one",
+   "preprints/Self-dual-random-cluster-interfaces-below-one-September-23-2026/paper.pdf"
+  ],
+  [
+   199,
+   "The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane $`\\Re s\\gt 7/8`$ ",
+   "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf"
+  ],
+  [
+   198,
+   "Quasipolynomial Bounds for Arithmetic Progressions",
+   "preprints/Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026/paper.pdf"
+  ],
+  [
+   190,
+   "Critical mixing in the Sherrington–Kirkpatrick model",
+   "preprints/Critical-mixing-in-the-Sherrington-Kirkpatrick-model-September-25-2026/paper.pdf"
+  ],
+  [
+   180,
+   "Finite congruence lattices: characterization and undecidability",
+   "preprints/Finite-Congruence-Lattices-Characterization-and-Undecidability-September-24-2026/paper.pdf"
+  ],
+  [
+   175,
+   "Every four-dimensional Kakeya set has full Hausdorff dimension",
+   "preprints/Every-four-dimensional-Kakeya-set-has-full-Hausdorff-dimension-September-24-2026/paper.pdf"
+  ],
+  [
+   172,
+   "The hypercube Ramsey number has linear order",
+   "preprints/The-hypercube-Ramsey-number-has-linear-order-September-23-2026/paper.pdf"
+  ]
+ ],
+ "shortest_pdf5": [
+  [
+   7,
+   "Étale covers with a prescribed exterior sheet",
+   "preprints/Etale-covers-with-a-prescribed-exterior-sheet-September-24-2026/main.pdf"
+  ],
+  [
+   7,
+   "Quadratic stabilization of the canonical Foulkes--Howe map",
+   "preprints/Quadratic-Stabilization-of-the-Canonical-Foulkes-Howe-Map-September-25-2026/paper.pdf"
+  ],
+  [
+   7,
+   "A product counterexample to the simplex maximum for projection-body volume",
+   "preprints/A-product-counterexample-to-the-simplex-maximum-for-projection-body-volume-September-24-2026/paper.pdf"
+  ],
+  [
+   7,
+   "A Smooth Nonquadratic Entire Affine Maximal Graph in Dimension Ten",
+   "preprints/Smooth-Nonquadratic-Affine-Maximal-Graph-in-Dimension-Ten-October-5-2026/affine-maximal-dimension-ten.pdf"
+  ],
+  [
+   6,
+   "An explicit noncoordinate polynomial with affine three-space zero fibre",
+   "preprints/An-explicit-noncoordinate-polynomial-with-affine-three-space-zero-fibre-September-24-2026/paper.pdf"
+  ]
+ ],
+ "traces": [
+  [
+   "basic-semidefinite-threshold-np-hardness.pdf",
+   16
+  ],
+  [
+   "free-group-factor-isomorphism.pdf",
+   11
+  ],
+  [
+   "irrationality-exponent-of-pi.pdf",
+   42
+  ],
+  [
+   "kaplansky-direct-finiteness-characteristic-two.pdf",
+   23
+  ],
+  [
+   "mezard-parisi-formula.pdf",
+   5
+  ],
+  [
+   "ordinary-two-point-correlations.pdf",
+   7
+  ],
+  [
+   "quasipolynomial-arithmetic-progressions.pdf",
+   41
+  ],
+  [
+   "relativistic-vlasov-maxwell.pdf",
+   6
+  ],
+  [
+   "spontaneous-magnetization-quantum-heisenberg-ferromagnet.pdf",
+   6
+  ],
+  [
+   "symmetric-and-general-mahler-conjectures.pdf",
+   45
+  ]
+ ],
+ "traces_total_pages": 202,
+ "oai_files": 121734,
+ "oai_lines": 25910542,
+ "cc_lean": 405,
+ "cc_json": 405,
+ "sorry_oai": [
+  0,
+  0,
+  0
+ ],
+ "sorry_cc": [
+  509,
+  509,
+  404
+ ],
+ "lean_other_files": 2,
+ "lean_other_examples": [
+  [
+   "OAI.lean",
+   1
+  ],
+  [
+   "lakefile.lean",
+   1
+  ]
+ ],
+ "oai_area_lines": [
+  [
+   "Analysis",
+   6820967
+  ],
+  [
+   "Combinatorics",
+   5773156
+  ],
+  [
+   "NumberTheory",
+   2993545
+  ],
+  [
+   "Probability",
+   2250399
+  ],
+  [
+   "Geometry",
+   2245079
+  ],
+  [
+   "Computability",
+   1457913
+  ],
+  [
+   "MathematicalPhysics",
+   1281498
+  ],
+  [
+   "GroupTheory",
+   539798
+  ],
+  [
+   "RepresentationTheory",
+   359125
+  ],
+  [
+   "Algebra",
+   294472
+  ],
+  [
+   "LinearAlgebra",
+   279070
+  ],
+  [
+   "MeasureTheory",
+   275770
+  ],
+  [
+   "SetTheory",
+   266449
+  ],
+  [
+   "AlgebraicGeometry",
+   218533
+  ],
+  [
+   "Dynamics",
+   186764
+  ],
+  [
+   "CategoryTheory",
+   176873
+  ],
+  [
+   "Topology",
+   140931
+  ],
+  [
+   "RingTheory",
+   123464
+  ],
+  [
+   "GameTheory",
+   109163
+  ],
+  [
+   "InformationTheory",
+   72708
+  ],
+  [
+   "ModelTheory",
+   23801
+  ],
+  [
+   "AlgebraicTopology",
+   20795
+  ],
+  [
+   "Optimization",
+   269
+  ]
+ ],
+ "top_subtrees": [
+  [
+   "Analysis/MutuallyUnbiased",
+   2835031,
+   3386,
+   [
+    "266"
+   ]
+  ],
+  [
+   "Combinatorics/Ramsey",
+   2795994,
+   444,
+   [
+    "189"
+   ]
+  ],
+  [
+   "Combinatorics/Progressions",
+   1122983,
+   4774,
+   [
+    "159"
+   ]
+  ],
+  [
+   "Analysis/PlanarPacking",
+   916013,
+   562,
+   [
+    "090"
+   ]
+  ],
+  [
+   "NumberTheory/Ostmann",
+   609199,
+   7716,
+   [
+    "013"
+   ]
+  ],
+  [
+   "NumberTheory/Catalan",
+   573816,
+   981,
+   [
+    "005"
+   ]
+  ],
+  [
+   "MathematicalPhysics/Transonic",
+   510230,
+   465,
+   []
+  ],
+  [
+   "NumberTheory/DirichletL",
+   486558,
+   2926,
+   [
+    "003"
+   ]
+  ],
+  [
+   "NumberTheory/CubicMoment",
+   295629,
+   3549,
+   [
+    "023"
+   ]
+  ],
+  [
+   "GroupTheory/PolycyclicRecognition",
+   262281,
+   3090,
+   [
+    "255"
+   ]
+  ]
+ ],
+ "kw": {
+  "conjecture": {
+   "title": 84,
+   "desc": 183,
+   "title_ids": [
+    "001",
+    "006",
+    "007",
+    "008",
+    "013",
+    "018",
+    "019",
+    "022",
+    "031",
+    "038",
+    "039",
+    "040",
+    "044",
+    "050",
+    "051",
+    "059",
+    "060",
+    "062",
+    "063",
+    "067",
+    "071",
+    "072",
+    "073",
+    "075",
+    "078",
+    "084",
+    "087",
+    "091",
+    "096",
+    "101",
+    "102",
+    "119",
+    "147",
+    "151",
+    "156",
+    "159",
+    "161",
+    "162",
+    "164",
+    "166",
+    "171",
+    "173",
+    "176",
+    "179",
+    "180",
+    "181",
+    "193",
+    "194",
+    "195",
+    "196",
+    "199",
+    "202",
+    "203",
+    "205",
+    "207",
+    "209",
+    "210",
+    "214",
+    "246",
+    "258",
+    "263",
+    "288",
+    "294",
+    "295",
+    "304",
+    "305",
+    "306",
+    "310",
+    "311",
+    "315",
+    "316",
+    "325",
+    "326",
+    "338",
+    "339",
+    "340",
+    "341",
+    "342",
+    "344",
+    "349",
+    "366",
+    "369",
+    "370",
+    "375"
+   ]
+  },
+  "counterexample/disprove": {
+   "title": 30,
+   "desc": 54,
+   "title_ids": [
+    "046",
+    "048",
+    "049",
+    "050",
+    "053",
+    "059",
+    "088",
+    "098",
+    "151",
+    "155",
+    "161",
+    "162",
+    "185",
+    "195",
+    "196",
+    "198",
+    "199",
+    "201",
+    "209",
+    "249",
+    "285",
+    "297",
+    "318",
+    "319",
+    "321",
+    "329",
+    "330",
+    "340",
+    "347",
+    "353"
+   ]
+  },
+  "classif": {
+   "title": 6,
+   "desc": 15,
+   "title_ids": [
+    "042",
+    "062",
+    "153",
+    "172",
+    "254",
+    "348"
+   ]
+  },
+  "hardness/NP": {
+   "title": 5,
+   "desc": 9,
+   "title_ids": [
+    "106",
+    "117",
+    "206",
+    "242",
+    "275"
+   ]
+  },
+  "proves/resolves": {
+   "title": 0,
+   "desc": 236,
+   "title_ids": []
+  },
+  "problem": {
+   "title": 15,
+   "desc": 37,
+   "title_ids": null
+  },
+  "irrational": {
+   "title": 5,
+   "desc": 4,
+   "title_ids": [
+    "005",
+    "017",
+    "054",
+    "069",
+    "150"
+   ]
+  },
+  "sharp/optimal": {
+   "title": 30,
+   "desc": 82,
+   "title_ids": [
+    "080",
+    "088",
+    "090",
+    "092",
+    "099",
+    "101",
+    "102",
+    "103",
+    "110",
+    "120",
+    "130",
+    "170",
+    "186",
+    "188",
+    "215",
+    "229",
+    "230",
+    "235",
+    "236",
+    "238",
+    "239",
+    "262",
+    "266",
+    "267",
+    "279",
+    "284",
+    "337",
+    "346",
+    "360",
+    "374"
+   ]
+  },
+  "desc_first_word": [
+   [
+    "Proves",
+    165
+   ],
+   [
+    "Constructs",
+    43
+   ],
+   [
+    "Resolves",
+    41
+   ],
+   [
+    "For",
+    26
+   ],
+   [
+    "Disproves",
+    18
+   ],
+   [
+    "Gives",
+    13
+   ],
+   [
+    "Every",
+    12
+   ],
+   [
+    "Determines",
+    9
+   ],
+   [
+    "Classifies",
+    5
+   ],
+   [
+    "Answers",
+    3
+   ],
+   [
+    "A",
+    3
+   ],
+   [
+    "On",
+    3
+   ]
+  ],
+  "desc_counterex_or_disprove_or_construct": 87,
+  "named_titles": 100,
+  "named_conj_titles": 65,
+  "conj_or_problem_title": 101
+ },
+ "bib": {
+  "entries": 12928,
+  "unique_title_author": 8941,
+  "no_year": 50,
+  "top_authors_all": [
+   [
+    "OpenAI",
+    403
+   ],
+   [
+    "Demailly, J.",
+    99
+   ],
+   [
+    "Lieb, E.",
+    95
+   ],
+   [
+    "Peternell, T.",
+    91
+   ],
+   [
+    "Fujino, O.",
+    90
+   ],
+   [
+    "Tao, T.",
+    86
+   ],
+   [
+    "Campana, F.",
+    80
+   ],
+   [
+    "Milne, J.",
+    68
+   ],
+   [
+    "Sheffield, S.",
+    67
+   ],
+   [
+    "Kollar, J.",
+    63
+   ],
+   [
+    "Authors, T.",
+    61
+   ],
+   [
+    "Miller, J.",
+    60
+   ],
+   [
+    "Hacon, C.",
+    60
+   ],
+   [
+    "Duminil-Copin, H.",
+    54
+   ],
+   [
+    "Gwynne, E.",
+    53
+   ],
+   [
+    "Pu aun, M.",
+    53
+   ],
+   [
+    "Yau, S.",
+    51
+   ],
+   [
+    "Birkar, C.",
+    50
+   ],
+   [
+    "Gromov, M.",
+    49
+   ],
+   [
+    "Wang, H.",
+    47
+   ],
+   [
+    "Schramm, O.",
+    46
+   ],
+   [
+    "Deligne, P.",
+    46
+   ],
+   [
+    "Serre, J.",
+    43
+   ],
+   [
+    "Bourgain, J.",
+    42
+   ],
+   [
+    "Khot, S.",
+    41
+   ]
+  ],
+  "top_authors_unique": [
+   [
+    "OpenAI",
+    276
+   ],
+   [
+    "Tao, T.",
+    57
+   ],
+   [
+    "Lieb, E.",
+    46
+   ],
+   [
+    "Fujino, O.",
+    42
+   ],
+   [
+    "Campana, F.",
+    38
+   ],
+   [
+    "Peternell, T.",
+    38
+   ],
+   [
+    "Demailly, J.",
+    36
+   ],
+   [
+    "Gwynne, E.",
+    30
+   ],
+   [
+    "Erdos, P.",
+    29
+   ],
+   [
+    "Yau, S.",
+    28
+   ],
+   [
+    "Miller, J.",
+    28
+   ],
+   [
+    "Deligne, P.",
+    28
+   ],
+   [
+    "Gromov, M.",
+    27
+   ],
+   [
+    "Sheffield, S.",
+    27
+   ],
+   [
+    "Bourgain, J.",
+    25
+   ],
+   [
+    "Wang, H.",
+    25
+   ],
+   [
+    "Lee, J.",
+    25
+   ],
+   [
+    "Kollar, J.",
+    25
+   ],
+   [
+    "Hacon, C.",
+    25
+   ],
+   [
+    "Duminil-Copin, H.",
+    24
+   ],
+   [
+    "Lovasz, L.",
+    23
+   ],
+   [
+    "Milne, J.",
+    22
+   ],
+   [
+    "Katz, N.",
+    22
+   ],
+   [
+    "Sun, X.",
+    22
+   ],
+   [
+    "ErdH os, P.",
+    21
+   ]
+  ],
+  "self_cites": 403,
+  "self_ex": [
+   "@miscSoftCompanion, author = OpenAI, title = A density-uniform condensate bound for dilute Bose gases, howpublished = OpenAI Math Release preprint hre",
+   "@miscOpenAIDirectionalZeroOne2026, author = OpenAI, title = A directional zero--one law under strict ellipticity, howpublished = OpenAI Math Release p",
+   "@miscCompanionFiltered, author = OpenAI, title = Filtered chromatic splitting at generic primes, howpublished = OpenAI Math Release preprint hrefhttps",
+   "@miscCompanionRational, author = OpenAI, title = A rational obstruction to strong chromatic splitting at height three, howpublished = OpenAI Math Rele",
+   "@miscopenaiArithmeticProgressions2026, author = OpenAI, title = Quasipolynomial Bounds for Arithmetic Progressions, howpublished = OpenAI Math Release",
+   "@miscstationary2026, author = OpenAI, title = Universal Computation with Eventually Stationary Navier--Stokes Forcing, howpublished = OpenAI Math Rele"
+  ],
+  "dec_all": [
+   [
+    1630,
+    1
+   ],
+   [
+    1850,
+    3
+   ],
+   [
+    1860,
+    1
+   ],
+   [
+    1870,
+    2
+   ],
+   [
+    1890,
+    2
+   ],
+   [
+    1900,
+    5
+   ],
+   [
+    1910,
+    16
+   ],
+   [
+    1920,
+    50
+   ],
+   [
+    1930,
+    118
+   ],
+   [
+    1940,
+    99
+   ],
+   [
+    1950,
+    329
+   ],
+   [
+    1960,
+    589
+   ],
+   [
+    1970,
+    1038
+   ],
+   [
+    1980,
+    996
+   ],
+   [
+    1990,
+    1296
+   ],
+   [
+    2000,
+    2226
+   ],
+   [
+    2010,
+    2922
+   ],
+   [
+    2020,
+    3185
+   ]
+  ],
+  "dec_unique": [
+   [
+    1630,
+    1
+   ],
+   [
+    1850,
+    2
+   ],
+   [
+    1860,
+    1
+   ],
+   [
+    1870,
+    2
+   ],
+   [
+    1890,
+    2
+   ],
+   [
+    1900,
+    4
+   ],
+   [
+    1910,
+    13
+   ],
+   [
+    1920,
+    31
+   ],
+   [
+    1930,
+    69
+   ],
+   [
+    1940,
+    68
+   ],
+   [
+    1950,
+    209
+   ],
+   [
+    1960,
+    375
+   ],
+   [
+    1970,
+    628
+   ],
+   [
+    1980,
+    709
+   ],
+   [
+    1990,
+    938
+   ],
+   [
+    2000,
+    1490
+   ],
+   [
+    2010,
+    2022
+   ],
+   [
+    2020,
+    2332
+   ]
+  ],
+  "y2025_26_all": 1720,
+  "y2025_26_unique": 1222,
+  "y2026_all": 1217,
+  "year_max": 2027,
+  "year_min": 1637,
+  "years_2020plus": [
+   [
+    2020,
+    268
+   ],
+   [
+    2021,
+    313
+   ],
+   [
+    2022,
+    284
+   ],
+   [
+    2023,
+    308
+   ],
+   [
+    2024,
+    292
+   ],
+   [
+    2025,
+    502
+   ],
+   [
+    2026,
+    1217
+   ],
+   [
+    2027,
+    1
+   ]
+  ],
+  "papers_with_bib": 495,
+  "max_bib": [
+   [
+    "Goldfelds-analytic-density-conjecture-and-the-2-converse-for-elliptic-curves-September-23-2026",
+    96
+   ],
+   [
+    "The-Selmer-converse-for-elliptic-curves-at-every-prime-September-24-2026",
+    96
+   ],
+   [
+    "Hilberts-tenth-problem-over-the-rational-numbers-September-24-2026",
+    86
+   ]
+  ],
+  "mean_per_paper": 17.9
+ },
+ "dup_titles": [
+  "finite ordinary minimal model programs on compact kähler fourfolds"
+ ]
+}

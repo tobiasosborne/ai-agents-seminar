@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option A: The Flood (openai/math)</title>
+<style>
+/* ===== minimal copy of the deck engine CSS (not part of the paste region) ===== */
+:root{--black:#111417;--white:#ffffff;--darkteal:#335B74;--lightgrey:#DFE3E5;--cyan:#1CADE4;--medblue:#2683C6;
+  --brightcyan:#27CED7;--green:#42BA97;--paper:#ffffff;--ink:#1a1e21;--muted:#5b6b74;--codebg:#F0F2F3;--stagew:1280;--stageh:720;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#0c1114;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden;}
+#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 0%, #14202a 0%, #0a0f12 70%);}
+#stage{position:relative;width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);background:var(--paper);overflow:hidden;
+  container-type:size;box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 30px 80px rgba(0,0,0,.55);}
+.slide{position:absolute;inset:0;padding:7cqh 8cqw;display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .38s ease;overflow:hidden;}
+.slide.active{opacity:1;visibility:visible;z-index:2;}
+.build{opacity:0;transform:translateY(1.4cqh);transition:opacity .5s ease, transform .5s ease;}
+.build.shown{opacity:1;transform:none;}
+#progress{position:fixed;left:0;bottom:0;height:4px;background:var(--cyan);z-index:10;transition:width .3s;}
+#counter{position:fixed;right:12px;bottom:8px;color:#56636b;font-size:12px;z-index:10;}
+#help{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);color:#fff;z-index:20;align-items:center;justify-content:center;font-size:18px;line-height:1.7;}
+#help.on{display:flex;}
+@media print{@page{size:1280px 720px;margin:0} body{overflow:visible} #deck{position:static;display:block}
+  #stage{width:1280px;height:720px;overflow:visible} .slide{position:relative;opacity:1!important;visibility:visible!important;
+  width:1280px;height:720px;page-break-after:always} .build{opacity:1!important;transform:none!important} #progress,#counter{display:none}}
+</style>
+</head>
+<body>
+<div id="deck"><div id="stage">
+
+<!-- BEGIN MATHDUMP SLIDES -->
+<!-- ================================================================== -->
+<!--  Mathdump sequence, option A "The Flood".                           -->
+<!--  Five slides sharing one 722-particle simulation (one particle per  -->
+<!--  manuscript). Each section has its own canvas; the live sim draws   -->
+<!--  into the active one. Keys: arrows as usual; R replays the flood.   -->
+<!--  Mouse: a gentle gravity well, purely cosmetic.                     -->
+<!--  Data: github.com/openai/math cloned 7 Oct 2026 (stats.md, fam.json, -->
+<!--  lean/docs), relevance-overview.md sections 3 and 6.                -->
+<!-- ================================================================== -->
+<style>
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close){
+  padding:0;display:block;color:#eef2f7;
+  background:radial-gradient(130% 100% at 30% 0%,#121b2a 0%,#080b11 62%,#06080c 100%);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-cv{position:absolute;inset:0;width:100%;height:100%;display:block;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-abs{position:absolute;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-t{position:absolute;left:5.5556cqh;top:3.6cqh;
+  font-family:"Inter Display","Inter",system-ui,sans-serif;font-weight:800;font-size:6.2cqh;line-height:1.02;letter-spacing:-.025em;color:#fff;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-sub{position:absolute;left:5.5556cqh;top:12.2cqh;
+  font-size:2.45cqh;color:#9fb0c2;font-weight:500;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-src{position:absolute;left:5.5556cqh;bottom:2.1cqh;
+  font-size:1.8cqh;color:#7a8898;font-weight:500;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-num{font-family:"Inter Display","Inter",system-ui,sans-serif;
+  font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-warm{color:#FFC94D;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-rose{color:#FF6B7F;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-green{color:#45E0A0;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg{position:absolute;left:5.5556cqh;bottom:5.6cqh;
+  font-size:2.05cqh;color:#b8c4d2;display:flex;gap:2.6cqh;align-items:center;font-weight:500;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg i{display:inline-block;width:1.6cqh;height:1.6cqh;border-radius:50%;
+  vertical-align:-.15cqh;margin-right:.8cqh;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg i.f{background:#dfe6ee;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg i.o{border:.3cqh solid #dfe6ee;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg i.w{background:linear-gradient(90deg,#FFC233 0 33%,#FF6A3D 33% 66%,#FF8FC0 66%);border-radius:.4cqh;width:3.4cqh;}
+:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) .md-leg i.c{background:linear-gradient(90deg,#7F8CFF 0 33%,#4FA3FF 33% 66%,#3DD6A0 66%);border-radius:.4cqh;width:3.4cqh;}
+
+/* ---- s-md-flood ---- */
+#s-md-flood .fl-ctr{position:absolute;width:31cqh;}
+#s-md-flood .fl-ctr .n{font-size:8.2cqh;line-height:1;color:#fff;}
+#s-md-flood .fl-ctr .l{font-size:2.3cqh;color:#9fb0c2;margin-top:.6cqh;font-weight:600;letter-spacing:.02em;}
+#s-md-flood .fl-day{position:absolute;top:84.6cqh;transform:translateX(-50%);font-size:2.5cqh;color:#c9d3de;font-weight:600;white-space:nowrap;}
+#s-md-flood .fl-spk{position:absolute;transform:translate(-50%,-100%);font-size:3.4cqh;font-weight:800;color:#fff;white-space:nowrap;
+  font-family:"Inter Display","Inter",system-ui,sans-serif;}
+#s-md-flood .fl-spk.build{transform:translate(-50%,-80%);}
+#s-md-flood .fl-spk.build.shown{transform:translate(-50%,-100%);}
+#s-md-flood .fl-note{position:absolute;left:44cqh;top:40cqh;width:38cqh;text-align:right;font-size:2.7cqh;line-height:1.3;color:#dfe6ee;font-weight:500;}
+#s-md-flood .fl-note b{font-size:6.4cqh;display:block;line-height:1;color:#FFC94D;font-family:"Inter Display","Inter",system-ui,sans-serif;font-weight:800;}
+#s-md-flood .fl-cost{position:absolute;left:106.9cqh;top:37.4cqh;font-size:2.3cqh;color:#9fb0c2;font-weight:500;}
+
+/* ---- s-md-disc ---- */
+#s-md-disc .dc-lab{position:absolute;transform:translateX(-50%);width:23cqh;text-align:center;transition:opacity .6s ease;}
+#s-md-disc .dc-lab.side{transform:translateY(-50%);text-align:left;width:38cqh;}
+#s-md-disc .dc-lab .nm{font-size:2.35cqh;font-weight:700;color:#eef2f7;line-height:1.15;}
+#s-md-disc .dc-lab.side .nm{font-size:3.1cqh;}
+#s-md-disc .dc-lab .sb{font-size:2.05cqh;color:#9fb0c2;margin-top:.4cqh;font-weight:500;}
+#s-md-disc .dc-lab.side .sb{font-size:2.5cqh;}
+#s-md-disc .dc-lab .sb .lp{display:none;}
+#s-md-disc[data-mdstep="2"] .dc-lab .sb .pp{display:none;}
+#s-md-disc[data-mdstep="2"] .dc-lab .sb .lp{display:inline;}
+#s-md-disc[data-mdstep="1"] .dc-lab:not(.phys){opacity:.28;}
+#s-md-disc .dc-note{position:absolute;right:5.5556cqh;top:4.6cqh;text-align:right;font-size:2.7cqh;line-height:1.3;color:#dfe6ee;font-weight:500;
+  width:92cqh;opacity:0;transition:opacity .6s ease;}
+#s-md-disc .dc-note b{font-weight:800;}
+#s-md-disc[data-mdstep="1"] .dc-n1{opacity:1;}
+#s-md-disc[data-mdstep="2"] .dc-n2{opacity:1;}
+
+/* ---- s-md-cascade ---- */
+#s-md-cascade .md-t{left:auto;right:5.5556cqh;text-align:right;}
+#s-md-cascade .md-sub{left:auto;right:5.5556cqh;text-align:right;top:12.2cqh;}
+#s-md-cascade .cs-lab{position:absolute;top:77.2cqh;width:24cqh;transform:translateX(-50%);text-align:center;}
+#s-md-cascade .cs-lab .n{font-size:6.4cqh;line-height:1;color:#fff;}
+#s-md-cascade .cs-lab .n.word{font-size:4.6cqh;line-height:1.39;}
+#s-md-cascade .cs-lab .u{font-size:2.2cqh;line-height:1.22;color:#b8c4d2;margin-top:.7cqh;font-weight:500;}
+#s-md-cascade .cs-zero{position:absolute;left:161.8cqh;top:72.6cqh;transform:translate(-50%,-100%);
+  font-family:"Inter Display","Inter",system-ui,sans-serif;font-weight:900;font-size:25cqh;line-height:.8;color:#FF5A6E;
+  opacity:0;transition:none;}
+#s-md-cascade .cs-zero.shown{opacity:1;}
+#s-md-cascade.cs-slam .cs-zero{animation:mdSlam .62s cubic-bezier(.2,1.6,.4,1) both;}
+@keyframes mdSlam{0%{transform:translate(-50%,-100%) scale(2.6);opacity:0;}55%{opacity:1;}100%{transform:translate(-50%,-100%) scale(1);opacity:1;}}
+#s-md-cascade.cs-shake{animation:mdShake .5s ease-out .2s;}
+@keyframes mdShake{0%{transform:translate(0,0)}20%{transform:translate(-.9cqh,.5cqh)}40%{transform:translate(.7cqh,-.4cqh)}
+  60%{transform:translate(-.4cqh,.2cqh)}80%{transform:translate(.2cqh,-.1cqh)}100%{transform:none}}
+#s-md-cascade .cs-note{position:absolute;right:5.5556cqh;top:20.5cqh;width:75cqh;text-align:right;font-size:2.6cqh;line-height:1.35;color:#dfe6ee;font-weight:500;}
+#s-md-cascade .cs-note .q{display:block;}
+#s-md-cascade .cs-off{position:absolute;left:16cqh;top:2.6cqh;transform:translateX(-50%);font-size:2.05cqh;color:#9fb0c2;text-align:center;width:22cqh;line-height:1.25;font-weight:600;}
+
+/* ---- s-md-picks ---- */
+#s-md-picks .md-t{top:2.4cqh;font-size:5.4cqh;}
+#s-md-picks .pk-kick{position:absolute;right:5.5556cqh;top:3.4cqh;text-align:right;font-size:2.3cqh;color:#9fb0c2;font-weight:500;line-height:1.3;}
+#s-md-picks .pk-card{position:absolute;width:39.58cqh;height:26.39cqh;border-radius:1.4cqh;padding:1.4cqh 1.8cqh 1.5cqh;
+  background:linear-gradient(180deg,rgba(26,34,48,.97),rgba(15,20,30,.97));border:.28cqh solid rgba(255,255,255,.14);
+  box-shadow:0 1.4cqh 4cqh rgba(0,0,0,.55);display:flex;flex-direction:column;
+  transform:scale(.03);opacity:0;transition:transform .5s ease, opacity .25s ease;}
+#s-md-picks .pk-card.r0{transform-origin:50% 104%;}
+#s-md-picks .pk-card.r1{transform-origin:50% -4%;}
+#s-md-picks .pk-card.shown{transform:none;opacity:1;transition:transform .78s cubic-bezier(.26,1.5,.5,1) .28s, opacity .3s ease .28s;}
+#s-md-picks .pk-card .hd{display:flex;justify-content:space-between;align-items:center;font-size:1.85cqh;color:#9fb0c2;font-weight:700;letter-spacing:.06em;}
+#s-md-picks .pk-card .hd .ca{color:#8FD3FF;border:.2cqh solid #5FB8F0;border-radius:.6cqh;padding:.05cqh .7cqh;font-size:1.7cqh;letter-spacing:.05em;}
+#s-md-picks .pk-card .tt{font-family:"Inter Display","Inter",system-ui,sans-serif;font-size:2.95cqh;font-weight:800;line-height:1.1;color:#fff;margin-top:.6cqh;letter-spacing:-.01em;}
+#s-md-picks .pk-card .cl{font-size:2.3cqh;line-height:1.28;color:#cdd6e0;margin-top:.8cqh;font-weight:450;}
+#s-md-picks .pk-card .bd{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:.9cqh;font-size:1.95cqh;font-weight:800;
+  letter-spacing:.06em;border-radius:.7cqh;padding:.45cqh 1.1cqh;color:#07090d;}
+#s-md-picks .pk-card .bd .g{display:inline-block;width:1.9cqh;height:1.9cqh;border-radius:50%;border:.3cqh solid #07090d;}
+#s-md-picks .bd.hl{background:#45E0A0;} #s-md-picks .bd.hl .g{background:#07090d;}
+#s-md-picks .bd.fr{background:#FFC94D;} #s-md-picks .bd.fr .g{background:linear-gradient(90deg,#07090d 50%,transparent 50%);}
+#s-md-picks .bd.no{background:#FF6B7F;}
+#s-md-picks .pk-leg{position:absolute;left:5.5556cqh;top:88.6cqh;font-size:2.15cqh;color:#b8c4d2;font-weight:500;display:flex;gap:2.4cqh;align-items:center;}
+#s-md-picks .pk-leg .bd{display:inline-flex;align-items:center;gap:.7cqh;font-size:1.8cqh;font-weight:800;letter-spacing:.06em;border-radius:.6cqh;padding:.25cqh .8cqh;color:#07090d;}
+#s-md-picks .pk-leg .bd .g{display:inline-block;width:1.6cqh;height:1.6cqh;border-radius:50%;border:.25cqh solid #07090d;}
+#s-md-picks .pk-hint{position:absolute;left:0;right:0;top:21cqh;text-align:center;font-size:3.2cqh;line-height:1.35;color:#dfe6ee;font-weight:600;transition:opacity .5s ease;}
+#s-md-picks:not([data-mdstep="0"]) .pk-hint{opacity:0;}
+#s-md-picks .pk-sum{position:absolute;right:5.5556cqh;top:87.9cqh;font-size:2.9cqh;font-weight:800;color:#fff;text-align:right;}
+#s-md-picks .md-src{bottom:1.4cqh;}
+
+/* ---- s-md-close ---- */
+#s-md-close .cl-k{position:absolute;left:5.5556cqh;top:5cqh;font-size:2.3cqh;letter-spacing:.2em;text-transform:uppercase;color:#9fb0c2;font-weight:700;}
+#s-md-close .cl-q{position:absolute;top:12.5cqh;width:50cqh;padding:2cqh 2.2cqh 2cqh 2.6cqh;border-left:.6cqh solid #FFC94D;
+  background:rgba(8,11,17,.80);border-radius:0 1.2cqh 1.2cqh 0;}
+#s-md-close .cl-q .tx{font-size:2.75cqh;line-height:1.36;color:#f2f5f9;font-weight:500;}
+#s-md-close .cl-q .tx b{color:#fff;font-weight:800;}
+#s-md-close .cl-q .at{font-size:2.05cqh;color:#9fb0c2;margin-top:1.4cqh;line-height:1.3;font-weight:500;}
+#s-md-close .cl-q .at b{color:#dfe6ee;font-weight:700;}
+#s-md-close .cl-big{position:absolute;left:5.5556cqh;top:64cqh;width:150cqh;font-family:"Inter Display","Inter",system-ui,sans-serif;
+  font-weight:800;font-size:6.6cqh;line-height:1.08;letter-spacing:-.02em;color:#fff;}
+#s-md-close .cl-big span{color:#FFC94D;}
+#s-md-close .cl-big .cl-sub{font-family:"Inter",system-ui,sans-serif;font-size:3cqh;font-weight:500;color:#b8c4d2;margin-top:2.4cqh;letter-spacing:0;}
+</style>
+
+<!-- ====================== 1. The flood (dates) ====================== -->
+<section class="slide" id="s-md-flood">
+  <canvas class="md-cv"></canvas>
+  <div class="md-t">The trickle became a flood</div>
+  <div class="md-sub">github.com/openai/math &middot; one dot per manuscript, by folder date</div>
+  <div class="fl-ctr" style="left:106.9cqh;top:5cqh;"><div class="n md-num" id="mdFlMs">0</div><div class="l">manuscripts</div></div>
+  <div class="fl-ctr" style="left:140.3cqh;top:5cqh;"><div class="n md-num" id="mdFlFam">0</div><div class="l">result families</div></div>
+  <div class="fl-ctr build" data-step="4" style="left:106.9cqh;top:20.6cqh;"><div class="n md-num" id="mdFlPg">34,815</div><div class="l">PDF pages</div></div>
+  <div class="fl-ctr build" data-step="4" style="left:140.3cqh;top:20.6cqh;"><div class="n md-num" id="mdFlLn">26.0M</div><div class="l">lines of Lean</div></div>
+  <div class="fl-cost build" data-step="4">about 4,000 problems posed &middot; ~3 h of compute per result</div>
+  <div id="mdFlDays"></div>
+  <!-- Sep 24 column: 193 dated folders + 1 ISO-named folder (2026-09-24) = 194 dots. stats.md: "721 dated + 1 ISO-named = Sep 24". -->
+  <div class="fl-spk build" data-step="2" id="mdFlS23">177</div>
+  <div class="fl-spk build" data-step="2" id="mdFlS24">194</div>
+  <div class="fl-spk build" data-step="3" id="mdFlS05">112</div>
+  <div class="fl-note build" data-step="3"><b>51%</b>landed on 23 and 24 Sep,<br>after a trickle of 7</div>
+  <div class="md-leg"><span><i class="f"></i>family has a Lean artefact</span><span><i class="o"></i>no Lean</span><span><i class="w"></i>physics blocks</span><span><i class="c"></i>everything else</span></div>
+  <div class="md-src">github.com/openai/math, cloned 7 Oct 2026 &middot; dates from preprint folder names &middot; totals from the repo README and a file scan</div>
+</section>
+
+<!-- ====================== 2. Disciplines ====================== -->
+<section class="slide" id="s-md-disc" data-mdstep="0">
+  <canvas class="md-cv"></canvas>
+  <div class="md-t">17 disciplines</div>
+  <div class="dc-note dc-n1">Three blocks carry the physics:<br><b class="md-warm">73 families &middot; 195 manuscripts</b></div>
+  <div class="dc-note dc-n2">% of families with a Lean artefact. Often a fragment, not the headline.<br><b>MUB(6) = 3:</b> the Lean covers only N(6) &le; 5.</div>
+  <div id="mdDcLabs"></div>
+  <div class="md-src">github.com/openai/math, cloned 7 Oct 2026 &middot; disciplines as grouped in overview.tex &middot; Lean = an entry in lean/docs</div>
+</section>
+
+<!-- ====================== 3. Cascade ====================== -->
+<section class="slide" id="s-md-cascade">
+  <canvas class="md-cv"></canvas>
+  <div class="md-t">What survives the checks</div>
+  <div class="md-sub">one dot per family, or per manuscript, as labelled</div>
+  <div class="cs-off">this column is about three screens tall</div>
+  <div class="cs-note">
+    <span class="q build" data-step="2">Lean artefacts are often a weak fragment: a lemma, a finite case, a corollary.</span>
+    <span class="q build" data-step="3" style="margin-top:1.2cqh;">Headline fully in Lean: 273, 274, 275, 287, 288, 295, 296 and a few more, checked by hand in the physics blocks only.</span>
+  </div>
+  <div class="cs-lab" style="left:16cqh;"><div class="n md-num">~4,000</div><div class="u">problems posed</div></div>
+  <div class="cs-lab" style="left:45.1cqh;"><div class="n md-num">372</div><div class="u">result families</div></div>
+  <div class="cs-lab build" data-step="1" style="left:74.3cqh;"><div class="n md-num">722</div><div class="u">manuscripts</div></div>
+  <div class="cs-lab build" data-step="2" style="left:103.5cqh;"><div class="n md-num">235</div><div class="u">families with any Lean artefact</div></div>
+  <div class="cs-lab build" data-step="3" style="left:132.6cqh;"><div class="n md-num word md-green">a handful</div><div class="u">headline fully in Lean, by hand count</div></div>
+  <div class="cs-lab build" data-step="4" style="left:161.8cqh;"><div class="n md-num word md-rose">refereed</div><div class="u">by anyone, as of 7 Oct</div></div>
+  <div class="cs-zero" data-step="4">0</div>
+  <div class="md-src">github.com/openai/math, cloned 7 Oct 2026 &middot; README (problems posed) &middot; lean/docs &middot; hand count: relevance-overview, section 6</div>
+</section>
+
+<!-- ====================== 4. The physicist's picks ====================== -->
+<section class="slide" id="s-md-picks">
+  <canvas class="md-cv"></canvas>
+  <div class="md-t">The physicist&rsquo;s picks</div>
+  <div class="pk-kick">8 of 372 families &middot; theorem statements read from the LaTeX<br>proofs skimmed, not checked</div>
+  <div class="pk-hint">All 722 manuscripts in family order.<br>The <span class="md-warm">warm stretch</span> is the physics.</div>
+  <div id="mdPkCards"></div>
+  <div class="pk-leg">
+    <span class="bd" style="background:#45E0A0;"><span class="g" style="background:#07090d;"></span>HEADLINE</span>
+    <span class="bd" style="background:#FFC94D;"><span class="g" style="background:linear-gradient(90deg,#07090d 50%,transparent 50%);"></span>FRAGMENT</span>
+    <span class="bd" style="background:#FF6B7F;"><span class="g"></span>NONE</span>
+    <span>what the Lean covers</span>
+  </div>
+  <div class="pk-sum build" data-step="5">3 of 8 have the headline in Lean. <span class="md-warm">The rest need a referee.</span></div>
+  <div class="md-src">github.com/openai/math, cloned 7 Oct 2026 &middot; Lean status: relevance-overview.md, sections 3 and 6</div>
+</section>
+
+<!-- ====================== 5. Closing observation ====================== -->
+<section class="slide" id="s-md-close">
+  <canvas class="md-cv"></canvas>
+  <div class="cl-k">The first week of reactions</div>
+  <div class="cl-q build" data-step="1" style="left:5.5556cqh;">
+    <div class="tx">&ldquo;&hellip;treat any claims about one-shotting problems with a single agent as unverified. <b>We should ask for receipts.</b>&rdquo;</div>
+    <div class="at"><b>Andrew Sutherland</b>, MIT<br>syndicated news report, Oct 2026</div>
+  </div>
+  <div class="cl-q build" data-step="2" style="left:58.3cqh;border-left-color:#FF8FC0;">
+    <div class="tx">&ldquo;This contains a <b>shocking list of problems</b> in quantum information, many-body physics and quantum computing&rdquo;</div>
+    <div class="at"><b>Isaac Kim</b>, physicist, on X<br>citing the 2D area law, the Haldane gap, parity &notin; QAC<sup>0</sup></div>
+  </div>
+  <div class="cl-q build" data-step="3" style="left:111.1cqh;border-left-color:#7FB6FF;">
+    <div class="tx">&ldquo;Mathematical work <b>should not be used as a marketing tool.</b>&rdquo; Asks for prompts, compute per result, and a repository no AI lab controls.</div>
+    <div class="at"><b>Advisory Group on Mathematics and AI</b><br>29 Sep 2026, via TokenPost</div>
+  </div>
+  <div class="cl-big build" data-step="4">The bottleneck moved from producing claims to <span>adjudicating them.</span><div class="cl-sub">722 manuscripts in four weeks. Refereed so far: none.</div></div>
+  <div class="md-src">Quotes as reported 29 Sep to 7 Oct 2026 (Yahoo syndication, x.com/Isaac__kim, TokenPost)</div>
+</section>
+
+<script type="application/json" id="md-data">{"p":[[1,13],[2,23],[2,14],[2,14],[3,20],[3,25],[3,21],[4,14],[4,14],[5,14],[6,13],[6,13],[7,14],[8,13],[9,25],[9,25],[9,13],[10,24],[10,25],[10,13],[11,14],[11,14],[11,7],[12,14],[13,14],[14,25],[14,14],[14,14],[14,25],[14,14],[14,25],[14,25],[14,25],[15,14],[15,25],[15,25],[16,14],[16,14],[16,14],[16,14],[17,14],[18,25],[18,13],[19,14],[19,14],[20,14],[21,15],[22,15],[23,15],[24,15],[25,15],[26,15],[27,15],[28,16],[29,24],[29,24],[30,24],[31,25],[32,24],[32,23],[32,20],[32,20],[32,20],[32,20],[32,8],[32,0],[33,16],[33,16],[33,16],[33,17],[33,0],[34,24],[34,25],[34,25],[34,14],[34,17],[34,17],[34,17],[34,14],[34,24],[34,23],[34,17],[34,15],[34,16],[34,17],[35,25],[35,14],[36,24],[36,23],[36,14],[36,14],[37,14],[37,14],[38,13],[39,13],[39,13],[39,25],[39,25],[40,14],[41,13],[41,13],[42,13],[43,14],[44,14],[46,25],[46,13],[47,13],[48,13],[49,25],[49,14],[50,14],[51,13],[52,13],[52,13],[53,14],[54,14],[55,14],[55,14],[56,25],[56,25],[56,14],[56,25],[56,14],[57,13],[57,14],[57,25],[58,14],[58,14],[59,14],[59,17],[60,14],[62,13],[63,14],[64,14],[65,25],[65,14],[66,15],[66,15],[67,15],[68,16],[68,16],[68,16],[68,16],[68,16],[68,16],[68,16],[69,24],[71,13],[71,13],[72,14],[72,14],[73,13],[74,13],[74,14],[75,13],[76,25],[76,25],[76,13],[77,14],[77,14],[78,14],[79,14],[80,14],[80,14],[81,14],[82,25],[82,25],[82,14],[83,15],[84,25],[84,15],[85,16],[86,25],[87,12],[87,12],[87,12],[88,14],[88,14],[89,13],[89,13],[90,16],[90,13],[90,13],[90,13],[91,13],[92,13],[92,13],[93,13],[94,13],[95,25],[95,14],[95,25],[96,14],[97,14],[98,15],[99,17],[99,17],[99,17],[100,17],[100,17],[100,17],[100,17],[101,25],[102,13],[102,13],[102,13],[102,13],[102,13],[103,13],[104,25],[104,25],[104,15],[104,15],[105,13],[106,14],[107,22],[107,14],[107,14],[108,14],[109,13],[110,14],[110,14],[111,13],[112,13],[113,13],[113,13],[114,25],[114,13],[115,14],[115,14],[116,24],[116,14],[116,14],[117,14],[117,14],[118,14],[119,14],[119,14],[120,14],[121,14],[122,25],[122,25],[122,14],[124,14],[125,14],[125,14],[126,25],[127,15],[128,14],[129,15],[129,15],[130,15],[130,15],[131,15],[132,15],[133,15],[133,15],[133,15],[133,15],[134,15],[134,15],[134,15],[135,15],[136,15],[137,15],[138,24],[138,16],[139,16],[140,17],[140,17],[140,17],[140,17],[140,17],[140,17],[141,24],[142,24],[143,14],[143,14],[144,13],[145,13],[146,13],[147,14],[147,14],[148,14],[149,25],[149,15],[150,25],[150,15],[151,15],[152,15],[153,23],[154,24],[154,24],[154,24],[154,24],[155,13],[156,13],[157,13],[157,13],[157,13],[158,13],[159,13],[160,13],[161,13],[162,17],[162,13],[164,13],[165,13],[165,13],[166,13],[167,13],[167,13],[168,14],[169,14],[170,14],[170,14],[171,13],[172,13],[173,13],[174,13],[174,13],[175,25],[175,13],[175,13],[176,14],[177,14],[178,13],[179,13],[180,14],[181,14],[182,25],[182,25],[182,14],[183,15],[184,25],[184,15],[185,14],[186,25],[186,15],[187,15],[188,15],[189,15],[190,15],[191,15],[192,16],[193,13],[194,13],[195,13],[196,13],[197,24],[197,13],[197,13],[197,16],[198,13],[199,13],[199,13],[200,13],[200,13],[201,13],[202,13],[203,14],[203,15],[204,14],[205,14],[205,14],[206,14],[206,14],[207,25],[207,14],[208,14],[209,15],[209,16],[210,15],[210,15],[211,25],[211,25],[211,25],[211,14],[211,14],[211,14],[211,14],[212,14],[212,14],[213,14],[213,14],[214,14],[215,24],[215,24],[215,25],[215,13],[215,13],[216,25],[216,25],[216,25],[216,25],[216,14],[216,14],[217,14],[217,14],[218,25],[218,25],[218,25],[218,13],[218,13],[218,13],[219,25],[219,13],[220,25],[220,13],[220,13],[221,13],[222,14],[222,14],[222,14],[222,14],[223,13],[223,13],[223,25],[223,25],[223,25],[223,25],[224,25],[224,25],[224,13],[225,13],[226,13],[227,25],[227,25],[227,14],[227,14],[227,14],[227,14],[227,14],[227,15],[228,14],[228,14],[229,25],[229,25],[229,15],[230,15],[230,16],[231,15],[232,15],[232,15],[232,15],[233,15],[234,15],[235,15],[235,25],[235,17],[235,17],[236,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[237,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[238,16],[239,23],[239,24],[240,14],[240,14],[241,14],[242,14],[243,13],[243,14],[244,14],[245,15],[246,13],[247,25],[247,13],[248,13],[249,13],[250,13],[250,13],[250,13],[251,13],[251,25],[252,13],[253,13],[254,13],[254,13],[254,13],[255,14],[256,25],[256,14],[257,15],[258,15],[258,15],[259,25],[260,25],[260,25],[260,25],[260,25],[260,25],[260,25],[260,25],[260,25],[260,17],[260,17],[260,17],[260,17],[260,17],[261,13],[261,13],[262,25],[262,25],[262,13],[263,14],[263,14],[263,14],[264,13],[264,13],[264,13],[265,14],[265,14],[266,14],[266,14],[267,25],[267,25],[267,25],[267,17],[267,14],[268,14],[268,14],[269,25],[269,14],[270,14],[270,25],[271,25],[271,25],[271,25],[271,14],[272,17],[273,14],[274,14],[274,14],[275,14],[275,14],[276,14],[277,15],[278,15],[279,15],[280,15],[281,15],[281,17],[282,16],[283,25],[284,25],[285,13],[285,13],[285,13],[286,13],[286,13],[287,13],[288,13],[289,13],[289,25],[289,25],[290,13],[290,13],[291,25],[291,13],[291,13],[291,13],[292,13],[293,17],[293,17],[294,13],[295,13],[296,13],[297,14],[298,15],[299,15],[300,15],[300,15],[301,15],[302,15],[302,15],[303,15],[304,13],[305,14],[305,14],[305,14],[306,13],[307,25],[307,13],[308,13],[308,13],[309,14],[310,14],[311,14],[312,14],[313,14],[314,14],[315,15],[316,15],[317,15],[318,15],[318,17],[318,15],[318,15],[318,17],[319,16],[320,24],[321,26],[322,13],[323,13],[324,14],[324,16],[325,16],[325,13],[326,13],[327,13],[328,14],[329,14],[330,16],[331,17],[331,17],[331,17],[331,17],[331,17],[331,17],[331,17],[332,25],[333,13],[334,14],[335,25],[335,13],[336,25],[336,25],[336,13],[337,13],[337,13],[338,13],[339,13],[340,13],[341,13],[342,13],[343,13],[344,13],[345,14],[346,25],[346,13],[347,25],[347,25],[347,25],[347,13],[347,13],[348,24],[348,25],[348,13],[349,13],[350,13],[350,13],[350,13],[351,14],[351,14],[351,14],[352,14],[353,25],[353,14],[354,14],[355,14],[356,14],[356,14],[357,15],[358,14],[359,15],[359,15],[360,15],[360,15],[361,15],[361,16],[362,13],[363,25],[363,13],[364,13],[364,13],[365,25],[365,14],[365,13],[366,14],[367,14],[368,14],[368,14],[369,14],[370,14],[371,14],[372,14],[373,15],[374,15],[375,16],[376,17],[376,17],[376,17],[376,17],[376,17],[376,17],[376,17],[376,17],[376,17],[377,24]],"L":[3,5,7,8,9,12,13,15,17,20,21,23,24,25,26,28,33,39,47,49,50,52,58,71,72,73,76,81,82,83,84,85,87,88,89,90,91,92,94,95,96,97,98,99,100,102,104,105,106,107,108,110,111,112,113,114,115,116,117,118,119,121,122,124,125,126,127,128,129,130,131,132,133,134,135,139,140,143,144,145,146,148,149,150,151,152,155,156,157,158,159,160,161,162,165,167,168,169,170,172,173,174,175,176,177,179,180,181,182,183,184,185,186,187,188,189,190,191,192,194,196,197,198,199,205,206,207,210,211,212,213,214,215,218,220,221,222,227,228,229,230,231,234,235,236,237,238,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,260,261,262,263,266,267,269,271,272,273,274,275,276,277,279,280,281,287,288,289,290,291,292,293,294,295,296,297,298,299,303,307,312,317,322,323,324,325,326,327,328,329,330,331,333,334,337,342,343,347,348,350,353,354,356,358,359,360,361,362,363,365,367,369,370,371,372,373,374,376],"H":[273,275,274,287,288,295,296,279,292,293,297,298,299],"disc":[["Number theory",1,31,31,58,16,51.6],["Algebraic & complex geometry",32,69,36,89,7,19.4],["Real & complex analysis",70,86,16,26,9,56.2],["Convex & metric geometry",87,101,15,30,13,86.7],["Theoretical CS",102,142,40,73,32,80.0],["Dynamics & ergodic",143,154,12,19,9,75.0],["Combinatorics",155,192,37,50,33,89.2],["Algebra",193,210,18,29,9,50.0],["Probability & stat mech",211,239,29,105,19,65.5],["Math logic",240,245,6,8,6,100.0],["Group theory",246,259,14,22,12,85.7],["Math physics",260,284,25,59,17,68.0],["Operator algebras",285,303,19,31,14,73.7],["Topology",304,321,18,26,3,16.7],["Functional analysis",322,332,11,19,10,90.9],["Differential geometry",333,361,29,49,15,51.7],["PDE",362,377,16,29,11,68.8]]}</script>
+<script>
+/* ================================================================== */
+/*  Mathdump option A: shared particle simulation for s-md-* slides    */
+/* ================================================================== */
+(function(){
+  "use strict";
+  const IDS = ['s-md-flood','s-md-disc','s-md-cascade','s-md-picks','s-md-close'];
+  const KEY = {'s-md-flood':'flood','s-md-disc':'disc','s-md-cascade':'cascade','s-md-picks':'picks','s-md-close':'close'};
+  const MAX = {flood:4, disc:2, cascade:4, picks:5, close:4};
+  const SEC = {}; IDS.forEach(id => SEC[KEY[id]] = document.getElementById(id));
+  const dataEl = document.getElementById('md-data');
+  if (!dataEl || !SEC.flood) return;
+  const STILL = location.search.indexOf('still') >= 0;
+  const D = JSON.parse(dataEl.textContent);
+  const W = 1280, H = 720;
+  const cqh = v => (v / 7.2).toFixed(3) + 'cqh';
+  if (STILL){ const st = document.createElement('style');
+    st.textContent = ':is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close),:is(#s-md-flood,#s-md-disc,#s-md-cascade,#s-md-picks,#s-md-close) *{transition:none!important;animation:none!important}';
+    document.head.appendChild(st); }
+
+  /* ---------- disciplines and colours ---------- */
+  // Warm band = the physics-relevant blocks (211-239, 260-284, 285-303). Cool bands elsewhere.
+  const COL = ['#8E86FF','#B39BFF','#4FA3FF','#79C4FF','#3DD6A0','#2BC3C9','#8EDB6E','#C98CF5',
+               '#FFC233','#A9A2E8','#9C7CF0','#FF6A3D','#FF8FC0','#5DE0EE','#86A8FF','#46B8D6','#3E7BFF'];
+  const PHYS = [8, 11, 12];
+  const DISC = D.disc.map((d, i) => ({i, name:d[0], lo:d[1], hi:d[2], fams:d[3], papers:d[4], lean:d[5], pct:d[6], col:COL[i]}));
+  const discOf = f => DISC.findIndex(d => f >= d.lo && f <= d.hi);
+  const LEAN = new Set(D.L), HEAD = new Set(D.H);
+
+  /* ---------- particles ---------- */
+  const P = D.p.map(([f, day], i) => {
+    const di = discOf(f);
+    return {i, f, day, di, col:COL[di], phys:PHYS.includes(di), lean: HEAD.has(f) ? 2 : (LEAN.has(f) ? 1 : 0),
+      x: W/2 + (Math.random()-.5)*40, y: -60, vx:0, vy:0, tx:W/2, ty:-60, a:0, ta:0, r:4, tr:4,
+      mode:'spring', rel:0, land:false, jx:Math.random(), jy:Math.random()};
+  });
+  const famList = Array.from(new Set(P.map(p => p.f))).sort((a,b)=>a-b);
+  const famIdx = new Map(famList.map((f,k)=>[f,k]));
+
+  /* ---------- canvas plumbing ---------- */
+  const CV = {}; for (const k in SEC) CV[k] = SEC[k].querySelector('canvas.md-cv');
+  function fit(cv){
+    const r = cv.getBoundingClientRect(); const dpr = window.devicePixelRatio || 1;
+    const w = Math.max(2, Math.round(r.width * dpr)), h = Math.max(2, Math.round(r.height * dpr));
+    if (cv.width !== w || cv.height !== h){ cv.width = w; cv.height = h; }
+    const ctx = cv.getContext('2d'); ctx.setTransform(w / W, 0, 0, h / H, 0, 0); return ctx;
+  }
+
+  /* ================= layouts ================= */
+  /* ---- 1. flood: unit columns by day ---- */
+  const X0 = 64, DAYW = 42.6, PITCH = 9.6, YB = 596;
+  const dayX = d => X0 + DAYW * (d + .5);
+  const grp = p => p.day <= 12 ? 1 : (p.day <= 14 ? 2 : 3);
+  (function(){
+    const byDay = {};
+    P.forEach(p => (byDay[p.day] = byDay[p.day] || []).push(p));
+    for (const d in byDay){
+      byDay[d].sort((a,b) => a.di - b.di || a.f - b.f || a.i - b.i);
+      byDay[d].forEach((p,k) => { p.fx = dayX(+d) + ((k % 4) - 1.5) * PITCH; p.fy = YB - Math.floor(k / 4) * PITCH; p.fk = k; });
+    }
+    // pour schedule: group 1 drips, group 2 is a torrent, group 3 arrives day by day
+    const order = P.slice().sort((a,b) => a.day - b.day || a.fk - b.fk);
+    let t = {1:0, 2:0, 3:0}, lastDay = {1:-1, 2:-1, 3:-1};
+    order.forEach(p => {
+      const g = grp(p);
+      if (g === 1){ p.dl = t[1]; t[1] += 330; return; }
+      if (lastDay[g] !== p.day){ if (lastDay[g] >= 0) t[g] += 120 + 40 * (p.day - lastDay[g]); lastDay[g] = p.day; }
+      p.dl = t[g]; t[g] += 6.5;
+    });
+  })();
+  let floodPrev = -1;
+  function layoutFlood(step, entering, now){
+    P.forEach(p => {
+      p.tr = 4;
+      const g = grp(p);
+      if (g <= step){
+        p.tx = p.fx; p.ty = p.fy; p.ta = 1;
+        if (!STILL && !entering && g > floodPrev && step > floodPrev){
+          p.mode = 'hold'; p.rel = now + p.dl; p.land = false;
+          p.x = p.fx + (p.jx - .5) * 26; p.y = -24 - p.jy * 60; p.vx = 0; p.vy = 0; p.a = 0;
+        } else if (p.mode === 'hold' && p.land === false && entering){ p.mode = 'spring'; p.rel = 0; }
+        else if (entering || STILL){ p.mode = 'spring'; p.rel = now + p.fk * 1.2; }
+        if (entering || STILL) p.land = true;
+      } else {
+        p.mode = 'spring'; p.rel = 0; p.land = false;
+        p.tx = p.fx + (p.jx - .5) * 40; p.ty = -80 - p.jy * 60; p.ta = 0;
+      }
+    });
+    floodPrev = step;
+  }
+
+  /* ---- 2. disciplines: phyllotaxis discs ---- */
+  const GA = Math.PI * (3 - Math.sqrt(5)), PC = 5.7;
+  const DC = {};  // centre per discipline + label spec
+  (function(){
+    const row1 = [0,1,2,3,4,5,6], row2 = [7,9,10,13,14,15,16];
+    const cw = 1200 / 7;
+    row1.forEach((d,j) => DC[d] = {x:40 + cw*(j+.5), y:182, side:false});
+    row2.forEach((d,j) => DC[d] = {x:40 + cw*(j+.5), y:388, side:false});
+    PHYS.forEach((d,j) => DC[d] = {x:100 + 400*j, y:590, side:true});
+    DISC.forEach(d => {
+      const mem = P.filter(p => p.di === d.i).sort((a,b) => (b.lean>0) - (a.lean>0) || b.lean - a.lean || a.f - b.f || a.i - b.i);
+      mem.forEach((p,k) => { const r = PC * Math.sqrt(k + .5), th = k * GA;
+        p.dx = DC[d.i].x + r * Math.cos(th); p.dy = DC[d.i].y + r * Math.sin(th); p.dk = k; });
+      DC[d.i].R = PC * Math.sqrt(mem.length + .5);
+    });
+  })();
+  function layoutDisc(step, entering, now){
+    P.forEach(p => {
+      p.mode = 'spring'; p.tx = p.dx; p.ty = p.dy; p.tr = 4;
+      p.rel = (entering && !STILL) ? now + p.dk * 3 + DC[p.di].x * .25 : 0;
+      p.ta = step === 1 ? (p.phys ? 1 : .2) : step === 2 ? (p.lean ? 1 : .3) : 1;
+      if (step === 1 && p.phys) p.tr = 4.6;
+    });
+  }
+
+  /* ---- 3. cascade ---- */
+  const CX = [115, 325, 535, 745, 955, 1165], CW = 16, CP = 9.5, CB = 548;
+  const slotXY = (c, k, n) => {
+    const row = Math.floor(k / CW), colk = k % CW;
+    const inRow = (n !== undefined && row === Math.floor((n - 1) / CW)) ? ((n - 1) % CW) + 1 : CW;
+    const off = (CW - inRow) / 2;
+    return [CX[c] - (CW - 1) * CP / 2 + (colk + off) * CP, CB - row * CP];
+  };
+  const leanFams = famList.filter(f => LEAN.has(f));
+  const leanIdx = new Map(leanFams.map((f,k)=>[f,k]));
+  const leanRest = leanFams.filter(f => !HEAD.has(f)), leanRestIdx = new Map(leanRest.map((f,k)=>[f,k]));
+  const headFams = famList.filter(f => HEAD.has(f)), headIdx = new Map(headFams.map((f,k)=>[f,k]));
+  const noLean = P.filter(p => !LEAN.has(p.f)), noLeanIdx = new Map(noLean.map((p,k)=>[p.i,k]));
+  const top = (c, n) => CB - (Math.ceil(n / CW) - 1) * CP - CP / 2;
+  let cascPrev = -1;
+  function layoutCascade(step, entering, now){
+    const slam = !STILL && !entering && step === 4 && cascPrev === 3;
+    P.forEach(p => {
+      let c, k, n, a = 1, r = 4;
+      if (step === 0){ c = 1; k = famIdx.get(p.f); n = famList.length; }
+      else if (step === 1 || !LEAN.has(p.f)){ c = 2; k = step >= 2 ? noLeanIdx.get(p.i) : p.i; n = step >= 2 ? undefined : P.length; if (step >= 2) a = .42; }
+      else if (step === 2 || !HEAD.has(p.f)){ c = 3; k = step >= 3 ? leanRestIdx.get(p.f) : leanIdx.get(p.f); n = step >= 3 ? undefined : leanFams.length; if (step >= 3) a = .55; }
+      else { c = 4; k = headIdx.get(p.f); n = headFams.length; r = 5.2; }
+      const [x, y] = slotXY(c, k, n);
+      const sameCol = Math.abs(x - p.tx) < 90 && Math.abs(p.x - x) < 90;
+      p.tx = x; p.ty = y; p.ta = a; p.tr = r;
+      p.mode = (!entering && sameCol && y > p.y + 3) ? 'fall' : 'spring';
+      p.rel = STILL ? 0 : now + (entering ? (p.i % 97) * 3 : (c === 4 ? 0 : k * .9));
+    });
+    if (slam){
+      SEC.cascade.classList.remove('cs-slam','cs-shake'); void SEC.cascade.offsetWidth;
+      SEC.cascade.classList.add('cs-slam','cs-shake');
+      setTimeout(() => { // the zero lands: shock wave through the particles
+        P.forEach(p => { const dx = p.x - 1165, dy = p.y - 420, d = Math.hypot(dx, dy) + 1, k = 1500 * Math.exp(-d / 420);
+          p.vx += dx / d * k; p.vy += dy / d * k * .7; p.rel = 0; if (p.mode === 'fall') p.mode = 'spring'; });
+      }, 330);
+    } else if (step !== 4) SEC.cascade.classList.remove('cs-slam','cs-shake');
+    cascPrev = step;
+  }
+
+  /* ---- 4. picks: a band of the whole corpus, cards fly out of it ---- */
+  const PICKS = [
+    {f:265, t:'2D area law', c:'S(A) &le; C|&part;A| on any finite piece of &#8484;<sup>2</sup>, from a global gap alone.', b:'fr', bt:'LEAN: &sect;2 ONLY'},
+    {f:268, t:'Spin-1 Haldane gap', c:'Unique ground state and a uniform gap for even periodic chains, L &ge; 60.', b:'no', bt:'NO LEAN', ca:1},
+    {f:271, t:'Heisenberg ferromagnet', c:'d &ge; 3, any spin: order at low T, and Bloch&rsquo;s T<sup>3/2</sup> law exactly.', b:'fr', bt:'LEAN: ORDER ONLY'},
+    {f:269, t:'Laughlin <i style="font-family:Georgia,serif;">&nu;</i> = 1/3 gap', c:'Uniform gap on the sphere, stable under projected disorder.', b:'fr', bt:'LEAN: NO DISORDER', ca:1},
+    {f:266, t:'MUBs in dimension 6', c:'N(6) = 3. The exclusion of four bases is a binary64 computation.', b:'fr', bt:'LEAN: N(6) &le; 5 ONLY', ca:1},
+    {f:273, t:'Entropy photon-number inequality', c:'The Guha&ndash;Erkmen&ndash;Shapiro conjecture for the beam splitter.', b:'hl', bt:'LEAN: HEADLINE'},
+    {f:274, t:'Parity &notin; QAC<sup>0</sup>', c:'Moore&rsquo;s conjecture, measured-output model. Two proofs.', b:'hl', bt:'LEAN: HEADLINE'},
+    {f:275, t:'QMA-hard Coulomb energy', c:'Full continuum molecular Hamiltonian, even with unit charges.', b:'hl', bt:'LEAN: BOTH THEOREMS'},
+  ];
+  const CARD_W = 285, CARD_H = 190, CARD_X0 = 40, CARD_GAP = 20, ROWY = [84, 422];
+  const BAND = {x0:46, x1:1234, y0:308, rows:8, py:12.6};
+  (function(){
+    const cols = Math.ceil(P.length / BAND.rows), px = (BAND.x1 - BAND.x0) / (cols - 1);
+    P.forEach(p => { const c = Math.floor(p.i / BAND.rows), r = p.i % BAND.rows;
+      p.bx = BAND.x0 + c * px; p.by = BAND.y0 + r * BAND.py; p.pick = -1; });
+    const host = document.getElementById('mdPkCards');
+    PICKS.forEach((k, j) => {
+      const row = j < 4 ? 0 : 1, col = j % 4;
+      k.x = CARD_X0 + col * (CARD_W + CARD_GAP); k.y = ROWY[row];
+      k.ax = k.x + CARD_W / 2; k.ay = row === 0 ? k.y + CARD_H + 6 : k.y - 6;
+      k.step = Math.floor(j / 2) + 1;
+      const el = document.createElement('div');
+      el.className = 'pk-card r' + row; el.dataset.step = k.step;
+      el.style.left = cqh(k.x); el.style.top = cqh(k.y);
+      el.innerHTML = `<div class="hd"><span>FAMILY ${k.f}</span>${k.ca ? '<span class="ca">COMPUTER-ASSISTED</span>' : ''}</div>
+        <div class="tt">${k.t}</div><div class="cl">${k.c}</div>
+        <div class="bd ${k.b}"><span class="g"></span>${k.bt}</div>`;
+      host.appendChild(el);
+      const mem = P.filter(p => p.f === k.f);
+      mem.forEach((p, m) => { p.pick = j; p.pm = m; p.pn = mem.length; });
+    });
+  })();
+  function layoutPicks(step, entering, now){
+    P.forEach(p => {
+      p.mode = 'spring'; p.tr = 4; p.ta = step >= 1 ? .62 : .9;
+      p.tx = p.bx; p.ty = p.by;
+      if (p.pick >= 0){
+        const k = PICKS[p.pick];
+        if (step >= k.step){ p.tx = k.ax + (p.pm - (p.pn - 1) / 2) * 13; p.ty = k.ay; p.tr = 5.5; p.ta = 1; }
+      }
+      p.rel = (entering && !STILL) ? now + (p.i % 120) * 2.5 : 0;
+    });
+  }
+
+  /* ---- 5. close: a slowly turning galaxy ---- */
+  let galT = 0;
+  function galaxy(t){
+    P.forEach((p, k) => {
+      const r = 15.5 * Math.sqrt(k + 2), th = k * GA + t * .05 * (220 / (r + 60));
+      p.tx = 760 + r * Math.cos(th) * 1.45; p.ty = 330 + r * Math.sin(th) * .62;
+    });
+  }
+  function layoutClose(step, entering, now){
+    galaxy(galT);
+    P.forEach(p => { p.mode = 'spring'; p.tr = 4; p.ta = step >= 4 ? .22 : .42; p.rel = (entering && !STILL) ? now + (p.i % 150) * 2 : 0; });
+  }
+
+  const LAYOUT = {flood:layoutFlood, disc:layoutDisc, cascade:layoutCascade, picks:layoutPicks, close:layoutClose};
+
+  /* ================= DOM labels (built once) ================= */
+  (function(){
+    const host = document.getElementById('mdFlDays');
+    [[0,'10 Sep'],[7,'17 Sep'],[13.5,'23&ndash;24 Sep'],[21,'1 Oct'],[25.5,'5&ndash;6 Oct']].forEach(([d,t]) => {
+      const e = document.createElement('div'); e.className = 'fl-day'; e.style.left = cqh(dayX(d)); e.innerHTML = t; host.appendChild(e); });
+    const colTop = (d) => { const n = P.filter(p => p.day === d).length; return YB - (Math.ceil(n / 4) - 1) * PITCH - 12; };
+    const s = (id, d) => { const e = document.getElementById(id); e.style.left = cqh(dayX(d)); e.style.top = cqh(colTop(d)); };
+    s('mdFlS23', 13); s('mdFlS24', 14); s('mdFlS05', 25);
+    const lh = document.getElementById('mdDcLabs');
+    DISC.forEach(d => {
+      const c = DC[d.i], e = document.createElement('div');
+      e.className = 'dc-lab' + (c.side ? ' side phys' : '');
+      if (c.side){ e.style.left = cqh(c.x + 74); e.style.top = cqh(c.y); }
+      else { e.style.left = cqh(c.x); e.style.top = cqh(c.y + 60); }
+      e.innerHTML = `<div class="nm"${c.side ? ` style="color:${d.col}"` : ''}>${d.name.replace('&','&amp;')}</div>
+        <div class="sb"><span class="pp">${d.papers} manuscripts${c.side ? ` &middot; ${d.fams} families` : ''}</span><span class="lp">${Math.round(d.pct)}% with Lean</span></div>`;
+      lh.appendChild(e);
+    });
+  })();
+
+  /* ================= simulation ================= */
+  const K = 64, C = 10.2, G = 2700;
+  const mouse = {x:0, y:0, t:-1e9, on:false};
+  let cur = null, curStep = 0, raf = 0, last = 0;
+  const ov = {glow:0, rib:[0,0,0,0,0], tray:0, gh:[0,0,0,0]};
+  const ovT = {glow:0, rib:[0,0,0,0,0], tray:0, gh:[0,0,0,0]};
+  // counters
+  const famLanded = new Map(); let msN = 0, famN = 0;
+  function setLand(p, v){
+    if (p.land === v) return; p.land = v;
+    const c = famLanded.get(p.f) || 0;
+    if (v){ msN++; famLanded.set(p.f, c + 1); if (c === 0) famN++; }
+    else { msN--; famLanded.set(p.f, c - 1); if (c === 1) famN--; }
+  }
+  // land flags are kept through setLand; layoutFlood writes p.land directly, so resync
+  function resyncCounts(){ msN = 0; famN = 0; famLanded.clear();
+    P.forEach(p => { if (p.land){ msN++; const c = famLanded.get(p.f) || 0; famLanded.set(p.f, c + 1); if (!c) famN++; } }); }
+
+  function step(dt, now){
+    const mAge = (now - mouse.t) / 1000;
+    const mw = (mouse.on && mAge < 2.5) ? Math.min(1, 2.5 - mAge) : 0;
+    for (const p of P){
+      p.a += (p.ta - p.a) * Math.min(1, dt * 5);
+      p.r += (p.tr - p.r) * Math.min(1, dt * 6);
+      if (p.mode === 'hold'){
+        if (now < p.rel) continue;
+        p.mode = 'fall'; p.a = 1; p.vy = 120;
+      }
+      if (now < p.rel){ continue; }
+      let ax, ay;
+      if (p.mode === 'fall'){
+        ax = K * (p.tx - p.x) - C * p.vx; ay = G;
+      } else {
+        ax = K * (p.tx - p.x) - C * p.vx; ay = K * (p.ty - p.y) - C * p.vy;
+      }
+      if (mw > 0){
+        const dx = mouse.x - p.x, dy = mouse.y - p.y, d2 = dx*dx + dy*dy;
+        if (d2 < 150*150){ const d = Math.sqrt(d2) + 6, f = mw * 2600 * (1 - d / 156);
+          ax += (dx / d) * f - (dy / d) * f * .55; ay += (dy / d) * f + (dx / d) * f * .55; }
+      }
+      p.vx += ax * dt; p.vy += ay * dt;
+      const sp = Math.hypot(p.vx, p.vy); if (sp > 2600){ p.vx *= 2600 / sp; p.vy *= 2600 / sp; }
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      if (p.mode === 'fall' && p.y >= p.ty){
+        p.y = p.ty; p.vy = -p.vy * .24; p.mode = 'spring';
+        if (cur === 'flood') setLand(p, true);
+      }
+    }
+  }
+  function snap(){ P.forEach(p => { p.x = p.tx; p.y = p.ty; p.a = p.ta; p.r = p.tr; p.vx = p.vy = 0; p.rel = 0;
+    if (p.mode === 'hold' || p.mode === 'fall') p.mode = 'spring'; }); }
+
+  /* ---------- drawing ---------- */
+  const TAU = Math.PI * 2;
+  function drawDots(ctx){
+    for (const p of P){
+      if (p.a < .02) continue;
+      ctx.globalAlpha = p.a;
+      if (p.lean){
+        ctx.fillStyle = p.col; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, TAU); ctx.fill();
+      } else {
+        ctx.strokeStyle = p.col; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1, p.r - 1), 0, TAU); ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+  let posedTex = null;
+  function posedTexture(){
+    if (posedTex) return posedTex;
+    const c = document.createElement('canvas'); c.width = 1280 * 2; c.height = 720 * 2;
+    const g = c.getContext('2d'); g.scale(2, 2);
+    for (let row = 0; ; row++){
+      const y = CB - row * CP; if (y < -10) break;
+      for (let k = 0; k < CW; k++){
+        const x = CX[0] - (CW - 1) * CP / 2 + k * CP;
+        g.globalAlpha = .34 * Math.min(1, Math.max(0, (y + 10) / 260));
+        g.strokeStyle = '#a9b6c6'; g.lineWidth = 1.6; g.beginPath(); g.arc(x, y, 3.1, 0, TAU); g.stroke();
+      }
+    }
+    return posedTex = c;
+  }
+  function drawScene(k, ctx, stepNow){
+    ctx.clearRect(0, 0, W, H);
+    if (k === 'flood'){
+      ctx.strokeStyle = 'rgba(190,205,222,.55)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(X0 - 6, YB + 9); ctx.lineTo(X0 + DAYW * 27 + 6, YB + 9); ctx.stroke();
+      ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(190,205,222,.4)';
+      for (let d = 0; d <= 26; d++){ const x = dayX(d), big = (d % 7 === 0) || d === 13 || d === 14 || d === 25 || d === 26;
+        ctx.beginPath(); ctx.moveTo(x, YB + 9); ctx.lineTo(x, YB + (big ? 19 : 14)); ctx.stroke(); }
+    }
+    if (k === 'disc' && ov.glow > .01){
+      PHYS.forEach(d => { const c = DC[d], R = c.R + 46;
+        const g = ctx.createRadialGradient(c.x, c.y, c.R * .3, c.x, c.y, R);
+        g.addColorStop(0, `rgba(255,170,70,${(.30 * ov.glow).toFixed(3)})`); g.addColorStop(1, 'rgba(255,170,70,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(c.x, c.y, R, 0, TAU); ctx.fill(); });
+    }
+    if (k === 'cascade'){
+      ctx.drawImage(posedTexture(), 0, 0, W, H);
+      const half = (CW - 1) * CP / 2 + 6;
+      const tp = [ -40, top(1, famList.length), top(2, P.length), top(3, leanFams.length), top(4, headFams.length) ];
+      const tpN = [ -40, top(1, famList.length), top(2, stepNow >= 2 ? noLean.length : P.length), top(3, stepNow >= 3 ? leanRest.length : leanFams.length), top(4, headFams.length) ];
+      // the attrition profile: a line over the column tops, drawn up to the current stage
+      const tops = [-30, tp[1], tp[2], tp[3], tp[4] - 2, CB + 4];
+      const reach = [ov.rib[0], ov.rib[0], ov.rib[1], ov.rib[2], ov.rib[3], ov.tray];
+      for (let c = 0; c < 5; c++){
+        const a = Math.min(reach[c], reach[c + 1]); if (a < .01) continue;
+        const x1 = CX[c] + half, x2 = CX[c + 1] - half, t1 = tops[c], t2 = tops[c + 1], mx = (x1 + x2) / 2, b = CB + 9;
+        ctx.globalAlpha = a;
+        ctx.fillStyle = 'rgba(170,190,215,.07)';
+        ctx.beginPath(); ctx.moveTo(x1, t1); ctx.bezierCurveTo(mx, t1, mx, t2, x2, t2); ctx.lineTo(x2, b); ctx.lineTo(x1, b); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = c === 4 ? '#FF5A6E' : 'rgba(225,232,242,.7)'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(x1 - (c ? 2 * half : 0), t1); ctx.lineTo(x1, t1); ctx.bezierCurveTo(mx, t1, mx, t2, x2, t2); ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+      // ghosts: a column keeps its full height after its dots move on
+      [[1, famList.length], [2, P.length], [3, leanFams.length]].forEach(([c, n]) => {
+        const a = ov.gh[c]; if (a < .01) return;
+        ctx.globalAlpha = a * .5; ctx.strokeStyle = '#8d9bb0'; ctx.lineWidth = 1.6;
+        for (let k = 0; k < n; k++){ const [x, y] = slotXY(c, k, n); ctx.beginPath(); ctx.arc(x, y, 3.1, 0, TAU); ctx.stroke(); }
+        ctx.globalAlpha = 1; });
+      // baseline
+      ctx.strokeStyle = 'rgba(190,205,222,.45)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(30, CB + 9); ctx.lineTo(1250, CB + 9); ctx.stroke();
+      // the empty refereed tray
+      if (ov.tray > .01){
+        ctx.globalAlpha = ov.tray; ctx.setLineDash([7, 6]); ctx.strokeStyle = '#FF5A6E'; ctx.lineWidth = 2.5;
+        ctx.strokeRect(CX[5] - half, 318, half * 2, CB + 6 - 318); ctx.setLineDash([]); ctx.globalAlpha = 1;
+      }
+    }
+    if (k === 'picks'){
+      ctx.lineWidth = 2;
+      for (const p of P){ if (p.pick < 0 || p.a < .5) continue;
+        const dd = Math.hypot(p.x - p.bx, p.y - p.by); if (dd < 8) continue;
+        ctx.globalAlpha = .38; ctx.strokeStyle = p.col; ctx.beginPath(); ctx.moveTo(p.bx, p.by); ctx.lineTo(p.x, p.y); ctx.stroke();
+        ctx.globalAlpha = .9; ctx.beginPath(); ctx.arc(p.bx, p.by, 2.2, 0, TAU); ctx.fillStyle = '#06080c'; ctx.fill(); }
+      ctx.globalAlpha = 1;
+    }
+    drawDots(ctx);
+  }
+  function setOverlayTargets(k, s){
+    ovT.glow = (k === 'disc' && s === 1) ? 1 : 0;
+    ovT.rib = [k === 'cascade' ? 1 : 0, k === 'cascade' && s >= 1 ? 1 : 0, k === 'cascade' && s >= 2 ? 1 : 0, k === 'cascade' && s >= 3 ? 1 : 0, 0];
+    if (k === 'cascade' && s >= 4) ovT.rib[4] = 1;
+    ovT.tray = (k === 'cascade' && s >= 4) ? 1 : 0;
+    ovT.gh = [0, k === 'cascade' && s >= 1 ? 1 : 0, k === 'cascade' && s >= 2 ? 1 : 0, k === 'cascade' && s >= 3 ? 1 : 0];
+  }
+  function tweenOverlays(dt){
+    const f = Math.min(1, dt * 4);
+    ov.glow += (ovT.glow - ov.glow) * f; ov.tray += (ovT.tray - ov.tray) * f;
+    for (let i = 0; i < ov.rib.length; i++) ov.rib[i] += (ovT.rib[i] - ov.rib[i]) * f;
+    for (let i = 0; i < ov.gh.length; i++) ov.gh[i] += (ovT.gh[i] - ov.gh[i]) * f;
+  }
+  function snapOverlays(){ ov.glow = ovT.glow; ov.tray = ovT.tray; ov.rib = ovT.rib.slice(); ov.gh = ovT.gh.slice(); }
+
+  /* ---------- flood counters ---------- */
+  const elMs = document.getElementById('mdFlMs'), elFam = document.getElementById('mdFlFam');
+  const elPg = document.getElementById('mdFlPg'), elLn = document.getElementById('mdFlLn');
+  let shownMs = -1, shownFam = -1, ctrT0 = 0;
+  const fmt = n => n.toLocaleString('en-US');
+  function updCounters(now){
+    if (msN !== shownMs){ elMs.textContent = fmt(msN); shownMs = msN; }
+    if (famN !== shownFam){ elFam.textContent = fmt(famN); shownFam = famN; }
+    if (cur === 'flood'){
+      const u = curStep >= 4 ? (STILL ? 1 : Math.min(1, Math.max(0, (now - ctrT0) / 1600))) : 0;
+      const e = 1 - Math.pow(1 - u, 3);
+      elPg.textContent = fmt(Math.round(34815 * e));
+      elLn.textContent = (26.0 * e).toFixed(1) + 'M';
+    }
+  }
+
+  /* ---------- loop ---------- */
+  function frame(now){
+    raf = 0; if (!cur) return;
+    let dt = Math.min(1 / 30, (now - last) / 1000 || 0); last = now;
+    if (cur === 'close'){ galT += dt; galaxy(galT); }
+    const n = 2; for (let i = 0; i < n; i++) step(dt / n, now);
+    tweenOverlays(dt);
+    drawScene(cur, ctxCur, curStep);
+    if (cur === 'flood') updCounters(now);
+    raf = requestAnimationFrame(frame);
+  }
+  let ctxCur = null;
+  function enter(k){
+    cur = k; ctxCur = fit(CV[k]);
+    const s = (typeof state !== 'undefined') ? state.step : 0;
+    apply(k, s, true);
+    if (!STILL && !raf){ last = performance.now(); raf = requestAnimationFrame(frame); }
+  }
+  function leave(){ if (raf) cancelAnimationFrame(raf); raf = 0; cur = null; }
+  function apply(k, s, entering){
+    const now = performance.now();
+    if (SEC[k]) SEC[k].dataset.mdstep = s;
+    if (k === 'flood' && s >= 4 && (entering || curStep < 4)) ctrT0 = now;
+    if (k === 'flood' && entering) floodPrev = -1;
+    LAYOUT[k](s, entering, now);
+    if (k === 'flood') resyncCounts();
+    curStep = s; setOverlayTargets(k, s);
+    if (STILL){ snap(); snapOverlays(); if (k === 'flood'){ P.forEach(p => p.land = grp(p) <= s); resyncCounts(); }
+      ctxCur = fit(CV[k]); drawScene(k, ctxCur, s); if (k === 'flood') updCounters(now); }
+  }
+  // Final-state static render of any slide's canvas (for ?still and printing)
+  function drawStatic(k){
+    const save = P.map(p => [p.x, p.y, p.a, p.r, p.tx, p.ty, p.ta, p.tr, p.mode, p.land, p.rel]);
+    const sv = {cur, curStep, fp: floodPrev, cp: cascPrev, ov: JSON.stringify(ov), ovT: JSON.stringify(ovT)};
+    floodPrev = MAX[k]; cascPrev = MAX[k];
+    LAYOUT[k](MAX[k], true, 0); snap(); setOverlayTargets(k, MAX[k]); snapOverlays();
+    drawScene(k, fit(CV[k]), MAX[k]);
+    P.forEach((p, i) => { [p.x, p.y, p.a, p.r, p.tx, p.ty, p.ta, p.tr, p.mode, p.land, p.rel] = save[i]; });
+    floodPrev = sv.fp; cascPrev = sv.cp; Object.assign(ov, JSON.parse(sv.ov)); Object.assign(ovT, JSON.parse(sv.ovT));
+  }
+
+  /* ---------- mouse: a gentle gravity well (cosmetic) ---------- */
+  document.addEventListener('mousemove', e => {
+    if (!cur) return;
+    const r = CV[cur].getBoundingClientRect();
+    mouse.x = (e.clientX - r.left) / r.width * W; mouse.y = (e.clientY - r.top) / r.height * H;
+    mouse.on = mouse.x >= 0 && mouse.x <= W && mouse.y >= 0 && mouse.y <= H; mouse.t = performance.now();
+  });
+  document.addEventListener('mouseout', e => { if (!e.relatedTarget) mouse.on = false; });
+  /* ---------- R replays the pour on the flood slide ---------- */
+  document.addEventListener('keydown', e => {
+    if (cur !== 'flood' || STILL || (e.key !== 'r' && e.key !== 'R')) return;
+    const s = curStep; floodPrev = 0;
+    P.forEach(p => { p.land = false; p.a = 0; }); resyncCounts();
+    // replay every group up to the current step as one continuous pour
+    const now = performance.now();
+    LAYOUT.flood(s, false, now);
+    P.forEach(p => { const g = grp(p); if (g <= s) p.rel = now + (g === 1 ? p.dl : (g === 2 ? 2400 + p.dl : 5600 + p.dl)); });
+    if (s >= 4) ctrT0 = now + 9000;
+    resyncCounts(); e.preventDefault();
+  });
+  window.addEventListener('resize', () => { if (cur) ctxCur = fit(CV[cur]); });
+  window.addEventListener('beforeprint', () => { for (const k in SEC) drawStatic(k); });
+
+  /* ---------- register with the deck engine ---------- */
+  function register(){
+    if (typeof controllers === 'undefined') return;
+    IDS.forEach(id => {
+      const k = KEY[id];
+      controllers[id] = {
+        maxSteps: MAX[k],
+        onEnter(){ enter(k); },
+        onLeave(){ leave(); },
+        onStep(s){ if (cur === k) apply(k, s, false); }
+      };
+    });
+    if (STILL) for (const k in SEC) drawStatic(k);
+    IDS.forEach(id => { const s = document.getElementById(id); if (s.classList.contains('active') && !cur) enter(KEY[id]); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+})();
+</script>
+<!-- END MATHDUMP SLIDES -->
+
+</div></div>
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="help"><div>&rarr; / Space: next &middot; &larr;: back &middot; R: replay the flood &middot; F: fullscreen &middot; Esc: close</div></div>
+
+<script>
+"use strict";
+/* ===== minimal copy of the deck engine (verbatim behaviour of talk.html) ===== */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const controllers = {};
+const state = { current: 0, step: 0 };
+function maxStepsFor(slide){
+  const c = controllers[slide.id];
+  if (c && typeof c.maxSteps === 'number') return c.maxSteps;
+  let m = 0;
+  slide.querySelectorAll('[data-step]').forEach(b => m = Math.max(m, +b.dataset.step));
+  return m;
+}
+function applySteps(slide, step){
+  slide.querySelectorAll('[data-step]').forEach(b => { b.classList.toggle('shown', (+b.dataset.step) <= step); });
+  const c = controllers[slide.id];
+  if (c && c.onStep) c.onStep(step);
+}
+function render(){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===state.current));
+  applySteps(slides[state.current], state.step);
+  const total = slides.length;
+  document.getElementById('progress').style.width = (((state.current)/(total-1))*100) + '%';
+  document.getElementById('counter').textContent = (state.current+1)+' / '+total;
+  if (location.hash !== '#'+(state.current+1)) history.replaceState(null,'','#'+(state.current+1));
+}
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if (i === state.current) return;
+  const old = slides[state.current];
+  const oc = controllers[old.id]; if (oc && oc.onLeave) oc.onLeave();
+  state.current = i;
+  state.step = (dir === 'back') ? maxStepsFor(slides[i]) : 0;
+  render();
+  const nc = controllers[slides[i].id]; if (nc && nc.onEnter) nc.onEnter();
+}
+function next(){
+  const slide = slides[state.current];
+  if (state.step < maxStepsFor(slide)){ state.step++; applySteps(slide, state.step); }
+  else goTo(state.current+1, 'fwd');
+}
+function prev(){
+  if (state.step > 0){ state.step--; applySteps(slides[state.current], state.step); }
+  else goTo(state.current-1, 'back');
+}
+document.addEventListener('keydown', e => {
+  const help = document.getElementById('help');
+  if (e.key === '?'){ help.classList.toggle('on'); e.preventDefault(); return; }
+  if (e.key === 'Escape'){ help.classList.remove('on'); return; }
+  if (help.classList.contains('on')) return;
+  switch(e.key){
+    case 'ArrowRight': case ' ': case 'PageDown': case 'ArrowDown': next(); e.preventDefault(); break;
+    case 'ArrowLeft': case 'PageUp': case 'ArrowUp': prev(); e.preventDefault(); break;
+    case 'Home': goTo(0,'fwd'); e.preventDefault(); break;
+    case 'End': goTo(slides.length-1,'fwd'); e.preventDefault(); break;
+    case 'f': case 'F':
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen();
+      e.preventDefault(); break;
+  }
+});
+document.getElementById('stage').addEventListener('click', e => {
+  if (e.target.closest('button,input,a,.no-nav')) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if (e.clientX - r.left > r.width * 0.62) next();
+});
+function boot(){
+  const still = location.search.indexOf('still') >= 0;
+  if (still){
+    const st = document.createElement('style');
+    st.textContent = '.slide,.build,#pulse{transition:none!important;animation:none!important}';
+    document.head.appendChild(st);
+  }
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  state.current = (!isNaN(h) && h>=1 && h<=slides.length) ? h-1 : 0;
+  state.step = still ? maxStepsFor(slides[state.current]) : 0;
+  render();
+  const c = controllers[slides[state.current].id]; if (c && c.onEnter) c.onEnter();
+}
+window.addEventListener('hashchange', ()=>{
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  if (!isNaN(h) && (h-1)!==state.current) goTo(h-1,'fwd');
+});
+boot();
+</script>
+</body>
+</html>
