@@ -6,7 +6,46 @@ Materials for a 1-hour seminar: "Large Language Models: A Physicist's
 Perspective." Demystifies LLMs and AI coding agents by rebuilding the
 entire stack from first principles for a physics audience.
 
-## Current focus: MPI Magdeburg talk (Wed 23 Sep 2026)
+## Current focus: CQT Singapore talk (Thu 8 Oct 2026)
+
+`CQT-talk-2026/` was created on 7 Oct 2026 by copying `Magdeburg-talk-2026/`.
+**Present from `CQT-talk-2026/slides-web/talk.html`** (64 slides, final 8 Oct
+11:09; `talk.pdf` is the 64-page export). Read first:
+`CQT-talk-2026/SPEAKER-NOTES-2026-10-08.md` (changed message, keys, full slide
+map, per-slide notes) and `CHANGELOG-2026-10-08.md` (every edit, sources,
+verification, open issues).
+
+8 Oct rework (morning of the talk, one Workflow run of 6 Opus + 1 Sonnet
+builders, an Opus ECI agent and an Opus integrator; the Sonnet verifier died
+on a network outage and its checks were re-run by hand, all clean): venue set
+to CQT; 13 slides deleted (ackcontrol, gap, lyapunov, euhosted, budget,
+limits, summary, cta, afternoon, extended, kontorovich, flurry, md-close);
+`s-capable` and `s-defense` retitled; new `s-md-trickle` (the old s-flurry
+rows in the particle styling), `s-deepblue` (Simon Willison's "Deep Blue"
+adapted to openai/math), Haldane interlude `s-hg-intro` + five option C
+slides after `s-dagx`; arXiv acknowledgment survey extended to 1 to 7 Oct
+(out-of-sample test of the 22 Sep line: predicted 28%, observed 36% in
+quant-ph); `s-grief` and `s-mathslag` ("The lag collapsed: from three years to
+three months") updated; Epoch refresh to 8 Oct (272 models, 14.1 pts/yr,
+Opus 5.5 leader 167.3; all former estimates now measured) with a speculative
+marker for the unreleased openai/math model (about 171, band 168 to 175).
+
+Pipeline fix worth knowing: Epoch moved the ECI table to
+`epoch_capabilities_index/eci_scores.csv`; `model-progress/analyse.py` now
+reads it via `eci_table()` (the stale flat file silently froze the 22 Sep
+numbers). Tooling added: `design/splice.py` (deterministic slide splicer
+driven by ops.json), used so parallel agents never edit the deck directly;
+their fragments and test copies are in `staging-2026-10-08/` (untracked,
+can be deleted after the talk). Backups: `slides-web/talk.html.pre-1008`
+(start of 8 Oct), `.pre-integrate-1008`, `.pre-cqt` (Magdeburg base).
+
+Not done: nothing committed (the folder's `.gitignore` tracks only
+`slides-web/talk.html` and `talk.pdf`); minor render nits listed in the
+changelog section 5 (ackexp in-plot note touches a marker, two Haldane labels
+crowd the hatched disc, Deep Blue chess glyphs depend on the laptop font);
+Cursor $60B and the 1997 match facts not re-verified today.
+
+## Previous focus: MPI Magdeburg talk (Wed 23 Sep 2026)
 
 `Magdeburg-talk-2026/` is a copy of the QuSoft deck adapted on 22 Sep 2026 for
 the Max Planck Institute for Dynamics of Complex Technical Systems (host Luís
