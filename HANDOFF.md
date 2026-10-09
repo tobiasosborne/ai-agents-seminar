@@ -6,7 +6,60 @@ Materials for a 1-hour seminar: "Large Language Models: A Physicist's
 Perspective." Demystifies LLMs and AI coding agents by rebuilding the
 entire stack from first principles for a physics audience.
 
-## Current focus: CQT Singapore talk (Thu 8 Oct 2026)
+## Current focus: University of Sydney talk (date not yet set)
+
+`USyd-talk-2026/` was created on 9 Oct 2026 by copying `CQT-talk-2026/`
+(without `staging-2026-10-08/` and the old `.pre-*` backups; the CQT state is
+`slides-web/talk.html.pre-usyd`). **Deck: `USyd-talk-2026/slides-web/talk.html`,
+67 slides.** `talk.pdf` there is still the 64-page CQT export (not regenerated,
+not committed).
+
+New angle: mathematics has just had its "Opus 4.5 moment" (openai/math, 6 Oct)
+and the discourse among mathematicians replays what software engineers argued
+through in 2025-26. Three new slides sit after `s-mathslag` (slides 21 to 23),
+render-verified with `design/render.mjs` (zero findings); source fragment
+`design/echo-slides.html`:
+
+- `s-echo` "We have heard this argument before": four rows (Understanding,
+  Review, Juniors, Debt), verbatim Orosz quote against verbatim mathematician
+  quote (Kra, Lozano-Robledo, Cohn). All eight quotes checked against the
+  transcript or the fetched page; sources in HTML comments.
+- `s-learned` "What software learned the hard way": six lessons translated to
+  mathematics, "Use the agent to understand" highlighted. **Provisional**: cards
+  02 to 04 are Theo Browne's position, so far sourced from his other videos via
+  third-party pages; check against the panel transcript and revise.
+- `s-breaks` "Where the analogy breaks": no runtime, understanding is the
+  product, problems are finite (Kra and Tao quotes).
+
+Research is in `USyd-talk-2026/research/discourse-2026-10-09/` (local only, the
+folder's `.gitignore` tracks just `slides-web/talk.html` and `talk.pdf`):
+`math-discourse.md` (Tao's blog, Proofs and Prompts, wider venues; 133 quotes
+string-checked), `se-discourse.md` (Orosz in full; panel positions from other
+sources), `education-roi.md` (the Unlearning Economics video is "Free Stuff is
+Good, Actually", 9 May 2023, chapter 8:50 to 23:17; slide lines from Lindert
+2009 and Hendren and Sprung-Keyser 2020, with caveats), and the two transcripts.
+
+Not done:
+- **Convex panel transcript is partial**: `transcript-convex-panel.txt` covers
+  0:00 to 30:00 only. The video (youtu.be/tU0leMxkqzE) has no English caption
+  track (auto-dubbed), YouTube returned 429 on every caption fetch, and the
+  OpenRouter credit ran out after three of five chunks (about $0.60 left of
+  $20; key is `OPENROUTER_API_KEY` in `../wuerzburg-agent-seminar/.env`). The
+  last two chunks are in `audio/c03.mp3`, `c04.mp3`; rerun with
+  `audio/or_transcribe.py <keyfile> google/gemini-3.8-flash <out> 3 4` (move the
+  mp3s into a `chunks/` folder beside the script first; about $0.03 per chunk).
+  They contain the moats, open source and "advice for young engineers" chapters.
+- The transcript so far has not been analysed. Theo at 11:42 says "Ask the
+  agent to explain things ... you have a genius in your computer that can tell
+  you exactly how it works", which supports card 03; pull his exact wording
+  onto `s-learned` and update its source comment and the footer credit line.
+- No education-ROI slide yet (research only). No speaker notes or changelog for
+  USyd. Title slide, `s-mathslag` "You are here" and other venue strings still
+  say CQT / Singapore / 8 October.
+- The speaker has a signed reaction on the Proofs and Prompts "100 reactions"
+  page; do not cite it as independent evidence.
+
+## Previous focus: CQT Singapore talk (Thu 8 Oct 2026)
 
 `CQT-talk-2026/` was created on 7 Oct 2026 by copying `Magdeburg-talk-2026/`.
 **Present from `CQT-talk-2026/slides-web/talk.html`** (64 slides, final 8 Oct
@@ -39,8 +92,7 @@ their fragments and test copies are in `staging-2026-10-08/` (untracked,
 can be deleted after the talk). Backups: `slides-web/talk.html.pre-1008`
 (start of 8 Oct), `.pre-integrate-1008`, `.pre-cqt` (Magdeburg base).
 
-Not done: nothing committed (the folder's `.gitignore` tracks only
-`slides-web/talk.html` and `talk.pdf`); minor render nits listed in the
+Committed as `6a0c4a7`. Not done: minor render nits listed in the
 changelog section 5 (ackexp in-plot note touches a marker, two Haldane labels
 crowd the hatched disc, Deep Blue chess glyphs depend on the laptop font);
 Cursor $60B and the 1997 match facts not re-verified today.
