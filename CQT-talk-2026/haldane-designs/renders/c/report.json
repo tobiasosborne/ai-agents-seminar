@@ -1,0 +1,32 @@
+[
+  {
+    "n": 1,
+    "id": "s-hg-worldlines",
+    "issues": [],
+    "maxSteps": 3
+  },
+  {
+    "n": 2,
+    "id": "s-hg-spotlight",
+    "issues": [],
+    "maxSteps": 4
+  },
+  {
+    "n": 3,
+    "id": "s-hg-square",
+    "issues": [],
+    "maxSteps": 4
+  },
+  {
+    "n": 4,
+    "id": "s-hg-flow",
+    "issues": [],
+    "maxSteps": 3
+  },
+  {
+    "n": 5,
+    "id": "s-hg-fineprint",
+    "issues": [],
+    "maxSteps": 5
+  }
+]

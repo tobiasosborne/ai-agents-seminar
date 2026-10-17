@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option C: Worldlines (Haldane gap, family 268)</title>
+<style>
+/* ===== minimal copy of the deck engine CSS (not part of the paste region) ===== */
+:root{--black:#111417;--white:#ffffff;--darkteal:#335B74;--lightgrey:#DFE3E5;--cyan:#1CADE4;--medblue:#2683C6;
+  --brightcyan:#27CED7;--green:#42BA97;--paper:#ffffff;--ink:#1a1e21;--muted:#5b6b74;--codebg:#F0F2F3;--stagew:1280;--stageh:720;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#0c1114;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden;}
+#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 0%, #14202a 0%, #0a0f12 70%);}
+#stage{position:relative;width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);background:var(--paper);overflow:hidden;
+  container-type:size;box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 30px 80px rgba(0,0,0,.55);}
+.slide{position:absolute;inset:0;padding:7cqh 8cqw;display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .38s ease;overflow:hidden;}
+.slide.active{opacity:1;visibility:visible;z-index:2;}
+.build{opacity:0;transform:translateY(1.4cqh);transition:opacity .5s ease, transform .5s ease;}
+.build.shown{opacity:1;transform:none;}
+#progress{position:fixed;left:0;bottom:0;height:4px;background:var(--cyan);z-index:10;transition:width .3s;}
+#counter{position:fixed;right:12px;bottom:8px;color:#56636b;font-size:12px;z-index:10;}
+#help{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);color:#fff;z-index:20;align-items:center;justify-content:center;font-size:18px;line-height:1.7;}
+#help.on{display:flex;}
+@media print{@page{size:1280px 720px;margin:0} body{overflow:visible} #deck{position:static;display:block}
+  #stage{width:1280px;height:720px;overflow:visible} .slide{position:relative;opacity:1!important;visibility:visible!important;
+  width:1280px;height:720px;page-break-after:always} .build{opacity:1!important;transform:none!important} #progress,#counter{display:none}}
+</style>
+</head>
+<body>
+<div id="deck"><div id="stage">
+
+<!-- BEGIN HALDANE SLIDES -->
+<!-- ================================================================== -->
+<!--  Haldane-gap proof (openai/math family 268), option C "Worldlines". -->
+<!--  Five blackboard slides. All numbers on the slides are computed    -->
+<!--  live in the browser (spin-1/2 Heisenberg rings diagonalised with  -->
+<!--  a Jacobi solver, a Trotter lattice contracted along time and      -->
+<!--  along space, a classical three-state ring, the doubling ladder),  -->
+<!--  except where marked "paper", which are the paper's own numbers    -->
+<!--  as quoted in context/review-268-haldane.md (read 7 Oct 2026).    -->
+<!--  Keys: arrows as usual. Bonus keys per slide are listed in the     -->
+<!--  help overlay (?).                                                 -->
+<!-- ================================================================== -->
+<style>
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint){
+  padding:0;display:block;color:#ece6d6;
+  background:radial-gradient(130% 100% at 50% 30%, #2b3d35 0%, #1e2b26 55%, #141d19 100%);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --chalk:#ece6d6;--dim:#aaa497;--yel:#f3d77a;--pink:#f0a8b8;--blue:#9fd0ea;--green:#aadca4;
+  --serif:Cambria,"Bitstream Charter",Georgia,"Liberation Serif",serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,"DejaVu Sans Mono",monospace;
+}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .build.gnt{transform:none;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hgc-title{
+  position:absolute;left:5.5cqh;top:3.6cqh;font-size:4.6cqh;font-weight:600;letter-spacing:.01em;color:var(--chalk);
+  text-shadow:0 0 .3cqh rgba(255,255,255,.22);filter:url(#hgcText);white-space:nowrap;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hgc-ul{
+  position:absolute;left:5.2cqh;top:9.4cqh;width:60cqh;height:2cqh;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hgc-kick{
+  position:absolute;right:5.5cqh;top:4.2cqh;text-align:right;font-size:2.15cqh;line-height:1.35;color:var(--dim);max-width:80cqh;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hgc-src{
+  position:absolute;left:5.5cqh;right:5.5cqh;bottom:1.7cqh;font-size:1.8cqh;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hgc-take{
+  position:absolute;left:5.5cqh;right:5.5cqh;top:86.6cqh;font-size:2.9cqh;font-weight:600;color:var(--yel);line-height:1.25;
+  text-shadow:0 0 .3cqh rgba(255,255,255,.18);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .m{font-family:var(--serif);font-style:italic;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .m sub,
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .m sup{font-size:.72em;font-style:normal;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.95em;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .yel{color:var(--yel);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .blue{color:var(--blue);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .pink{color:var(--pink);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .green{color:var(--green);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .dim{color:var(--dim);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) .hd{
+  font-size:2.05cqh;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:.5cqh;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg text{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:var(--chalk);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck{stroke:var(--chalk);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.thin{stroke-width:1.6;opacity:.7;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.dash{stroke-dasharray:9 8;opacity:.55;stroke-width:1.8;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.yel{stroke:var(--yel);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.blue{stroke:var(--blue);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.pink{stroke:var(--pink);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ck.green{stroke:var(--green);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .chalk{filter:url(#hgcChalk);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .ser{font-family:var(--serif);font-style:italic;}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .fy{fill:var(--yel);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .fb{fill:var(--blue);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .fp{fill:var(--pink);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .fg{fill:var(--green);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .fd{fill:var(--dim);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .mono{font-family:var(--mono);}
+:is(#s-hg-worldlines,#s-hg-spotlight,#s-hg-square,#s-hg-flow,#s-hg-fineprint) svg .hide{display:none;}
+
+/* ---- slide 1: worldlines ---- */
+#s-hg-worldlines .wl-canvas{position:absolute;left:3cqh;top:12cqh;width:70cqh;height:70cqh;}
+#s-hg-worldlines .wl-canvas svg{width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.5,0,.3,1);}
+#s-hg-worldlines .wl-canvas svg.rot{transform:rotate(90deg);}
+#s-hg-worldlines .wl-dir{position:absolute;left:1cqh;top:82.4cqh;width:76cqh;text-align:center;font-size:2cqh;color:var(--dim);white-space:nowrap;}
+#s-hg-worldlines .wl-panel{position:absolute;left:80cqh;top:14.5cqh;width:81cqh;font-size:2.35cqh;line-height:1.38;}
+#s-hg-worldlines .wl-cap{color:var(--chalk);margin-bottom:2.2cqh;}
+#s-hg-worldlines .wl-read{margin-bottom:2.4cqh;padding-left:1.6cqh;border-left:.35cqh solid rgba(236,230,214,.35);}
+#s-hg-worldlines .wl-read div{margin-top:.5cqh;}
+#s-hg-worldlines .big{font-size:1.15em;font-weight:700;}
+
+/* ---- slide 2: spotlight ---- */
+#s-hg-spotlight .sp-left{position:absolute;left:3.5cqh;top:13cqh;width:104cqh;height:63cqh;}
+#s-hg-spotlight .sp-right{position:absolute;left:110cqh;top:13cqh;width:53cqh;height:63cqh;}
+#s-hg-spotlight svg{width:100%;height:100%;display:block;}
+#s-hg-spotlight .sp-cap{position:absolute;left:5.5cqh;right:5.5cqh;top:77.5cqh;font-size:2.4cqh;line-height:1.35;color:var(--chalk);min-height:8cqh;}
+
+/* ---- slide 3: the square ---- */
+#s-hg-square .sq-left{position:absolute;left:3cqh;top:13cqh;width:78cqh;height:63cqh;}
+#s-hg-square .sq-left svg{width:100%;height:100%;display:block;}
+#s-hg-square .sq-right{position:absolute;left:84cqh;top:14cqh;width:78cqh;font-size:2.25cqh;line-height:1.4;}
+#s-hg-square .sq-blk{margin-bottom:2.2cqh;}
+#s-hg-square .sq-eq{font-family:var(--serif);font-style:italic;font-size:2.5cqh;line-height:1.55;white-space:nowrap;}
+#s-hg-square .sq-eq .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .3cqh;}
+#s-hg-square .sq-eq .fr span:first-child{border-bottom:.22cqh solid var(--chalk);padding:0 .3cqh .1cqh;}
+#s-hg-square .sq-eq .fr span:last-child{padding:.1cqh .3cqh 0;}
+#s-hg-square .sq-eq .cx{position:relative;color:var(--pink);}
+#s-hg-square .sq-eq .cx::after{content:"";position:absolute;left:-.2cqh;right:-.2cqh;top:50%;height:.3cqh;background:var(--pink);
+  transform:scaleX(0);transform-origin:left;transition:transform .6s ease .9s;border-radius:.2cqh;}
+#s-hg-square .sq-eq.cancel .cx::after{transform:scaleX(1) rotate(-6deg);}
+.hgc-still #s-hg-square .sq-eq .cx::after{transition:none;}
+#s-hg-square .sq-live{font-size:2.25cqh;margin-top:.6cqh;}
+
+/* ---- slide 4: the flow ---- */
+#s-hg-flow .fl-left{position:absolute;left:3cqh;top:12.5cqh;width:84cqh;height:72cqh;}
+#s-hg-flow .fl-left svg{width:100%;height:100%;display:block;}
+#s-hg-flow .fl-right{position:absolute;left:90cqh;top:13.5cqh;width:72cqh;}
+#s-hg-flow .fl-ledger{font-family:var(--mono);font-size:1.95cqh;line-height:1.3;}
+#s-hg-flow .fl-ledger .r{display:grid;grid-template-columns:2.6cqh 10.5cqh 10.5cqh 12cqh 1fr;column-gap:1cqh;opacity:0;transition:opacity .3s;}
+#s-hg-flow .fl-ledger .r.on{opacity:1;}
+#s-hg-flow .fl-ledger .r.h{opacity:1;color:var(--dim);font-family:system-ui,sans-serif;font-size:1.85cqh;letter-spacing:.04em;}
+#s-hg-flow .fl-ledger .r.lim{color:var(--yel);font-weight:700;margin-top:.4cqh;}
+#s-hg-flow .fl-plot{margin-top:1.4cqh;width:72cqh;height:19cqh;}
+#s-hg-flow .fl-plot svg{width:100%;height:100%;display:block;}
+#s-hg-flow .fl-crit{margin-top:1.2cqh;font-size:2.15cqh;line-height:1.35;color:var(--chalk);}
+#s-hg-flow .fl-crit b{color:var(--pink);font-weight:700;}
+
+/* ---- slide 5: fine print ---- */
+#s-hg-fineprint .fp-list{position:absolute;left:5.5cqh;right:5.5cqh;top:14.5cqh;display:flex;flex-direction:column;gap:2.4cqh;}
+#s-hg-fineprint .fp-row{display:grid;grid-template-columns:20cqh 1fr;column-gap:2cqh;align-items:start;}
+#s-hg-fineprint .fp-k{font-size:2cqh;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--yel);padding-top:.45cqh;}
+#s-hg-fineprint .fp-t{font-size:2.5cqh;line-height:1.38;color:var(--chalk);}
+#s-hg-fineprint .fp-t b{color:var(--blue);font-weight:650;}
+#s-hg-fineprint .fp-t .pk{color:var(--pink);}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="hgcChalk" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="5" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="4" xChannelSelector="R" yChannelSelector="G" result="disp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="11" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.9 -0.25" result="mask"/>
+      <feComposite in="disp" in2="mask" operator="in" result="eroded"/>
+      <feMerge><feMergeNode in="eroded"/><feMergeNode in="eroded"/></feMerge>
+    </filter>
+    <filter id="hgcText" x="-3%" y="-10%" width="106%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" seed="3" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hgcHatch" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#ece6d6" stroke-width="1.4" opacity=".45"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- ===================== 1. the ring in imaginary time ===================== -->
+<section class="slide" id="s-hg-worldlines">
+  <div class="hgc-title">One partition function, two readings</div>
+  <svg class="hgc-ul" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true"><path class="ck chalk" d="M4 10 C 150 4, 300 16, 596 8"/></svg>
+  <div class="hgc-kick"><span class="m">Z<sub>n</sub>(&beta;) = Tr e<sup>&minus;&beta;H<sub>n</sub></sup></span>, <span class="m">H<sub>n</sub></span> = &Sigma; <span class="m">S<sub>i</sub>&middot;S<sub>i+1</sub></span> on a ring<br>
+    toy: spin-&frac12; ring, <span class="m">n</span> = 6, <span class="m">&beta;</span> = <span class="num" id="wlBeta">2</span> <span class="dim">(keys [ ] change &beta;, M changes the slices)</span></div>
+  <div class="wl-canvas no-nav"><svg id="wlSvg" viewBox="0 0 700 700" role="img" aria-label="six worldlines on a cylinder of circumference n and height beta, with bond events drawn as chalk ticks"></svg></div>
+  <div class="wl-dir" id="wlDir">the transfer operator reads upward: a row of 6 spins at a time</div>
+  <div class="wl-panel">
+    <div class="wl-cap" id="wlCap">Six worldlines, one per site. Height <span class="m">&beta;</span>. Bond events arrive as a Poisson process, rate 1 per bond per unit <span class="m">&beta;</span>: <span class="m">e<sup>&minus;&beta;H</sup> = e<sup>&minus;&beta;n/4</sup> e<sup>&beta;&Sigma;Q<sub>b</sub></sup></span>, expanded in time-ordered singlet projectors <span class="m">Q<sub>b</sub></span>. <span class="dim">(Aizenman&ndash;Nachtergaele; the ticks are an illustration, the numbers below are not.)</span></div>
+    <div class="wl-read build gnt" data-step="1">
+      <div class="hd yel">Read along time</div>
+      <div>Gibbs weights over 64 energy levels: <span class="m">Z = &Sigma;<sub>k</sub> e<sup>&minus;&beta;E<sub>k</sub></sup></span> = <span class="num big" id="wlZx">...</span> <span class="dim">(exact diagonalisation, uncut ring)</span></div>
+      <div>Cut <span class="m">&beta;</span> into 2M = <span class="num" id="wlSl">8</span> slices (toy lattice): <span class="m">Z<sup>lat</sup> = Tr[(T<sub>A</sub>T<sub>B</sub>)<sup>M</sup>]</span>, 64 &times; 64 matrices = <span class="num big yel" id="wlZt">...</span></div>
+    </div>
+    <div class="wl-read build gnt" data-step="2">
+      <div class="hd blue">Read along space</div>
+      <div>Transfer across one bond, acting on a column of <span class="num" id="wlSl2">8</span> spins (<span class="num" id="wlDim">256</span> &times; <span class="num" id="wlDim2">256</span>): <span class="m">Z<sup>lat</sup> = Tr[(X<sub>e</sub>X<sub>o</sub>)<sup>n/2</sup>]</span> = <span class="num big blue" id="wlZs">...</span></div>
+      <div class="dim">Same number to <span class="num" id="wlDig">15</span> digits. Finer slices, M = 1, 2, 3, 4: <span class="num" id="wlLad">...</span> &rarr; <span class="num" id="wlZx2">...</span> (uncut).</div>
+    </div>
+  </div>
+  <div class="hgc-take build gnt" data-step="3">One number, two probability vectors: <span class="m">p<sub>k</sub> &prop; e<sup>&minus;&beta;E<sub>k</sub></sup></span> over levels, <span class="m">q<sub>i</sub> &prop; |&lambda;<sub>i</sub>|<sup>n</sup></span> over the transfer spectrum.</div>
+  <div class="hgc-src">toy model: spin-&frac12; Heisenberg ring, 6 sites, computed live &middot; the paper's kernel is the continuous-time one, real symmetric, spin 1 &middot; openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ===================== 2. purity as a spotlight ===================== -->
+<section class="slide" id="s-hg-spotlight">
+  <div class="hgc-title">Purity as a spotlight</div>
+  <svg class="hgc-ul" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true"><path class="ck chalk" d="M4 12 C 120 6, 320 14, 596 7"/></svg>
+  <div class="hgc-kick">Gibbs purity <span class="m">T(n,&beta;) = &Sigma;<sub>k</sub> p<sub>k</sub><sup>2</sup> = Z<sub>n</sub>(2&beta;)/Z<sub>n</sub>(&beta;)<sup>2</sup></span><br>
+    spatial purity <span class="m">S(n,&beta;) = &Sigma;<sub>i</sub> q<sub>i</sub><sup>2</sup> = Z<sub>2n</sub>(&beta;)/Z<sub>n</sub>(&beta;)<sup>2</sup></span> <span class="dim">(keys [ ] for &beta;, &minus; = for n)</span></div>
+  <div class="sp-left no-nav"><svg id="spSvg" viewBox="0 0 920 560" role="img" aria-label="chalk histogram of Gibbs weights of an eight-site ring under a spotlight whose width is the inverse purity, with a purity dial"></svg></div>
+  <div class="sp-right no-nav"><svg id="sqSvg" viewBox="0 0 470 560" role="img" aria-label="three spatial weights of a classical three-state ring narrowing as the ring length grows"></svg></div>
+  <div class="sp-cap" id="spCap"></div>
+  <div class="hgc-take build gnt" data-step="4">Purity &ge; 1 &minus; <span class="m">u</span> with <span class="m">u</span> &lt; &frac12; forces one state of weight &ge; 1 &minus; <span class="m">u</span>: a unique ground state, and <span class="m">e<sup>&minus;&beta;&gamma;</sup> &le; u/(1&minus;u)</span>.</div>
+  <div class="hgc-src">toys: spin-&frac12; Heisenberg ring, 8 sites, 256 states, exact diagonalisation &middot; classical three-state ring, exact transfer matrix &middot; openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ===================== 3. the square ===================== -->
+<section class="slide" id="s-hg-square">
+  <div class="hgc-title">The square on the blackboard</div>
+  <svg class="hgc-ul" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true"><path class="ck chalk" d="M4 9 C 200 15, 380 4, 596 11"/></svg>
+  <div class="hgc-kick">four partition functions, four purities, one identity<br>toy: spin-&frac12; rings of <span class="m">n</span> = 4 and 2<span class="m">n</span> = 8 sites, <span class="m">&beta;</span> = <span class="num" id="sqBeta">3</span> <span class="dim">(keys [ ] change &beta;)</span></div>
+  <div class="sq-left no-nav"><svg id="sqrSvg" viewBox="0 0 760 600" role="img" aria-label="a square in the n beta plane with partition functions at its corners, purities on its edges, and two routes from the lower left to the upper right corner"></svg></div>
+  <div class="sq-right">
+    <div class="sq-blk build gnt" data-step="2">
+      <div class="hd pink">The cancellation</div>
+      <div class="sq-eq" id="sqEq">
+        <div><span class="m">S(n,2&beta;)&thinsp;T(n,&beta;)<sup>2</sup></span> = <span class="fr"><span>Z<sub>2n</sub>(2&beta;)</span><span><span class="cx">Z<sub>n</sub>(2&beta;)<sup>2</sup></span></span></span>&middot;<span class="fr"><span><span class="cx">Z<sub>n</sub>(2&beta;)<sup>2</sup></span></span><span>Z<sub>n</sub>(&beta;)<sup>4</sup></span></span> = <span class="fr"><span>Z<sub>2n</sub>(2&beta;)</span><span>Z<sub>n</sub>(&beta;)<sup>4</sup></span></span></div>
+        <div><span class="m">S(n,&beta;)<sup>2</sup>&thinsp;T(2n,&beta;)</span> = <span class="fr"><span><span class="cx">Z<sub>2n</sub>(&beta;)<sup>2</sup></span></span><span>Z<sub>n</sub>(&beta;)<sup>4</sup></span></span>&middot;<span class="fr"><span>Z<sub>2n</sub>(2&beta;)</span><span><span class="cx">Z<sub>2n</sub>(&beta;)<sup>2</sup></span></span></span> = <span class="fr"><span>Z<sub>2n</sub>(2&beta;)</span><span>Z<sub>n</sub>(&beta;)<sup>4</sup></span></span></div>
+      </div>
+      <div class="sq-live">Every <span class="m">Z</span> once upstairs, once downstairs. Live: left route <span class="num yel" id="sqL">...</span>, right route <span class="num blue" id="sqR">...</span>.</div>
+    </div>
+    <div class="sq-blk build gnt" data-step="3">
+      <div class="hd green">Squaring moves each purity along its own axis</div>
+      <div>Square <span class="m">p<sub>k</sub> &prop; e<sup>&minus;&beta;E<sub>k</sub></sup></span> and renormalise: the Gibbs vector at 2<span class="m">&beta;</span>. Square <span class="m">q<sub>i</sub> &prop; |&lambda;<sub>i</sub>|<sup>n</sup></span>: the spatial vector at 2<span class="m">n</span>. Lemma 4.1: defect <span class="m">u</span> &rarr; at most <span class="m">u<sup>2</sup>/2(1&minus;u)<sup>2</sup></span>.</div>
+      <div class="sq-live">Live, Gibbs at (4, <span class="num" id="sqB1">3</span>): <span class="m">u</span> = <span class="num" id="sqU0">...</span> &rarr; at (4, <span class="num" id="sqB2">6</span>): <span class="num" id="sqU1">...</span>, bound <span class="num" id="sqUb">...</span>.<br>
+        Spatial, three-state ring at (8, 2): <span class="m">u</span> = <span class="num" id="sqV0">...</span> &rarr; at (16, 2): <span class="num" id="sqV1">...</span>, bound <span class="num" id="sqVb">...</span>.</div>
+    </div>
+  </div>
+  <div class="hgc-take build gnt" data-step="4">Squaring moves <span class="m">T</span> along <span class="m">&beta;</span> and <span class="m">S</span> along <span class="m">n</span>. The identity trades one axis for the other.</div>
+  <div class="hgc-src">toy models computed live: spin-&frac12; rings (4 and 8 sites, exact diagonalisation), classical three-state ring &middot; identity and Lemma 4.1 as in the paper &middot; openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ===================== 4. the flow ===================== -->
+<section class="slide" id="s-hg-flow">
+  <div class="hgc-title">The flow</div>
+  <svg class="hgc-ul" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true"><path class="ck chalk" d="M4 11 C 100 5, 260 15, 596 9"/></svg>
+  <div class="hgc-kick"><span class="m">u<sub>j+1</sub> = C u<sub>j</sub><sup>2</sup></span>, <span class="m">&beta;<sub>j</sub> = 2<sup>j</sup>&beta;<sub>0</sub></span>, <span class="m">n<sub>j</sub> = 2<sup>j</sup>n<sub>0</sub></span>, gap bound <span class="m">log(1/3u<sub>j</sub>)/&beta;<sub>j</sub></span><br>
+    seed as in the paper: (60, 105/4), <span class="m">u<sub>0</sub></span> = <span class="num" id="flU0">1/8</span>, <span class="m">C</span> = <span class="num" id="flC">7.9</span> <span class="dim">(keys [ ] for u<sub>0</sub>, &minus; = for C)</span></div>
+  <div class="fl-left no-nav"><svg id="flSvg" viewBox="0 0 820 700" role="img" aria-label="the n beta plane in log scale with a staircase of diagonal doubling hops from the seed, and a stalled drop on a critical background"></svg></div>
+  <div class="fl-right">
+    <div class="fl-ledger" id="flLedger"></div>
+    <div class="fl-plot"><svg id="flPlot" viewBox="0 0 520 190" role="img" aria-label="the gap bound per doubling, flattening to a positive constant"></svg></div>
+    <div class="fl-crit build gnt" data-step="2" id="flCrit"><b>Gapless chain:</b> finite-size gap &asymp; <span class="m">v/n</span>, correlation length &asymp; <span class="m">v&beta;</span>. <span class="m">T</span> &rarr; 1 needs <span class="m">v&beta; &Gt; n</span>, <span class="m">S</span> &rarr; 1 needs <span class="m">n &Gt; v&beta;</span>. Best compromise: defects 0.3 to 0.5, above the 1/8 the machine needs. Gapped: <span class="m">&xi;</span> and 1/<span class="m">&Delta;</span> finite, the two demands decouple.</div>
+  </div>
+  <div class="hgc-take build gnt" data-step="3">A finite ring that looks gapped on both axes with margin 1/8 looks gapped at every larger scale. Even sizes in between: H&ouml;lder on the spatial weights.</div>
+  <div class="hgc-src">ladder computed live from the paper's seed values (review, Prop 4.3 and 5.4: u&#8320; &le; 1/8, C &lt; 7.9 for u &le; 1/8); the critical defects 0.3 to 0.5 are the review's estimate &middot; openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<!-- ===================== 5. the fine print ===================== -->
+<section class="slide" id="s-hg-fineprint">
+  <div class="hgc-title">The fine print</div>
+  <svg class="hgc-ul" viewBox="0 0 600 20" preserveAspectRatio="none" aria-hidden="true"><path class="ck chalk" d="M4 8 C 180 14, 400 5, 596 12"/></svg>
+  <div class="hgc-kick">what is proved, what was checked, where a bug would hide</div>
+  <div class="fp-list">
+    <div class="fp-row build gnt" data-step="1"><div class="fp-k">Theorem 1.1</div><div class="fp-t"><span class="m">H<sub>L</sub> = &Sigma;<sub>j</sub> S<sub>j</sub>&middot;S<sub>j+1</sub></span>, spin 1, periodic. Every even <span class="m">L</span> &ge; 60: unique ground state and <span class="m">&gamma;<sub>L</sub></span> &gt; <b>(4/105) log(80/79) &asymp; 4.8&middot;10<sup>&minus;4</sup></b>. Every even <span class="m">L</span> &ge; 2304: <span class="m">&gamma;<sub>L</sub></span> &gt; <b>log 20 / 784 &asymp; 3.8&middot;10<sup>&minus;3</sup></b>. Hence liminf <span class="m">&gamma;<sub>L</sub></span> &gt; 0.</div></div>
+    <div class="fp-row build gnt" data-step="2"><div class="fp-k">Scope</div><div class="fp-t">Even periodic rings and the liminf of their gaps. Cor 6.1 gives a gap inequality for subsequential limits of periodic ground states, <span class="pk">not</span> uniqueness or a gap for every infinite-volume ground state. True gap &asymp; 0.41: the constants are a thousand times smaller.</div></div>
+    <div class="fp-row build gnt" data-step="3"><div class="fp-k">The seeds</div><div class="fp-t">Where the labour is. (60, 105/4) from exact <span class="m">Z<sub>n</sub></span>, <span class="m">n</span> &le; 10, at <span class="m">&beta;</span> = 21/2 (59,049 states, exact integers, rigorous series truncation), polynomial filters on the spectrum, a bond-dimension-26 MPS giving <span class="m">Z<sub>120</sub></span> &gt; 1, a 5/2-power raise of <span class="m">&beta;</span>. Margin: <span class="m">S(60,105/4)</span> &gt; 7/8 by <span class="pk">6&middot;10<sup>&minus;4</sup></span>. Second seed (36, 49/4): defects 0.048 and 0.18, six doublings to (2304, 784).</div></div>
+    <div class="fp-row build gnt" data-step="4"><div class="fp-k">Verification</div><div class="fp-t"><span class="pk">No Lean.</span> Exact-rational scalar scripts and both MPS contractions re-run and pass; tightest margins 4.7&middot;10<sup>&minus;5</sup> and 6&middot;10<sup>&minus;4</sup>. Independent exact diagonalisation reproduces the tables for <span class="m">n</span> &le; 9. Unverified: <span class="m">Z<sub>10</sub>(21/2)</span>, which the <span class="m">L</span> &ge; 60 theorem needs, and <span class="m">n</span> = 10 to 12 at <span class="m">&beta;</span> = 49/4.</div></div>
+    <div class="fp-row build gnt" data-step="5"><div class="fp-k">Verdict</div><div class="fp-t">One reviewer, one pass: no mathematical error found. <b>85 to 90%</b> that the theorem is proved as written, conditional on the <span class="m">n</span> = 10 to 12 integer totals. If a bug hides anywhere, it is in the seeds, not in the doubling.</div></div>
+  </div>
+  <div class="hgc-src">all numbers on this slide are the paper's, as read in context/review-268-haldane.md &middot; openai/math, family 268, read 7 Oct 2026</div>
+</section>
+
+<script>
+/* ================================================================== */
+/*  Numerical core for the Haldane slides. Pure functions, no DOM.    */
+/* ================================================================== */
+var HG = (function(){
+  'use strict';
+  /* cyclic Jacobi, real symmetric matrix as array of rows; returns eigenvalues ascending */
+  function jacobiEig(Ain){
+    var n = Ain.length, A = Ain.map(function(r){ return r.slice(); });
+    if (n === 1) return [A[0][0]];
+    for (var sweep = 0; sweep < 60; sweep++){
+      var off = 0;
+      for (var i = 0; i < n; i++) for (var j = i+1; j < n; j++) off += A[i][j]*A[i][j];
+      if (off < 1e-26) break;
+      for (var p = 0; p < n-1; p++) for (var q = p+1; q < n; q++){
+        var apq = A[p][q];
+        if (Math.abs(apq) < 1e-300) continue;
+        var theta = (A[q][q] - A[p][p]) / (2*apq);
+        var t = (theta >= 0 ? 1 : -1) / (Math.abs(theta) + Math.sqrt(theta*theta + 1));
+        var c = 1/Math.sqrt(t*t+1), s = t*c;
+        for (var k = 0; k < n; k++){ var akp = A[k][p], akq = A[k][q]; A[k][p] = c*akp - s*akq; A[k][q] = s*akp + c*akq; }
+        for (k = 0; k < n; k++){ var apk = A[p][k], aqk = A[q][k]; A[p][k] = c*apk - s*aqk; A[q][k] = s*apk + c*aqk; }
+      }
+    }
+    var vals = []; for (i = 0; i < n; i++) vals.push(A[i][i]);
+    vals.sort(function(a,b){ return a-b; });
+    return vals;
+  }
+  /* spin-1/2 Heisenberg ring, H = sum_i S_i.S_{i+1}, blocked by total Sz */
+  function heisenbergLevels(n){
+    var dim = 1 << n, levels = [];
+    for (var nup = 0; nup <= n; nup++){
+      var basis = [], index = {};
+      for (var s = 0; s < dim; s++){
+        var c = 0; for (var b = 0; b < n; b++) if (s & (1<<b)) c++;
+        if (c === nup){ index[s] = basis.length; basis.push(s); }
+      }
+      var m = basis.length, H = [];
+      for (var a = 0; a < m; a++){ H.push(new Array(m)); for (var b2 = 0; b2 < m; b2++) H[a][b2] = 0; }
+      for (a = 0; a < m; a++){
+        s = basis[a];
+        for (var i = 0; i < n; i++){
+          var j = (i+1) % n, si = (s>>i)&1, sj = (s>>j)&1;
+          if (si === sj) H[a][a] += 0.25;
+          else { H[a][a] -= 0.25; H[a][index[s ^ (1<<i) ^ (1<<j)]] += 0.5; }
+        }
+      }
+      var ev = jacobiEig(H);
+      for (a = 0; a < m; a++) levels.push(ev[a]);
+    }
+    levels.sort(function(a,b){ return a-b; });
+    return levels;
+  }
+  function gibbs(levels, beta){
+    var e0 = levels[0], Z = 0, w = [];
+    for (var k = 0; k < levels.length; k++){ var x = Math.exp(-beta*(levels[k]-e0)); w.push(x); Z += x; }
+    for (k = 0; k < w.length; k++) w[k] /= Z;
+    return { Z: Z*Math.exp(-beta*e0), logZ: Math.log(Z) - beta*e0, p: w };
+  }
+  function purity(p){ var s = 0; for (var k = 0; k < p.length; k++) s += p[k]*p[k]; return s; }
+  function zeros(n){ var M = []; for (var i = 0; i < n; i++) M.push(new Float64Array(n)); return M; }
+  function matmul(A, B){
+    var n = A.length, C = zeros(n);
+    for (var i = 0; i < n; i++){ var Ai = A[i], Ci = C[i];
+      for (var k = 0; k < n; k++){ var a = Ai[k]; if (a === 0) continue; var Bk = B[k];
+        for (var j = 0; j < n; j++) Ci[j] += a*Bk[j]; } }
+    return C;
+  }
+  function matpow(A, m){ var R = null; for (var i = 0; i < m; i++) R = R ? matmul(R, A) : A; return R; }
+  function trace(A){ var t = 0; for (var i = 0; i < A.length; i++) t += A[i][i]; return t; }
+  /* plaquette weight <c d| exp(-tau h) |a b>, h = S.S on two spins 1/2; index a*2+b -> c*2+d */
+  function plaquette(tau){
+    var ep = Math.exp(tau/4), em = Math.exp(-tau/4), ch = Math.cosh(tau/2), sh = Math.sinh(tau/2);
+    var w = [[em,0,0,0],[0,ep*ch,-ep*sh,0],[0,-ep*sh,ep*ch,0],[0,0,0,em]];
+    return w;
+  }
+  /* time transfer for one checkerboard layer (parity 0: even bonds, 1: odd bonds) on 2^n states */
+  function layerMatrix(n, w, parity){
+    var dim = 1 << n, T = zeros(dim), bonds = [];
+    for (var i = parity; i < n; i += 2) bonds.push(i);
+    for (var s = 0; s < dim; s++){
+      var outs = [{st:s, wt:1}];
+      for (var b = 0; b < bonds.length; b++){
+        var i0 = bonds[b], j0 = (i0+1) % n, nxt = [];
+        for (var o = 0; o < outs.length; o++){
+          var st = outs[o].st, idx = ((st>>i0)&1)*2 + ((st>>j0)&1);
+          for (var out = 0; out < 4; out++){
+            var v = w[idx][out]; if (v === 0) continue;
+            var t = st; t = (t & ~(1<<i0)) | ((out>>1)<<i0); t = (t & ~(1<<j0)) | ((out&1)<<j0);
+            nxt.push({st:t, wt:outs[o].wt*v});
+          }
+        }
+        outs = nxt;
+      }
+      for (o = 0; o < outs.length; o++) T[outs[o].st][s] += outs[o].wt;
+    }
+    return T;
+  }
+  /* space transfer across one bond: a column of 2M slice spins; plaquettes at layers of the given parity */
+  function columnMatrix(M, w, parity){
+    var L = 2*M, dim = 1 << L, X = zeros(dim);
+    for (var sl = 0; sl < dim; sl++) for (var sr = 0; sr < dim; sr++){
+      var v = 1;
+      for (var t = parity; t < L; t += 2){
+        var t1 = (t+1) % L;
+        v *= w[((sl>>t)&1)*2 + ((sr>>t)&1)][((sl>>t1)&1)*2 + ((sr>>t1)&1)];
+        if (v === 0) break;
+      }
+      X[sl][sr] = v;
+    }
+    return X;
+  }
+  function latticeToy(n, M, beta, levels){
+    var w = plaquette(beta/M);
+    var Zt = trace(matpow(matmul(layerMatrix(n, w, 0), layerMatrix(n, w, 1)), M));
+    var Zs = trace(matpow(matmul(columnMatrix(M, w, 0), columnMatrix(M, w, 1)), n/2));
+    var Zx = 0; for (var k = 0; k < levels.length; k++) Zx += Math.exp(-beta*levels[k]);
+    return { Ztime: Zt, Zspace: Zs, Zexact: Zx, dimTime: 1<<n, dimSpace: 1<<(2*M) };
+  }
+  /* classical three-state ring: T(s,s') = exp(beta (J s s' - D (s^2+s'^2)/2)), s in {1,0,-1} */
+  function threeStateEig(beta, J, D){
+    var S = [1, 0, -1], T = [];
+    for (var i = 0; i < 3; i++){ T.push([0,0,0]); for (var j = 0; j < 3; j++)
+      T[i][j] = Math.exp(beta*(J*S[i]*S[j] - D*(S[i]*S[i] + S[j]*S[j])/2)); }
+    var ev = jacobiEig(T);
+    ev.sort(function(a,b){ return Math.abs(b)-Math.abs(a); });
+    return ev;
+  }
+  function spatialWeights(ev, n){ var q = [], Z = 0; for (var i = 0; i < ev.length; i++){ var x = Math.pow(Math.abs(ev[i]), n); q.push(x); Z += x; } for (i = 0; i < q.length; i++) q[i] /= Z; return q; }
+  function lemma41(u){ return u*u/(2*(1-u)*(1-u)); }
+  function ladder(u0, C, n0, beta0, J){
+    var rows = [], u = u0;
+    for (var j = 0; j <= J; j++){
+      var n = n0*Math.pow(2,j), beta = beta0*Math.pow(2,j);
+      rows.push({ j:j, n:n, beta:beta, u:u, bound: (3*u < 1) ? Math.log(1/(3*u))/beta : NaN });
+      u = C*u*u;
+    }
+    return rows;
+  }
+  return { jacobiEig:jacobiEig, heisenbergLevels:heisenbergLevels, gibbs:gibbs, purity:purity, latticeToy:latticeToy,
+    threeStateEig:threeStateEig, spatialWeights:spatialWeights, lemma41:lemma41, ladder:ladder };
+})();
+
+/* ================================================================== */
+/*  Slide scripts. Chalk drawing helpers, then one IIFE per slide.    */
+/*  Controllers are registered on DOMContentLoaded (the engine script */
+/*  sits after the paste region).                                     */
+/* ================================================================== */
+(function(){
+  'use strict';
+  var still = location.search.indexOf('still') >= 0;
+  if (still) document.documentElement.classList.add('hgc-still');
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(t, a, parent){ var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; }
+  function txt(parent, x, y, s, a){ var t = el('text', Object.assign({x:x, y:y}, a||{}), parent); t.textContent = s; return t; }
+  function line(parent, x1, y1, x2, y2, cls){ return el('line', {x1:x1, y1:y1, x2:x2, y2:y2, 'class':'ck ' + (cls||'')}, parent); }
+  /* a slightly bowed stroke, so straight lines look drawn by hand */
+  function stroke(parent, x1, y1, x2, y2, cls, bow){
+    var mx = (x1+x2)/2, my = (y1+y2)/2, dx = x2-x1, dy = y2-y1, L = Math.hypot(dx,dy) || 1, b = (bow === undefined ? 0.012*L : bow);
+    return el('path', {d:'M'+x1+' '+y1+' Q'+(mx - dy/L*b)+' '+(my + dx/L*b)+' '+x2+' '+y2, 'class':'ck ' + (cls||'')}, parent);
+  }
+  function arrow(parent, x1, y1, x2, y2, cls, bow){
+    var g = el('g', {}, parent);
+    stroke(g, x1, y1, x2, y2, cls, bow);
+    var ang = Math.atan2(y2-y1, x2-x1), h = 14;
+    line(g, x2, y2, x2 - h*Math.cos(ang-0.5), y2 - h*Math.sin(ang-0.5), cls);
+    line(g, x2, y2, x2 - h*Math.cos(ang+0.5), y2 - h*Math.sin(ang+0.5), cls);
+    return g;
+  }
+  function circle(parent, cx, cy, r, cls){
+    /* a hand-drawn circle: slightly open, slightly eccentric */
+    var d = '', N = 28;
+    for (var i = 0; i <= N; i++){ var a = -0.6 + i/N*6.6, rr = r*(1 + 0.04*Math.sin(3*a+1)); d += (i?'L':'M') + (cx + rr*Math.cos(a)).toFixed(1) + ' ' + (cy + rr*0.96*Math.sin(a)).toFixed(1) + ' '; }
+    return el('path', {d:d, 'class':'ck ' + (cls||'')}, parent);
+  }
+  function fmt(x, sig){ return Number(x).toPrecision(sig || 6); }
+  function fmtE(x){ if (!isFinite(x)) return 'none'; var e = x.toExponential(2); return e.replace('e-', '×10⁻').replace('e+', '×10^'); }
+  function sup(n){ var map = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'}; return String(n).split('').map(function(c){ return map[c] || c; }).join(''); }
+  function sci(x){ if (!isFinite(x)) return 'none'; if (x >= 0.01) return x.toFixed(4); var e = Math.floor(Math.log10(x)), m = x/Math.pow(10,e); return m.toFixed(2) + '×10' + sup(e); }
+  function mulberry(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function animate(ms, fn, done){
+    if (still){ fn(1); if (done) done(); return {cancel:function(){}}; }
+    var t0 = performance.now(), raf = 0, alive = true;
+    function loop(now){ if (!alive) return; var x = Math.min(1, (now - t0)/ms); fn(x); if (x < 1) raf = requestAnimationFrame(loop); else if (done) done(); }
+    raf = requestAnimationFrame(loop);
+    return {cancel:function(){ alive = false; cancelAnimationFrame(raf); }};
+  }
+  var ease = function(x){ return x*x*(3-2*x); };
+
+  /* shared spectra, computed once at load (about 0.1 s) */
+  var LEV4 = HG.heisenbergLevels(4), LEV6 = HG.heisenbergLevels(6), LEV8 = HG.heisenbergLevels(8);
+  var pending = [];   /* registration callbacks */
+  function register(id, ctl){ pending.push(function(){ controllers[id] = ctl; var s = document.getElementById(id); if (s && s.classList.contains('active')){ if (ctl.onEnter) ctl.onEnter(); } }); }
+  var keyHandlers = {};
+  document.addEventListener('keydown', function(e){
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var active = document.querySelector('.slide.active'); if (!active) return;
+    var h = keyHandlers[active.id]; if (h && h(e.key)) e.preventDefault();
+  });
+
+  /* ================================================================ */
+  /*  1. Worldlines: the cylinder, Poisson ticks, two readings.       */
+  /* ================================================================ */
+  (function(){
+    var sec = document.getElementById('s-hg-worldlines'), svg = document.getElementById('wlSvg');
+    if (!sec || !svg) return;
+    var n = 6, beta = 2, M = 4, prevStep = -1, anims = [];
+    var X0 = 130, DX = 88, YB = 610, YT = 110;   /* worldline x positions, time axis from YB (tau=0) up to YT (tau=beta) */
+    var xs = []; for (var i = 0; i < n; i++) xs.push(X0 + i*DX);
+    var gStatic = el('g', {'class':'chalk'}, svg), gSlices = el('g', {'class':'chalk hide'}, svg), gTicks = el('g', {}, svg), gScan = el('g', {}, svg);
+    /* ghost worldlines (periodic seam), then the six worldlines */
+    stroke(gStatic, xs[0]-DX, YB, xs[0]-DX, YT, 'dash'); stroke(gStatic, xs[n-1]+DX, YB, xs[n-1]+DX, YT, 'dash');
+    txt(gStatic, xs[0]-DX, YB+30, '= 6', {'text-anchor':'middle','font-size':17,'class':'fd'});
+    txt(gStatic, xs[n-1]+DX, YB+30, '= 1', {'text-anchor':'middle','font-size':17,'class':'fd'});
+    for (i = 0; i < n; i++){ stroke(gStatic, xs[i], YB, xs[i], YT, ''); txt(gStatic, xs[i], YB+30, String(i+1), {'text-anchor':'middle','font-size':20}); }
+    txt(gStatic, (xs[0]+xs[n-1])/2, YB+62, 'site i, periodic: the ring', {'text-anchor':'middle','font-size':19,'class':'fd'});
+    /* time axis on the left */
+    arrow(gStatic, 28, YB, 28, YT, 'thin', 0);
+    txt(gStatic, 16, (YB+YT)/2, 'imaginary time τ', {'font-size':19,'class':'fd', transform:'rotate(-90 16 '+((YB+YT)/2)+')', 'text-anchor':'middle'});
+    txt(gStatic, 44, YB+4, '0', {'font-size':18,'class':'fd'}); txt(gStatic, 44, YT+6, 'β', {'font-size':20,'class':'fd ser'});
+    /* top and bottom identified: the trace */
+    stroke(gStatic, xs[0]-DX-10, YT-14, xs[n-1]+DX+10, YT-14, 'dash', 0); stroke(gStatic, xs[0]-DX-10, YB+14, xs[n-1]+DX+10, YB+14, 'dash', 0);
+    txt(gStatic, xs[n-1]+DX+16, YT-8, '≡', {'font-size':20,'class':'fd'}); txt(gStatic, xs[n-1]+DX+16, YB+20, '≡', {'font-size':20,'class':'fd'});
+    /* slice lines (lattice toy), filled on demand */
+    var sliceLabel = txt(gSlices, 0, 0, '', {'font-size':17,'class':'fd'});
+    function drawSlices(){
+      while (gSlices.firstChild) gSlices.removeChild(gSlices.firstChild);
+      var L = 2*M;
+      for (var t = 0; t < L; t++){ var y = YB - (t+0.5)/L*(YB-YT); stroke(gSlices, xs[0]-DX-10, y, xs[n-1]+DX+10, y, 'thin', 0).setAttribute('opacity', '.45'); }
+      sliceLabel = txt(gSlices, xs[n-1]+DX+40, YB-20, L + ' slices, τ = β/' + M, {'font-size':16,'class':'fd', transform:'rotate(-90 '+(xs[n-1]+DX+40)+' '+(YB-20)+')'});
+    }
+    drawSlices();
+    /* Poisson bond events: rate 1 per bond per unit beta (seeded, so renders are reproducible) */
+    var ticks = [];
+    function makeTicks(){
+      var rnd = mulberry(1234 + Math.round(beta*100));
+      ticks = [];
+      for (var b = 0; b < n; b++){
+        var m = 0, Lp = Math.exp(-beta), p = 1; do { m++; p *= rnd(); } while (p > Lp); m--;   /* Knuth Poisson */
+        for (var k = 0; k < m; k++) ticks.push({b:b, t:rnd()*beta});
+      }
+      ticks.sort(function(a,b2){ return a.t-b2.t; });
+      while (gTicks.firstChild) gTicks.removeChild(gTicks.firstChild);
+      ticks.forEach(function(tk){
+        var y = YB - tk.t/beta*(YB-YT), x1 = xs[tk.b] + 14, x2 = xs[tk.b] + DX - 14;
+        tk.el = stroke(gTicks, x1, y, x2, y, 'yel', 0); tk.el.setAttribute('stroke-width', '4'); tk.el.setAttribute('opacity', '0');
+      });
+    }
+    var scan = el('rect', {x: xs[0]-DX-14, width: (n+1)*DX + 28, height: 22, fill:'rgba(243,215,122,.22)', stroke:'#f3d77a', 'stroke-width':1.2, opacity:0}, gScan);
+    function showTicks(frac){ var T = frac*beta; ticks.forEach(function(tk){ tk.el.setAttribute('opacity', tk.t <= T ? '1' : '0'); }); }
+    function sweep(done){ scan.setAttribute('opacity','1'); anims.push(animate(1300, function(x){ scan.setAttribute('y', YB - ease(x)*(YB-YT) - 11); }, function(){ scan.setAttribute('opacity','0'); if (done) done(); })); }
+    /* the numbers */
+    var cache = {};
+    function compute(){
+      var key = beta + '/' + M;
+      if (!cache[key]) cache[key] = HG.latticeToy(n, M, beta, LEV6);
+      var r = cache[key], lad = [];
+      for (var m = 1; m <= 4; m++){ var k2 = beta + '/' + m; if (!cache[k2]) cache[k2] = HG.latticeToy(n, m, beta, LEV6); lad.push(cache[k2].Ztime.toPrecision(5)); }
+      var dig = Math.min(16, Math.floor(-Math.log10(Math.abs(r.Ztime - r.Zspace)/r.Ztime + 1e-17)));
+      document.getElementById('wlBeta').textContent = beta; document.getElementById('wlSl').textContent = 2*M; document.getElementById('wlSl2').textContent = 2*M;
+      document.getElementById('wlDim').textContent = r.dimSpace; document.getElementById('wlDim2').textContent = r.dimSpace;
+      document.getElementById('wlZx').textContent = r.Zexact.toPrecision(10); document.getElementById('wlZx2').textContent = r.Zexact.toPrecision(5);
+      document.getElementById('wlZt').textContent = r.Ztime.toPrecision(15); document.getElementById('wlZs').textContent = r.Zspace.toPrecision(15);
+      document.getElementById('wlDig').textContent = dig; document.getElementById('wlLad').textContent = lad.join(', ');
+    }
+    function stopAll(){ anims.forEach(function(a){ a.cancel(); }); anims = []; scan.setAttribute('opacity','0'); }
+    var dir = document.getElementById('wlDir');
+    function setRot(on){ svg.style.transition = still ? 'none' : ''; svg.classList.toggle('rot', on);
+      dir.textContent = on ? 'rotated: the operator now reads across bonds, one column at a time' : 'the transfer operator reads upward, a row of 6 spins at a time'; }
+    function onStep(s){
+      stopAll();
+      gSlices.classList.toggle('hide', s < 1);
+      if (s === 0){ setRot(false); if (prevStep !== 0){ showTicks(0); anims.push(animate(2600, function(x){ showTicks(x); })); } }
+      else showTicks(1);
+      if (s === 1){ setRot(false); if (prevStep < 1 && !still) sweep(); }
+      if (s >= 2){ if (s === 2 && prevStep < 2 && !still){ setRot(true); setTimeout(function(){ if (sec.classList.contains('active')) sweep(); }, 950); } else setRot(true); }
+      prevStep = s;
+    }
+    compute(); makeTicks(); showTicks(still ? 1 : 0);
+    register('s-hg-worldlines', { onEnter:function(){ prevStep = -1; onStep(state.step); }, onLeave:function(){ stopAll(); prevStep = -1; }, onStep:onStep });
+    keyHandlers['s-hg-worldlines'] = function(k){
+      if (k === ']' || k === '['){ beta = Math.max(0.5, Math.min(4, beta + (k === ']' ? 0.5 : -0.5))); compute(); makeTicks(); showTicks(1); return true; }
+      if (k === 'm' || k === 'M'){ M = M % 4 + 1; compute(); drawSlices(); return true; }
+      return false;
+    };
+  })();
+
+  /* ================================================================ */
+  /*  2. Spotlight: Gibbs weights of the 8-site ring, purity dial;    */
+  /*     spatial weights of a classical three-state ring.             */
+  /* ================================================================ */
+  (function(){
+    var sec = document.getElementById('s-hg-spotlight'), svg = document.getElementById('spSvg'), svq = document.getElementById('sqSvg');
+    if (!sec || !svg || !svq) return;
+    var beta = 0.5, nring = 4, anims = [], prevStep = -1;
+    var K = 34, BX = 60, BW = 14.4, BASE = 470, HSC = 400, GAPX = 2;
+    var lev = LEV8, gap = lev[1]-lev[0];
+    var gS = el('g', {'class':'chalk'}, svg), gBeam = el('g', {}, svg), gBars = el('g', {}, svg), gDial = el('g', {'class':'chalk'}, svg), gTxt = el('g', {}, svg);
+    stroke(gS, BX-10, BASE+2, BX + (K+1)*(BW+GAPX) + 20, BASE+2, '', 0);
+    txt(gS, BX-4, BASE+30, 'eigenstates k, by energy (256 states, first ' + K + ' drawn)', {'font-size':19,'class':'fd'});
+    txt(gS, BX-44, 128, 'p', {'font-size':24,'class':'ser'}); txt(gS, BX-30, 136, 'k', {'font-size':16,'class':'ser'});
+    stroke(gS, BX-10, BASE+2, BX-10, 110, 'thin', 0);
+    txt(gS, BX-18, BASE-HSC+6, '1', {'font-size':17,'class':'fd','text-anchor':'end'}); txt(gS, BX-18, BASE-HSC/2+6, '½', {'font-size':17,'class':'fd','text-anchor':'end'});
+    var bars = [];
+    for (var k = 0; k <= K; k++){ var r = el('rect', {x: BX + k*(BW+GAPX), y: BASE, width: BW, height: 0, fill: k === 0 ? '#f3d77a' : '#ece6d6', opacity: k === K ? 0.55 : 0.92}, gBars); bars.push(r); }
+    bars[K].setAttribute('fill', 'url(#hgcHatch)'); bars[K].setAttribute('stroke', '#ece6d6'); bars[K].setAttribute('stroke-width', '1.2');
+    var restLab = txt(gTxt, BX + K*(BW+GAPX) + BW/2, BASE-HSC-6, '', {'font-size':16,'class':'fd','text-anchor':'middle'});
+    var beam = el('path', {fill:'rgba(243,215,122,.14)', stroke:'rgba(243,215,122,.5)', 'stroke-width':1.2, d:''}, gBeam);
+    var lampX = BX + 200, lampY = 40;
+    el('path', {d:'M'+(lampX-26)+' '+(lampY+10)+' L'+(lampX+26)+' '+(lampY+10)+' L'+(lampX+10)+' '+(lampY-16)+' L'+(lampX-10)+' '+(lampY-16)+' Z', 'class':'ck'}, gS);
+    txt(gS, lampX+36, lampY+8, 'spotlight width = 1 / purity', {'font-size':17,'class':'fd'});
+    var ring = circle(gTxt, 0, 0, 0, 'pink'); ring.setAttribute('stroke-width', '3'); ring.classList.add('hide');
+    var uniq = txt(gTxt, 0, 0, 'unique', {'font-size':19,'class':'fp hide'});
+    /* dial */
+    var DCX = 790, DCY = 300, DR = 95;
+    var darc = ''; for (var i = 0; i <= 40; i++){ var a = Math.PI + i/40*Math.PI; darc += (i?'L':'M') + (DCX + DR*Math.cos(a)).toFixed(1) + ' ' + (DCY + DR*Math.sin(a)).toFixed(1) + ' '; }
+    el('path', {d:darc, 'class':'ck'}, gDial);
+    [[0,'0'],[0.5,'½'],[0.875,'7/8'],[1,'1']].forEach(function(m){ var a = Math.PI + m[0]*Math.PI; line(gDial, DCX + (DR-10)*Math.cos(a), DCY + (DR-10)*Math.sin(a), DCX + DR*Math.cos(a), DCY + DR*Math.sin(a), 'thin');
+      txt(gDial, DCX + (DR+22)*Math.cos(a), DCY + (DR+22)*Math.sin(a) + 7, m[1], {'font-size':17,'class':'fd','text-anchor':'middle'}); });
+    var needle = el('line', {x1:DCX, y1:DCY, x2:DCX, y2:DCY-DR+16, 'class':'ck yel'}, gDial); needle.setAttribute('stroke-width','3.5');
+    txt(gDial, DCX, DCY+40, 'purity T', {'font-size':21,'text-anchor':'middle','class':'ser'});
+    var tVal = txt(gTxt, DCX, DCY+72, '', {'font-size':24,'text-anchor':'middle','class':'fy mono'});
+    var mVal = txt(gTxt, DCX, DCY+104, '', {'font-size':19,'text-anchor':'middle'});
+    var bVal = txt(gTxt, DCX, DCY+132, '', {'font-size':19,'text-anchor':'middle','class':'fd'});
+    var gapTxt1 = txt(gTxt, DCX, DCY+170, '', {'font-size':19,'text-anchor':'middle','class':'fg'});
+    var gapTxt2 = txt(gTxt, DCX, DCY+198, '', {'font-size':19,'text-anchor':'middle','class':'fg'});
+    var betaLab = txt(gTxt, DCX, 110, '', {'font-size':24,'text-anchor':'middle','class':'ser'});
+    function drawLeft(){
+      var g = HG.gibbs(lev, beta), p = g.p, T = HG.purity(p), pmax = p[0], rest = 0;
+      for (var k = K; k < p.length; k++) rest += p[k];
+      for (k = 0; k < K; k++){ bars[k].setAttribute('height', (p[k]*HSC).toFixed(2)); bars[k].setAttribute('y', (BASE - p[k]*HSC).toFixed(2)); }
+      bars[K].setAttribute('height', (rest*HSC).toFixed(2)); bars[K].setAttribute('y', (BASE - rest*HSC).toFixed(2));
+      restLab.textContent = (p.length - K) + ' more: ' + rest.toFixed(3);
+      var w = Math.min(K+1, 1/T) * (BW+GAPX), x0 = BX - 2, x1 = BX - 2 + w + (1/T > K+1 ? BW + 8 : 0);
+      beam.setAttribute('d', 'M'+lampX+' '+(lampY+10)+' L'+x0+' '+(BASE+1)+' L'+x1.toFixed(1)+' '+(BASE+1)+' Z');
+      var a = Math.PI + T*Math.PI; needle.setAttribute('x2', DCX + (DR-16)*Math.cos(a)); needle.setAttribute('y2', DCY + (DR-16)*Math.sin(a));
+      tVal.textContent = 'T = ' + T.toFixed(4);
+      mVal.textContent = 'max p = ' + pmax.toFixed(4) + '  ≥  T';
+      betaLab.textContent = 'β = ' + beta.toFixed(1);
+      var u = 1 - T, ok = u < 0.5;
+      bVal.textContent = 'defect u = 1 − T = ' + u.toFixed(4) + (ok ? ' < ½' : ' ≥ ½');
+      ring.classList.toggle('hide', !ok); uniq.classList.toggle('hide', !ok);
+      if (ok){ var cx = BX + BW/2, cy = BASE - p[0]*HSC/2; ring.setAttribute('d', ''); var d = '', N = 28, rx = 22, ry = p[0]*HSC/2 + 16;
+        for (var i2 = 0; i2 <= N; i2++){ var aa = -0.5 + i2/N*6.6; d += (i2?'L':'M') + (cx + rx*(1+0.05*Math.sin(3*aa)) * Math.cos(aa)).toFixed(1) + ' ' + (cy + ry*Math.sin(aa)).toFixed(1) + ' '; }
+        ring.setAttribute('d', d); uniq.setAttribute('x', cx + 30); uniq.setAttribute('y', cy - ry + 4);
+        var bound = Math.log((1-u)/u)/beta;
+        while (gapTxt1.firstChild) gapTxt1.removeChild(gapTxt1.firstChild);
+        var t1 = el('tspan', {}, gapTxt1); t1.textContent = 'p₁/p₀ = e';
+        var t2 = el('tspan', {dy:-9, 'font-size':13}, gapTxt1); t2.textContent = '−βγ';
+        var t3 = el('tspan', {dy:9, 'font-size':19}, gapTxt1); t3.textContent = ' ≤ u/(1−u)';
+        gapTxt2.textContent = '⇒ γ ≥ ' + bound.toFixed(3) + '   (true gap ' + gap.toFixed(3) + ')';
+      } else { gapTxt1.textContent = 'no bound yet: u ≥ ½'; gapTxt2.textContent = ''; }
+      return {T:T, pmax:pmax, u:u};
+    }
+    /* right: classical three-state ring, beta fixed at 2, n varies */
+    var J = 1, D = 0.5, b3 = 2, ev3 = HG.threeStateEig(b3, J, D);
+    var gQ = el('g', {'class':'chalk'}, svq), gQb = el('g', {}, svq), gQt = el('g', {}, svq);
+    var QX = 70, QW = 70, QG = 36, QBASE = 470, QH = 310;
+    stroke(gQ, QX-20, QBASE+2, QX + 3*(QW+QG), QBASE+2, '', 0);
+    txt(gQ, QX-50, 140, 'q', {'font-size':24,'class':'ser'}); txt(gQ, QX-36, 148, 'i', {'font-size':16,'class':'ser'});
+    stroke(gQ, QX-20, QBASE+2, QX-20, 150, 'thin', 0);
+    txt(gQ, QX-28, QBASE-QH+6, '1', {'font-size':17,'class':'fd','text-anchor':'end'});
+    var qbars = [], qlab = [];
+    for (i = 0; i < 3; i++){ qbars.push(el('rect', {x: QX + i*(QW+QG), y: QBASE, width: QW, height: 0, fill: i === 0 ? '#9fd0ea' : '#ece6d6', opacity:.92}, gQb));
+      txt(gQt, QX + i*(QW+QG) + QW/2, QBASE+30, '|λ' + ['₁','₂','₃'][i] + '|ⁿ', {'font-size':20,'text-anchor':'middle','class':'ser'});
+      qlab.push(txt(gQt, QX + i*(QW+QG) + QW/2, QBASE+56, '', {'font-size':16,'text-anchor':'middle','class':'fd mono'})); }
+    var QC = QX + 1.5*(QW+QG) - QG/2;
+    txt(gQt, QC, 50, 'spatial weights, along n', {'font-size':21,'text-anchor':'middle','class':'fb'});
+    txt(gQt, QC, 76, 'classical three-state ring, β = 2 (toy)', {'font-size':16,'text-anchor':'middle','class':'fd'});
+    txt(gQt, QC, 100, 'λ = ' + ev3.map(function(x){ return x.toFixed(3); }).join(', '), {'font-size':16,'text-anchor':'middle','class':'fd mono'});
+    var nLab = txt(gQt, QX + 3*(QW+QG) - QG, 200, '', {'font-size':24,'text-anchor':'end','class':'ser'});
+    var sLab = txt(gQt, QX + 3*(QW+QG) - QG, 232, '', {'font-size':22,'text-anchor':'end','class':'fb mono'});
+    function drawRight(){
+      var q = HG.spatialWeights(ev3, nring), S = 0;
+      for (var i = 0; i < 3; i++){ S += q[i]*q[i]; qbars[i].setAttribute('height', (q[i]*QH).toFixed(2)); qbars[i].setAttribute('y', (QBASE - q[i]*QH).toFixed(2)); qlab[i].textContent = q[i].toFixed(4); }
+      nLab.textContent = 'n = ' + nring; sLab.textContent = 'S = ' + S.toFixed(4);
+      return S;
+    }
+    var cap = document.getElementById('spCap');
+    var CAPS = [
+      function(r){ return '<span class="m">&beta;</span> = 0.5: the weight is spread over all 256 states. Purity <span class="num">' + r.T.toFixed(4) + '</span>, largest weight <span class="num">' + r.pmax.toFixed(4) + '</span>. The spotlight covers the whole row.'; },
+      function(r){ return '<span class="m">&beta;</span> = 2: the beam narrows. Purity <span class="num">' + r.T.toFixed(4) + '</span>, largest weight <span class="num">' + r.pmax.toFixed(4) + '</span>. Still no single state in charge.'; },
+      function(r){ return '<span class="m">&beta;</span> = 8: purity <span class="num">' + r.T.toFixed(4) + '</span> &gt; 7/8. One state carries at least the purity, so the ground state is unique, and <span class="m">p<sub>1</sub>/p<sub>0</sub> = e<sup>&minus;&beta;&gamma;</sup> &le; u/(1&minus;u)</span> gives a gap bound. The bound is loose, as the paper&rsquo;s constants are.'; },
+      function(r){ return 'The same along <span class="m">n</span>: the spatial weights <span class="m">q<sub>i</sub> &prop; |&lambda;<sub>i</sub>|<sup>n</sup></span> narrow to the top eigenvalue once the ring is longer than the correlation length. <span class="m">S</span> is their purity. Two spotlights, two axes.'; },
+      function(r){ return 'The whole problem: show <span class="m">T(L,&beta;)</span> near 1 with <span class="m">&beta;</span> growing no faster than <span class="m">log(1/u)</span>.'; }
+    ];
+    function stopAll(){ anims.forEach(function(a){ a.cancel(); }); anims = []; }
+    function goBeta(target, s){ var from = beta; anims.push(animate(1100, function(x){ beta = from + (target-from)*ease(x); var r = drawLeft(); cap.innerHTML = CAPS[s](r); })); }
+    function goN(target){ var from = Math.log(nring), to = Math.log(target); anims.push(animate(1800, function(x){ nring = Math.max(2, Math.round(Math.exp(from + (to-from)*ease(x))/2)*2); drawRight(); })); }
+    function onStep(s){
+      stopAll();
+      var tb = [0.5, 2, 8, 8, 8][Math.min(s,4)], tn = s >= 3 ? 64 : 4;
+      if (still || prevStep < 0 || s < prevStep){ beta = tb; nring = tn; var r = drawLeft(); drawRight(); cap.innerHTML = CAPS[Math.min(s,4)](r); }
+      else { if (tb !== beta) goBeta(tb, Math.min(s,4)); else { cap.innerHTML = CAPS[Math.min(s,4)](drawLeft()); } if (tn !== nring) goN(tn); }
+      prevStep = s;
+    }
+    drawLeft(); drawRight();
+    register('s-hg-spotlight', { onEnter:function(){ prevStep = -1; onStep(state.step); }, onLeave:function(){ stopAll(); prevStep = -1; }, onStep:onStep });
+    keyHandlers['s-hg-spotlight'] = function(k){
+      if (k === ']' || k === '['){ stopAll(); beta = Math.max(0.25, Math.min(16, beta * (k === ']' ? 1.25 : 0.8))); var r = drawLeft(); cap.innerHTML = '<span class="m">&beta;</span> = ' + beta.toFixed(2) + ': purity <span class="num">' + r.T.toFixed(4) + '</span>, largest weight <span class="num">' + r.pmax.toFixed(4) + '</span>.'; return true; }
+      if (k === '=' || k === '-'){ stopAll(); nring = Math.max(2, Math.min(256, k === '=' ? nring*2 : nring/2)); drawRight(); return true; }
+      return false;
+    };
+  })();
+
+  /* ================================================================ */
+  /*  3. The square: four Z's of the 4- and 8-site rings, the two     */
+  /*     routes, the cancellation, the two squarings.                 */
+  /* ================================================================ */
+  (function(){
+    var sec = document.getElementById('s-hg-square'), svg = document.getElementById('sqrSvg');
+    if (!sec || !svg) return;
+    var beta = 3, n = 4, anims = [], prevStep = -1;
+    var L = 170, R = 590, B = 470, T = 150;   /* square corners */
+    var gS = el('g', {'class':'chalk'}, svg), gE = el('g', {'class':'chalk'}, svg), gR = el('g', {}, svg), gQ = el('g', {'class':'chalk hide'}, svg), gT = el('g', {}, svg);
+    /* axes */
+    arrow(gS, 70, 560, 700, 560, 'thin', 0); arrow(gS, 70, 560, 70, 60, 'thin', 0);
+    txt(gS, 700, 590, 'n', {'font-size':24,'class':'ser','text-anchor':'end'}); txt(gS, 48, 70, 'β', {'font-size':24,'class':'ser'});
+    /* square */
+    stroke(gS, L, B, R, B, ''); stroke(gS, R, B, R, T, ''); stroke(gS, R, T, L, T, ''); stroke(gS, L, T, L, B, '');
+    [[L,B],[R,B],[L,T],[R,T]].forEach(function(c){ el('circle', {cx:c[0], cy:c[1], r:7, fill:'#ece6d6'}, gS); });
+    var cl = [txt(gT, L+10, B+48, '', {'font-size':20,'class':'ser','text-anchor':'end'}), txt(gT, R-10, B+48, '', {'font-size':20,'class':'ser'}),
+              txt(gT, L+10, T-44, '', {'font-size':20,'class':'ser','text-anchor':'end'}), txt(gT, R-10, T-44, '', {'font-size':20,'class':'ser'})];
+    var cz = [txt(gT, L+10, B+74, '', {'font-size':18,'class':'mono','text-anchor':'end'}), txt(gT, R-10, B+74, '', {'font-size':18,'class':'mono'}),
+              txt(gT, L+10, T-20, '', {'font-size':18,'class':'mono','text-anchor':'end'}), txt(gT, R-10, T-20, '', {'font-size':18,'class':'mono'})];
+    /* edges: purities (step 1) */
+    gE.classList.add('hide');
+    arrow(gE, L-30, B-30, L-30, T+30, 'yel', 0); arrow(gE, R+30, B-30, R+30, T+30, 'yel', 0);
+    arrow(gE, L+30, B+22, R-30, B+22, 'blue', 0); arrow(gE, L+30, T-22, R-30, T-22, 'blue', 0);
+    var eT1 = txt(gT, L-50, (B+T)/2-14, '', {'font-size':20,'class':'ser fy','text-anchor':'end'}), eT1v = txt(gT, L-50, (B+T)/2+14, '', {'font-size':17,'class':'mono fy','text-anchor':'end'});
+    var eT2 = txt(gT, R+50, (B+T)/2-14, '', {'font-size':20,'class':'ser fy'}), eT2v = txt(gT, R+50, (B+T)/2+14, '', {'font-size':17,'class':'mono fy'});
+    var eS1 = txt(gT, (L+R)/2, B-10, '', {'font-size':20,'class':'ser fb','text-anchor':'middle'}), eS1v = txt(gT, (L+R)/2, B+56, '', {'font-size':17,'class':'mono fb','text-anchor':'middle'});
+    var eS2 = txt(gT, (L+R)/2, T+30, '', {'font-size':20,'class':'ser fb','text-anchor':'middle'}), eS2v = txt(gT, (L+R)/2, T-44, '', {'font-size':17,'class':'mono fb','text-anchor':'middle'});
+    var eTexts = [eT1,eT1v,eT2,eT2v,eS1,eS1v,eS2,eS2v]; eTexts.forEach(function(t){ t.classList.add('hide'); });
+    /* two route dots (step 2) */
+    var dotA = el('circle', {cx:L, cy:B, r:9, fill:'#f3d77a', opacity:0}, gR), dotB = el('circle', {cx:L, cy:B, r:9, fill:'#9fd0ea', opacity:0}, gR);
+    var routeLab = txt(gT, (L+R)/2, (B+T)/2 + 8, '', {'font-size':19,'text-anchor':'middle','class':'fd'});
+    /* squaring arrows (step 3) */
+    arrow(gQ, L+60, B-60, L+60, T+70, 'green', 10); arrow(gQ, L+80, B-40, R-70, B-40, 'green', -10);
+    txt(gQ, L+72, (B+T)/2+40, 'square p', {'font-size':19,'class':'fg', transform:'rotate(-90 '+(L+72)+' '+((B+T)/2+40)+')'});
+    txt(gQ, (L+R)/2+30, B-50, 'square q', {'font-size':19,'class':'fg','text-anchor':'middle'});
+    function compute(){
+      var g4b = HG.gibbs(LEV4, beta), g8b = HG.gibbs(LEV8, beta), g4bb = HG.gibbs(LEV4, 2*beta), g8bb = HG.gibbs(LEV8, 2*beta), g4b4 = HG.gibbs(LEV4, 4*beta);
+      var Z = [g4b.Z, g8b.Z, g4bb.Z, g8bb.Z];
+      var Snb = Z[1]/(Z[0]*Z[0]), Tnb = Z[2]/(Z[0]*Z[0]), T2nb = Z[3]/(Z[1]*Z[1]), Sn2b = Z[3]/(Z[2]*Z[2]);
+      var lhs = Sn2b*Tnb*Tnb, rhs = Snb*Snb*T2nb;
+      var bs = beta % 1 === 0 ? String(beta) : beta.toFixed(1), b2s = (2*beta) % 1 === 0 ? String(2*beta) : (2*beta).toFixed(1);
+      document.getElementById('sqBeta').textContent = bs;
+      cl[0].textContent = 'Z₄(' + bs + ')'; cl[1].textContent = 'Z₈(' + bs + ')'; cl[2].textContent = 'Z₄(' + b2s + ')'; cl[3].textContent = 'Z₈(' + b2s + ')';
+      for (var i = 0; i < 4; i++) cz[i].textContent = Z[i] >= 1e6 ? Z[i].toExponential(4).replace(/e\+(\d+)/, function(m, e){ return '×10' + sup(e); }) : Z[i].toPrecision(7);
+      eT1.textContent = 'T(4,' + bs + ')'; eT1v.textContent = Tnb.toFixed(6); eT2.textContent = 'T(8,' + bs + ')'; eT2v.textContent = T2nb.toFixed(6);
+      eS1.textContent = 'S(4,' + bs + ')'; eS1v.textContent = Snb.toFixed(6); eS2.textContent = 'S(4,' + b2s + ')'; eS2v.textContent = Sn2b.toFixed(6);
+      document.getElementById('sqL').textContent = lhs.toPrecision(13); document.getElementById('sqR').textContent = rhs.toPrecision(13);
+      /* squaring, live */
+      var u0 = 1 - HG.purity(g4b.p), u1 = 1 - HG.purity(g4bb.p);
+      document.getElementById('sqB1').textContent = bs; document.getElementById('sqB2').textContent = b2s;
+      document.getElementById('sqU0').textContent = u0.toFixed(4); document.getElementById('sqU1').textContent = u1.toFixed(4);
+      document.getElementById('sqUb').textContent = u0 < 1 ? HG.lemma41(u0).toFixed(4) : 'none';
+      var ev3 = HG.threeStateEig(2, 1, 0.5), q8 = HG.spatialWeights(ev3, 8), q16 = HG.spatialWeights(ev3, 16);
+      var v0 = 1 - HG.purity(q8), v1 = 1 - HG.purity(q16);
+      document.getElementById('sqV0').textContent = v0.toFixed(4); document.getElementById('sqV1').textContent = v1.toFixed(4); document.getElementById('sqVb').textContent = HG.lemma41(v0).toFixed(4);
+    }
+    function stopAll(){ anims.forEach(function(a){ a.cancel(); }); anims = []; }
+    var eq = document.getElementById('sqEq');
+    function routes(){
+      dotA.setAttribute('opacity', 1); dotB.setAttribute('opacity', 1);
+      anims.push(animate(2200, function(x){
+        var y = ease(Math.min(1, x*2)), z = ease(Math.max(0, x*2-1));
+        dotA.setAttribute('cx', L + (R-L)*z); dotA.setAttribute('cy', B - (B-T)*y);     /* left route: up (T squared), then across (S at 2 beta) */
+        dotB.setAttribute('cx', L + (R-L)*y); dotB.setAttribute('cy', B - (B-T)*z);     /* right route: across (S squared), then up (T at 2n) */
+        routeLab.textContent = x < 0.5 ? 'two routes to (2n, 2β)' : 'same product: Z₈(2β) / Z₄(β)⁴';
+      }, function(){ eq.classList.add('cancel'); }));
+    }
+    function onStep(s){
+      stopAll();
+      gE.classList.toggle('hide', s < 1); eTexts.forEach(function(t){ t.classList.toggle('hide', s < 1); });
+      gQ.classList.toggle('hide', s < 3);
+      if (s >= 2){ if (still || prevStep >= 2){ dotA.setAttribute('opacity', 1); dotA.setAttribute('cx', R); dotA.setAttribute('cy', T); dotB.setAttribute('opacity', 1); dotB.setAttribute('cx', R); dotB.setAttribute('cy', T);
+          routeLab.textContent = 'same product: Z₈(2β) / Z₄(β)⁴'; eq.classList.add('cancel'); } else routes(); }
+      else { dotA.setAttribute('opacity', 0); dotB.setAttribute('opacity', 0); routeLab.textContent = ''; eq.classList.remove('cancel'); }
+      prevStep = s;
+    }
+    compute();
+    register('s-hg-square', { onEnter:function(){ prevStep = -1; onStep(state.step); }, onLeave:function(){ stopAll(); prevStep = -1; }, onStep:onStep });
+    keyHandlers['s-hg-square'] = function(k){ if (k === ']' || k === '['){ beta = Math.max(0.5, Math.min(6, beta + (k === ']' ? 0.5 : -0.5))); compute(); return true; } return false; };
+  })();
+
+  /* ================================================================ */
+  /*  4. The flow: the (n, beta) plane, the doubling staircase, the   */
+  /*     ledger, the gap-bound plot, the critical stall.               */
+  /* ================================================================ */
+  (function(){
+    var sec = document.getElementById('s-hg-flow'), svg = document.getElementById('flSvg'), plot = document.getElementById('flPlot'), ledger = document.getElementById('flLedger');
+    if (!sec || !svg || !plot || !ledger) return;
+    var u0 = 1/8, C = 7.9, n0 = 60, b0 = 105/4, J = 14, anims = [], prevStep = -1;
+    var PX0 = 90, PX1 = 790, PY0 = 620, PY1 = 70;      /* plane */
+    var LX0 = 2, LX1 = 20.5, LY0 = -1, LY1 = 19.5;      /* log2 ranges */
+    var xOf = function(nn){ return PX0 + (Math.log2(nn) - LX0)/(LX1-LX0)*(PX1-PX0); }, yOf = function(bb){ return PY0 - (Math.log2(bb) - LY0)/(LY1-LY0)*(PY0-PY1); };
+    var gS = el('g', {'class':'chalk'}, svg), gHop = el('g', {}, svg), gCrit = el('g', {'class':'chalk hide'}, svg), gT = el('g', {}, svg);
+    arrow(gS, PX0, PY0, PX1+10, PY0, 'thin', 0); arrow(gS, PX0, PY0, PX0, PY1-10, 'thin', 0);
+    txt(gS, PX1+4, PY0+58, 'ring size n (log)', {'font-size':20,'class':'fd','text-anchor':'end'});
+    txt(gS, PX0-30, PY1-22, 'β (log)', {'font-size':20,'class':'fd'});
+    [10,100,1000,10000,100000,1000000].forEach(function(v,i){ var x = xOf(v); line(gS, x, PY0, x, PY0+8, 'thin'); txt(gS, x, PY0+30, i === 0 ? '10' : '10' + sup(i+1), {'font-size':17,'class':'fd','text-anchor':'middle'}); });
+    [1,10,100,1000,10000,100000].forEach(function(v,i){ var y = yOf(v); line(gS, PX0-8, y, PX0, y, 'thin'); txt(gS, PX0-14, y+6, i === 0 ? '1' : '10' + sup(i), {'font-size':17,'class':'fd','text-anchor':'end'}); });
+    /* the corner the flow heads for */
+    txt(gS, PX1-60, PY1-14, 'purity-1 corner: both defects → 0', {'font-size':18,'class':'fy','text-anchor':'end'});
+    /* seed marker */
+    var seedX = xOf(n0), seedY = yOf(b0);
+    circle(gS, seedX, seedY, 16, 'yel');
+    txt(gS, seedX+24, seedY+30, 'seed (60, 105/4)', {'font-size':19,'class':'fy'});
+    txt(gS, seedX+24, seedY+54, 'S, T > 7/8  (paper, Prop 5.4)', {'font-size':16,'class':'fd'});
+    /* critical drop, placed away from the staircase */
+    var cx = xOf(20000), cy = yOf(4), cr = 70;
+    el('circle', {cx:cx, cy:cy, r:cr, fill:'url(#hgcHatch)', stroke:'none'}, gCrit);
+    circle(gCrit, cx, cy, cr, 'thin');
+    el('circle', {cx:cx, cy:cy, r:7, fill:'#f0a8b8'}, gCrit);
+    arrow(gCrit, cx, cy, cx, cy-66, 'pink', 0); arrow(gCrit, cx, cy, cx+66, cy, 'pink', 0);
+    txt(gCrit, cx-10, cy-52, 'T → 1: vβ ≫ n', {'font-size':16,'class':'fp','text-anchor':'end'});
+    txt(gCrit, cx+6, cy+26, 'S → 1: n ≫ vβ', {'font-size':16,'class':'fp'});
+    var critHop = arrow(gCrit, cx+6, cy-6, cx+50, cy-50, 'thin', 0); critHop.setAttribute('opacity', '.5');
+    line(gCrit, cx+40, cy-62, cx+62, cy-40, 'pink'); line(gCrit, cx+40, cy-40, cx+62, cy-62, 'pink');
+    txt(gCrit, cx, cy-cr-56, 'critical background (sketch): u₀ ≈ 0.4', {'font-size':16,'class':'fp','text-anchor':'middle'});
+    txt(gCrit, cx, cy-cr-34, 'C u₀² = ' + (7.9*0.16).toFixed(2) + ' > u₀: the hop does not contract', {'font-size':16,'class':'fp','text-anchor':'middle'});
+    txt(gCrit, cx, cy-cr-12, 'the two demands point away from each other', {'font-size':16,'class':'fd','text-anchor':'middle'});
+    /* plot */
+    var gP = el('g', {'class':'chalk'}, plot), gPd = el('g', {}, plot);
+    var QX0 = 70, QX1 = 500, QY0 = 150, QY1 = 20, LV0 = -4, LV1 = -1;
+    var qx = function(j){ return QX0 + j/J*(QX1-QX0); }, qy = function(v){ return QY0 - (Math.log10(v) - LV0)/(LV1-LV0)*(QY0-QY1); };
+    arrow(gP, QX0, QY0, QX1+10, QY0, 'thin', 0); stroke(gP, QX0, QY0, QX0, QY1, 'thin', 0);
+    [-4,-3,-2,-1].forEach(function(e){ var y = qy(Math.pow(10,e)); line(gP, QX0-6, y, QX0, y, 'thin'); txt(gP, QX0-10, y+5, '10' + sup(e), {'font-size':15,'class':'fd','text-anchor':'end'}); });
+    txt(gP, QX1, QY0+24, 'doublings j', {'font-size':15,'class':'fd','text-anchor':'end'});
+    txt(gP, QX0+44, QY1+6, 'gap bound log(1/3uⱼ)/βⱼ', {'font-size':16,'class':'fy'});
+    var limLine = el('line', {x1:QX0, x2:QX1, 'class':'ck dash yel'}, gP), limLab = txt(gP, QX1, 0, '', {'font-size':15,'class':'fy','text-anchor':'end'});
+    var rows = [], pts = [], hopEls = [];
+    function build(){
+      rows = HG.ladder(u0, C, n0, b0, J);
+      document.getElementById('flU0').textContent = u0 === 0.125 ? '1/8' : u0.toFixed(3); document.getElementById('flC').textContent = C.toFixed(1);
+      while (gHop.firstChild) gHop.removeChild(gHop.firstChild);
+      while (gPd.firstChild) gPd.removeChild(gPd.firstChild);
+      ledger.innerHTML = '';
+      var h = document.createElement('div'); h.className = 'r h'; h.innerHTML = '<span>j</span><span>nⱼ</span><span>βⱼ</span><span>uⱼ</span><span>log(1/3uⱼ)/βⱼ</span>'; ledger.appendChild(h);
+      hopEls = []; pts = [];
+      rows.forEach(function(r, j){
+        if (j <= 10){ var d = document.createElement('div'); d.className = 'r'; d.innerHTML = '<span>' + j + '</span><span>' + r.n + '</span><span>' + (r.beta % 1 === 0 ? r.beta : r.beta.toFixed(2)) + '</span><span>' + sci(r.u) + '</span><span>' + sci(r.bound) + '</span>'; ledger.appendChild(d); r.el = d; }
+        if (j < J){ var nx = rows[j+1]; var g = arrow(gHop, xOf(r.n), yOf(r.beta), xOf(nx.n), yOf(nx.beta), 'yel', 0); g.setAttribute('opacity', 0); hopEls.push(g);
+          if (j < 9){ var lab = txt(gHop, xOf(r.n) - 12, yOf(r.beta) - 10, 'u = ' + sci(r.u), {'font-size':14,'class':'fy mono', opacity:0, 'text-anchor':'end'}); hopEls[j].lab = lab; } }
+        if (isFinite(r.bound)){ var c = el('circle', {cx:qx(j), cy:qy(Math.max(1e-4, r.bound)), r:5, fill:'#f3d77a', opacity:0}, gPd); pts.push(c); } else pts.push(null);
+      });
+      var lim = Math.log(1/(C*u0))/b0;
+      var lm = document.createElement('div'); lm.className = 'r lim'; lm.innerHTML = '<span>∞</span><span></span><span></span><span>→ 0</span><span>→ log(1/Cu₀)/β₀ = ' + sci(lim) + '</span>'; ledger.appendChild(lm); rows.lim = lm;
+      if (isFinite(lim) && lim > 0){ limLine.setAttribute('y1', qy(Math.max(1e-4, lim))); limLine.setAttribute('y2', qy(Math.max(1e-4, lim))); limLab.setAttribute('y', qy(Math.max(1e-4, lim)) + 17);
+        limLab.textContent = (Math.abs(C - 7.9) < 1e-9 && Math.abs(u0 - 0.125) < 1e-9) ? 'the theorem: (4/105) log(80/79) = ' + sci(lim) : 'limit ' + sci(lim); limLine.classList.remove('hide'); limLab.classList.remove('hide'); }
+      else { limLine.classList.add('hide'); limLab.classList.add('hide'); }
+    }
+    function showUpTo(j){
+      hopEls.forEach(function(g, k){ g.setAttribute('opacity', k < j ? 1 : 0); if (g.lab) g.lab.setAttribute('opacity', k < j ? 1 : 0); });
+      rows.forEach(function(r, k){ if (r.el) r.el.classList.toggle('on', k <= j); });
+      pts.forEach(function(c, k){ if (c) c.setAttribute('opacity', k <= j ? 1 : 0); });
+      rows.lim.classList.toggle('on', j >= J);
+    }
+    function stopAll(){ anims.forEach(function(a){ a.cancel(); }); anims = []; }
+    function run(){ showUpTo(0); anims.push(animate(J*380, function(x){ showUpTo(Math.floor(x*J + 1e-9)); }, function(){ showUpTo(J); })); }
+    function onStep(s){
+      stopAll();
+      gCrit.classList.toggle('hide', s < 2);
+      if (s >= 1){ if (still || prevStep >= 1) showUpTo(J); else run(); } else showUpTo(-1);
+      prevStep = s;
+    }
+    build(); showUpTo(-1);
+    register('s-hg-flow', { onEnter:function(){ prevStep = -1; onStep(state.step); }, onLeave:function(){ stopAll(); prevStep = -1; }, onStep:onStep });
+    keyHandlers['s-hg-flow'] = function(k){
+      var hit = true;
+      if (k === ']') u0 = Math.min(0.45, u0 + 1/64); else if (k === '[') u0 = Math.max(1/64, u0 - 1/64);
+      else if (k === '=') C = Math.min(20, C + 0.5); else if (k === '-') C = Math.max(1, C - 0.5); else hit = false;
+      if (hit){ stopAll(); build(); showUpTo(state.step >= 1 ? J : -1); }
+      return hit;
+    };
+  })();
+
+  /* 5. fine print: pure build steps, nothing to compute */
+  register('s-hg-fineprint', { onEnter:function(){}, onLeave:function(){} });
+
+  function flush(){ if (typeof controllers === 'undefined') return; pending.forEach(function(f){ f(); }); pending = []; }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', flush); else flush();
+})();
+</script>
+<!-- END HALDANE SLIDES -->
+
+</div></div>
+<div id="progress"></div>
+<div id="counter"></div>
+<div id="help"><div>&rarr; / Space: next &middot; &larr;: back &middot; F: fullscreen &middot; Esc: close<br>
+  slide 1: [ ] change &beta;, M cycles the slices &middot; slide 2: [ ] &beta;, &minus; = n &middot; slide 3: [ ] &beta; &middot; slide 4: [ ] u<sub>0</sub>, &minus; = C</div></div>
+
+<script>
+"use strict";
+/* ===== minimal copy of the deck engine (verbatim behaviour of talk.html) ===== */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const controllers = {};
+const state = { current: 0, step: 0 };
+function maxStepsFor(slide){
+  const c = controllers[slide.id];
+  if (c && typeof c.maxSteps === 'number') return c.maxSteps;
+  let m = 0;
+  slide.querySelectorAll('[data-step]').forEach(b => m = Math.max(m, +b.dataset.step));
+  return m;
+}
+function applySteps(slide, step){
+  slide.querySelectorAll('[data-step]').forEach(b => { b.classList.toggle('shown', (+b.dataset.step) <= step); });
+  const c = controllers[slide.id];
+  if (c && c.onStep) c.onStep(step);
+}
+function render(){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===state.current));
+  applySteps(slides[state.current], state.step);
+  const total = slides.length;
+  document.getElementById('progress').style.width = (((state.current)/(total-1))*100) + '%';
+  document.getElementById('counter').textContent = (state.current+1)+' / '+total;
+  if (location.hash !== '#'+(state.current+1)) history.replaceState(null,'','#'+(state.current+1));
+}
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if (i === state.current) return;
+  const old = slides[state.current];
+  const oc = controllers[old.id]; if (oc && oc.onLeave) oc.onLeave();
+  state.current = i;
+  state.step = (dir === 'back') ? maxStepsFor(slides[i]) : 0;
+  render();
+  const nc = controllers[slides[i].id]; if (nc && nc.onEnter) nc.onEnter();
+}
+function next(){
+  const slide = slides[state.current];
+  if (state.step < maxStepsFor(slide)){ state.step++; applySteps(slide, state.step); }
+  else goTo(state.current+1, 'fwd');
+}
+function prev(){
+  if (state.step > 0){ state.step--; applySteps(slides[state.current], state.step); }
+  else goTo(state.current-1, 'back');
+}
+document.addEventListener('keydown', e => {
+  const help = document.getElementById('help');
+  if (e.key === '?'){ help.classList.toggle('on'); e.preventDefault(); return; }
+  if (e.key === 'Escape'){ help.classList.remove('on'); return; }
+  if (help.classList.contains('on')) return;
+  switch(e.key){
+    case 'ArrowRight': case ' ': case 'PageDown': case 'ArrowDown': next(); e.preventDefault(); break;
+    case 'ArrowLeft': case 'PageUp': case 'ArrowUp': prev(); e.preventDefault(); break;
+    case 'Home': goTo(0,'fwd'); e.preventDefault(); break;
+    case 'End': goTo(slides.length-1,'fwd'); e.preventDefault(); break;
+    case 'f': case 'F':
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen();
+      e.preventDefault(); break;
+  }
+});
+document.getElementById('stage').addEventListener('click', e => {
+  if (e.target.closest('button,input,a,.no-nav')) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if (e.clientX - r.left > r.width * 0.62) next();
+});
+function boot(){
+  const still = location.search.indexOf('still') >= 0;
+  if (still){
+    const st = document.createElement('style');
+    st.textContent = '.slide,.build,#pulse{transition:none!important;animation:none!important}';
+    document.head.appendChild(st);
+  }
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  state.current = (!isNaN(h) && h>=1 && h<=slides.length) ? h-1 : 0;
+  state.step = still ? maxStepsFor(slides[state.current]) : 0;
+  render();
+  const c = controllers[slides[state.current].id]; if (c && c.onEnter) c.onEnter();
+}
+window.addEventListener('hashchange', ()=>{
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  if (!isNaN(h) && (h-1)!==state.current) goTo(h-1,'fwd');
+});
+/* expose the engine globals on window as well, for render scripts that look there */
+Object.assign(window, { slides, controllers, state, maxStepsFor, applySteps, render, goTo, next, prev });
+boot();
+</script>
+</body>
+</html>
