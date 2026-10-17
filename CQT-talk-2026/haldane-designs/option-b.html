@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haldane proof slides: option B (Two Lenses)</title>
+<style>
+/* ---- minimal copy of the deck engine CSS (talk.html) ---- */
+:root{
+  --black:#111417;--white:#ffffff;--darkteal:#335B74;--lightgrey:#DFE3E5;--cyan:#1CADE4;
+  --medblue:#2683C6;--brightcyan:#27CED7;--green:#42BA97;--paper:#ffffff;--ink:#1a1e21;
+  --muted:#5b6b74;--codebg:#F0F2F3;--stagew:1280;--stageh:720;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#0c1114;color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow:hidden;}
+#deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 0%, #14202a 0%, #0a0f12 70%);}
+#stage{position:relative;width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);
+  background:var(--paper);overflow:hidden;container-type:size;
+  box-shadow:0 0 0 1px rgba(0,0,0,.5), 0 30px 80px rgba(0,0,0,.55);}
+.slide{position:absolute;inset:0;padding:7cqh 8cqw;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transition:opacity .38s ease;overflow:hidden;}
+.slide.active{opacity:1;visibility:visible;z-index:2;}
+.build{opacity:0;transform:translateY(1.4cqh);transition:opacity .5s ease, transform .5s ease;}
+.build.shown{opacity:1;transform:none;}
+#progress{position:fixed;left:0;top:0;height:4px;background:var(--cyan);
+  width:0;z-index:50;transition:width .3s ease;box-shadow:0 0 8px rgba(28,173,228,.6);}
+#counter{position:fixed;right:14px;bottom:10px;z-index:50;color:rgba(255,255,255,.5);
+  font-size:13px;font-family:ui-monospace,monospace;letter-spacing:.05em;}
+#hint{position:fixed;left:14px;bottom:10px;z-index:50;color:rgba(255,255,255,.35);
+  font-size:12px;font-family:system-ui;}
+#help{position:fixed;inset:0;z-index:100;background:rgba(8,12,15,.9);
+  display:none;align-items:center;justify-content:center;color:#e6ecef;}
+#help.on{display:flex;}
+#help .card{background:#16232c;border:1px solid #2c4552;border-radius:14px;
+  padding:34px 44px;max-width:640px;font-size:16px;line-height:2;}
+#help h3{color:var(--brightcyan);margin-bottom:14px;font-size:20px;}
+#help kbd{background:#0d1418;border:1px solid #38525f;border-radius:5px;
+  padding:2px 9px;font-family:ui-monospace,monospace;font-size:14px;color:#bfe6f6;margin-right:6px;}
+.hrow{display:flex;gap:16px;align-items:baseline;margin:6px 0;}
+.hrow .keys{flex:0 0 220px;}
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff;}
+  #deck{position:static;display:block;background:none;}
+  #stage{width:1280px;height:auto;box-shadow:none;overflow:visible;container-type:normal;}
+  .slide{position:relative;inset:auto;opacity:1!important;visibility:visible!important;
+    page-break-after:always;break-after:page;width:1280px;height:720px;}
+  .build{opacity:1!important;transform:none!important;}
+  #progress,#counter,#hint,#help{display:none!important;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="counter">1 / 1</div>
+<div id="hint">press <b>?</b> for keys &nbsp;&middot;&nbsp; <b>F</b> fullscreen</div>
+<div id="help"><div class="card">
+  <h3>Keyboard</h3>
+  <div class="hrow"><span class="keys"><kbd>&rarr;</kbd><kbd>Space</kbd><kbd>PgDn</kbd></span> next step / slide</div>
+  <div class="hrow"><span class="keys"><kbd>&larr;</kbd><kbd>PgUp</kbd></span> previous</div>
+  <div class="hrow"><span class="keys"><kbd>Home</kbd><kbd>End</kbd></span> first / last slide</div>
+  <div class="hrow"><span class="keys"><kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd></span> move the probe, square or seed on the plane</div>
+  <div class="hrow"><span class="keys"><kbd>1</kbd><kbd>2</kbd></span> pick the physical or the spatial probe (slide 1)</div>
+  <div class="hrow"><span class="keys"><kbd>G</kbd></span> toggle the toy: gapped / critical-like</div>
+  <div class="hrow"><span class="keys"><kbd>[</kbd><kbd>]</kbd></span> step the field h down / up</div>
+  <div class="hrow"><span class="keys"><kbd>R</kbd></span> reset the current slide</div>
+  <div class="hrow"><span class="keys"><kbd>F</kbd></span> toggle fullscreen</div>
+  <div class="hrow"><span class="keys"><kbd>?</kbd> <kbd>Esc</kbd></span> close this help</div>
+</div></div>
+
+<div id="deck"><div id="stage">
+<!-- BEGIN HALDANE SLIDES -->
+<style>
+/* ============================================================= */
+/*  Option B: Two Lenses. Paper, one accent, large type.          */
+/*  All selectors scoped to the five s-hg-* slides.               */
+/* ============================================================= */
+#s-hg-lenses,#s-hg-square,#s-hg-squaring,#s-hg-bootstrap,#s-hg-proved{
+  --hg-paper:#f6f1e7;--hg-ink:#1f1b16;--hg-mut:#6e6559;--hg-rule:#d9d0c1;--hg-soft:#ece6da;
+  --hg-acc:#c2401a;--hg-acc2:#7d200c;--hg-tint:#f4d2c3;--hg-grey:#a8a093;
+  --hg-serif:"Iowan Old Style","Palatino Linotype",Palatino,"Bitstream Charter",Charter,Georgia,"Liberation Serif",serif;
+  --hg-sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  padding:0;display:block;background:var(--hg-paper);color:var(--hg-ink);font-family:var(--hg-sans);
+}
+.slide.hg .build{transform:none;}
+.slide.hg .hg-kick{position:absolute;left:8.9cqh;top:3.2cqh;font-size:1.85cqh;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--hg-acc);font-weight:600;}
+.slide.hg .hg-title{position:absolute;left:8.9cqh;top:5.6cqh;font-family:var(--hg-serif);font-weight:400;
+  font-size:5.4cqh;line-height:1.04;color:var(--hg-ink);letter-spacing:-.012em;white-space:nowrap;}
+.slide.hg .hg-sub{position:absolute;left:8.9cqh;top:11.6cqh;font-size:2.35cqh;color:var(--hg-mut);white-space:nowrap;}
+.slide.hg .m{font-family:var(--hg-serif);font-style:italic;}
+.slide.hg .mu{font-family:var(--hg-serif);font-style:normal;}
+.slide.hg sub,.slide.hg sup{font-size:.68em;line-height:0;}
+.slide.hg .num{font-variant-numeric:tabular-nums;}
+.slide.hg .acc{color:var(--hg-acc);}
+.slide.hg .mut{color:var(--hg-mut);}
+.slide.hg .hg-map{position:absolute;left:7.5cqh;top:15.2cqh;width:72.222cqh;height:69.444cqh;}
+.slide.hg .hg-map canvas{position:absolute;left:12.692%;top:1.6%;width:84.615%;height:88%;display:block;}
+.slide.hg .hg-map svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible;}
+.slide.hg .hg-map .ax{font-family:var(--hg-sans);font-size:14px;fill:var(--hg-mut);}
+.slide.hg .hg-map .axt{font-family:var(--hg-serif);font-style:italic;font-size:17px;fill:var(--hg-ink);}
+.slide.hg .hg-map .frame{fill:none;stroke:var(--hg-ink);stroke-width:1.2;}
+.slide.hg .hg-map .tick{stroke:var(--hg-ink);stroke-width:1;}
+.slide.hg .hg-map .cT{fill:none;stroke:var(--hg-ink);stroke-width:2;}
+.slide.hg .hg-map .cS{fill:none;stroke:var(--hg-ink);stroke-width:2;stroke-dasharray:7 5;}
+.slide.hg .hg-map .clab{font-family:var(--hg-serif);font-style:italic;font-size:15px;fill:var(--hg-ink);
+  paint-order:stroke;stroke:var(--hg-paper);stroke-width:4px;stroke-linejoin:round;}
+.slide.hg .hg-map .pl{font-family:var(--hg-serif);font-style:italic;font-size:16px;fill:var(--hg-ink);
+  paint-order:stroke;stroke:var(--hg-paper);stroke-width:5px;stroke-linejoin:round;}
+.slide.hg .hg-map .pP{fill:var(--hg-acc);stroke:#fff;stroke-width:2.5;cursor:grab;}
+.slide.hg .hg-map .pS{fill:var(--hg-ink);stroke:#fff;stroke-width:2.5;cursor:grab;}
+.slide.hg .hg-map .sq{fill:rgba(194,64,26,.10);stroke:var(--hg-acc);stroke-width:2.2;}
+.slide.hg .hg-map .sqc{fill:#fff;stroke:var(--hg-acc);stroke-width:2.5;}
+.slide.hg .hg-map .path1{fill:none;stroke:var(--hg-acc);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:.9;}
+.slide.hg .hg-map .path2{fill:none;stroke:var(--hg-ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:.75;}
+.slide.hg .hg-map .hop{fill:none;stroke:var(--hg-acc);stroke-width:3;stroke-linecap:round;}
+.slide.hg .hg-map .hopS{fill:none;stroke:var(--hg-ink);stroke-width:3;stroke-linecap:round;}
+.slide.hg .hg-map .diag{fill:none;stroke:var(--hg-acc);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+.slide.hg .hg-map .diagg{fill:none;stroke:var(--hg-grey);stroke-width:3.5;stroke-dasharray:3 7;stroke-linecap:round;}
+.slide.hg .hg-map .dom{fill:none;stroke:var(--hg-ink);stroke-width:2;stroke-dasharray:4 4;}
+.slide.hg .hg-map .st{fill:var(--hg-acc);stroke:#fff;stroke-width:2;}
+.slide.hg .hg-map .stT{fill:#fff;stroke:var(--hg-ink);stroke-width:2;}
+.slide.hg .hg-map .ghost{fill:none;stroke:var(--hg-acc);stroke-width:1.5;stroke-dasharray:3 3;}
+.slide.hg .hg-side{position:absolute;left:86cqh;top:15.2cqh;width:76cqh;height:69.5cqh;display:flex;flex-direction:column;gap:2cqh;}
+.slide.hg .hg-card{flex:1 1 0;min-height:0;border-top:.3cqh solid var(--hg-ink);padding-top:1.1cqh;position:relative;}
+.slide.hg .hg-card.phys{border-top-color:var(--hg-acc);}
+.slide.hg .hg-ch{display:flex;align-items:baseline;gap:1.6cqh;font-family:var(--hg-serif);font-size:3cqh;line-height:1.1;}
+.slide.hg .hg-ch .f{font-size:2.3cqh;color:var(--hg-mut);margin-left:auto;font-family:var(--hg-serif);}
+.slide.hg .hg-ch .g{display:inline-block;width:1.9cqh;height:1.9cqh;border-radius:50%;background:var(--hg-acc);
+  position:relative;top:.05cqh;}
+.slide.hg .hg-ch .g.s{border-radius:0;transform:rotate(45deg) scale(.85);background:var(--hg-ink);}
+.slide.hg .hg-at{font-size:2cqh;color:var(--hg-mut);margin-top:.5cqh;}
+.slide.hg .hg-bars{width:100%;height:13.5cqh;display:block;margin-top:.8cqh;}
+.slide.hg .hg-bars .bl{font-family:var(--hg-sans);font-size:13px;fill:var(--hg-mut);}
+.slide.hg .hg-bars .bv{font-family:var(--hg-sans);font-size:13px;fill:var(--hg-ink);font-weight:600;}
+.slide.hg .hg-bars .bar{fill:var(--hg-acc);}
+.slide.hg .hg-bars .bar.s{fill:var(--hg-ink);}
+.slide.hg .hg-bars .bar.rest{fill:var(--hg-grey);}
+.slide.hg .hg-bars .base{stroke:var(--hg-rule);stroke-width:1;}
+.slide.hg .hg-big{display:flex;align-items:baseline;gap:1.4cqh;margin-top:.6cqh;}
+.slide.hg .hg-big .v{font-family:var(--hg-serif);font-size:5cqh;line-height:1;font-variant-numeric:tabular-nums;}
+.slide.hg .hg-big .l{font-size:2.05cqh;color:var(--hg-mut);line-height:1.25;}
+.slide.hg .hg-line{font-size:2.05cqh;line-height:1.35;margin-top:.5cqh;}
+.slide.hg .hg-take{position:absolute;left:8.9cqh;top:86.2cqh;width:158cqh;font-family:var(--hg-serif);font-size:2.75cqh;line-height:1.3;color:var(--hg-ink);}
+.slide.hg .hg-src{position:absolute;left:8.9cqh;top:95.3cqh;width:158cqh;font-size:1.65cqh;color:var(--hg-mut);white-space:nowrap;}
+.slide.hg .hg-keys{position:absolute;right:8.9cqh;top:3.1cqh;font-size:1.65cqh;color:var(--hg-mut);text-align:right;line-height:1.3;white-space:nowrap;}
+.slide.hg .hg-keys b{color:var(--hg-ink);font-weight:600;}
+.slide.hg .hg-keys .st{display:inline-block;padding:.1cqh .9cqh;border:.14cqh solid var(--hg-acc);border-radius:1cqh;color:var(--hg-acc);font-weight:600;margin-left:.6cqh;}
+.slide.hg .hg-keys .st.crit{border-color:var(--hg-grey);color:var(--hg-mut);}
+/* step 3 text replaces step 2 text on slides 1 and 4 */
+.slide.hg:has(.hg-alt.shown) .hg-main{display:none;}
+.slide.hg .hg-alt{position:absolute;left:8.9cqh;top:86.2cqh;width:158cqh;font-family:var(--hg-serif);font-size:2.75cqh;line-height:1.3;}
+/* slide 2: square diagram */
+.slide.hg .hg-sqd{width:100%;height:36cqh;display:block;}
+.slide.hg .hg-sqd .cz{fill:#fff;stroke:var(--hg-ink);stroke-width:1.3;}
+.slide.hg .hg-sqd .cl{font-family:var(--hg-serif);font-style:italic;font-size:19px;fill:var(--hg-ink);}
+.slide.hg .hg-sqd .cv{font-family:var(--hg-sans);font-size:16px;fill:var(--hg-ink);font-variant-numeric:tabular-nums;}
+.slide.hg .hg-sqd .el{font-family:var(--hg-serif);font-style:italic;font-size:17px;fill:var(--hg-ink);}
+.slide.hg .hg-sqd .ev{font-family:var(--hg-sans);font-size:15px;fill:var(--hg-mut);font-variant-numeric:tabular-nums;}
+.slide.hg .hg-sqd .ed{stroke:var(--hg-rule);stroke-width:2;}
+.slide.hg .hg-sqd .ed.p1{stroke:var(--hg-acc);stroke-width:6;opacity:.85;}
+.slide.hg .hg-sqd .ed.p2{stroke:var(--hg-ink);stroke-width:6;opacity:.6;}
+.slide.hg .hg-id{font-size:2.3cqh;line-height:1.5;margin-top:1.2cqh;}
+.slide.hg .hg-id .row{display:flex;align-items:baseline;gap:1.4cqh;white-space:nowrap;}
+.slide.hg .hg-id .lhs{flex:0 0 47cqh;font-family:var(--hg-serif);font-size:2.5cqh;}
+.slide.hg .hg-id .row.wrap{flex-wrap:wrap;}
+.slide.hg .hg-id .row.wrap .lhs{flex:0 0 100%;}
+.slide.hg .hg-id .val{font-family:var(--hg-sans);font-variant-numeric:tabular-nums;font-size:2.4cqh;letter-spacing:.02em;}
+.slide.hg .hg-id .sw{display:inline-block;width:1.2cqh;height:1.2cqh;border-radius:.2cqh;margin-right:.8cqh;position:relative;top:.05cqh;}
+/* slide 3: before/after bars */
+.slide.hg .hg-ba{display:flex;gap:2cqh;margin-top:.6cqh;}
+.slide.hg .hg-ba .col{flex:1 1 0;min-width:0;}
+.slide.hg .hg-ba .cap{font-size:1.85cqh;color:var(--hg-mut);letter-spacing:.06em;text-transform:uppercase;}
+.slide.hg .hg-ba .hg-bars{height:15cqh;margin-top:.3cqh;}
+.slide.hg .hg-chk{font-size:2.3cqh;line-height:1.35;margin-top:.8cqh;}
+.slide.hg .hg-chk .ok{color:var(--hg-acc);font-weight:600;}
+/* slide 4: ladder */
+.slide.hg .hg-lad{width:100%;border-collapse:collapse;font-size:2cqh;line-height:1.25;margin-top:.8cqh;}
+.slide.hg .hg-lad th{font-weight:600;color:var(--hg-mut);text-align:right;padding:.3cqh .6cqh;border-bottom:.14cqh solid var(--hg-ink);font-size:1.75cqh;letter-spacing:.04em;}
+.slide.hg .hg-lad td{text-align:right;padding:.42cqh .6cqh;font-variant-numeric:tabular-nums;border-bottom:.1cqh solid var(--hg-rule);white-space:nowrap;}
+.slide.hg .hg-lad th:first-child,.slide.hg .hg-lad td:first-child{text-align:left;}
+.slide.hg .hg-lad tr.cur td{background:rgba(194,64,26,.08);}
+.slide.hg .hg-lad tr.hid{display:none;}
+.slide.hg .hg-lad td.g{font-family:var(--hg-serif);font-size:2.3cqh;color:var(--hg-acc);}
+.slide.hg .hg-gb{display:flex;align-items:baseline;gap:1.6cqh;margin-top:1cqh;font-size:2.05cqh;line-height:1.3;}
+.slide.hg .hg-gb .v{font-family:var(--hg-serif);font-size:4.4cqh;line-height:1;color:var(--hg-acc);font-variant-numeric:tabular-nums;}
+/* slide 5 */
+.slide.hg .hg-plane{position:absolute;left:7.5cqh;top:15.2cqh;width:72.222cqh;height:69.444cqh;}
+.slide.hg .hg-plane svg{width:100%;height:100%;display:block;overflow:visible;}
+.slide.hg .hg-plane .ax{font-family:var(--hg-sans);font-size:14px;fill:var(--hg-mut);}
+.slide.hg .hg-plane .axt{font-family:var(--hg-serif);font-style:italic;font-size:17px;fill:var(--hg-ink);}
+.slide.hg .hg-plane .frame{fill:none;stroke:var(--hg-ink);stroke-width:1.2;}
+.slide.hg .hg-plane .tick{stroke:var(--hg-ink);stroke-width:1;}
+.slide.hg .hg-plane .grid{stroke:var(--hg-rule);stroke-width:1;}
+.slide.hg .hg-plane .stA{fill:none;stroke:var(--hg-acc);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+.slide.hg .hg-plane .stB{fill:none;stroke:var(--hg-ink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+.slide.hg .hg-plane .dA{fill:var(--hg-acc);stroke:#fff;stroke-width:2;}
+.slide.hg .hg-plane .dB{fill:var(--hg-ink);stroke:#fff;stroke-width:2;}
+.slide.hg .hg-plane .pl{font-family:var(--hg-serif);font-style:italic;font-size:15px;fill:var(--hg-ink);
+  paint-order:stroke;stroke:var(--hg-paper);stroke-width:4px;stroke-linejoin:round;}
+.slide.hg .hg-plane .pls{font-family:var(--hg-sans);font-size:13px;fill:var(--hg-mut);
+  paint-order:stroke;stroke:var(--hg-paper);stroke-width:4px;stroke-linejoin:round;}
+.slide.hg .hg-text{position:absolute;left:84cqh;top:15.2cqh;width:78cqh;height:70cqh;display:flex;flex-direction:column;gap:1.4cqh;}
+.slide.hg .hg-blk{border-top:.3cqh solid var(--hg-ink);padding-top:.8cqh;}
+.slide.hg .hg-blk.a{border-top-color:var(--hg-acc);}
+.slide.hg .hg-blk h3{font-family:var(--hg-serif);font-weight:400;font-size:2.5cqh;line-height:1.15;margin-bottom:.4cqh;}
+.slide.hg .hg-blk p{font-size:2cqh;line-height:1.36;color:var(--hg-ink);}
+.slide.hg .hg-blk p+p{margin-top:.35cqh;}
+</style>
+
+<!-- =========================================================== -->
+<!-- 1. One partition function, two lenses                        -->
+<!-- =========================================================== -->
+<section class="slide hg" id="s-hg-lenses">
+  <div class="hg-kick">Haldane gap, family 268 &middot; 1 of 5</div>
+  <h2 class="hg-title">One partition function, two lenses</h2>
+  <div class="hg-sub"><span class="m">Z<sub>n</sub>(&beta;) = Tr e<sup>&minus;&beta;H<sub>n</sub></sup></span> read as Gibbs weights over levels, or as a transfer spectrum <span class="m">&Sigma;<sub>i</sub> &lambda;<sub>i</sub><sup>n</sup></span></div>
+  <div class="hg-keys"><b>H J K L</b> move probe &middot; <b>1 2</b> pick probe &middot; <b>G</b> toggle toy <span class="st hg-hst">gapped, h = 0.1</span></div>
+  <div class="hg-map no-nav" id="hgMap1"><canvas width="880" height="880"></canvas><svg viewBox="0 0 520 500" role="img" aria-label="purity of the classical Ising ring over the plane of ring size n and inverse temperature beta"></svg></div>
+  <div class="hg-side">
+    <div class="hg-card phys" id="hgC1p">
+      <div class="hg-ch"><span class="g"></span>Physical lens<span class="f"><span class="m">T(n,&beta;) = Z<sub>n</sub>(2&beta;) / Z<sub>n</sub>(&beta;)<sup>2</sup></span></span></div>
+      <div class="hg-at">Gibbs weights <span class="m">p<sub>k</sub> = e<sup>&minus;&beta;E<sub>k</sub></sup>/Z</span> at <span class="num" data-f="pos"></span></div>
+      <svg class="hg-bars" viewBox="0 0 540 97" data-f="bars"></svg>
+      <div class="hg-big"><span class="v num" data-f="T"></span><span class="l">purity <span class="m">T</span> = &Sigma; <span class="m">p<sub>k</sub><sup>2</sup></span><br>max <span class="m">p<sub>k</sub></span> &ge; <span class="m">T</span>: ground weight <span class="num" data-f="p0"></span></span></div>
+      <div class="hg-line" data-f="gap"></div>
+    </div>
+    <div class="hg-card build" data-step="1" id="hgC1s">
+      <div class="hg-ch"><span class="g s"></span>Spatial lens<span class="f"><span class="m">S(n,&beta;) = Z<sub>2n</sub>(&beta;) / Z<sub>n</sub>(&beta;)<sup>2</sup></span></span></div>
+      <div class="hg-at">Transfer weights <span class="m">q<sub>i</sub> = &lambda;<sub>i</sub><sup>n</sup>/Z</span> at <span class="num" data-f="pos"></span></div>
+      <svg class="hg-bars" viewBox="0 0 540 97" data-f="bars"></svg>
+      <div class="hg-big"><span class="v num" data-f="S"></span><span class="l">purity <span class="m">S</span> = &Sigma; <span class="m">q<sub>i</sub><sup>2</sup></span><br>correlation length <span class="m">&xi;</span> = 1/log(<span class="m">&lambda;<sub>+</sub>/&lambda;<sub>&minus;</sub></span>) = <span class="num" data-f="xi"></span></span></div>
+      <div class="hg-line" data-f="nxi"></div>
+    </div>
+  </div>
+  <div class="hg-take hg-main build" data-step="2">Both lenses above 7/8 at one (<span class="m">n</span>, <span class="m">&beta;</span>): that is the seed. A purity &ge; 1 &minus; <span class="m">u</span> forces one weight &ge; 1 &minus; <span class="m">u</span>. For <span class="m">T</span> with <span class="m">u</span> &lt; 1/2 the ground state is unique and <span class="m">e<sup>&minus;&beta;&gamma;</sup> &le; u/(1 &minus; u)</span>.</div>
+  <div class="hg-alt build" data-step="3"><span class="m">h</span> = 0: <span class="m">&lambda;<sub>&minus;</sub>/&lambda;<sub>+</sub></span> = tanh <span class="m">&beta;</span> &rarr; 1, so <span class="m">&xi;</span> &rarr; &infin;, and the ground state is doubly degenerate, so <span class="m">T</span> &le; 1/2 everywhere. No seed exists. The toy fails by degeneracy; a gapless quantum chain fails by scale invariance (slide 4).</div>
+  <div class="hg-src">toy model: classical Ising ring, <span class="m">J</span> = 1, field <span class="m">h</span> = <span class="hg-hval">0.1</span>, <span class="m">Z<sub>n</sub> = &lambda;<sub>+</sub><sup>n</sup> + &lambda;<sub>&minus;</sub><sup>n</sup></span> exact, colour field evaluates it at real <span class="m">n</span>, probes snap to integer <span class="m">n</span> &middot; definitions and 7/8 from openai/math, family 268, read 7 Oct 2026</div>
+  <!-- Source: context/haldane-proof-ideas.md sections 1 and 2 (two readings, purity, max p >= purity, e^{-beta gamma} <= u/(1-u)); context/review-268-haldane.md step 3 (S, T definitions) and step 9 (7/8). -->
+</section>
+
+<!-- =========================================================== -->
+<!-- 2. The 2x2 square                                            -->
+<!-- =========================================================== -->
+<section class="slide hg" id="s-hg-square">
+  <div class="hg-kick">Haldane gap, family 268 &middot; 2 of 5</div>
+  <h2 class="hg-title">The 2&times;2 square</h2>
+  <div class="hg-sub">Four partition functions at (<span class="m">n</span>,<span class="m">&beta;</span>), (2<span class="m">n</span>,<span class="m">&beta;</span>), (<span class="m">n</span>,2<span class="m">&beta;</span>), (2<span class="m">n</span>,2<span class="m">&beta;</span>). Each purity is a ratio of two of them; every <span class="m">Z</span> appears once up, once down.</div>
+  <div class="hg-keys"><b>H J K L</b> move the square &middot; drag its lower-left corner <span class="st hg-hst">gapped, h = 0.1</span></div>
+  <div class="hg-map no-nav" id="hgMap2"><canvas width="880" height="880"></canvas><svg viewBox="0 0 520 500" role="img" aria-label="a 2 by 2 square of doublings on the purity heatmap"></svg></div>
+  <div class="hg-side">
+    <svg class="hg-sqd" viewBox="0 0 600 300" id="hgSqd" role="img" aria-label="the four partition functions on the corners of the square and the four purities on its edges"></svg>
+    <div class="hg-id">
+      <div class="row build" data-step="2"><span class="lhs"><span class="sw" style="background:var(--hg-acc)"></span>up, then right: <span class="m">S(n,2&beta;)&middot;T(n,&beta;)<sup>2</sup></span></span><span class="val num" data-f="lhs"></span></div>
+      <div class="row build" data-step="2"><span class="lhs"><span class="sw" style="background:var(--hg-ink);opacity:.7"></span>right, then up: <span class="m">S(n,&beta;)<sup>2</sup>&middot;T(2n,&beta;)</span></span><span class="val num" data-f="rhs"></span></div>
+      <div class="row build" data-step="2"><span class="lhs mut">both equal <span class="m">Z<sub>2n</sub>(2&beta;) / Z<sub>n</sub>(&beta;)<sup>4</sup></span></span><span class="val num mut" data-f="mid"></span></div>
+      <div class="row wrap build" data-step="3" style="margin-top:.8cqh"><span class="lhs">mirror identity: <span class="m">T(4n,&beta;) = T(2n,&beta;)<sup>2</sup>S(2n,2&beta;)/S(2n,&beta;)<sup>2</sup></span></span><span class="val num" data-f="mir"></span></div>
+    </div>
+  </div>
+  <div class="hg-take build" data-step="3">Trivial as algebra. The use is new: a bound on <span class="m">T</span> at larger <span class="m">n</span> can be paid for with bounds on <span class="m">S</span>, and the reverse. The identities trade the <span class="m">&beta;</span> axis for the <span class="m">n</span> axis.</div>
+  <div class="hg-src">toy model: classical Ising ring, <span class="m">J</span> = 1, <span class="m">h</span> = <span class="hg-hval">0.1</span>; every number computed live from the closed form, both sides evaluated separately &middot; identities from openai/math, family 268, read 7 Oct 2026</div>
+  <!-- Source: context/haldane-proof-ideas.md section 3 (the cancellation, both identities); context/review-268-haldane.md step 5. -->
+</section>
+
+<!-- =========================================================== -->
+<!-- 3. Squaring and the axis trade                               -->
+<!-- =========================================================== -->
+<section class="slide hg" id="s-hg-squaring">
+  <div class="hg-kick">Haldane gap, family 268 &middot; 3 of 5</div>
+  <h2 class="hg-title">Squaring moves each lens along its own axis</h2>
+  <div class="hg-sub">Squaring and renormalising a probability vector takes a defect <span class="m">u</span> to at most <span class="m">u<sup>2</sup>/(2(1 &minus; u)<sup>2</sup>)</span>, Lemma 4.1.</div>
+  <div class="hg-keys"><b>H J K L</b> move the point &middot; drag it <span class="st hg-hst">gapped, h = 0.1</span></div>
+  <div class="hg-map no-nav" id="hgMap3"><canvas width="880" height="880"></canvas><svg viewBox="0 0 520 500" role="img" aria-label="squaring hops on the purity heatmap"></svg></div>
+  <div class="hg-side">
+    <div class="hg-card phys">
+      <div class="hg-ch"><span class="g"></span>Physical<span class="f"><span class="m">p<sub>k</sub> &rarr; p<sub>k</sub><sup>2</sup>/&Sigma;p<sup>2</sup></span> is (<span class="m">n</span>,<span class="m">&beta;</span>) &rarr; (<span class="m">n</span>,2<span class="m">&beta;</span>)</span></div>
+      <div class="hg-ba">
+        <div class="col"><div class="cap">at <span class="num" data-f="posA"></span></div><svg class="hg-bars" viewBox="0 0 260 80" data-f="barsA"></svg></div>
+        <div class="col"><div class="cap">at <span class="num" data-f="posB"></span></div><svg class="hg-bars" viewBox="0 0 260 80" data-f="barsB"></svg></div>
+      </div>
+      <div class="hg-chk" data-f="chkT"></div>
+    </div>
+    <div class="hg-card">
+      <div class="hg-ch"><span class="g s"></span>Spatial<span class="f"><span class="m">q<sub>i</sub> &rarr; q<sub>i</sub><sup>2</sup>/&Sigma;q<sup>2</sup></span> is (<span class="m">n</span>,<span class="m">&beta;</span>) &rarr; (2<span class="m">n</span>,<span class="m">&beta;</span>)</span></div>
+      <div class="hg-ba">
+        <div class="col"><div class="cap">at <span class="num" data-f="posC"></span></div><svg class="hg-bars" viewBox="0 0 260 80" data-f="barsC"></svg></div>
+        <div class="col"><div class="cap">at <span class="num" data-f="posD"></span></div><svg class="hg-bars" viewBox="0 0 260 80" data-f="barsD"></svg></div>
+      </div>
+      <div class="hg-chk" data-f="chkS"></div>
+    </div>
+  </div>
+  <div class="hg-take build" data-step="3">The identity carries <span class="m">S</span> up the <span class="m">&beta;</span> axis and <span class="m">T</span> along the <span class="m">n</span> axis; squaring does the rest. The pair (<span class="m">S(n,&beta;)</span>, <span class="m">T(2n,&beta;)</span>) steps diagonally to (<span class="m">S(2n,2&beta;)</span>, <span class="m">T(4n,2&beta;)</span>).</div>
+  <div class="hg-src">toy model: classical Ising ring, <span class="m">J</span> = 1, <span class="m">h</span> = <span class="hg-hval">0.1</span>; bars and defects exact from the closed form &middot; Lemma 4.1 and the axis trade from openai/math, family 268, read 7 Oct 2026</div>
+  <!-- Source: context/haldane-proof-ideas.md section 4 (squaring, Lemma 4.1 bound u^2/(2(1-u)^2), squaring moves T along beta and S along n) and section 5 (the diagonal step of the pair). -->
+</section>
+
+<!-- =========================================================== -->
+<!-- 4. The bootstrap                                             -->
+<!-- =========================================================== -->
+<section class="slide hg" id="s-hg-bootstrap">
+  <div class="hg-kick">Haldane gap, family 268 &middot; 4 of 5</div>
+  <h2 class="hg-title">The bootstrap: a staircase of doublings</h2>
+  <div class="hg-sub">Seed: <span class="m">S(n,&beta;)</span> and <span class="m">T(2n,&beta;)</span> both &ge; 7/8. Then <span class="m">u<sub>j+1</sub> &le; C u<sub>j</sub><sup>2</sup></span> with <span class="m">C</span> &lt; 7.9, while <span class="m">&beta;<sub>j</sub> = 2<sup>j</sup>&beta;<sub>0</sub></span> only doubles.</div>
+  <div class="hg-keys"><b>H J K L</b> move the seed &middot; drag it &middot; <b>G</b> toggle toy <span class="st hg-hst">gapped, h = 0.1</span></div>
+  <div class="hg-map no-nav" id="hgMap4"><canvas width="880" height="880"></canvas><svg viewBox="0 0 520 500" role="img" aria-label="staircase of diagonal doublings from a seed on the purity heatmap"></svg></div>
+  <div class="hg-side">
+    <div class="hg-card phys" style="flex:0 0 auto;border-top-color:var(--hg-ink)">
+      <div class="hg-ch">Defect ladder<span class="f">guaranteed by the seed alone, versus the toy's exact defect</span></div>
+      <table class="hg-lad" id="hgLad"><thead><tr><th><span class="m">j</span></th><th>(<span class="m">n<sub>j</sub></span>, <span class="m">&beta;<sub>j</sub></span>)</th><th><span class="m">u<sub>j</sub></span> guaranteed</th><th>toy exact</th><th>gap bound log(1/3<span class="m">u<sub>j</sub></span>)/<span class="m">&beta;<sub>j</sub></span></th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="hg-gb" id="hgGb"></div>
+  </div>
+  <div class="hg-take hg-main build" data-step="2">log(1/<span class="m">u<sub>j</sub></span>) grows like 2<sup><span class="m">j</span></sup> and so does <span class="m">&beta;<sub>j</sub></span>: the gap bound settles on a positive constant. Data at one small (<span class="m">n</span>, <span class="m">&beta;</span>) gives a gap at every <span class="m">n<sub>j</sub></span> = 2<sup><span class="m">j</span></sup><span class="m">n<sub>0</sub></span>; even sizes between by H&ouml;lder.</div>
+  <div class="hg-alt build" data-step="3">No seed anywhere: the staircase never leaves the grey. For a gapless chain the paper's reason is scale invariance: <span class="m">T</span> &rarr; 1 needs <span class="m">v&beta;</span> &Gt; <span class="m">n</span>, <span class="m">S</span> &rarr; 1 needs <span class="m">n</span> &Gt; <span class="m">v&beta;</span>; the best compromise leaves defects 0.3 to 0.5.</div>
+  <div class="hg-src">toy model: classical Ising ring, <span class="m">J</span> = 1, <span class="m">h</span> = <span class="hg-hval">0.1</span>; colour = min of <span class="m">S(n,&beta;)</span> and <span class="m">T(2n,&beta;)</span>; ladder uses the paper's update with <span class="m">C</span>(1/8) = 913952/117649 &middot; openai/math, family 268, read 7 Oct 2026</div>
+  <!-- Source: context/haldane-proof-ideas.md section 5 (bootstrap, u, Cu^2, C^3u^4, C<7.9 for u<=1/8, gap bound log(1/3u_j)/beta_j, Hoelder) and section 6 (gapless: v beta >> n versus n >> v beta, defects 0.3 to 0.5); context/review-268-haldane.md steps 6 to 8 and (b),(c) (G(1/8)=913952/117649). -->
+</section>
+
+<!-- =========================================================== -->
+<!-- 5. What is proved                                            -->
+<!-- =========================================================== -->
+<section class="slide hg" id="s-hg-proved">
+  <div class="hg-kick">Haldane gap, family 268 &middot; 5 of 5</div>
+  <h2 class="hg-title">What is actually proved</h2>
+  <div class="hg-sub">The paper's own plane: two seeds, two staircases, no toy. Constants as stated in the paper and checked by the review.</div>
+  <div class="hg-plane" id="hgPlane"><svg viewBox="0 0 520 500" role="img" aria-label="the two seeds of the paper and their doubling staircases in the plane of ring size and inverse temperature"></svg></div>
+  <div class="hg-text">
+    <div class="hg-blk a build" data-step="1">
+      <h3>Theorem 1.1</h3>
+      <p><span class="m">H<sub>L</sub> = &Sigma;<sub>j</sub> S<sub>j</sub>&middot;S<sub>j+1</sub></span>, spin 1, periodic. Even <span class="m">L</span> &ge; 60: unique ground state and <span class="m">&gamma;<sub>L</sub></span> &gt; (4/105) log(80/79) &asymp; 4.8 &times; 10<sup>&minus;4</sup>. Even <span class="m">L</span> &ge; 2304: <span class="m">&gamma;<sub>L</sub></span> &gt; log 20/784 &asymp; 3.8 &times; 10<sup>&minus;3</sup>. Hence liminf <span class="m">&gamma;<sub>L</sub></span> &gt; 0.</p>
+    </div>
+    <div class="hg-blk build" data-step="2">
+      <h3>The seeds, where the labour is</h3>
+      <p><span class="acc">Seed at 60:</span> exact <span class="m">Z<sub>n</sub></span> for <span class="m">n</span> &le; 10 at <span class="m">&beta;</span> = 21/2 (59,049 states, exact integers), moment filters on the spatial spectrum, a bond-dimension-26 MPS giving <span class="m">Z<sub>120</sub></span> &gt; 1, a 5/2-power raise to <span class="m">&beta;</span> = 105/4. Margin: <span class="m">S</span>(60, 105/4) &gt; 7/8 by 6 &times; 10<sup>&minus;4</sup>.</p>
+      <p><span class="acc">Seed at 2304:</span> <span class="m">Z<sub>n</sub></span> for <span class="m">n</span> &le; 12 at <span class="m">&beta;</span> = 49/4; defects 0.048 and 0.18 at (36, 49/4), six updates bring both below 0.01 at (2304, 784).</p>
+    </div>
+    <div class="hg-blk build" data-step="3">
+      <h3>Verification status</h3>
+      <p>No Lean. Exact-rational certificates: integer tables with a proven truncation error, big-integer MPS contraction, fractions for every scalar. Re-run by the review: both scalar scripts, both contractions, independent diagonalisation for <span class="m">n</span> &le; 9. Unverified: the <span class="m">n</span> = 10 totals at 21/2, needed for <span class="m">L</span> &ge; 60, and <span class="m">n</span> = 10 to 12 at 49/4. Reviewer's estimate: 85 to 90%.</p>
+    </div>
+    <div class="hg-blk build" data-step="4">
+      <h3>Honest caveats</h3>
+      <p>Even periodic rings and the liminf of their gaps, not uniqueness of every infinite-volume ground state. The constant is a thousand times below the true gap of about 0.41. Nothing uses spin 1 or frustration-freeness: it is a finite-size RG-flow criterion.</p>
+    </div>
+  </div>
+  <div class="hg-src">openai/math, family 268, read 7 Oct 2026 &middot; referee-style review of 7 Oct 2026 (one pass, scalar checkers and trial contractions re-run) &middot; no toy on this slide</div>
+  <!-- Source: context/review-268-haldane.md section 1 (Theorem 1.1, steps 9 and 10), section 2 (what was re-run, unverified), section 4 (85 to 90%); context/haldane-proof-ideas.md sections 7 and 8 (seeds, margins 6e-4, true gap 0.41, even rings, liminf). -->
+</section>
+
+<script>
+/* ============================================================= */
+/*  Option B: Two Lenses. Toy: classical Ising ring, J = 1.       */
+/*  Z_n(b) = lam+^n + lam-^n exactly; everything in log domain.   */
+/* ============================================================= */
+(function(){
+  "use strict";
+  const J = 1;
+  const H_GAP = 0.1, H_CRIT = 0;
+  const H_LEVELS = [0, 0.02, 0.05, 0.1, 0.2, 0.5];
+  const model = { h: H_GAP };
+  const still = location.search.indexOf('still') >= 0;
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (t, a, parent) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (parent) parent.appendChild(e); return e; };
+  const txt = (e, s) => { e.textContent = s; return e; };
+
+  /* ---------- the toy ---------- */
+  function coef(b, h){
+    const a = Math.exp(b*J)*Math.cosh(b*h);
+    const d = Math.sqrt(Math.exp(2*b*J)*Math.sinh(b*h)**2 + Math.exp(-2*b*J));
+    const lp = a + d, lm = 2*Math.sinh(2*b*J)/(a + d);   /* a - d without cancellation */
+    return { lp, lm, llp: Math.log(lp), lr: Math.log(lm) - Math.log(lp) };
+  }
+  const logZc = (c, n) => n*c.llp + Math.log1p(Math.exp(n*c.lr));
+  const logZ = (n, b, h) => logZc(coef(b, h), n);
+  const logT = (n, b, h) => logZ(n, 2*b, h) - 2*logZ(n, b, h);
+  const logS = (n, b, h) => logZ(2*n, b, h) - 2*logZ(n, b, h);
+  const uT = (n, b, h) => -Math.expm1(logT(n, b, h));   /* defect 1 - T */
+  const uS = (n, b, h) => -Math.expm1(logS(n, b, h));
+  const xi = (b, h) => { const c = coef(b, h); return -1/c.lr; };
+  const f = u => u*u/(2*(1-u)*(1-u));                    /* Lemma 4.1 */
+  /* Gibbs weights of the leading levels: all up (ground for h>0), all down, the n single flips, the rest. */
+  function gibbs(n, b, h){
+    const lz = logZ(n, b, h);
+    const E0 = -n*(J + h);
+    const p0 = Math.exp(-b*E0 - lz);
+    const pd = Math.exp(-b*(-n*J + n*h) - lz);
+    const ps = Math.exp(-b*(E0 + 4*J + 2*h) - lz);
+    const rest = Math.max(0, 1 - p0 - pd - n*ps);
+    return { p0, pd, ps, rest };
+  }
+  function spatial(n, b, h){
+    const c = coef(b, h), lz = logZc(c, n);
+    return { qp: Math.exp(n*c.llp - lz), qm: Math.exp(n*c.lr + n*c.llp - lz) };
+  }
+  const trueGap = (n, h) => Math.min(2*n*h, 4*J + 2*h);
+
+  /* ---------- formatting ---------- */
+  const SUP = { '-': '&minus;' };
+  function sci(x, d){
+    if (!(x > 0)) return '0';
+    const e = Math.floor(Math.log10(x)); let m = x/Math.pow(10, e);
+    let ms = m.toFixed(d === undefined ? 2 : d); if (+ms >= 10){ ms = (m/10).toFixed(2); return ms + '&thinsp;&times;&thinsp;10<sup>' + (e+1 < 0 ? '&minus;' + (-(e+1)) : (e+1)) + '</sup>'; }
+    return ms + '&thinsp;&times;&thinsp;10<sup>' + (e < 0 ? '&minus;' + (-e) : e) + '</sup>';
+  }
+  function sciSvg(l10){ /* from log10 of a huge number, for an SVG text element */
+    const e = Math.floor(l10), m = Math.pow(10, l10 - e);
+    return m.toFixed(3) + ' × 10<tspan dy="-7" font-size="70%">' + e + '</tspan>';
+  }
+  function fdef(u){ /* a defect computed from the closed form: below 1e-12 it is rounding noise */
+    if (!(u > 0) || u < 1e-12) return '&lt; 10<sup>&minus;12</sup>';
+    if (u < 1e-3) return sci(u, 1);
+    return u.toFixed(4);
+  }
+  function fsci(u){ /* a defect produced by the recursion: no floor needed */
+    if (!(u > 0)) return '0';
+    if (u < 1e-3) return sci(u, 1);
+    return u.toFixed(4);
+  }
+  const fb = b => (b >= 1 ? (Math.abs(b - Math.round(b)) < 1e-9 ? String(Math.round(b)) : b.toFixed(2)) : (Math.abs(1/b - Math.round(1/b)) < 1e-9 ? '1/' + Math.round(1/b) : b.toFixed(3)));
+  const fpos = (n, b) => '(' + n + ', ' + fb(b) + ')';
+  const fpur = p => p.toFixed(4);
+
+  /* ---------- colour ---------- */
+  const hex = s => [parseInt(s.slice(1,3),16), parseInt(s.slice(3,5),16), parseInt(s.slice(5,7),16)];
+  const C_IN0 = hex('#f2c9b7'), C_IN1 = hex('#7d200c'), C_OUT0 = hex('#a39b8e'), C_OUT1 = hex('#e9e3d6');
+  function colourOf(u){ /* u = defect of the displayed purity */
+    let c0, c1, t;
+    if (u <= 0.125){ c0 = C_IN0; c1 = C_IN1; t = Math.min(1, Math.max(0, (-Math.log10(Math.max(u, 1e-300)) - 0.903)/(8 - 0.903))); }
+    else { c0 = C_OUT0; c1 = C_OUT1; t = Math.min(1, Math.max(0, (1 - u)/0.875)); }
+    return [c0[0] + (c1[0]-c0[0])*t, c0[1] + (c1[1]-c0[1])*t, c0[2] + (c1[2]-c0[2])*t];
+  }
+
+  /* ---------- the plane: n in [2,512], beta in [1/8,32], log2 axes ---------- */
+  const X0 = 66, Y0 = 8, PW = 440, PH = 440;
+  const NLO = 1, NHI = 9, BLO = -3, BHI = 5;
+  const X = n => X0 + (Math.log2(n) - NLO)/(NHI - NLO)*PW;
+  const Y = b => Y0 + PH - (Math.log2(b) - BLO)/(BHI - BLO)*PH;
+  const nOf = x => Math.pow(2, NLO + (x - X0)/PW*(NHI - NLO));
+  const bOf = y => Math.pow(2, BLO + (Y0 + PH - y)/PH*(BHI - BLO));
+  const G = 220;
+  const clampN = (n, hi) => Math.max(2, Math.min(hi || 512, Math.round(n)));
+  const clampB = (b, hi) => Math.max(0.125, Math.min(hi || 32, b));
+  const roundB = b => { const l = Math.log2(b); return Math.pow(2, Math.round(l*8)/8); };
+
+  /* marching squares at one level on a G x G grid of defects (level on the defect) */
+  function contour(grid, level){
+    const segs = [];
+    const gx = i => X0 + (i + 0.5)/G*PW, gy = j => Y0 + PH - (j + 0.5)/G*PH;
+    for (let j = 0; j < G-1; j++) for (let i = 0; i < G-1; i++){
+      const v = [grid[j*G+i], grid[j*G+i+1], grid[(j+1)*G+i+1], grid[(j+1)*G+i]]; /* bl, br, tr, tl in plane terms */
+      const px = [gx(i), gx(i+1), gx(i+1), gx(i)], py = [gy(j), gy(j), gy(j+1), gy(j+1)];
+      let idx = 0; for (let k = 0; k < 4; k++) if (v[k] < level) idx |= (1 << k);
+      if (idx === 0 || idx === 15) continue;
+      const ip = (a, b) => { const t = (level - v[a])/(v[b] - v[a]); return [px[a] + (px[b]-px[a])*t, py[a] + (py[b]-py[a])*t]; };
+      const e = [ip(0,1), ip(1,2), ip(2,3), ip(3,0)];
+      const T = {1:[[3,0]],2:[[0,1]],3:[[3,1]],4:[[1,2]],5:[[3,0],[1,2]],6:[[0,2]],7:[[3,2]],8:[[2,3]],9:[[0,2]],10:[[0,1],[2,3]],11:[[1,2]],12:[[1,3]],13:[[0,1]],14:[[3,0]]};
+      T[idx].forEach(s => segs.push([e[s[0]], e[s[1]]]));
+    }
+    let right = null, top = null;
+    segs.forEach(s => s.forEach(p => { if (!right || p[0] > right[0]) right = p; if (!top || p[1] < top[1]) top = p; }));
+    return { d: segs.map(s => 'M' + s[0][0].toFixed(1) + ',' + s[0][1].toFixed(1) + 'L' + s[1][0].toFixed(1) + ',' + s[1][1].toFixed(1)).join(''), right, top };
+  }
+
+  /* one map instance per slide */
+  function makeMap(id, mode){
+    const root = document.getElementById(id), cv = root.querySelector('canvas'), svg = root.querySelector('svg');
+    const ctx = cv.getContext('2d');
+    const off = document.createElement('canvas'); off.width = G; off.height = G;
+    const octx = off.getContext('2d');
+    const gBase = el('g', {}, svg), gC = el('g', {}, svg), gOv = el('g', {}, svg), gTop = el('g', {}, svg);
+    /* axes */
+    el('rect', {class:'frame', x:X0, y:Y0, width:PW, height:PH}, gBase);
+    for (let k = NLO; k <= NHI; k++){
+      const x = X(Math.pow(2,k));
+      el('line', {class:'tick', x1:x, y1:Y0+PH, x2:x, y2:Y0+PH+6}, gBase);
+      txt(el('text', {class:'ax', x:x, y:Y0+PH+22, 'text-anchor':'middle'}, gBase), String(Math.pow(2,k)));
+    }
+    for (let k = BLO; k <= BHI; k++){
+      const y = Y(Math.pow(2,k));
+      el('line', {class:'tick', x1:X0-6, y1:y, x2:X0, y2:y}, gBase);
+      txt(el('text', {class:'ax', x:X0-10, y:y+5, 'text-anchor':'end'}, gBase), k < 0 ? '1/' + Math.pow(2,-k) : String(Math.pow(2,k)));
+    }
+    txt(el('text', {class:'axt', x:X0+PW/2, y:Y0+PH+46, 'text-anchor':'middle'}, gBase), 'ring size n (log scale)');
+    txt(el('text', {class:'axt', x:16, y:Y0+PH/2, 'text-anchor':'middle', transform:'rotate(-90 16 ' + (Y0+PH/2) + ')'}, gBase), 'inverse temperature β (log scale)');
+    const cT = el('path', {class:'cT'}, gC), cS = el('path', {class:'cS'}, gC);
+    const lT = txt(el('text', {class:'clab'}, gC), ''), lS = txt(el('text', {class:'clab'}, gC), '');
+    let gridT = new Float64Array(G*G), gridS = new Float64Array(G*G);
+    const m = { root, svg, gOv, gTop, mode, draw, redraw };
+    function draw(){
+      const h = model.h, img = octx.createImageData(G, G), d = img.data;
+      const seed = m.mode === 'seed';
+      for (let j = 0; j < G; j++){
+        const b = bOf(Y0 + PH - (j + 0.5)/G*PH);
+        const c1 = coef(b, h), c2 = coef(2*b, h);
+        for (let i = 0; i < G; i++){
+          const n = nOf(X0 + (i + 0.5)/G*PW);
+          const lzn = logZc(c1, n), lz2n = logZc(c1, 2*n);
+          const ut = -Math.expm1(seed ? (logZc(c2, 2*n) - 2*lz2n) : (logZc(c2, n) - 2*lzn));
+          const us = -Math.expm1(lz2n - 2*lzn);
+          gridT[j*G+i] = ut; gridS[j*G+i] = us;
+          const u = m.mode === 'T' ? ut : m.mode === 'S' ? us : Math.max(ut, us);
+          const col = colourOf(u), k = ((G-1-j)*G + i)*4;
+          d[k] = col[0]; d[k+1] = col[1]; d[k+2] = col[2]; d[k+3] = 255;
+        }
+      }
+      octx.putImageData(img, 0, 0);
+      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      ctx.drawImage(off, 0, 0, cv.width, cv.height);
+      const showT = m.mode !== 'S', showS = m.mode !== 'T';
+      const kT = showT ? contour(gridT, 0.125) : null, kS = showS ? contour(gridS, 0.125) : null;
+      cT.setAttribute('d', kT ? kT.d : '');
+      cS.setAttribute('d', kS ? kS.d : '');
+      /* T label at the rightmost point of its contour, S label at the topmost point of its contour */
+      placeLabel(lT, kT && kT.right, seed ? 'T(2n,\u03B2) = 7/8' : 'T = 7/8', 'right');
+      placeLabel(lS, kS && kS.top, 'S = 7/8', 'top');
+    }
+    function placeLabel(lab, p, s, where){
+      if (!p){ lab.textContent = ''; return; }
+      if (where === 'right'){ lab.setAttribute('x', Math.min(p[0], X0 + PW) - 6); lab.setAttribute('y', p[1] - 10); lab.setAttribute('text-anchor', 'end'); }
+      else { const left = p[0] < X0 + PW/2; lab.setAttribute('x', p[0] + (left ? 8 : -8)); lab.setAttribute('y', Math.max(p[1] - 10, Y0 + 14)); lab.setAttribute('text-anchor', left ? 'start' : 'end'); }
+      lab.textContent = s;
+    }
+    function redraw(){ draw(); }
+    return m;
+  }
+
+  /* bar chart helper: items [{l, v, cls}] into an svg (viewBox w x h) */
+  function bars(svg, items, w, h){
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const n = items.length, gap = 10, bw = (w - gap*(n+1))/n, top = 22, base = h - 18;
+    el('line', {class:'base', x1:0, y1:base, x2:w, y2:base}, svg);
+    items.forEach((it, k) => {
+      const x = gap + k*(bw + gap), hh = Math.max(0, it.v)*(base - top);
+      el('rect', {class:'bar ' + (it.cls || ''), x, y: base - hh, width: bw, height: Math.max(hh, it.v > 0 ? 1.2 : 0)}, svg);
+      txt(el('text', {class:'bv', x: x + bw/2, y: base - hh - 5, 'text-anchor':'middle'}, svg), it.v === 0 ? '' : it.v < 1e-4 ? '<0.0001' : it.v.toFixed(it.v < 0.01 ? 4 : 3));
+      txt(el('text', {class:'bl', x: x + bw/2, y: base + 14, 'text-anchor':'middle'}, svg), it.l);
+    });
+  }
+  function gibbsItems(n, b, h, short){
+    const g = gibbs(n, b, h);
+    return short ? [{l:'up', v:g.p0}, {l:'flip ×' + n, v:g.ps}, {l:'down', v:g.pd}, {l:'rest', v:g.rest, cls:'rest'}]
+      : [{l:'all up', v:g.p0}, {l:'one flip (×' + n + ')', v:g.ps}, {l:'all down', v:g.pd}, {l:'rest', v:g.rest, cls:'rest'}];
+  }
+  function spatialItems(n, b, h){
+    const q = spatial(n, b, h);
+    return [{l:'λ+ (top)', v:q.qp, cls:'s'}, {l:'λ− (second)', v:q.qm, cls:'s'}];
+  }
+  const zlab = (sub, arg) => 'Z<tspan dy="6" font-size="70%">' + sub + '</tspan><tspan dy="-6">(' + arg + ')</tspan>';
+  function setF(sec, key, html){ sec.querySelectorAll('[data-f="' + key + '"]').forEach(e => { e.innerHTML = html; }); }
+
+  /* ---------- shared keyboard/pointer plumbing ---------- */
+  const slidesB = {};
+  function activeSlide(){ return document.querySelector('.slide.hg.active'); }
+  function setH(h){
+    model.h = h;
+    document.querySelectorAll('.hg-hval').forEach(e => e.textContent = String(h));
+    document.querySelectorAll('.hg-hst').forEach(e => { e.textContent = h === 0 ? 'critical-like, h = 0' : (h >= H_GAP ? 'gapped, h = ' + h : 'weakly gapped, h = ' + h); e.classList.toggle('crit', h === 0); });
+    for (const id in slidesB){ slidesB[id].map && slidesB[id].map.redraw(); slidesB[id].refresh && slidesB[id].refresh(); }
+  }
+  document.addEventListener('keydown', e => {
+    const sec = activeSlide(); if (!sec) return;
+    const help = document.getElementById('help'); if (help && help.classList.contains('on')) return;
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const k = e.key.toLowerCase(), s = slidesB[sec.id]; if (!s) return;
+    if (k === 'g'){ setH(model.h === 0 ? H_GAP : H_CRIT); e.preventDefault(); return; }
+    if (k === '[' || k === ']'){ let i = H_LEVELS.indexOf(model.h); if (i < 0) i = 3; i = Math.max(0, Math.min(H_LEVELS.length-1, i + (k === ']' ? 1 : -1))); setH(H_LEVELS[i]); e.preventDefault(); return; }
+    if (k === 'r'){ s.reset && s.reset(); e.preventDefault(); return; }
+    if (s.key && s.key(k)) e.preventDefault();
+  });
+  /* drag handles: each slide supplies pick(x,y) -> handle or null and move(handle, n, b) */
+  function wireDrag(m, s){
+    let drag = null;
+    const toPlane = e => { const r = m.svg.getBoundingClientRect(); return [(e.clientX - r.left)/r.width*520, (e.clientY - r.top)/r.height*500]; };
+    m.root.addEventListener('pointerdown', e => { const p = toPlane(e); drag = s.pick ? s.pick(p[0], p[1]) : null; if (drag){ m.root.setPointerCapture(e.pointerId); e.preventDefault(); } });
+    m.root.addEventListener('pointermove', e => { if (!drag) return; const p = toPlane(e); s.move(drag, nOf(p[0]), bOf(p[1])); });
+    m.root.addEventListener('pointerup', () => { drag = null; });
+    m.root.addEventListener('pointercancel', () => { drag = null; });
+  }
+  const near = (x, y, px, py, r) => (x-px)*(x-px) + (y-py)*(y-py) < (r||18)*(r||18);
+  function stepN(n, dir){ const q = Math.pow(2, 0.25); return dir > 0 ? Math.max(n+1, Math.round(n*q)) : Math.min(n-1, Math.round(n/q)); }
+  function stepB(b, dir){ return b*Math.pow(2, 0.25*dir); }
+  /* animation */
+  function anim(ms, frame, done){
+    if (still){ frame(1); done && done(); return () => {}; }
+    let raf = 0; const t0 = performance.now();
+    const ease = x => x*x*(3-2*x);
+    function loop(now){ const t = Math.min(1, (now - t0)/ms); frame(ease(t)); if (t < 1) raf = requestAnimationFrame(loop); else { raf = 0; done && done(); } }
+    raf = requestAnimationFrame(loop);
+    return () => { if (raf) cancelAnimationFrame(raf); raf = 0; };
+  }
+
+  /* ============================================================ */
+  /*  Slide 1: lenses                                             */
+  /* ============================================================ */
+  (function(){
+    const sec = document.getElementById('s-hg-lenses'); if (!sec) return;
+    const m = makeMap('hgMap1', 'T');
+    const cP = sec.querySelector('#hgC1p'), cS = sec.querySelector('#hgC1s');
+    const DEF = { P:[16, 1], S:[4, 2] };
+    const st = { P:[16, 1], S:[4, 2], active:'P' };
+    const hP = el('circle', {class:'pP', r:9}, m.gTop), hS = el('polygon', {class:'pS'}, m.gTop);
+    const lP = txt(el('text', {class:'pl'}, m.gTop), ''), lS = txt(el('text', {class:'pl'}, m.gTop), '');
+    function refresh(){
+      const h = model.h, [nP, bP] = st.P, [nS, bS] = st.S;
+      hP.setAttribute('cx', X(nP)); hP.setAttribute('cy', Y(bP));
+      const x = X(nS), y = Y(bS); hS.setAttribute('points', [x, y-11, x+11, y, x, y+11, x-11, y].join(' '));
+      lP.setAttribute('x', X(nP) + 13); lP.setAttribute('y', Y(bP) - 10); lP.textContent = 'T ' + fpos(nP, bP);
+      lS.setAttribute('x', x + 14); lS.setAttribute('y', y + 20); lS.textContent = 'S ' + fpos(nS, bS);
+      hP.setAttribute('r', st.active === 'P' ? 10 : 8); hS.setAttribute('stroke-width', st.active === 'S' ? 3.5 : 2.5);
+      /* physical card */
+      const T = Math.exp(logT(nP, bP, h)), u = 1 - T, g = gibbs(nP, bP, h);
+      setF(cP, 'pos', fpos(nP, bP)); bars(cP.querySelector('[data-f="bars"]'), gibbsItems(nP, bP, h), 540, 97);
+      setF(cP, 'T', fpur(T)); setF(cP, 'p0', g.p0.toFixed(4));
+      let gapHtml;
+      if (u < 0.5){ const bound = Math.log((1-u)/u)/bP; gapHtml = 'gap: <span class="m">&gamma;</span> &ge; log((1&minus;<span class="m">u</span>)/<span class="m">u</span>)/<span class="m">&beta;</span> = <b class="num">' + bound.toFixed(3) + '</b>; the toy’s true gap is <span class="num">' + trueGap(nP, h).toFixed(2) + '</span>' + (bound <= trueGap(nP, h) + 1e-12 ? ' <span class="acc">✓</span>' : ' <span class="acc">?</span>'); }
+      else gapHtml = 'defect <span class="m">u</span> = ' + u.toFixed(3) + ' &ge; 1/2: no uniqueness, no gap bound' + (h === 0 ? '; degenerate' : '');
+      setF(cP, 'gap', gapHtml);
+      /* spatial card */
+      const S = Math.exp(logS(nS, bS, h)), xx = xi(bS, h);
+      setF(cS, 'pos', fpos(nS, bS)); bars(cS.querySelector('[data-f="bars"]'), spatialItems(nS, bS, h), 540, 97);
+      setF(cS, 'S', fpur(S)); setF(cS, 'xi', xx.toFixed(2));
+      setF(cS, 'nxi', '<span class="m">n</span>/<span class="m">&xi;</span> = <b class="num">' + (nS/xx).toFixed(2) + '</b>: ' + (S >= 0.875 ? 'the ring is long compared with <span class="m">&xi;</span>, <span class="m">S</span> &ge; 7/8' : 'the ring is not yet long compared with <span class="m">&xi;</span>, <span class="m">S</span> &lt; 7/8'));
+    }
+    function onStep(s){
+      const mode = s === 0 ? 'T' : s === 1 ? 'S' : 'both';
+      if (m.mode !== mode){ m.mode = mode; m.redraw(); }
+      const wantH = s >= 3 ? H_CRIT : H_GAP;
+      if (model.h !== wantH) setH(wantH); else refresh();
+    }
+    slidesB[sec.id] = { map:m, refresh,
+      reset(){ st.P = DEF.P.slice(); st.S = DEF.S.slice(); refresh(); },
+      key(k){
+        if (k === '1'){ st.active = 'P'; refresh(); return true; }
+        if (k === '2'){ st.active = 'S'; refresh(); return true; }
+        const p = st[st.active];
+        if (k === 'h'){ p[0] = clampN(stepN(p[0], -1)); } else if (k === 'l'){ p[0] = clampN(stepN(p[0], 1)); }
+        else if (k === 'j'){ p[1] = clampB(stepB(p[1], -1)); } else if (k === 'k'){ p[1] = clampB(stepB(p[1], 1)); }
+        else return false;
+        refresh(); return true;
+      },
+      pick(x, y){ if (near(x, y, X(st.P[0]), Y(st.P[1]))) { st.active = 'P'; return 'P'; } if (near(x, y, X(st.S[0]), Y(st.S[1]))) { st.active = 'S'; return 'S'; } return null; },
+      move(hd, n, b){ st[hd] = [clampN(n), clampB(roundB(b))]; refresh(); }
+    };
+    wireDrag(m, slidesB[sec.id]);
+    m.draw(); refresh();
+    function register(){ controllers['s-hg-lenses'] = { onEnter(){ onStep(state.step); }, onStep }; if (sec.classList.contains('active')) onStep(state.step); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+  })();
+
+  /* ============================================================ */
+  /*  Slide 2: the square                                         */
+  /* ============================================================ */
+  (function(){
+    const sec = document.getElementById('s-hg-square'); if (!sec) return;
+    const m = makeMap('hgMap2', 'both');
+    const DEF = [8, 1]; const st = { c:[8, 1], step:0 };
+    const sq = el('rect', {class:'sq'}, m.gOv);
+    const p1 = el('path', {class:'path1'}, m.gOv), p2 = el('path', {class:'path2'}, m.gOv);
+    const corners = [0,1,2,3].map(() => el('circle', {class:'sqc', r:7}, m.gTop));
+    const clab = [0,1,2,3].map(() => txt(el('text', {class:'pl'}, m.gTop), ''));
+    /* side diagram */
+    const d = document.getElementById('hgSqd');
+    const DX = [120, 480], DY = [60, 240];   /* columns n, 2n; rows 2b (top), b (bottom) */
+    const edges = { L: el('line', {class:'ed', x1:DX[0], y1:DY[0]+30, x2:DX[0], y2:DY[1]-30}, d), R: el('line', {class:'ed', x1:DX[1], y1:DY[0]+30, x2:DX[1], y2:DY[1]-30}, d),
+                    B: el('line', {class:'ed', x1:DX[0]+95, y1:DY[1], x2:DX[1]-95, y2:DY[1]}, d), Tp: el('line', {class:'ed', x1:DX[0]+95, y1:DY[0], x2:DX[1]-95, y2:DY[0]}, d) };
+    const cz = [[0,0],[1,0],[0,1],[1,1]].map(([i,j]) => { const g = el('g', {}, d); el('rect', {class:'cz', x:DX[i]-95, y:DY[j]-30, width:190, height:60, rx:6}, g);
+      return { l: txt(el('text', {class:'cl', x:DX[i], y:DY[j]-7, 'text-anchor':'middle'}, g), ''), v: txt(el('text', {class:'cv', x:DX[i], y:DY[j]+17, 'text-anchor':'middle'}, g), '') }; });
+    const el_ = { L: [txt(el('text', {class:'el', x:DX[0]-12, y:150-6, 'text-anchor':'end'}, d), ''), txt(el('text', {class:'ev', x:DX[0]-12, y:150+14, 'text-anchor':'end'}, d), '')],
+                  R: [txt(el('text', {class:'el', x:DX[1]+12, y:150-6}, d), ''), txt(el('text', {class:'ev', x:DX[1]+12, y:150+14}, d), '')],
+                  B: [txt(el('text', {class:'el', x:300, y:DY[1]+36, 'text-anchor':'middle'}, d), ''), txt(el('text', {class:'ev', x:300, y:DY[1]+54, 'text-anchor':'middle'}, d), '')],
+                  Tp:[txt(el('text', {class:'el', x:300, y:DY[0]-46, 'text-anchor':'middle'}, d), ''), txt(el('text', {class:'ev', x:300, y:DY[0]-28, 'text-anchor':'middle'}, d), '')] };
+    const l10 = x => x/Math.LN10;
+    function refresh(){
+      const h = model.h, [n, b] = st.c;
+      const x1 = X(n), x2 = X(2*n), y1 = Y(b), y2 = Y(2*b);
+      sq.setAttribute('x', x1); sq.setAttribute('y', y2); sq.setAttribute('width', x2-x1); sq.setAttribute('height', y1-y2);
+      const pts = [[x1,y1],[x2,y1],[x1,y2],[x2,y2]];
+      corners.forEach((c, k) => { c.setAttribute('cx', pts[k][0]); c.setAttribute('cy', pts[k][1]); });
+      const names = ['(n,β)', '(2n,β)', '(n,2β)', '(2n,2β)'];
+      clab.forEach((t, k) => { t.setAttribute('x', pts[k][0] + (k % 2 ? 12 : -12)); t.setAttribute('y', pts[k][1] + (k < 2 ? 20 : -12)); t.setAttribute('text-anchor', k % 2 ? 'start' : 'end'); t.textContent = names[k] + ' = ' + fpos(k % 2 ? 2*n : n, k < 2 ? b : 2*b); });
+      p1.setAttribute('d', st.step >= 2 ? 'M' + x1 + ',' + y1 + 'L' + x1 + ',' + y2 + 'L' + x2 + ',' + y2 : '');
+      p2.setAttribute('d', st.step >= 2 ? 'M' + x1 + ',' + y1 + 'L' + x2 + ',' + y1 + 'L' + x2 + ',' + y2 : '');
+      /* corner values */
+      const lz = { nb: logZ(n, b, h), n2b: logZ(n, 2*b, h), '2nb': logZ(2*n, b, h), '2n2b': logZ(2*n, 2*b, h) };
+      const lab = [zlab('n', '2β'), zlab('2n', '2β'), zlab('n', 'β'), zlab('2n', 'β')], val = [lz.n2b, lz['2n2b'], lz.nb, lz['2nb']];
+      cz.forEach((c, k) => { c.l.innerHTML = lab[k]; c.v.innerHTML = sciSvg(l10(val[k])); });
+      const Tn = Math.exp(logT(n, b, h)), T2n = Math.exp(logT(2*n, b, h)), Sn = Math.exp(logS(n, b, h)), Sn2 = Math.exp(logS(n, 2*b, h));
+      const show = st.step >= 1;
+      el_.L[0].textContent = show ? 'T(n,β)' : ''; el_.L[1].textContent = show ? Tn.toFixed(6) : '';
+      el_.R[0].textContent = show ? 'T(2n,β)' : ''; el_.R[1].textContent = show ? T2n.toFixed(6) : '';
+      el_.B[0].textContent = show ? 'S(n,β)' : ''; el_.B[1].textContent = show ? Sn.toFixed(6) : '';
+      el_.Tp[0].textContent = show ? 'S(n,2β)' : ''; el_.Tp[1].textContent = show ? Sn2.toFixed(6) : '';
+      edges.L.setAttribute('class', 'ed' + (st.step >= 2 ? ' p1' : '')); edges.Tp.setAttribute('class', 'ed' + (st.step >= 2 ? ' p1' : ''));
+      edges.B.setAttribute('class', 'ed' + (st.step >= 2 ? ' p2' : '')); edges.R.setAttribute('class', 'ed' + (st.step >= 2 ? ' p2' : ''));
+      /* identity, both sides evaluated separately from the corner values */
+      const lhs = Sn2*Tn*Tn, rhs = Sn*Sn*T2n, mid = Math.exp(lz['2n2b'] - 4*lz.nb);
+      setF(sec, 'lhs', lhs.toFixed(12)); setF(sec, 'rhs', rhs.toFixed(12)); setF(sec, 'mid', mid.toFixed(12));
+      const T4n = Math.exp(logT(4*n, b, h)), S2n = Math.exp(logS(2*n, b, h)), S2n2 = Math.exp(logS(2*n, 2*b, h));
+      setF(sec, 'mir', T4n.toFixed(10) + ' = ' + (T2n*T2n*S2n2/(S2n*S2n)).toFixed(10));
+    }
+    function onStep(s){ st.step = s; refresh(); }
+    function onEnter(){ if (model.h !== H_GAP) setH(H_GAP); onStep(state.step); }
+    slidesB[sec.id] = { map:m, refresh,
+      reset(){ st.c = DEF.slice(); refresh(); },
+      key(k){ const c = st.c;
+        if (k === 'h'){ c[0] = clampN(stepN(c[0], -1), 256); } else if (k === 'l'){ c[0] = clampN(stepN(c[0], 1), 256); }
+        else if (k === 'j'){ c[1] = clampB(stepB(c[1], -1), 16); } else if (k === 'k'){ c[1] = clampB(stepB(c[1], 1), 16); }
+        else return false; refresh(); return true; },
+      pick(x, y){ return near(x, y, X(st.c[0]), Y(st.c[1]), 40) ? 'c' : null; },
+      move(hd, n, b){ st.c = [clampN(n, 256), clampB(roundB(b), 16)]; refresh(); }
+    };
+    wireDrag(m, slidesB[sec.id]);
+    m.draw(); refresh();
+    function register(){ controllers['s-hg-square'] = { onEnter, onStep }; if (sec.classList.contains('active')) onEnter(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+  })();
+
+  /* ============================================================ */
+  /*  Slide 3: squaring                                           */
+  /* ============================================================ */
+  (function(){
+    const sec = document.getElementById('s-hg-squaring'); if (!sec) return;
+    const m = makeMap('hgMap3', 'both');
+    const DEF = [8, 2]; const st = { c:[8, 2], step:0 };
+    let stop = () => {};
+    const ghost = el('rect', {class:'ghost'}, m.gOv);
+    const hopT = el('path', {class:'hop'}, m.gOv), hopS = el('path', {class:'hopS'}, m.gOv), diag = el('path', {class:'diag'}, m.gOv);
+    const dotT = el('circle', {class:'pP', r:8}, m.gTop), dotS = el('polygon', {class:'pS'}, m.gTop);
+    const base = el('circle', {class:'sqc', r:8}, m.gTop);
+    const labB = txt(el('text', {class:'pl'}, m.gTop), ''), labT = txt(el('text', {class:'pl'}, m.gTop), ''), labS = txt(el('text', {class:'pl'}, m.gTop), ''), labD = txt(el('text', {class:'pl'}, m.gTop), '');
+    const diamond = (e, x, y) => e.setAttribute('points', [x, y-10, x+10, y, x, y+10, x-10, y].join(' '));
+    const sB = { A: sec.querySelector('[data-f="barsA"]'), B: sec.querySelector('[data-f="barsB"]'), C: sec.querySelector('[data-f="barsC"]'), D: sec.querySelector('[data-f="barsD"]') };
+    function lerpItems(a, b, t){ return a.map((it, k) => ({ l: it.l, v: it.v + (b[k].v - it.v)*t, cls: it.cls })); }
+    function refresh(tT, tS, tD){
+      /* tT, tS, tD in [0,1]: progress of the three animations (undefined = per step) */
+      const h = model.h, [n, b] = st.c, s = st.step;
+      tT = tT === undefined ? (s >= 1 ? 1 : 0) : tT; tS = tS === undefined ? (s >= 2 ? 1 : 0) : tS; tD = tD === undefined ? (s >= 3 ? 1 : 0) : tD;
+      const x1 = X(n), y1 = Y(b), x2 = X(2*n), y2 = Y(2*b);
+      base.setAttribute('cx', x1); base.setAttribute('cy', y1);
+      labB.setAttribute('x', x1 - 12); labB.setAttribute('y', y1 + 22); labB.setAttribute('text-anchor', 'end'); labB.textContent = fpos(n, b);
+      ghost.setAttribute('x', x1); ghost.setAttribute('y', y2); ghost.setAttribute('width', x2-x1); ghost.setAttribute('height', y1-y2);
+      ghost.style.display = s >= 3 ? '' : 'none';
+      /* T hop: up */
+      const yT = y1 + (y2 - y1)*tT;
+      dotT.style.display = s >= 1 ? '' : 'none'; dotT.setAttribute('cx', x1); dotT.setAttribute('cy', yT);
+      hopT.setAttribute('d', s >= 1 ? 'M' + x1 + ',' + y1 + 'L' + x1 + ',' + yT : '');
+      labT.textContent = s >= 1 && tT >= 1 ? 'T squared: (n, 2β)' : ''; labT.setAttribute('x', x1); labT.setAttribute('y', y2 - 14); labT.setAttribute('text-anchor', 'middle');
+      /* S hop: right */
+      const xS = x1 + (x2 - x1)*tS;
+      dotS.style.display = s >= 2 ? '' : 'none'; diamond(dotS, xS, y1);
+      hopS.setAttribute('d', s >= 2 ? 'M' + x1 + ',' + y1 + 'L' + xS + ',' + y1 : '');
+      labS.textContent = s >= 2 && tS >= 1 ? 'S squared: (2n, β)' : ''; labS.setAttribute('x', x2 + 12); labS.setAttribute('y', y1 + 22);
+      /* diagonal stitch */
+      const xD = x1 + (x2 - x1)*tD, yD = y1 + (y2 - y1)*tD;
+      diag.setAttribute('d', s >= 3 ? 'M' + x1 + ',' + y1 + 'L' + xD + ',' + yD : '');
+      labD.textContent = s >= 3 && tD >= 1 ? 'pair at (2n, 2β)' : ''; labD.setAttribute('x', x2 + 12); labD.setAttribute('y', y2 + 22);
+      /* cards */
+      const gA = gibbsItems(n, b, h, true), gB = gibbsItems(n, 2*b, h, true), qC = spatialItems(n, b, h), qD = spatialItems(2*n, b, h);
+      setF(sec, 'posA', fpos(n, b)); setF(sec, 'posB', fpos(n, 2*b)); setF(sec, 'posC', fpos(n, b)); setF(sec, 'posD', fpos(2*n, b));
+      bars(sB.A, gA, 260, 80); bars(sB.B, s >= 1 ? lerpItems(gA, gB, tT) : gA.map(it => ({l:it.l, v:0, cls:it.cls})), 260, 80);
+      bars(sB.C, qC, 260, 80); bars(sB.D, s >= 2 ? lerpItems(qC, qD, tS) : qC.map(it => ({l:it.l, v:0, cls:it.cls})), 260, 80);
+      const ut0 = uT(n, b, h), ut1 = uT(n, 2*b, h), us0 = uS(n, b, h), us1 = uS(2*n, b, h);
+      /* tolerance 1e-11: defects come from differences of logs and carry about 1e-12 of rounding; for the two-weight spatial vector the lemma is an equality */
+      const chk = (u0, u1, two) => 'defect ' + fdef(u0) + ' &rarr; <b>' + fdef(u1) + '</b>; ' + (f(u0) < 1 ? 'Lemma 4.1 allows at most ' + fdef(f(u0)) + (u1 <= f(u0) + 1e-11 ? ' <span class="ok">✓ holds</span>' : ' <span class="ok">?</span>') + (two ? ' (an equality for two weights)' : '') : 'Lemma 4.1 says nothing here (<span class="m">u</span> too large)');
+      setF(sec, 'chkT', s >= 1 ? chk(ut0, ut1, false) : 'defect of <span class="m">T</span> at (' + n + ', ' + fb(b) + '): <b>' + fdef(ut0) + '</b>');
+      setF(sec, 'chkS', s >= 2 ? chk(us0, us1, true) : 'defect of <span class="m">S</span> at (' + n + ', ' + fb(b) + '): <b>' + fdef(us0) + '</b>');
+    }
+    let last = -1;
+    function onStep(s){
+      stop(); const prev = last; last = s; st.step = s;
+      if (s === prev + 1 && !still){
+        if (s === 1) stop = anim(800, t => refresh(t, 0, 0));
+        else if (s === 2) stop = anim(800, t => refresh(1, t, 0));
+        else if (s === 3) stop = anim(900, t => refresh(1, 1, t));
+        else refresh();
+      } else refresh();
+    }
+    function onEnter(){ last = -1; if (model.h !== H_GAP) setH(H_GAP); onStep(state.step); }
+    slidesB[sec.id] = { map:m, refresh:() => refresh(),
+      reset(){ st.c = DEF.slice(); refresh(); },
+      key(k){ const c = st.c;
+        if (k === 'h'){ c[0] = clampN(stepN(c[0], -1), 256); } else if (k === 'l'){ c[0] = clampN(stepN(c[0], 1), 256); }
+        else if (k === 'j'){ c[1] = clampB(stepB(c[1], -1), 16); } else if (k === 'k'){ c[1] = clampB(stepB(c[1], 1), 16); }
+        else return false; stop(); refresh(); return true; },
+      pick(x, y){ return near(x, y, X(st.c[0]), Y(st.c[1]), 24) ? 'c' : null; },
+      move(hd, n, b){ st.c = [clampN(n, 256), clampB(roundB(b), 16)]; stop(); refresh(); }
+    };
+    wireDrag(m, slidesB[sec.id]);
+    m.draw(); refresh();
+    function register(){ controllers['s-hg-squaring'] = { onEnter, onLeave(){ stop(); }, onStep }; if (sec.classList.contains('active')) onEnter(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+  })();
+
+  /* ============================================================ */
+  /*  Slide 4: bootstrap                                          */
+  /* ============================================================ */
+  (function(){
+    const sec = document.getElementById('s-hg-bootstrap'); if (!sec) return;
+    const m = makeMap('hgMap4', 'seed');
+    const DEF = [16, 2]; const st = { c:[16, 2], step:0 };
+    let stop = () => {};
+    const dom = el('line', {class:'dom'}, m.gOv);
+    const stairs = el('path', {class:'diag'}, m.gOv), stairsG = el('path', {class:'diagg'}, m.gOv);
+    const dots = [], labs = [];
+    for (let j = 0; j < 9; j++){ dots.push(el('circle', {class:'st', r:7}, m.gTop)); labs.push(txt(el('text', {class:'pl'}, m.gTop), '')); }
+    const seedS = el('polygon', {class:'pS'}, m.gTop), seedT = el('circle', {class:'pP', r:8}, m.gTop);
+    const labSeed = txt(el('text', {class:'pl'}, m.gTop), '');
+    const tbody = sec.querySelector('#hgLad tbody'), gb = sec.querySelector('#hgGb');
+    const JMAX = 7;
+    function ladder(n0, b0, h){
+      const rows = []; let s = uS(n0, b0, h), t = uT(2*n0, b0, h);
+      const seeded = s <= 0.125 && t <= 0.125;
+      for (let j = 0; j <= JMAX; j++){
+        const n = n0*Math.pow(2, j), b = b0*Math.pow(2, j), u = Math.max(s, t);
+        rows.push({ j, n, b, u, s, t, toy: Math.max(uS(n, b, h), uT(2*n, b, h)), gap: (3*u < 1) ? Math.log(1/(3*u))/b : NaN });
+        if (!seeded || u >= 1) break;
+        /* a = 1 - (1-s)^2 (1-t) and b = 1 - (1-t)^2 (1-s1), expanded so tiny defects do not cancel */
+        const a = t + 2*s - 2*s*t - s*s + s*s*t; const s1 = a < 1 ? f(a) : 1;
+        const bb = s1 + 2*t - 2*t*s1 - t*t + t*t*s1; const t1 = bb < 1 ? f(bb) : 1;
+        s = s1; t = t1;
+        if (!(s < 1 && t < 1) || Math.max(s, t) < 1e-290) break;
+      }
+      return { rows, seeded };
+    }
+    function refresh(tHop, hopsOverride){
+      const h = model.h, [n0, b0] = st.c, s = st.step;
+      const L = ladder(n0, b0, h), rows = L.rows;
+      const shown = hopsOverride !== undefined ? hopsOverride : (s === 0 ? 0 : s === 1 ? 1 : 99);   /* hops drawn */
+      /* seed domino */
+      diamond(seedS, X(n0), Y(b0)); seedT.setAttribute('cx', X(2*n0)); seedT.setAttribute('cy', Y(b0));
+      dom.setAttribute('x1', X(n0)); dom.setAttribute('y1', Y(b0)); dom.setAttribute('x2', X(2*n0)); dom.setAttribute('y2', Y(b0));
+      labSeed.setAttribute('x', X(n0) - 12); labSeed.setAttribute('y', Y(b0) + 22); labSeed.setAttribute('text-anchor', 'end');
+      labSeed.textContent = 'seed ' + fpos(n0, b0) + (L.seeded ? '' : ': not a seed');
+      /* staircase: only hops that stay inside the plane are drawn */
+      let dAcc = '', dGrey = '', k = 0;
+      const inside = (n, b) => n <= 512 && b <= 32;
+      for (let j = 1; j < rows.length && j <= shown; j++){
+        const a = rows[j-1], c = rows[j];
+        if (!inside(c.n, c.b)) break;
+        const tt = (j === shown && tHop !== undefined) ? tHop : 1;
+        const xa = X(a.n), ya = Y(a.b), xb = xa + (X(c.n) - xa)*tt, yb = ya + (Y(c.b) - ya)*tt;
+        dAcc += 'M' + xa + ',' + ya + 'L' + xb + ',' + yb; k = j;
+      }
+      if (!L.seeded && s >= 1){ /* stalled: grey dotted attempt */
+        const c = rows[0]; if (inside(2*c.n, 2*c.b)) dGrey = 'M' + X(c.n) + ',' + Y(c.b) + 'L' + X(2*c.n) + ',' + Y(2*c.b);
+      }
+      stairs.setAttribute('d', dAcc); stairsG.setAttribute('d', dGrey);
+      dots.forEach((d, j) => { const r = rows[j]; const on = !!r && L.seeded && j >= 1 && j <= k && inside(r.n, r.b) && !(j === k && tHop !== undefined && tHop < 1);
+        d.style.display = on ? '' : 'none'; if (on){ d.setAttribute('cx', X(r.n)); d.setAttribute('cy', Y(r.b)); }
+        labs[j].textContent = on ? 'j = ' + j : ''; if (on){ labs[j].setAttribute('x', X(r.n) + 11); labs[j].setAttribute('y', Y(r.b) + 20); } });
+      /* ladder table */
+      tbody.innerHTML = '';
+      const nrow = s === 0 ? 1 : s === 1 ? 2 : (hopsOverride !== undefined ? Math.min(rows.length, hopsOverride + 1) : rows.length);
+      rows.slice(0, nrow).forEach((r, j) => {
+        const tr = document.createElement('tr'); if (j === nrow-1 && s < 2) tr.className = 'cur';
+        tr.innerHTML = '<td>' + r.j + '</td><td>(' + r.n + ', ' + fb(r.b) + ')</td><td>' + (j === 0 ? '<span class="mut">seed</span> ' : '') + fsci(r.u) + '</td><td>' + fdef(r.toy) + '</td><td class="g">' + (isNaN(r.gap) ? '<span class="mut">none (3u &ge; 1)</span>' : r.gap.toFixed(3)) + '</td>';
+        tbody.appendChild(tr);
+      });
+      const r0 = rows[0];
+      if (!L.seeded) gb.innerHTML = '<span class="v">stalled</span><span>seed defects <span class="m">S</span>: ' + fdef(r0.s) + ', <span class="m">T</span>(2<span class="m">n</span>,<span class="m">&beta;</span>): ' + fdef(r0.t) + '. The bootstrap needs both &le; 1/8' + (h === 0 ? '; with <span class="m">h</span> = 0, <span class="m">T</span> &le; 1/2 at every point' : '') + '.</span>';
+      else { const last = rows[rows.length-1]; gb.innerHTML = '<span class="v num">' + (s >= 2 ? last.gap.toFixed(3) : r0.gap.toFixed(3)) + '</span><span>gap bound ' + (s >= 2 ? 'after ' + (rows.length-1) + ' doublings' : 'from the seed alone') + ' (toy units, <span class="m">J</span> = 1); the toy’s true gap at these sizes is ' + trueGap(2*rows[rows.length-1].n, h).toFixed(2) + '.<br>seed defects <span class="m">S</span>: ' + fdef(r0.s) + ', <span class="m">T</span>(2<span class="m">n</span>,<span class="m">&beta;</span>): ' + fdef(r0.t) + '; effective <span class="m">C</span> = <span class="m">u<sub>1</sub>/u<sub>0</sub><sup>2</sup></span> = ' + (r0.u > 0 && rows.length > 1 ? (rows[1].u/(r0.u*r0.u)).toFixed(2) : '&middot;') + ' (the paper’s bound: 7.9 for <span class="m">u<sub>0</sub></span> &le; 1/8)</span>'; }
+    }
+    const diamond = (e, x, y) => e.setAttribute('points', [x, y-10, x+10, y, x, y+10, x-10, y].join(' '));
+    let last = -1;
+    function onStep(s){
+      stop(); const prev = last; last = s; st.step = s;
+      const wantH = s >= 3 ? H_CRIT : H_GAP;
+      if (model.h !== wantH && s !== prev) { setH(wantH); if (s < 1 || s > 2 || prev < 0 || still) return; }
+      if (s === prev + 1 && !still && s === 1) stop = anim(700, t => refresh(t));
+      else if (s === prev + 1 && !still && s === 2){
+        const K = 7; stop = anim(2200, t => { if (t >= 1){ refresh(); return; } const p = t*K, k = Math.floor(p); refresh(p - k, k + 1); });
+      }
+      else refresh();
+    }
+    slidesB[sec.id] = { map:m, refresh:() => refresh(),
+      reset(){ st.c = DEF.slice(); refresh(); },
+      key(k){ const c = st.c;
+        if (k === 'h'){ c[0] = clampN(stepN(c[0], -1), 256); } else if (k === 'l'){ c[0] = clampN(stepN(c[0], 1), 256); }
+        else if (k === 'j'){ c[1] = clampB(stepB(c[1], -1), 16); } else if (k === 'k'){ c[1] = clampB(stepB(c[1], 1), 16); }
+        else return false; stop(); refresh(); return true; },
+      pick(x, y){ return near(x, y, X(st.c[0]), Y(st.c[1]), 24) ? 'c' : null; },
+      move(hd, n, b){ st.c = [clampN(n, 256), clampB(roundB(b), 16)]; stop(); refresh(); }
+    };
+    wireDrag(m, slidesB[sec.id]);
+    m.draw(); refresh();
+    function register(){ controllers['s-hg-bootstrap'] = { onEnter(){ last = -1; onStep(state.step); }, onLeave(){ stop(); }, onStep }; if (sec.classList.contains('active')){ last = -1; onStep(state.step); } }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', register); else register();
+  })();
+
+  /* ============================================================ */
+  /*  Slide 5: the paper's plane                                  */
+  /* ============================================================ */
+  (function(){
+    const sec = document.getElementById('s-hg-proved'); if (!sec) return;
+    const svg = sec.querySelector('#hgPlane svg');
+    const nlo = 5, nhi = 12, blo = 3, bhi = 10;
+    const Xp = n => X0 + (Math.log2(n) - nlo)/(nhi - nlo)*PW, Yp = b => Y0 + PH - (Math.log2(b) - blo)/(bhi - blo)*PH;
+    for (let k = nlo; k <= nhi; k++){ const x = Xp(Math.pow(2,k)); el('line', {class:'grid', x1:x, y1:Y0, x2:x, y2:Y0+PH}, svg); }
+    for (let k = blo; k <= bhi; k++){ const y = Yp(Math.pow(2,k)); el('line', {class:'grid', x1:X0, y1:y, x2:X0+PW, y2:y}, svg); }
+    el('rect', {class:'frame', x:X0, y:Y0, width:PW, height:PH}, svg);
+    for (let k = nlo; k <= nhi; k++){ const x = Xp(Math.pow(2,k)); el('line', {class:'tick', x1:x, y1:Y0+PH, x2:x, y2:Y0+PH+6}, svg); txt(el('text', {class:'ax', x, y:Y0+PH+22, 'text-anchor':'middle'}, svg), String(Math.pow(2,k))); }
+    for (let k = blo; k <= bhi; k++){ const y = Yp(Math.pow(2,k)); el('line', {class:'tick', x1:X0-6, y1:y, x2:X0, y2:y}, svg); txt(el('text', {class:'ax', x:X0-10, y:y+5, 'text-anchor':'end'}, svg), String(Math.pow(2,k))); }
+    txt(el('text', {class:'axt', x:X0+PW/2, y:Y0+PH+46, 'text-anchor':'middle'}, svg), 'ring size n (log scale)');
+    txt(el('text', {class:'axt', x:16, y:Y0+PH/2, 'text-anchor':'middle', transform:'rotate(-90 16 ' + (Y0+PH/2) + ')'}, svg), 'inverse temperature β (log scale)');
+    function stair(n0, b0, hops, cls, dcls, name, sub, dx, dy, endDy){
+      let d = ''; const pts = [];
+      for (let j = 0; j <= hops; j++){ const n = n0*Math.pow(2,j), b = b0*Math.pow(2,j); pts.push([Xp(n), Yp(b), n, b]); d += (j ? 'L' : 'M') + Xp(n) + ',' + Yp(b); }
+      el('path', {class:cls, d}, svg);
+      pts.forEach((p, j) => { el('circle', {class:dcls, cx:p[0], cy:p[1], r: j === 0 ? 7 : 4.5}, svg); });
+      const p0 = pts[0];
+      txt(el('text', {class:'pl', x:p0[0] + dx, y:p0[1] + dy}, svg), name);
+      txt(el('text', {class:'pls', x:p0[0] + dx, y:p0[1] + dy + 16}, svg), sub);
+    }
+    stair(60, 105/4, 5, 'stA', 'dA', 'seed (60, 105/4), gives L ≥ 60', 'Z of n ≤ 10 at β = 21/2; hops shown to (1920, 840)', 11, 28);
+    stair(36, 49/4, 6, 'stB', 'dB', 'seed (36, 49/4), gives L ≥ 2304', 'Z of n ≤ 12 at β = 49/4; six hops to (2304, 784)', 14, 4);
+    txt(el('text', {class:'pls', x:X0 + 10, y:Y0 + 18}, svg), 'each hop: (n, β) → (2n, 2β)');
+    slidesB[sec.id] = {};
+  })();
+
+  /* initial h readouts */
+  setH(model.h);
+})();
+</script>
+<!-- END HALDANE SLIDES -->
+</div></div>
+
+<script>
+"use strict";
+/* ============================================================= */
+/*  Engine (verbatim copy from talk.html)                        */
+/* ============================================================= */
+const slides = Array.from(document.querySelectorAll('.slide'));
+const controllers = {};
+const state = { current: 0, step: 0 };
+
+function maxStepsFor(slide){
+  const c = controllers[slide.id];
+  if (c && typeof c.maxSteps === 'number') return c.maxSteps;
+  let m = 0;
+  slide.querySelectorAll('[data-step]').forEach(b => m = Math.max(m, +b.dataset.step));
+  return m;
+}
+function applySteps(slide, step){
+  slide.querySelectorAll('[data-step]').forEach(b => {
+    b.classList.toggle('shown', (+b.dataset.step) <= step);
+  });
+  const c = controllers[slide.id];
+  if (c && c.onStep) c.onStep(step);
+}
+function render(){
+  slides.forEach((s,i)=> s.classList.toggle('active', i===state.current));
+  applySteps(slides[state.current], state.step);
+  const total = slides.length;
+  document.getElementById('progress').style.width =
+    (((state.current)/(total-1))*100) + '%';
+  document.getElementById('counter').textContent = (state.current+1)+' / '+total;
+  if (location.hash !== '#'+(state.current+1))
+    history.replaceState(null,'','#'+(state.current+1));
+}
+function goTo(i, dir){
+  i = Math.max(0, Math.min(slides.length-1, i));
+  if (i === state.current) return;
+  const old = slides[state.current];
+  const oc = controllers[old.id]; if (oc && oc.onLeave) oc.onLeave();
+  state.current = i;
+  state.step = (dir === 'back') ? maxStepsFor(slides[i]) : 0;
+  render();
+  const nc = controllers[slides[i].id]; if (nc && nc.onEnter) nc.onEnter();
+}
+function next(){
+  const slide = slides[state.current];
+  if (state.step < maxStepsFor(slide)){ state.step++; applySteps(slide, state.step); }
+  else goTo(state.current+1, 'fwd');
+}
+function prev(){
+  if (state.step > 0){ state.step--; applySteps(slides[state.current], state.step); }
+  else goTo(state.current-1, 'back');
+}
+
+document.addEventListener('keydown', e => {
+  const help = document.getElementById('help');
+  if (e.key === '?'){ help.classList.toggle('on'); e.preventDefault(); return; }
+  if (e.key === 'Escape'){ help.classList.remove('on'); return; }
+  if (help.classList.contains('on')) return;
+  switch(e.key){
+    case 'ArrowRight': case ' ': case 'PageDown': case 'ArrowDown':
+      next(); e.preventDefault(); break;
+    case 'ArrowLeft': case 'PageUp': case 'ArrowUp':
+      prev(); e.preventDefault(); break;
+    case 'Home': goTo(0,'fwd'); e.preventDefault(); break;
+    case 'End': goTo(slides.length-1,'fwd'); e.preventDefault(); break;
+    case 'f': case 'F':
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+      e.preventDefault(); break;
+  }
+});
+// click / tap navigation (right half next, left half prev)
+document.getElementById('stage').addEventListener('click', e => {
+  if (e.target.closest('button,input,a,.no-nav')) return;
+  const r = e.currentTarget.getBoundingClientRect();
+  if ((e.clientX - r.left) > r.width*0.62) next();
+});
+
+function boot(){
+  const still = location.search.indexOf('still') >= 0;
+  if (still){
+    const st = document.createElement('style');
+    st.textContent = '.slide,.build,#pulse{transition:none!important;animation:none!important}';
+    document.head.appendChild(st);
+  }
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  state.current = (!isNaN(h) && h>=1 && h<=slides.length) ? h-1 : 0;
+  state.step = still ? maxStepsFor(slides[state.current]) : 0;
+  render();
+  const c = controllers[slides[state.current].id]; if (c && c.onEnter) c.onEnter();
+}
+window.addEventListener('hashchange', ()=>{
+  const h = parseInt((location.hash||'#1').slice(1),10);
+  if (!isNaN(h) && (h-1)!==state.current) goTo(h-1,'fwd');
+});
+boot();
+</script>
+</body>
+</html>
