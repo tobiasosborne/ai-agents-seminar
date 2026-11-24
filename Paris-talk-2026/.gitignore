@@ -1,5 +1,5 @@
 # Only the presentation deck is tracked. Research, pipelines, renders, backups
-# and the deck sources stay local (see HANDOFF.md); deck/ is its own local git repository.
+# and the deck sources stay local (see HANDOFF.md); deck/ is its own git repository (private remote paris-talk-2026-deck).
 *
 !.gitignore
 !slides-web/

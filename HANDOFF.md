@@ -11,7 +11,8 @@ entire stack from first principles for a physics audience.
 **State Tue 24 Nov 2026, 11:30: revised deck released.** `Paris-talk-2026/slides-web/talk.html`, sha1 `26f9df1a`
 (built 10:31), 20 slides, 57 states, one offline file; `talk.pdf` (20 pages) is made from final-state screenshots of the
 same file. Both are committed here; everything else in `Paris-talk-2026/` stays local (its `.gitignore` tracks only
-those two files; `deck/` is its own local git repository with no remote).
+those two files; `deck/` is its own git repository, pushed since 24 Nov to the private
+GitHub repository `tobiasosborne/paris-talk-2026-deck`, branch `master`).
 - The speaker reviewed the 22-slide deck on Mon 23 Nov (`context/SPEAKER-VERBATIM.md` section 4) and rejected several
   slides as smug and preachy. `contracts/CHANGE-ORDER-2026-11-23.md` turned the review into a 19-slide deck (release
   `d9a919fc`, Tue 01:29). His second review on Tue 24 Nov (section 5, `contracts/CHANGE-ORDER-2026-11-24.md`) added:
